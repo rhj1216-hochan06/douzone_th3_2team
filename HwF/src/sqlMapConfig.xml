@@ -9,7 +9,7 @@
 
 	<!-- Alias 설정 -->
 	<typeAliases>
-		<!-- <typeAlias alias="dto" type="com.kosa.model.BoardDTO" /> -->
+		<typeAlias alias="nutrdto" type="com.hwf.model.NutrientsDTO" />
 	</typeAliases>
 
 	<!-- DataSource 설정 -->
@@ -27,6 +27,6 @@
 
 	<!-- SQL Mapper 설정 -->
 	<mappers>
-		<!-- <mapper resource="sqlMapper/boardmapper.xml" /> -->
+		<mapper resource="sqlMapper/nutrientsmapper.xml" />
 	</mappers>
 </configuration>

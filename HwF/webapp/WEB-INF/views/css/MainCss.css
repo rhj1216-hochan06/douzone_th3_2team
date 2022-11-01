@@ -53,7 +53,7 @@ nav p {
 }
 
 nav p input {
-  background-image: url(./look.png);
+  background-image: url(../img/look.png);
   background-repeat: no-repeat;
   background-size: 1.5rem;
   text-indent: 1.5rem;
