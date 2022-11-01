@@ -10,7 +10,9 @@
  <mapper namespace="dao">
  
  	<select id="AdminUserSelect" resultType="dto">
- 		select * from member
+ 		select * from member order by memberId
+ 		<!-- select memberId=#{memberId}, memberName=#{memberName}, decode(memberSex,1,'남', 2,'여') memberSex=#{memberSex} from member -->
+ 		<!-- select memberId, memberName, decode(memberSex,1,'남', 2,'여') as memberSex from member -->
  	</select>
  	
  	<!-- <insert id="insert" parameterType="dto">

@@ -26,7 +26,7 @@ public class MemberController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); //request에 set
 		
 		String cmd = request.getParameter("cmd"); //~~~?cmd=AdminUserSelect
-		System.out.println("cmd : " + cmd);
+		System.out.println("cmd : " + cmd); //Console창 출력테스트
 		
 		if (cmd.equals("AdminUserSelect")) { //http://localhost:8080/HwF/member?cmd=AdminUserSelect
 			AdminUserSelect(request, response);
