@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< HEAD
+                
+    
+    
+    <wb-module deploy-name="HwF-0.0.1-SNAPSHOT">
+                                
+        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                                
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/webapp"/>
+                                
+        
+        
+        <property name="java-output-path" value="/HwF/build/classes"/>
+                
+        <property name="context-root" value="HwF"/>
+                            
+    
+    
+    </wb-module>
             
-    
-    <wb-module deploy-name="HwF-0.0.1-SNAPSHOT">
-                        
-        
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/" source-path="/WebContent"/>
-                        
-        
-        <property name="java-output-path" value="/HwF/build/classes"/>
-        <property name="context-root" value="HwF"/>
-                    
-    
-    </wb-module>
-        
 
-=======
-    <wb-module deploy-name="HwF-0.0.1-SNAPSHOT">
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-        <wb-resource deploy-path="/" source-path="/webapp" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="HwF"/>
-        <property name="java-output-path" value="/HwF/build/classes"/>
-    </wb-module>
->>>>>>> 7b57c06a2b993e3ac410128127817a588db8d338
+
 </project-modules>

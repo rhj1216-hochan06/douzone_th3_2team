@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.hwf.config;
 
 import java.io.Reader;
@@ -29,32 +28,3 @@ public class SqlSessionFactoryService {
 		return sqlSessionFactory;
 	}
 }
-=======
-package com.hwf.config;
-
-import java.io.Reader;
-
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-public class SqlSessionFactoryService {
-
-	private static SqlSessionFactory sqlSessionFactory;
-
-	static {
-		String source = "./sqlMapConfig.xml";
-		try {
-			Reader reader = Resources.getResourceAsReader(source);
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	} // end static
-
-	public static SqlSessionFactory getSqlSessionFactory() {
-		return sqlSessionFactory;
-	}
-}
->>>>>>> 7b57c06a2b993e3ac410128127817a588db8d338
