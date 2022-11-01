@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- member-mapper.xml : DML 명령어 -->
+
+<!-- mapper dtd 추가해야 <mapper> 등등 sub elemnet 나옴 -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+ <mapper namespace="dao">
+ 
+ 	<select id="AdminUserSelect" resultType="dto">
+ 		select * from member
+ 	</select>
+ 	
+ 	<!-- <insert id="insert" parameterType="dto">
+ 		insert into mybatisBoard(seq, title, writer, content, regdate, readcount)
+ 		values(board_seq.nextval, #{title}, #{writer}, #{content}, sysdate, 0)
+ 	</insert>
+ 	
+ 	<delete id="delete" parameterType="int"> parameterType="dto"로 해도 상관x
+ 		delete from mybatisBoard where seq = #{seq}
+ 	</delete>
+ 	
+ 	<select id="detail" resultType="dto" parameterType="int"> resultType="dto" (dto 알리아스를 의미)
+ 		select * from mybatisBoard where seq = #{seq}
+ 	</select>
+ 	
+ 	<update id="update" parameterType="dto">
+ 		update mybatisBoard set title=#{title}, writer=#{writer}, content=#{content} where seq=#{seq}
+ 	</update> -->
+ 	
+ </mapper>
