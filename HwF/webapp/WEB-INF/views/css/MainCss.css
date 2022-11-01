@@ -9,104 +9,132 @@
     width: 22rem;
     height: 100vh;
     background-color: #ccd8ed; */
-
-@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import
+	url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 
 html {
-  font-family: "Do Hyeon", sans-serif;
+	font-family: "Do Hyeon", sans-serif;
+	scroll-behavior: smooth;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 header div {
-  display: flex;
-  height: 7rem;
-  background-color: lightblue;
-  font-size: 3.5rem;
+	display: flex;
+	height: 7rem;
+	background-color: lightblue;
+	font-size: 3.5rem;
 }
 
 #headerFirstDiv div {
-  align-items: center;
+	align-items: center;
 }
 
 header div div {
-  margin-left: 3rem;
+	margin-left: 3rem;
 }
 
 header div img {
-  width: 7rem;
+	width: 7rem;
 }
 
 nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 nav p {
-  text-align: right;
-  width: 90rem;
+	text-align: right;
+	width: 90rem;
 }
 
 nav p input {
-  background-image: url(../img/look.png);
-  background-repeat: no-repeat;
-  background-size: 1.5rem;
-  text-indent: 1.5rem;
-  width: 9.5rem;
-  height: 1.5rem;
-  margin-right: 5rem;
+	background-image: url(./look.png);
+	background-repeat: no-repeat;
+	background-size: 1.5rem;
+	text-indent: 1.5rem;
+	width: 9.5rem;
+	height: 1.5rem;
+	margin-right: 5rem;
 }
 
 header nav table {
-  border: 1px solid black;
-  width: 80rem;
-  height: 5rem;
+	border: 1px solid black;
+	width: 80rem;
+	height: 5rem;
 }
 
 header nav table td:hover {
-  background-color: yellow;
+	background-color: yellow;
 }
 
 header nav table td {
-  border: 1px solid black;
-  width: 5rem;
-  text-align: center;
+	border: 1px solid black;
+	width: 5rem;
+	text-align: center;
 }
 
 header nav table img {
-  width: 10rem;
-  height: 4.5rem;
+	width: 10rem;
+	height: 4.5rem;
+}
+
+#selectList {
+	display: flex;
+	justify-content: center;
 }
 
 article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	text-align: center;
 }
 
 article div {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 article table th {
-  background-color: lightblue;
-}
-article table td {
-  border: 1px solid black;
+	background-color: lightblue;
 }
 
 article table {
-  border: 1px solid black;
+	border: 1px solid black;
+}
+
+.MonthMenu table {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	border-collapse: collapse;
+	width: 40rem;
+}
+
+.MonthMenu tr {
+	height: 3rem;
+	font-size: 1.5rem;
+}
+
+.category table {
+	margin: 5rem;
+	width: 80rem;
+	height: 25rem;
+}
+
+.category table th {
+	height: 4rem;
+	font-size: 1.5rem;
+}
+
+.category td:hover {
+	transform: scale(1.1);
+	cursor: pointer;
 }
 
 footer {
-  background-color: lightblue;
-  height: 5rem;
+	background-color: lightblue;
+	height: 5rem;
 }
