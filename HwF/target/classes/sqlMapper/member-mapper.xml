@@ -9,11 +9,30 @@
  
  <mapper namespace="dao">
  
- 	<select id="AdminUserSelect" resultType="dto">
+ 	<!-- 관리자 + 회원) 헬스용품 조회 -->
+ 	<select id="HealthGoodsSelect" resultType="com.hwf.model.HealthGoodsDTO">
+ 		select * from goods order by goodsId
+ 	</select>
+ 	
+ 	<!-- 관리자 + 회원) 헬스식품 조회 -->
+ 	<!--<select id="HealthFoodSelect" resultType="com.hwf.model.HealthFoodDTO">
+ 		select * from healthfood order by hfId
+ 	</select> -->
+ 	
+ 	<!-- 관리자) 상품 등록 -->
+ 	
+ 	<!-- 관리자) 상품 수정 -->
+ 	
+ 	<!-- 관리자) 상품 삭제 -->
+ 	
+ 	<!-- 관리자) 회원 조회 -->
+ 	<select id="AdminMemberSelect" resultType="dto">
  		select * from member order by memberId
  		<!-- select memberId=#{memberId}, memberName=#{memberName}, decode(memberSex,1,'남', 2,'여') memberSex=#{memberSex} from member -->
  		<!-- select memberId, memberName, decode(memberSex,1,'남', 2,'여') as memberSex from member -->
  	</select>
+ 	
+ 	
  	
  	<!-- <insert id="insert" parameterType="dto">
  		insert into mybatisBoard(seq, title, writer, content, regdate, readcount)

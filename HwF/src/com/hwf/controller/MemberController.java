@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hwf.dao.HealthGoodsDAO;
 import com.hwf.dao.MemberDAO;
+import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.MemberDTO;
 
 @WebServlet("/member")
@@ -25,43 +27,66 @@ public class MemberController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); //request에 set
 		
-		String cmd = request.getParameter("cmd"); //~~~?cmd=AdminUserSelect
+		String cmd = request.getParameter("cmd"); //~~~?cmd=AdminMemberSelect
 		System.out.println("cmd : " + cmd); //Console창 출력테스트
 		
-		if (cmd.equals("AdminUserSelect")) { //http://localhost:8080/HwF/member?cmd=AdminUserSelect
-			AdminUserSelect(request, response);
+		if (cmd.equals("AdminMemberSelect")) { //http://localhost:8080/HwF/member?cmd=AdminMemberSelect
+			AdminMemberSelect(request, response);
 		} 
-//		else if (cmd.equals("write")) {
-//			write(request, response);
-//		} else if (cmd.equals("select")) {
+		else if (cmd.equals("HealthGoodsSelect")) {
+			HealthGoodsSelect(request, response);
+		} 
+//		else if (cmd.equals("select")) {
 //			select(request, response);
-//		} else if (cmd.equals("update")) {
+//		} 
+//		else if (cmd.equals("update")) {
 //			update(request, response);
-//		} else if (cmd.equals("delete")) {
+//		} 
+//		else if (cmd.equals("delete")) {
 //			delete(request, response);
-//		} else if (cmd.equals("detail")) {
+//		} 
+//		else if (cmd.equals("detail")) {
 //			detail(request, response);
 //		}
 	} //end service()
 	
 	
 	
-	//Web -> 요청객체, 응답객체 필요
-	//Web형태와 유사할 수 있도록 'throws ServletException, IOException' -> 퉁쳐서 'throws Exception'도 가능
-	public void AdminUserSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	//관리자 + 회원) 헬스용품 조회
+	public void HealthGoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		MemberDAO dao = new MemberDAO();
-		List<MemberDTO> AdminUserSelect = dao.AdminUserSelect(); //MemberDAO의 AdminUserSelect()메소드의 return값을 MemberDTO형태의 AdminUserSelect변수에 담음
+		HealthGoodsDAO dao = new HealthGoodsDAO();
+		List<HealthGoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
 		
-		if (AdminUserSelect != null) {
-			request.setAttribute("AdminUserSelect", AdminUserSelect); //data save
-			request.getRequestDispatcher("/views/jsp/AdminUserSelect.jsp").forward(request, response); //getRequestDispatcher : 데이터 넘겨주는 메소드 (값들만 forward)
-			//response.sendRedirect("/views/jsp/AdminUserSelect.jsp");
+		if (HealthGoodsSelect != null) {
+			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); //data save
+			request.getRequestDispatcher("/views/jsp/HealthGoodsSelect.jsp").forward(request, response); //getRequestDispatcher : 데이터 넘겨주는 메소드 (값들만 forward)
+			//response.sendRedirect("/views/jsp/HealthGoodsSelect.jsp");
 		} 
 		else {
 			response.sendRedirect("/views/jsp/error.jsp"); //추후에 error페이지 만든 후 error 처리
 		}
 	} 
+	
+	
+	
+	//관리자) 회원 조회
+	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		MemberDAO dao = new MemberDAO();
+		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect(); //MemberDAO의 AdminMemberSelect()메소드의 return값을 MemberDTO형태의 AdminMemberSelect변수에 담음
+		
+		if (AdminMemberSelect != null) {
+			request.setAttribute("AdminMemberSelect", AdminMemberSelect); //data save
+			request.getRequestDispatcher("/views/jsp/AdminMemberSelect.jsp").forward(request, response); //getRequestDispatcher : 데이터 넘겨주는 메소드 (값들만 forward)
+			//response.sendRedirect("/views/jsp/AdminMemberSelect.jsp");
+		} 
+		else {
+			response.sendRedirect("/views/jsp/error.jsp"); //추후에 error페이지 만든 후 error 처리
+		}
+	} 
+	
 	
 
 	/*
