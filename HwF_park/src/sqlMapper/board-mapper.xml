@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- boardmapper.xml  DML 명령 처리 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 	
+ <mapper namespace="dao">
+ 	
+ 	<select id="selectAll"  resultType="dto">
+ 		select * from QnA order by qnaid desc
+ 	</select>
+ 	 
+ 	 <insert id="insert"   parameterType="dto">
+		insert into QnA(qnaId, qnadate, qnacontent, qnaanswer, memberid)
+ 	 	values(qna_id_seq.nextval, sysdate , #{qnacontent} , #{qnaanswer}, #{memberid})
+ 	 </insert>
+
+ 	    <select id="selectSearch" parameterType="hashMap" resultType="dto">
+    	<!--  
+    		 1. Java 코드
+    		 Map<String, String> map = new HashMap<>(); //collection
+      		 map.put("column",column ); //column : title or writer or content
+      		 map.put("keyvalue", keyvalue); //keyvalue : 김연아
+             
+             2. 함수 호출시 
+             session.selectList("GUEST.selectSearch" ,map);
+    	
+    	     3. xml에서 
+    		 parameterType="hashMap"
+    		
+    		map key   : column , keyvalue
+    		map value : #{column} , ${column}
+    		
+    		Tip : ${column} : 컬럼명
+    	-->
+    	<!-- select * from QnA where memberid = ${memberid} order by qnaid desc; -->
+    	SELECT * FROM qna
+    	<!-- where writer like '%김연아%' -->
+    	<if test="column != null">
+    		where ${column} like '%' || #{keyvalue} || '%' order  by qnaid desc 	
+    	</if>
+    </select>
+ 
+ 
+ 
+ </mapper>

@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+body{
+	font-family: 'montserrat', sans-serif;
+	margin: 0;
+}
+
+
+.container{
+	display:grid;
+	grid-template-columns:20% 1fr;
+	grid-template-rows:100px 1fr 100px;
+	height: 100vh;
+	grid-gap:10px;
+	grid-template-areas:
+	'header header'
+	'side main'
+	'footer footer';
+}
+
+.container div {
+	background-color: #e5e5e5;
+	padding : 20px;
+	border : 1px solid black;
+	
+}
+
+.headerqna{
+	grid-area:header;
+	font-size: 2em;
+	
+}
+
+.side{
+	grid-area:side;
+}
+
+.main{
+	grid-area:main;
+}
+
+.footer{
+	grid-area:footer;
+	background-color: lightblue;
+}
+
+@media all and (max-width:575px){
+	.contaniner{
+	grid-template-columns:1fr;
+	grid-template-rows:100px 1fr 100px 100px;
+	grid-template-areas:
+	"header"
+	"main"
+	"side"
+	"footer";
+	}
+	
+}
+.qnatable{
+	width:1000px; 
+}
+
