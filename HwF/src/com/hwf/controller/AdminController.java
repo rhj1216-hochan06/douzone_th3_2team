@@ -17,11 +17,11 @@ import com.hwf.model.GoodsDTO;
 //import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.MemberDTO;
 
-@WebServlet("/member")
-public class MemberController extends HttpServlet {
+@WebServlet("/admin")
+public class AdminController extends HttpServlet {
 	
 	//디폴트 생성자
-	public MemberController() {
+	public AdminController() {
 	
 	}
 	

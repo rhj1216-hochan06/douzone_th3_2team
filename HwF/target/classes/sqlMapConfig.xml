@@ -36,7 +36,7 @@
 
 	<!-- SQL Mapper 설정 -->
 	<mappers>
-		<mapper resource="sqlMapper/member-mapper.xml" />
+		<mapper resource="sqlMapper/admin-mapper.xml" />
 	</mappers>
 	
 </configuration>
