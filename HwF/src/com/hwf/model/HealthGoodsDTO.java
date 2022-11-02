@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class HealthGoodsDTO { // model
 
-	private int goodsId, goodsPrice, goodsCategory; 
-	private String goodsName, goodsImg, goodsDetail;
+	private int healthGoodsId, healthGoodsPrice, healthGoodsCategory; 
+	private String healthGoodsName, healthGoodsImg, healthGoodsDetail;
 
 }

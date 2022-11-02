@@ -42,12 +42,12 @@
 
 		<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
 			<tr>
-				<td>${ HealthGoodsSelect.goodsId }</td>
-				<td>${ HealthGoodsSelect.goodsName }</td>
-				<td>${ HealthGoodsSelect.goodsPrice }</td>
-				<td>${ HealthGoodsSelect.goodsCategory }</td>
-				<td><img src="${ HealthGoodsSelect.goodsImg }" style="width: 100px; height: 100px"/></td>
-				<td>${ HealthGoodsSelect.goodsDetail }</td>
+				<td>${ HealthGoodsSelect.healthGoodsId }</td>
+				<td>${ HealthGoodsSelect.healthGoodsName }</td>
+				<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+				<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
+				<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
+				<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
 			</tr>
 		</c:forEach>
 	</table>

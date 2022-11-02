@@ -36,6 +36,9 @@ public class MemberController extends HttpServlet {
 		else if (cmd.equals("HealthGoodsSelect")) {
 			HealthGoodsSelect(request, response);
 		} 
+//		else if (cmd.equals("GoodsSelect")) {
+//			GoodsSelect(request, response);
+//		} 
 //		else if (cmd.equals("select")) {
 //			select(request, response);
 //		} 
@@ -50,7 +53,23 @@ public class MemberController extends HttpServlet {
 //		}
 	} //end service()
 	
-	
+
+//	//관리자 + 회원) 상품 조회
+//	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//	
+//		HealthGoodsDAO dao = new HealthGoodsDAO();
+//		List<HealthGoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
+//		
+//		if (HealthGoodsSelect != null) {
+//			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); //data save
+//			request.getRequestDispatcher("/views/jsp/HealthGoodsSelect.jsp").forward(request, response); //getRequestDispatcher : 데이터 넘겨주는 메소드 (값들만 forward)
+//			//response.sendRedirect("/views/jsp/HealthGoodsSelect.jsp");
+//		} 
+//		else {
+//			response.sendRedirect("/views/jsp/error.jsp"); //추후에 error페이지 만든 후 error 처리
+//		}
+//	} 
+
 	
 
 	//관리자 + 회원) 헬스용품 조회

@@ -11,7 +11,7 @@
  
  	<!-- 관리자 + 회원) 헬스용품 조회 -->
  	<select id="HealthGoodsSelect" resultType="com.hwf.model.HealthGoodsDTO">
- 		select * from goods order by goodsId
+ 		select * from healthgoods order by healthgoodsId
  	</select>
  	
  	<!-- 관리자 + 회원) 헬스식품 조회 -->
