@@ -6,17 +6,22 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="../css/MainCss.css" />
-<script type="text/javascript" src="../js/MainJS.js"></script>
+<link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
+<script type="text/javascript" src="./views/js/MainJS.js"></script>
 <title>Main</title>
 </head>
 <body>
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="../img/logo.png" />
+				<img src="./views/img/logo.png" />
 			</div>
+
 			<div>홈페이지 제목 (팀명)</div>
+
+			<div id="loginimg">
+				<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
+			</div>
 		</div>
 
 		<nav>
@@ -37,28 +42,28 @@
 			</table>
 		</nav>
 	</header>
-	
+
 	<div id="selectList">
 		<!--이달의 메뉴 추천 & 헬스장 운동법 소개-->
 		<article class="MonthMenu" id="s1">
-			<img src="../img/getMuscle.jpg" />
+			<img src="./views/img/getMuscle.jpg" />
 			<div>
 				<table>
 					<th colspan="2">이달의 HOT & SALE 메뉴</th>
 					<tr>
-						<td><img src="../img/logo.png" /></td>
-						<td><img src="../img/logo.png" /></td>
+						<td><img src="./views/img/logo.png" /></td>
+						<td><img src="./views/img/logo.png" /></td>
 					</tr>
 					<tr>
-						<td><img src="../img/logo.png" /></td>
-						<td><img src="../img/logo.png" /></td>
+						<td><img src="./views/img/logo.png" /></td>
+						<td><img src="./views/img/logo.png" /></td>
 					</tr>
 				</table>
 
 				<table id="healthintro">
 					<th>헬스장 및 운동법 소개</th>
 					<tr>
-						<td><img src="./logo.png" /></td>
+						<td><img src="./views/img/logo.png" /></td>
 					</tr>
 				</table>
 			</div>
@@ -67,16 +72,20 @@
 		<!--영양제 카테고리-->
 		<article class="category" id="s4">
 			<table>
-				<th colspan="3">영양제 카테고리</th>
+				<th colspan="4">영양제 카테고리</th>
 				<tr>
-					<td>
-						<h1>비타민</h1> <img src="../img/vitamin.png" />
+					<td onclick="location.href='nutrients?cmd=list'">
+						<h1>모든 영양제</h1> <img id="allnutrientsImg"
+						src="./views/img/allList.png" />
 					</td>
 					<td>
-						<h1>헬스 보충제</h1> <img src="../img/protein.png" />
+						<h1>비타민</h1> <img src="./views/img/vitamin.png" />
 					</td>
 					<td>
-						<h1>다이어트 보충제</h1> <img src="../img/diet.png" />
+						<h1>헬스 보충제</h1> <img src="./views/img/protein.png" />
+					</td>
+					<td>
+						<h1>다이어트 보충제</h1> <img src="./views/img/diet.png" />
 					</td>
 				</tr>
 			</table>

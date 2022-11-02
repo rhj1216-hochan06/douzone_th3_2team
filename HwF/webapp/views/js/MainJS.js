@@ -12,5 +12,5 @@ const change = (choice) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-	change("1");
+	change("4");
 });

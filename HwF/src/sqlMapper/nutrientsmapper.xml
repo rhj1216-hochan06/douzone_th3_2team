@@ -2,11 +2,27 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 	
- <mapper namespace="nutr">
- 
- 	<select id="">
- 
+
+<mapper namespace="nutrdao">
+
+	<select id="selectAll" resultType="nutrdto">
+		select * from nutrients
 	</select>
- 
- </mapper>
+
+	<select id="selectvitamin" resultType="nutrdto">
+		select * from NUTRIENTS where NUTRIENTSCATEGORY = 1
+	</select>
+	
+	<select id="selectprotein" resultType="nutrdto">
+		select * from NUTRIENTS where NUTRIENTSCATEGORY = 2
+	</select>
+	
+	<select id="selectdiet" resultType="nutrdto">
+		select * from NUTRIENTS where NUTRIENTSCATEGORY = 3
+	</select>
+
+	<select id="selectdetail" resultType="nutrdto" parameterType="int">
+		select * from NUTRIENTS where NUTRIENTSID = #{nutrientsid}
+	</select>
+	
+</mapper>

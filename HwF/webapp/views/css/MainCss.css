@@ -41,6 +41,17 @@ header div img {
 	width: 7rem;
 }
 
+#loginimg {
+	position: absolute;
+	right: 10%;
+	position: absolute;
+}
+
+#loginimg img {
+	width: 5rem;
+	cursor: pointer;
+}
+
 nav {
 	display: flex;
 	flex-direction: column;
@@ -54,7 +65,7 @@ nav p {
 }
 
 nav p input {
-	background-image: url(./look.png);
+	background-image: url(../img/look.png);
 	background-repeat: no-repeat;
 	background-size: 1.5rem;
 	text-indent: 1.5rem;
@@ -132,6 +143,10 @@ article table {
 .category td:hover {
 	transform: scale(1.1);
 	cursor: pointer;
+}
+
+#allnutrientsImg {
+	width: 14rem;
 }
 
 footer {
