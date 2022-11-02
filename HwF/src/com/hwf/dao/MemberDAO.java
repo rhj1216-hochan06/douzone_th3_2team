@@ -22,14 +22,14 @@ public class MemberDAO {
 	}
 	
 	
-	//DML 관련 - 메소드명을 member-mapper.xml와 맞춰주기
+	//DML 관련 - 메소드명을 admin-mapper.xml와 맞춰주기
 	
 	//AdminMemberSelect
 	public List<MemberDTO> AdminMemberSelect() { //null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
 			
-			return sqlSession.selectList("dao.AdminMemberSelect"); //member-mapper.xml에서 namespace.id와 일치시켜주어야 함
+			return sqlSession.selectList("adminMapper.AdminMemberSelect"); //admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 			
 		} catch (Exception e) {
 			return null;
