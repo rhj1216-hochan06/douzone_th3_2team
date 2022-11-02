@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <!-- JSTL 사용하기 위해 태그라이브러리 임포트 -->
@@ -67,4 +67,4 @@
 	<footer>회사 이름, 대표 이름 등등</footer>
 
 </body>
-</html>
+</html> --%>

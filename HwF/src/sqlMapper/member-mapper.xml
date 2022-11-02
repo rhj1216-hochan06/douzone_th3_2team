@@ -9,14 +9,19 @@
  
  <mapper namespace="dao">
  
- 	<!-- 관리자 + 회원) 헬스용품 조회 -->
+ 	<!-- 관리자 + 회원) 헬스용품 전체 조회 -->
  	<select id="HealthGoodsSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from healthgoods order by healthgoodsId
  	</select>
  	
- 	<!-- 관리자 + 회원) 헬스식품 조회 -->
+ 	<!-- 관리자 + 회원) 헬스식품 전체 조회 -->
  	<select id="HealthFoodSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from healthfood order by hfId
+ 	</select>
+ 	
+ 	<!-- 관리자 + 회원) 영양제 전체 조회 -->
+ 	<select id="NutrientsSelect" resultType="com.hwf.model.GoodsDTO">
+ 		select * from nutrients order by nutrientsId
  	</select>
  	
  	<!-- 관리자) 상품 등록 -->

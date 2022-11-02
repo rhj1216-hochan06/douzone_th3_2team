@@ -42,7 +42,7 @@ public class GoodsDAO {
 //	}
 	
 	
-	// HealthGoodsSelect (헬스용품 조회)
+	// HealthGoodsSelect (헬스용품 전체 조회)
 	public List<GoodsDTO> HealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
@@ -60,12 +60,30 @@ public class GoodsDAO {
 	}
 
 	
-	// HealthFoodSelect (헬스식품 조회)
+	// HealthFoodSelect (헬스식품 전체 조회)
 	public List<GoodsDTO> HealthFoodSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
 			return sqlSession.selectList("dao.HealthFoodSelect"); // member-mapper.xml에서 namespace.id와 일치시켜주어야 함
+
+		} catch (Exception e) {
+			return null;
+
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+	
+	
+	// NutrientsSelect (영양제 전체 조회)
+	public List<GoodsDTO> NutrientsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+		try {
+			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
+
+			return sqlSession.selectList("dao.NutrientsSelect"); // member-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
 			return null;

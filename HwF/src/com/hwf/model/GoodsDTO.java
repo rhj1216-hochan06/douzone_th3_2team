@@ -19,4 +19,9 @@ public class GoodsDTO { // model
 	private int hfId, hfPrice, hfCategory;
 	private String hfName, hfImg, hfDetail, hfTestLink;
 	private Date hfDom;
+	
+	//NutrientsDTO (영양제)
+	private int nutrientsID, nutrientsPrice, nutrientsCategory, numPerBottle, remainingNum; 
+	private String nutrientsName, nutrientsImg, nutrientsDetail, dailyIntake, link; 
+	private Date nutrientsDoM;
 }

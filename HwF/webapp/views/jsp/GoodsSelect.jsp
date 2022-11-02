@@ -97,6 +97,44 @@
 	<br>
 	</details>
 	
+	
+	
+	<details>
+	<summary><h3>영양제</h3></summary>
+	
+	<table border="1" width="900">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>가격</th>
+			<th>카테고리</th>
+			<th>이미지</th>
+			<th>상세설명</th>
+			<th>제조날짜</th>
+			<th>1일 섭취 갯수</th>
+			<th>1통 당 갯수</th>
+			<th>현재 잔여 갯수</th>
+		</tr>
+
+		<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
+			<tr>
+				<td>${ NutrientsSelect.nutrientsID }</td>
+				<td>${ NutrientsSelect.nutrientsName }</td>
+				<td>${ NutrientsSelect.nutrientsPrice }</td>
+				<td>${ NutrientsSelect.nutrientsCategory }</td>
+				<td><img src="${ NutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
+				<td>${ NutrientsSelect.nutrientsDetail }</td>
+				<td>${ NutrientsSelect.nutrientsDoM }</td>
+				<td>${ NutrientsSelect.dailyIntake }</td>
+				<td>${ NutrientsSelect.numPerBottle }</td>
+				<td>${ NutrientsSelect.remainingNum }</td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	<br>
+	</details>
+	
 
 
 	<!-- footer -->

@@ -63,10 +63,12 @@ public class MemberController extends HttpServlet {
 		GoodsDAO dao = new GoodsDAO();
 		List<GoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
 		List<GoodsDTO> HealthFoodSelect = dao.HealthFoodSelect();
+		List<GoodsDTO> NutrientsSelect = dao.NutrientsSelect();
 		
-		if (HealthGoodsSelect != null || HealthFoodSelect != null) {
+		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
 			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); //data save
 			request.setAttribute("HealthFoodSelect", HealthFoodSelect); //data save
+			request.setAttribute("NutrientsSelect", NutrientsSelect); //data save
 			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response); //getRequestDispatcher : 데이터 넘겨주는 메소드 (값들만 forward)
 		} 
 		else {
