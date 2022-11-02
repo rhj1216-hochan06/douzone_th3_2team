@@ -43,8 +43,8 @@
 		
 		<div class="contentBottom">
 			<br>
-			<a href="javascript:location.href='member?cmd=HealthGoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a>
-			<%-- <a href="javascript:location.href='member?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
+			<%-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
+			<a href="javascript:location.href='member?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a>
 			<a href="javascript:location.href='member?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			<a href="javascript:location.href='member?cmd=AdminGoodsUpdate'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a>
 			<a href="javascript:location.href='member?cmd=AdminGoodsDelete'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>

@@ -12,10 +12,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
-<title>HealthGoodsSelect.jsp</title>
+<title>GoodsSelect.jsp</title>
 </head>
 
-<!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/AdminMemberSelect.jsp -->
+<!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/GoodsSelect.jsp -->
 
 <body>
 
@@ -28,6 +28,14 @@
 			<div>상품 조회 페이지</div>
 		</div>
 	</header>
+	
+	
+	
+	<!-- content -->
+	<!-- <input type="button" value="헬스용품 조회" onclick=" javascript:window.location.href='HealthGoodsSelect.jsp' "> -->
+	<!-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'">헬스용품 조회</a> -->
+	
+	
 	
 	<details>
 	<summary><h3>헬스용품</h3></summary>
@@ -58,10 +66,38 @@
 	</details>
 	
 	
-		
-	<!-- 	<input type="button" value="고객 정보 등록" onclick=" javascript:window.location.href='writeForm.do' ">
-	<input type="button" value="고객 정보 수정" onclick=" javascript:window.location.href='updateForm.do' ">
-	<input type="button" value="고객 정보 삭제" onclick=" javascript:window.location.href='deleteForm.do' "> -->
+	
+	<details>
+	<summary><h3>헬스식품</h3></summary>
+	
+	<table border="1" width="900">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>가격</th>
+			<th>카테고리</th>
+			<th>이미지</th>
+			<th>상세설명</th>
+			<th>제조날짜</th>
+		</tr>
+
+		<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
+			<tr>
+				<td>${ HealthFoodSelect.hfId }</td>
+				<td>${ HealthFoodSelect.hfName }</td>
+				<td>${ HealthFoodSelect.hfPrice }</td>
+				<td>${ HealthFoodSelect.hfCategory }</td>
+				<td><img src="${ HealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
+				<td>${ HealthFoodSelect.hfDetail }</td>
+				<td>${ HealthFoodSelect.hfDom }</td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	<br>
+	</details>
+	
+
 
 	<!-- footer -->
 	<footer>회사 이름, 대표 이름 등등</footer>

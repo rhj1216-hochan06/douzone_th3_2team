@@ -10,14 +10,14 @@
  <mapper namespace="dao">
  
  	<!-- 관리자 + 회원) 헬스용품 조회 -->
- 	<select id="HealthGoodsSelect" resultType="com.hwf.model.HealthGoodsDTO">
+ 	<select id="HealthGoodsSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from healthgoods order by healthgoodsId
  	</select>
  	
  	<!-- 관리자 + 회원) 헬스식품 조회 -->
- 	<!--<select id="HealthFoodSelect" resultType="com.hwf.model.HealthFoodDTO">
+ 	<select id="HealthFoodSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from healthfood order by hfId
- 	</select> -->
+ 	</select>
  	
  	<!-- 관리자) 상품 등록 -->
  	
