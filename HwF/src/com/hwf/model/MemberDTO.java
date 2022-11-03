@@ -1,7 +1,5 @@
 package com.hwf.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +17,6 @@ public class MemberDTO {
 
 	
 
-	@Autowired
 	public MemberDTO(String memberid, String memberpwd) {
 		this.memberid = memberid;
 		this.memberpwd = memberpwd;

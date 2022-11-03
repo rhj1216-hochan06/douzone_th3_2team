@@ -24,8 +24,6 @@
 	<select id="selectdetail" resultType="nutrdto" parameterType="int">
 		select * from NUTRIENTS where NUTRIENTSID = #{nutrientsid}
 	</select>
-	<select id="selectpwd" resultType="memberdto" parameterType="String">
-		select * from member where id = #{membersid}
-	</select>
+
 	
 </mapper>

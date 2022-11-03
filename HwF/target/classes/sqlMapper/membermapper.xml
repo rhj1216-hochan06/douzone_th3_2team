@@ -9,11 +9,11 @@
 
 
 
-	<select id="selectpwd" resultType="string" parameterType="string">
-		select memberpwd from member where memberid = #{membersid}
+	<select id="selectpwd" resultType="memberdto" parameterType="String">
+		select * from member where memberid = #{memberid}
 	</select>
 	
-	
+
 	
 	
 	

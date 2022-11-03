@@ -74,7 +74,7 @@ public class MemberController2 {
 	    
 	      MemberDTO dto = new MemberDTO(memberid, memberpwd);  //회원 id와 pwd를 세팅
 	      
-	      boolean check = MemberDao.checkMember(dto);
+	      boolean check = MemberDao.checkMemberb(dto);
 	      
 	      //로그인이 되면
 	      if(check == true) {

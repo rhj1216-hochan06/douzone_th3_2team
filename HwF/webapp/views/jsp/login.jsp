@@ -46,7 +46,7 @@
 			</table>
 
 
-			<form action="../Member?cmd=login" method="post">
+			<form action="./Member?cmd=logincheck" method="post">
 
 				<table>
 
