@@ -1,5 +1,6 @@
 const change = (choice) => {
 	const parentElem = document.getElementById("selectList");
+	document.getElementById("nutrientsListDiv").style.display = "none";
 
 	for (let i = 0; i < parentElem.childNodes.length; i++) {
 		let childElem = parentElem.childNodes[i];
@@ -10,7 +11,3 @@ const change = (choice) => {
 		}
 	}
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	change("4");
-});
