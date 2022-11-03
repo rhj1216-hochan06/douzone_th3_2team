@@ -13,7 +13,7 @@
 
 	<!-- Alias 설정 (별칭 지정) -->
 	<typeAliases>
-		<typeAlias alias="dto" type="com.hwf.model.MemberDTO" />
+		<!-- <typeAlias alias="dto" type="com.hwf.model.MemberDTO" /> -->
 	</typeAliases>
 
 	<!-- DataSource (커넥션 풀) 설정 -->

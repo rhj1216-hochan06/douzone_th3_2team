@@ -4,6 +4,7 @@ import java.io.IOException;
 //import java.util.Date;
 import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -47,8 +48,19 @@ public class AdminController extends HttpServlet {
 		else if (cmd.equals("GoodsSelect")) { // http://localhost:8080/HwF/admin?cmd=GoodsSelect
 			GoodsSelect(request, response);
 		} 
-		else if (cmd.equals("AdminGoodsInsert")) { // http://localhost:8080/ HwF/admin?cmd=AdminGoodsInsert
-			AdminGoodsInsert(request, response);
+		else if (cmd.equals("AdminHealthGoodsInsert")) { 
+			AdminHealthGoodsInsert(request, response);
+		}
+		else if (cmd.equals("AdminHealthFoodInsert")) { 
+			try {
+				AdminHealthFoodInsert(request, response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -97,8 +109,8 @@ public class AdminController extends HttpServlet {
 	
 	/*************** 상품 등록 ***************/
 	
-	// 관리자) 상품(헬스용품 + 헬스식품 + 영양제) 등록
-	public void AdminGoodsInsert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	// 관리자) 헬스용품 등록
+	public void AdminHealthGoodsInsert(HttpServletRequest request, HttpServletResponse response) throws IOException {
 //		System.out.println("왔니????"); //OK
 		
 		request.setCharacterEncoding("UTF-8");
@@ -124,50 +136,55 @@ public class AdminController extends HttpServlet {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
 		
-//		System.out.println(resultHealthGoodsInsert);
-//		
-//		
-//		// 헬스식품 등록
-//		String hfName = request.getParameter("hfName");
-//		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
-//		String hfImg = request.getParameter("hfImg");
-//		String hfDetail = request.getParameter("hfDetail");
-//		
-////		SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
-////		String hfDomString = request.getParameter("hfDom");
-////		Date hfDom = SDF.parse(hfDomString);
-//
-////		Date hfDom = request.getParameter("hfDom");
-//		
-//		String hfDom = request.getParameter("hfDom");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-//		String hfLink = request.getParameter("hfLink");
-//		
-//		GoodsDTO dtoHealthFood = new GoodsDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
-//		
-//		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
-//		
-//		
-//		
-//		if (resultHealthGoodsInsert > 0 || resultHealthFoodInsert > 0) {
-//			response.sendRedirect("admin?cmd=GoodsSelect");
-//		} else {
-//			response.sendRedirect("/views/jsp/error.jsp");
-//		}
+	}
 		
+		
+		
+	// 관리자) 헬스식품 등록
+	public void AdminHealthFoodInsert(HttpServletRequest request, HttpServletResponse response) throws IOException, ParseException {
+			
+		request.setCharacterEncoding("UTF-8");
+//		response.setCharacterEncoding("euc-kr"); //response에 set	
+		
+		// 헬스식품 등록
+		String hfName = request.getParameter("hfName");
+		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
+		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+		String hfImg = request.getParameter("hfImg");
+		String hfDetail = request.getParameter("hfDetail");
+		
+		SimpleDateFormat SDF = new SimpleDateFormat("yy-MM-dd");
+		String hfDomString = request.getParameter("hfDom");
+		Date hfDom = (Date) SDF.parse(hfDomString);
+
+//		Date hfDom = request.getParameter("hfDom");
+		
+//		String hfDom = request.getParameter("hfDom");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+		String hfLink = request.getParameter("hfLink");
+		
+		GoodsDAO dao = new GoodsDAO();
+		GoodsDTO dtoHealthFood = new GoodsDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
+		
+		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
+		
+		if (resultHealthFoodInsert > 0) {
+			response.sendRedirect("admin?cmd=GoodsSelect");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+		
+	}
 		
 		
 		// 영양제 등록
 
-	}
 
 	
 	
 	/*************** 회원 조회 ***************/
 	
 	// 관리자) 회원 조회
-	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		MemberDAO dao = new MemberDAO();
 		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect(); // MemberDAO의 AdminMemberSelect()메소드의 return값을 MemberDTO형태의 AdminMemberSelect변수에 담음

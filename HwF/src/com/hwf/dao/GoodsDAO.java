@@ -22,7 +22,7 @@ public class GoodsDAO {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory(); // openSession() 가능
 	}
 
-	// DML 관련 - 메소드명을 member-mapper.xml와 맞춰주기
+	// DML 관련 - 메소드명을 admin-mapper.xml와 맞춰주기
 
 	
 	

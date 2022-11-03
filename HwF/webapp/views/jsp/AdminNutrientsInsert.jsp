@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
-<title>헬스용품 등록</title>
+<title>영양제 등록</title>
 </head>
 
 <!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/AdminHealthGoodsInsert.jsp -->
@@ -38,28 +38,29 @@
 			<br><br>
 			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
 			<br><br>
-			<h1 class="contentTopText">관리자 [헬스용품 등록] 페이지</h1>
+			<h1 class="contentTopText">관리자 [영양제 등록] 페이지</h1>
 			<br><br>
 		</div>
 	
 		<div class="contentBottom">
 			<br>
-			<h3>헬스용품 등록</h3>
-			
-			<!-- <form action="admin?cmd=AdminGoodsInsert" method="post">	 <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
-			<!-- <form action="./admin?cmd=AdminGoodsInsert" method="post">  <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
-			<!-- <form action="../admin?cmd=AdminGoodsInsert" method="post"> <!-- http://localhost:8080/ HwF/views/admin?cmd=AdminHealthGoodsInsert -->
-			<form action="../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsInsert -->
+			<h3>영양제 등록</h3>
 				<table style="margin-left: auto; margin-right:auto;">
-					<tr><td>이름</td><td><input type="text" name="healthGoodsName" required="required"> </td></tr>
-					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" required="required"> </td></tr>
-					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" required="required"> </td></tr>
-					<tr><td>이미지</td><td><input type="text" name="healthGoodsImg"> </td></tr>
-					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail"></textArea></td></tr>
-					<tr><td>설문조사 링크</td><td><input type="text" name="healthGoodsLink" required="required"> </td></tr>
+					<tr><td>이름</td><td><input type="text" name="nutrientsName" required="required"> </td></tr>
+					<tr><td>가격</td><td><input type="number" name="nutrientsPrice" required="required"> </td></tr>
+					<tr><td>카테고리</td><td><input type="number" name="nutrientsCategory" required="required"> </td></tr>
+					<tr><td>이미지</td><td><input type="text" name="nutrientsImg"> </td></tr>
+					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="nutrientsDetail"></textArea></td></tr>
+					<!-- <tr><td>제조날짜</td><td><input type="text" name="nutrientsDoM"> </td></tr> -->
+					<tr><td>제조날짜</td><td><input type="date" name="nutrientsDoM"> </td></tr>
+					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyIntake"> </td></tr>
+					<tr><td>1통 당 갯수</td><td><input type="text" name="numPerBottle"> </td></tr>
+					<!-- <tr><td>현재 잔여 갯수</td><td><input type="text" name="healthGoodsImg"> </td></tr> -->
+					<tr><td>설문조사 링크</td><td><input type="text" name="nutrientsLink" required="required"> </td></tr>
 				</table>
 				<br><br>
-				<input type="submit" value="등록">    
+				<input type="submit" value="등록">
+				<br>
 			</form>
 			
 			<br>

@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
-<title>AdminMemberSelect.jsp</title>
+<title>회원 조회</title>
 </head>
 
 <!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/AdminMemberSelect.jsp -->
@@ -25,33 +25,48 @@
 			<div>
 				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
 			</div>
-			<div>관리자 모드</div>
+			<div>홈페이지 제목 (팀명)</div>
 		</div>
 	</header>
 	
-	<h1>회원 조회 페이지</h1>
-
-	<table border="1" width="900">
-		<tr>
-			<th>아이디</th>
-			<!-- <th>비번</th> -->
-			<th>이름</th>
-			<th>성별</th>
-		</tr>
-
-		<c:forEach var="AdminMemberSelect" items="${ AdminMemberSelect }">
-			<tr>
-				<td>${ AdminMemberSelect.memberId }</td>
-				<%-- <td>${ AdminMemberSelect.memberPwd }</td> --%>
-				<td>${ AdminMemberSelect.memberName }</td>
-				<td>${ AdminMemberSelect.memberSex }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<br>
-	<!-- 	<input type="button" value="고객 정보 등록" onclick=" javascript:window.location.href='writeForm.do' ">
-	<input type="button" value="고객 정보 수정" onclick=" javascript:window.location.href='updateForm.do' ">
-	<input type="button" value="고객 정보 삭제" onclick=" javascript:window.location.href='deleteForm.do' "> -->
+	
+	
+	<!-- content -->
+	<div class="content">
+	
+		<div class="contentTop">
+			<br><br>
+			<a href="javascript:location.href='AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
+			<br><br>
+			<h1 class="contentTopText">관리자 [회원 조회] 페이지</h1>
+			<br><br>
+		</div>
+		
+		<div class="contentBottom">	
+			<br><br><br><br><br><br>
+			
+			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
+				<tr>
+					<th>아이디</th>
+					<!-- <th>비번</th> -->
+					<th>이름</th>
+					<th>성별</th>
+				</tr>
+		
+				<c:forEach var="AdminMemberSelect" items="${ AdminMemberSelect }">
+					<tr>
+						<td>${ AdminMemberSelect.memberId }</td>
+						<%-- <td>${ AdminMemberSelect.memberPwd }</td> --%>
+						<td>${ AdminMemberSelect.memberName }</td>
+						<td>${ AdminMemberSelect.memberSex }</td>
+					</tr>
+				</c:forEach>
+			</table>
+	
+			<br><br><br><br><br><br>
+		</div> <!-- end contentBottom -->
+		
+	</div> <!-- end content -->
 
 	<!-- footer -->
 	<footer>회사 이름, 대표 이름 등등</footer>

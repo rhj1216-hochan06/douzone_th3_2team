@@ -15,7 +15,7 @@
 <!-- 부트스트랩 css 사용 -->
 <%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrap.css"> --%>
 
-<title>AdminMain.jsp</title>
+<title>관리자 메인</title>
 </head>
 
 <body>
@@ -47,10 +47,10 @@
 			<a href="javascript:location.href='admin?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a>
 			
 			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a> --%>
-			<%-- <a href="javascript:location.href='views/jsp/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a> --%>
-			<a href="javascript:location.href='views/jsp/AdminGoodsInsert_ver2.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
+			<a href="javascript:location.href='views/jsp/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			
-			<a href="javascript:location.href='admin?cmd=AdminGoodsUpdate'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a>
+			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsUpdate'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> --%>
+			<a href="javascript:location.href='views/jsp/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a>
 			
 			<a href="javascript:location.href='admin?cmd=AdminGoodsDelete'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>
 			

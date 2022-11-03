@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
-<title>AdminHealthFoodInsert.jsp</title>
+<title>헬스식품 등록</title>
 </head>
 
 <!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/AdminHealthFoodInsert.jsp -->
@@ -46,9 +46,7 @@
 			<br>
 			<h3>헬스식품 등록</h3>
 			
-			<!-- http://localhost:8080/ HwF/admin?cmd=AdminGoodsInsert -->
-			
-			<form action="../../admin?cmd=AdminGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminGoodsInsert -->
+			<form action="../../admin?cmd=AdminHealthFoodInsert" method="post">
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>이름</td><td><input type="text" name="hfName" required="required"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="hfPrice" required="required"> </td></tr>
