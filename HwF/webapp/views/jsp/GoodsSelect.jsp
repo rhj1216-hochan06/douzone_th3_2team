@@ -32,108 +32,119 @@
 	
 	
 	<!-- content -->
-	<!-- <input type="button" value="헬스용품 조회" onclick=" javascript:window.location.href='HealthGoodsSelect.jsp' "> -->
-	<!-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'">헬스용품 조회</a> -->
+	<div class="content">
 	
+		<div class="contentTop">
+			<br><br>
+			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a> 
+			<br><br>
+			<h1 class="contentTopText">관리자 [헬스식품 등록] 페이지</h1>
+			<br><br>
+		</div>
 	
-	
-	<details>
-	<summary><h3>헬스용품</h3></summary>
-	
-	<table border="1" width="900">
-		<tr>
-			<th>번호</th>
-			<th>이름</th>
-			<th>가격</th>
-			<th>카테고리</th>
-			<th>이미지</th>
-			<th>상세설명</th>
-		</tr>
-
-		<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-			<tr>
-				<td>${ HealthGoodsSelect.healthGoodsId }</td>
-				<td>${ HealthGoodsSelect.healthGoodsName }</td>
-				<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
-				<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
-				<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
-				<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<br>
-	</details>
-	
-	
-	
-	<details>
-	<summary><h3>헬스식품</h3></summary>
-	
-	<table border="1" width="900">
-		<tr>
-			<th>번호</th>
-			<th>이름</th>
-			<th>가격</th>
-			<th>카테고리</th>
-			<th>이미지</th>
-			<th>상세설명</th>
-			<th>제조날짜</th>
-		</tr>
-
-		<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
-			<tr>
-				<td>${ HealthFoodSelect.hfId }</td>
-				<td>${ HealthFoodSelect.hfName }</td>
-				<td>${ HealthFoodSelect.hfPrice }</td>
-				<td>${ HealthFoodSelect.hfCategory }</td>
-				<td><img src="${ HealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
-				<td>${ HealthFoodSelect.hfDetail }</td>
-				<td>${ HealthFoodSelect.hfDom }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<br>
-	</details>
-	
-	
-	
-	<details>
-	<summary><h3>영양제</h3></summary>
-	
-	<table border="1" width="900">
-		<tr>
-			<th>번호</th>
-			<th>이름</th>
-			<th>가격</th>
-			<th>카테고리</th>
-			<th>이미지</th>
-			<th>상세설명</th>
-			<th>제조날짜</th>
-			<th>1일 섭취 갯수</th>
-			<th>1통 당 갯수</th>
-			<th>현재 잔여 갯수</th>
-		</tr>
-
-		<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
-			<tr>
-				<td>${ NutrientsSelect.nutrientsID }</td>
-				<td>${ NutrientsSelect.nutrientsName }</td>
-				<td>${ NutrientsSelect.nutrientsPrice }</td>
-				<td>${ NutrientsSelect.nutrientsCategory }</td>
-				<td><img src="${ NutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
-				<td>${ NutrientsSelect.nutrientsDetail }</td>
-				<td>${ NutrientsSelect.nutrientsDoM }</td>
-				<td>${ NutrientsSelect.dailyIntake }</td>
-				<td>${ NutrientsSelect.numPerBottle }</td>
-				<td>${ NutrientsSelect.remainingNum }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<br>
-	</details>
+		<div class="contentBottom">
+		
+			<details>
+			<summary><h3>헬스용품</h3></summary>
+			
+			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>가격</th>
+					<th>카테고리</th>
+					<th>이미지</th>
+					<th>상세설명</th>
+				</tr>
+		
+				<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
+					<tr>
+						<td>${ HealthGoodsSelect.healthGoodsId }</td>
+						<td>${ HealthGoodsSelect.healthGoodsName }</td>
+						<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+						<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
+						<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
+						<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			
+			<br>
+			</details>
+			
+			
+			
+			<details>
+			<summary><h3>헬스식품</h3></summary>
+			
+			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>가격</th>
+					<th>카테고리</th>
+					<th>이미지</th>
+					<th>상세설명</th>
+					<th>제조날짜</th>
+				</tr>
+		
+				<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
+					<tr>
+						<td>${ HealthFoodSelect.hfId }</td>
+						<td>${ HealthFoodSelect.hfName }</td>
+						<td>${ HealthFoodSelect.hfPrice }</td>
+						<td>${ HealthFoodSelect.hfCategory }</td>
+						<td><img src="${ HealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
+						<td>${ HealthFoodSelect.hfDetail }</td>
+						<td>${ HealthFoodSelect.hfDom }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			
+			<br>
+			</details>
+			
+			
+			
+			<details>
+			<summary><h3>영양제</h3></summary>
+			
+			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>가격</th>
+					<th>카테고리</th>
+					<th>이미지</th>
+					<th>상세설명</th>
+					<th>제조날짜</th>
+					<th>1일 섭취 갯수</th>
+					<th>1통 당 갯수</th>
+					<th>현재 잔여 갯수</th>
+				</tr>
+		
+				<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
+					<tr>
+						<td>${ NutrientsSelect.nutrientsID }</td>
+						<td>${ NutrientsSelect.nutrientsName }</td>
+						<td>${ NutrientsSelect.nutrientsPrice }</td>
+						<td>${ NutrientsSelect.nutrientsCategory }</td>
+						<td><img src="${ NutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
+						<td>${ NutrientsSelect.nutrientsDetail }</td>
+						<td>${ NutrientsSelect.nutrientsDoM }</td>
+						<td>${ NutrientsSelect.dailyIntake }</td>
+						<td>${ NutrientsSelect.numPerBottle }</td>
+						<td>${ NutrientsSelect.remainingNum }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			
+			<br>
+			</details>
+		
+			</div> <!-- end contentBottom -->
+			
+		</div> <!-- end content -->
 	
 
 
