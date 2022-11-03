@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- member-mapper.xml : DML 명령어 -->
+
+<!-- mapper dtd 추가해야 <mapper> 등등 sub elemnet 나옴 -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+ 
+ <!-- <mapper namespace="dao"> -->
+ <mapper namespace="adminMapper"> <!-- MemberDAO, GoodsDAO에서도 dao->adminMapper로 변경  -->
+ 
+ 	<!-- 관리자+회원) 헬스용품 전체 조회 -->
+ 	<select id="HealthGoodsSelect" resultType="com.hwf.model.GoodsDTO">
+ 		select * from healthgoods order by healthgoodsId
+ 	</select>
+ 	
+ 	<!-- 관리자+회원) 헬스식품 전체 조회 -->
+ 	<select id="HealthFoodSelect" resultType="com.hwf.model.GoodsDTO">
+ 		select * from healthfood order by hfId
+ 	</select>
+ 	
+ 	<!-- 관리자+회원) 영양제 전체 조회 -->
+ 	<select id="NutrientsSelect" resultType="com.hwf.model.GoodsDTO">
+ 		select * from nutrients order by nutrientsId
+ 	</select>
+ 	
+ 	
+ 	
+ 	<!-- 관리자) 헬스용품 등록 -->
+ 	<insert id="AdminHealthGoodsInsert" parameterType="dto">
+ 		insert into healthgoods(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, Link)
+ 		values(healthgoods_id_seq.nextval, #{healthGoodsName}, #{healthGoodsPrice}, #{healthGoodsCategory}, #{healthGoodsImg}, #{healthGoodsDetail}, #{healthGoodsLink})
+ 	</insert>
+ 	
+ 	<!-- 관리자) 헬스식품 등록 -->
+ 	<insert id="AdminHealthFoodInsert" parameterType="dto">
+ 		insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy.mm.dd hh24:mi:SS'), #{healthFoodLink})
+ 	</insert>
+ 	
+ 	
+ 	
+ 	<!-- 관리자) 상품 수정 -->
+ 	
+ 	
+ 	
+ 	<!-- 관리자) 상품 삭제 -->
+ 	
+ 	
+ 	
+ 	<!-- 관리자) 회원 조회 -->
+ 	<select id="AdminMemberSelect" resultType="dto">
+ 		select * from member order by memberId
+ 		<!-- select memberId=#{memberId}, memberName=#{memberName}, decode(memberSex,1,'남', 2,'여') memberSex=#{memberSex} from member -->
+ 		<!-- select memberId, memberName, decode(memberSex,1,'남', 2,'여') as memberSex from member -->
+ 	</select>
+ 	
+ 	
+ 	
+ 	<!-- <insert id="insert" parameterType="dto">
+ 		insert into mybatisBoard(seq, title, writer, content, regdate, readcount)
+ 		values(board_seq.nextval, #{title}, #{writer}, #{content}, sysdate, 0)
+ 	</insert>
+ 	
+ 	<delete id="delete" parameterType="int"> parameterType="dto"로 해도 상관x
+ 		delete from mybatisBoard where seq = #{seq}
+ 	</delete>
+ 	
+ 	<select id="detail" resultType="dto" parameterType="int"> resultType="dto" (dto 알리아스를 의미)
+ 		select * from mybatisBoard where seq = #{seq}
+ 	</select>
+ 	
+ 	<update id="update" parameterType="dto">
+ 		update mybatisBoard set title=#{title}, writer=#{writer}, content=#{content} where seq=#{seq}
+ 	</update> -->
+ 	
+ </mapper>
