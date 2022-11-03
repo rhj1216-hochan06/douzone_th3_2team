@@ -45,24 +45,14 @@
 			<br>
 			<%-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
 			<a href="javascript:location.href='admin?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a>
-			
-			<a href="javascript:location.href='views/jsp/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
-			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a> --%>
-			
+			<a href="javascript:location.href='admin?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			<a href="javascript:location.href='admin?cmd=AdminGoodsUpdate'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a>
-			
 			<a href="javascript:location.href='admin?cmd=AdminGoodsDelete'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>
-			
 			<br><br><br>
-			
 			<a href="javascript:location.href='admin?cmd=AdminMemberSelect'"><img src="${path}/views/img/IconMemberSelect.png" alt="회원 조회" style="width: 150px; height: 150px"><span>회원 조회</span></a>
-			
 			<a href="javascript:location.href='admin?cmd=AdminOrderSelect'"><img src="${path}/views/img/IconOrderSelect.png" alt="주문 조회" style="width: 150px; height: 150px"><span>주문 조회</span></a>
-			
 			<a href="javascript:location.href='admin?cmd=AdminQnA'"><img src="${path}/views/img/IconQnA.png" alt="QnA 확인" style="width: 150px; height: 150px"><span>QnA 확인</span></a>
-			
 			<a href="javascript:location.href='admin?cmd=AdminStock'"><img src="${path}/views/img/IconStock.png" alt="재고 현황" style="width: 150px; height: 150px"><span>재고 현황</span></a>
-			
 			<br><br>
 		</div>
 		
