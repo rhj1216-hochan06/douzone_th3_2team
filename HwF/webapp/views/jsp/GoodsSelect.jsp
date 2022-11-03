@@ -25,7 +25,7 @@
 			<div>
 				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
 			</div>
-			<div>상품 조회 페이지</div>
+			<div>홈페이지 제목 (팀명)</div>
 		</div>
 	</header>
 	
@@ -36,13 +36,15 @@
 	
 		<div class="contentTop">
 			<br><br>
-			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a> 
+			<a href="javascript:location.href='AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a> 
 			<br><br>
-			<h1 class="contentTopText">관리자 [헬스식품 등록] 페이지</h1>
+			<h1 class="contentTopText">관리자 [상품 조회] 페이지</h1>
 			<br><br>
 		</div>
 	
 		<div class="contentBottom">
+		
+			<br><br>
 		
 			<details>
 			<summary><h3>헬스용품</h3></summary>
@@ -141,6 +143,8 @@
 			
 			<br>
 			</details>
+			
+			<br>
 		
 			</div> <!-- end contentBottom -->
 			
