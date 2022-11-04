@@ -35,27 +35,26 @@ input[id*="answer"]{
 
 input[id*="answer"] + label{
 
+	padding : 0 10em  0 12em ;
 	line-height : 50px;
-	
-	
-	margin :50 50 50 50;
 	font-size: 1.5em;
 	display: flex;
 	line-height: 4em;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	position: relative;
-	border-bottom: 1px solid black;
+	/* border-bottom: 1px solid black; */
 	cursor: pointer;
 }
 input[id*="answer"] + label + div {
 	overflow: hidden;
 	height: 0;
 	display: flex;
+	padding : 0 5em  0 15em ;
 	align-items: center;
 	transition: all .3s;
 	font-size: 1.5em;
-	justify-content: space-around;
+	justify-content: space-between;
 	
 }
 
@@ -71,7 +70,7 @@ input[id*="answer"] + label + div + ul {
 
 input[id*="answer"]:checked + label + div {
 	height: 220px;
-	border-bottom: 2px solid #d5d5d5;
+	/* border-bottom: 2px solid #d5d5d5; */
 }
 input[id*="answer"]:checked + label i {
 	transform: rotate(180deg);	

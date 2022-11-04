@@ -1,12 +1,12 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
 
-body{
-	font-family: 'montserrat', sans-serif;
+/*  body{
+
 	margin: 0;
-}
-
-
+} 
+ */
+ 
 .container{
 	display:grid;
 	grid-template-columns:20% 1fr;
@@ -38,6 +38,7 @@ body{
 
 .main{
 	grid-area:main;
+	text-align: center;
 }
 
 .footer{

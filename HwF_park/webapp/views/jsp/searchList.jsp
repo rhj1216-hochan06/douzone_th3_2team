@@ -11,7 +11,7 @@
 	<h3>단일검색하기</h3>
 	<form action="../board?cmd=search" method="post">
 		<select name="column">
-			<option value="memberid">내용</option>
+			<option value="memberid">아이디</option>
 		</select> <input type="text" name="keyvalue"> <input type="submit"	value="검색">
 	</form>
 

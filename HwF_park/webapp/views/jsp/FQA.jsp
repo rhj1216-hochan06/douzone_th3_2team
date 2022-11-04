@@ -27,14 +27,14 @@
 
 			<table>
 				<tr>
-					<td>Home</td>
-					<td>MyPage</td>
-					<td>HealthFood</td>
-					<td>HealthCafe</td>
-					<td>HealthNutrients</td>
-					<td>Survey</td>
-					<td>InbodyTest</td>
-					<td>Community</td>
+					<td id="1" onclick="location.href = '/HwF/views/Main.jsp'">Home</td>
+					<td id="2" onclick="change(this.id)">HealthFood</td>
+					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="4" onclick="change(this.id)">HealthNutrients</td>
+					<td id="5" onclick="change(this.id)">Survey</td>
+					<td id="6" onclick="change(this.id)">InbodyTest</td>
+					<!-- <td id="7" onclick="location.href='board?cmd=list'">Community</td> -->
+					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
 		</nav>
@@ -42,7 +42,6 @@
 	<article>
 		<img src="../img/getMuscle.jpg" />
 	</article>
-	<a href="javascript:location.href='list.jsp' ">게시판 목록</a>
 	<div id="containner" class="fqa">
 		<div id="location">
 			<h4>Home > 문의 > FAQ</h4>

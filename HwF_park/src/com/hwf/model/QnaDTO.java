@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class QnaDTO {   // model
 
 	private int qnaid;
-	private Date qnadate;
+	private String qnadate;
 	private String qnacontent, qnaanswer, memberid;
 	
 	public QnaDTO(String qnacontent, String qnaanswer, String memberid) {

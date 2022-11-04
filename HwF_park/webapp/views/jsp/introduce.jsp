@@ -41,7 +41,7 @@
 		</nav>
 	</header>
 	<p></p>
-	<article>
+	<article class = "introduce">
 		<div class = "intro">상큼하게 터지는 헬스장을 찾아주셔서 감사합니다.</div>
 		
 		<img src = "https://contents.hiltonhotels.jp/ko/h/selhi/hotel_service_20191209111241_main_sp.jpg" width ="800", height = "400">
@@ -62,9 +62,8 @@
 
 		
 		<h2>동글동글한 몸에서 다부진 체격으로 다시 태어날 수 있습니다. </h2>
-		
-		<div class ="test" onclick="location.href='board?cmd=list'">
 
+		<p></p>
 		
 		<h2><p>드디어 비장의 무기 헬스장 입점!!</p></h2>
 		<div class = heaven">

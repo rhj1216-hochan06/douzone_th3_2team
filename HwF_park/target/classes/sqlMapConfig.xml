@@ -10,6 +10,7 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias  alias="dto"  type="com.hwf.model.QnaDTO"  />
+		<typeAlias  alias="search"  type="com.hwf.model.SearchDTO"  />
 	</typeAliases>
 
 	<!-- DataSource 설정 -->

@@ -21,9 +21,17 @@
 
 		<nav>
 			<p>
-				<input type="text" value="" placeholder="Search" />
+			<form action="search?cmd=searching" method="post">
+			<select name="column">
+			<option value="Healthgoodsname">용품</option>
+		</select>
+		 <input type="text" name="keyvalue"> <input type="submit"	value="검색">
+		<!-- <input type="text" value="" placeholder="Search" /> -->
+			</form>
 			</p>
-
+<div class="main">
+			<a href="jsp/searchpage.jsp">검색</a>
+			</div>
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
@@ -32,7 +40,8 @@
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
-					<td id="7" onclick="location.href='board?cmd=list'">Community</td>
+					<!-- <td id="7" onclick="location.href='board?cmd=list'">Community</td> -->
+					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
 		</nav>
@@ -57,7 +66,11 @@
 				<table id="healthintro">
 					<th>헬스장 및 운동법 소개</th>
 					<tr>
-						<td><img src="../views/views/logo.png" /></td>
+						<td>
+						<a href="../views/jsp/introduce.jsp">
+						<img src="../views/img/logo.png" />
+						</a>
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -80,6 +93,22 @@
 				</tr>
 			</table>
 		</article>
+
+		<article class="category" id="s7">
+			<table>
+				<th colspan="2">문의</th>
+				<tr>
+					<td><a href="../views/jsp/FQA.jsp">
+				
+						<h1>FQA</h1> <img src="../views/img/vitamin.png" />
+					</a></td>
+					<td><a href="board?cmd=list">
+							<h1>1:1 문의</h1> <img src="../views/img/protein.png" />
+					</a></td>
+				</tr>
+			</table>
+		</article>
+
 	</div>
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

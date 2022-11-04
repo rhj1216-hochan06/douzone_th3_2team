@@ -36,7 +36,8 @@ th {
 
 			<table>
 				<tr>
-					<td id="1" onclick="location.href='./views/main.jsp">Home</td>
+					<!-- <td id="1" onclick="location.href='./views/main.jsp">Home</td> -->
+					<td id="1" onclick="location.href='/HwF/views/Main.jsp'">Home</td>
 					<td id="2" onclick="change(this.id)">HealthFood</td>
 					<td id="3" onclick="change(this.id)">HealthCafe</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>

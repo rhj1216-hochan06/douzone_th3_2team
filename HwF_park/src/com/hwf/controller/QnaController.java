@@ -17,8 +17,6 @@ import com.hwf.dao.QnaDAO;
 import com.hwf.model.QnaDTO;
 
 
-
-
 @WebServlet("/views/board")
 //@WebServlet("/board")
 public class QnaController extends HttpServlet {
@@ -33,7 +31,7 @@ public class QnaController extends HttpServlet {
 		
 		String cmd = request.getParameter("cmd");  //  ~~?cmd=list
 		System.out.println("cmd : " + cmd);
-
+		System.out.println("알려주세요 :" + request);
 		if( cmd.equals("list") ) {			
 			list(request, response);
 		} else if( cmd.equals("write") ) {			
@@ -99,9 +97,12 @@ public class QnaController extends HttpServlet {
 			map.put("keyvalue", keyvalue); // keyvalue : 김연아
 
 			QnaDAO dao = new QnaDAO();
+			
 			List<QnaDTO> list = dao.getSearchList(map);
 			if (list != null) {
 				request.setAttribute("list", list);
+				
+				System.out.println("list : "+list);
 				request.getRequestDispatcher("/views/jsp/list.jsp").forward(request, response);
 //				request.getRequestDispatcher("/views/searchList.jsp").forward(request, response);
 			} else {
