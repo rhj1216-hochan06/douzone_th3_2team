@@ -55,10 +55,13 @@
 					<th>이미지</th>
 					<th>상세설명</th>
 					<th>제조날짜</th>
+					<!-- <th>추천 링크</th> -->
 				</tr>
 		
 				<c:forEach var="AdminHealthFoodSelect" items="${ AdminHealthFoodSelect }">
-					<tr>
+					<tr id = "${AdminHealthFoodSelect.hfId}" title="${AdminHealthFoodSelect.hfName} 수정"
+						onclick="location.href='admin?cmd=AdminHealthFoodDetail&hfId=${AdminHealthFoodSelect.hfId}'" >
+						<tr>
 						<td>${ AdminHealthFoodSelect.hfId }</td>
 						<td>${ AdminHealthFoodSelect.hfName }</td>
 						<td>${ AdminHealthFoodSelect.hfPrice }</td>
@@ -66,6 +69,7 @@
 						<td><img src="${ AdminHealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminHealthFoodSelect.hfDetail }</td>
 						<td>${ AdminHealthFoodSelect.hfDom }</td>
+						<%-- <td>${ AdminHealthFoodSelect.hfLink }</td> --%>
 					</tr>
 				</c:forEach>
 			</table>

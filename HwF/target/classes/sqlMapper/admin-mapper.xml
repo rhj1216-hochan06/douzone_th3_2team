@@ -8,6 +8,8 @@
  <!-- <mapper namespace="dao"> -->
  <mapper namespace="adminMapper"> <!-- MemberDAO, GoodsDAO 에서도 dao->adminMapper로 변경  -->
  
+	<!-- ***** 관리자) 상품 전체 조회 ***** -->
+ 
  	<!-- 관리자) 헬스용품 전체 조회 -->
  	<select id="AdminHealthGoodsSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from healthgoods order by healthgoodsId
@@ -22,9 +24,43 @@
  	<select id="AdminNutrientsSelect" resultType="com.hwf.model.GoodsDTO">
  		select * from nutrients order by nutrientsId
  	</select>
+ 	
+ 	
+ 	
+	<!-- ***** 관리자) 상품 수정 ***** -->
+	
+	<!-- 관리자) 헬스용품 수정 -->
+	<select id="AdminHealthGoodsDetail" resultType="com.hwf.model.GoodsDTO" parameterType="int">
+ 		select * from healthgoods 
+ 		where healthGoodsId = #{healthGoodsId}
+ 	</select>
+ 	
+	<update id="AdminHealthGoodsUpdate" parameterType="com.hwf.model.GoodsDTO">
+ 		update healthgoods 
+ 		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
+ 		where healthGoodsId = #{healthGoodsId}
+ 	</update>
+ 	
+ 	<!-- 관리자) 헬스식품 수정 -->
+	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.GoodsDTO" parameterType="int">
+ 		select * from healthfood
+ 		where hfId = #{hfId}
+ 	</select>
+ 	
+	<update id="AdminHealthFoodUpdate" parameterType="com.hwf.model.GoodsDTO">
+ 		update healthfood 
+ 		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
+ 		where healthGoodsId = #{healthGoodsId}
+ 	</update>
+ 	
+ 	
+ 	
+ 	<!-- ***** 관리자) 상품 삭제 ***** -->
+ 
  
  	
- 	
+ 	<!-- ***** 관리자) 상품 등록 ***** -->
+  	
  	<!-- 관리자) 헬스용품 등록 -->
  	<insert id="AdminHealthGoodsInsert" parameterType="com.hwf.model.GoodsDTO">
  		insert into healthgoods(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, Link)
@@ -56,15 +92,8 @@
  	
  	
  	
- 	<!-- 관리자) 상품 수정 -->
+ 	<!-- ***** 관리자) 회원 조회 ***** -->
  	
- 	
- 	
- 	<!-- 관리자) 상품 삭제 -->
- 	
- 	
- 	
- 	<!-- 관리자) 회원 조회 -->
  	<select id="AdminMemberSelect" resultType="com.hwf.model.MemberDTO">
  		select * from member order by memberId
  		<!-- select memberId=#{memberId}, memberName=#{memberName}, decode(memberSex,1,'남', 2,'여') memberSex=#{memberSex} from member -->

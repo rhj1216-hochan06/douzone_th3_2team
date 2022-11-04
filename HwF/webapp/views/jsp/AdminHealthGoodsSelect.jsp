@@ -46,27 +46,39 @@
 			
 			<h3>헬스용품 관리</h3> <br>
 			
-			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-				<tr>
-					<th>번호</th>
-					<th>이름</th>
-					<th>가격</th>
-					<th>카테고리</th>
-					<th>이미지</th>
-					<th>상세설명</th>
-				</tr>
-		
-				<c:forEach var="AdminHealthGoodsSelect" items="${ AdminHealthGoodsSelect }">
+			<!-- <div id=tableHealthGoods"> -->
+				<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
 					<tr>
-						<td>${ AdminHealthGoodsSelect.healthGoodsId }</td>
-						<td>${ AdminHealthGoodsSelect.healthGoodsName }</td>
-						<td>${ AdminHealthGoodsSelect.healthGoodsPrice }</td>
-						<td>${ AdminHealthGoodsSelect.healthGoodsCategory }</td>
-						<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
-						<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>
+						<th>번호</th>
+						<th>이름</th>
+						<th>가격</th>
+						<th>카테고리</th>
+						<th>이미지</th>
+						<th>상세설명</th>
+						<!-- <th>추천 링크</th> -->
 					</tr>
-				</c:forEach>
-			</table>
+			
+					<c:forEach var="AdminHealthGoodsSelect" items="${ AdminHealthGoodsSelect }">
+						<tr id = "${AdminHealthGoodsSelect.healthGoodsId}" title="${AdminHealthGoodsSelect.healthGoodsName} 수정"
+						onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
+						<%-- <tr onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
+																					&healthGoodsName=${AdminHealthGoodsSelect.healthGoodsName}'" >
+																					&healthGoodsPrice=${AdminHealthGoodsSelect.healthGoodsPrice}
+																					&healthGoodsCategory=${AdminHealthGoodsSelect.healthGoodsCategory}
+																					&healthGoodsImg=${AdminHealthGoodsSelect.healthGoodsImg}
+																					&healthGoodsDetail=${AdminHealthGoodsSelect.healthGoodsDetail}
+																					&healthGoodsLink=${AdminHealthGoodsSelect.healthGoodsLink}'" > --%>
+							<td>${ AdminHealthGoodsSelect.healthGoodsId }</td>
+							<td>${ AdminHealthGoodsSelect.healthGoodsName }</td>
+							<td>${ AdminHealthGoodsSelect.healthGoodsPrice }</td>
+							<td>${ AdminHealthGoodsSelect.healthGoodsCategory }</td>
+							<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
+							<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>
+							<%-- <td>${ AdminHealthGoodsSelect.healthGoodsLink }</td> --%>
+						</tr>
+					</c:forEach>
+				</table>
+			<!-- </div> -->
 			
 			<br><br>
 		

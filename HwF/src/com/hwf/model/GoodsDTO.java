@@ -21,7 +21,20 @@ public class GoodsDTO { // model
 	private String healthGoodsDetail;	//헬스용품 상세설명
 	private String healthGoodsLink; 	//인바디,설문 연결값
 
-	//AdminController - AdminGoodsInsert()에서 필요한 생성자
+	
+	//AdminController - AdminHealthGoodsUpdate()에서 필요한 생성자
+	public GoodsDTO (int healthGoodsId, String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String healthGoodsLink) {
+		super();
+		this.healthGoodsId = healthGoodsId;
+		this.healthGoodsName = healthGoodsName;
+		this.healthGoodsPrice = healthGoodsPrice;
+		this.healthGoodsCategory = healthGoodsCategory;
+		this.healthGoodsImg = healthGoodsImg;
+		this.healthGoodsDetail = healthGoodsDetail;
+		this.healthGoodsLink = healthGoodsLink;
+	}
+	
+	//AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
 	public GoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String healthGoodsLink) {
 		super();
 		this.healthGoodsName = healthGoodsName;
@@ -42,15 +55,17 @@ public class GoodsDTO { // model
 	private int hfCategory;			//헬스식품 카테고리
 	private String hfImg;			//헬스식품 이미지
 	private String hfDetail;		//헬스식품 상세설명
-	private java.sql.Date hfDom;    //헬스식품 제조날짜
+//	private java.sql.Date hfDom;    //헬스식품 제조날짜
 //	private java.util.Date hfDom;   //헬스식품 제조날짜
 //	private Date hfDom;				//헬스식품 제조날짜
-//	private String hfDom;			//헬스식품 제조날짜
+	private String hfDom;			//헬스식품 제조날짜
 	private String hfLink; 			//인바디,설문 연결값
 	
-	//AdminController - AdminGoodsInsert()에서 필요한 생성자
-	public GoodsDTO(String hfName, int hfPrice, int hfCategory, String hfImg, String hfDetail, Date hfDom, String hfLink) {
+	
+	//AdminController - AdminHealthFoodUpdate()에서 필요한 생성자
+	public GoodsDTO(int hfId, String hfName, int hfPrice, int hfCategory, String hfImg, String hfDetail, String hfDom, String hfLink) {
 		super();
+		this.hfId = hfId;
 		this.hfName = hfName;
 		this.hfPrice = hfPrice;
 		this.hfCategory = hfCategory;
@@ -59,6 +74,19 @@ public class GoodsDTO { // model
 		this.hfDom = hfDom;
 		this.hfLink = hfLink;
 	}
+	
+	
+	//AdminController - AdminHealthFoodInsert()에서 필요한 생성자
+//	public GoodsDTO(String hfName, int hfPrice, int hfCategory, String hfImg, String hfDetail, Date hfDom, String hfLink) {
+//		super();
+//		this.hfName = hfName;
+//		this.hfPrice = hfPrice;
+//		this.hfCategory = hfCategory;
+//		this.hfImg = hfImg;
+//		this.hfDetail = hfDetail;
+//		this.hfDom = hfDom;
+//		this.hfLink = hfLink;
+//	}
 	
 	
 	

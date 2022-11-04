@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.hwf.config.SqlSessionFactoryService;
 import com.hwf.model.GoodsDTO;
-//import com.hwf.model.HealthGoodsDTO;
 
 @Component
 public class GoodsDAO {
@@ -81,6 +80,83 @@ public class GoodsDAO {
 	
 	
 
+	/*************** 상품 수정 ***************/
+	
+	//AdminHealthGoodsDetail (헬스용품 상세보기)
+//	public GoodsDTO AdminHealthGoodsDetail(GoodsDTO dto) {
+	public GoodsDTO AdminHealthGoodsDetail(int HealthGoodsId) {	
+		try {
+//			sqlSession = sqlSessionFactory.openSession();
+//			GoodsDTO dto2 = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", dto); //""자리에는 mapper.xml에서의 namespace.id
+//			return dto2;
+			
+			sqlSession = sqlSessionFactory.openSession();
+			GoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", HealthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
+			return dto;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
+	
+	// AdminHealthGoodsUpdate (헬스용품 수정)
+	public int AdminHealthGoodsUpdate(GoodsDTO dto) {
+		try {
+			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
+			int result = sqlSession.update("adminMapper.AdminHealthGoodsUpdate",dto); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return result;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+			
+		} finally { 
+			if (sqlSession!=null) {sqlSession.close();} 
+		}
+	}
+	
+	
+	
+	//AdminHealthFoodDetail (헬스식품 상세보기)
+	public GoodsDTO AdminHealthFoodDetail(int hfId) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			GoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfId); //""자리에는 mapper.xml에서의 namespace.id
+			return dto;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
+	
+	// AdminHealthFoodUpdate (헬스식품 수정)
+	public int AdminHealthFoodUpdate(GoodsDTO dto) {
+		try {
+			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
+			int result = sqlSession.update("adminMapper.AdminHealthFoodUpdate", dto); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return result;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+			
+		} finally { 
+			if (sqlSession!=null) {sqlSession.close();} 
+		}
+	}	
+	
+	
+	
 	/*************** 상품 등록 ***************/
 	
 	// AdminHealthGoodsInsert (헬스용품 등록)

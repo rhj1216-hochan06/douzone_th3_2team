@@ -139,11 +139,18 @@ footer {
 	color:#57648C;
 }
 
-/* .contentBottom table {
-	margin:auto;
-} */
-
-.contentBottom a img.hover {
-	transform:skewX(-14deg) scale(1.3); /* degree : 기울임 */
-	z-index:1;
+/*
+.contentBottom table {
+	margin-left: auto; 
+	margin-right:auto
 }
+*/
+
+/*
+#tableHealthGoods table tr:hover {
+	background-color: #C2B4D6;
+	cursor: pointer;
+}
+*/
+
+/* tr.row:hover td { background-color: #C2B4D6; } */
