@@ -27,30 +27,13 @@ public class GoodsDAO {
 	
 	
 	/*************** 상품 전체 조회 ***************/
-	
-//	// HealthGoodsSelect <- 기존에 되던거 (추후 주석)
-//	public List<HealthGoodsDTO> HealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
-//		try {
-//			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
-//
-//			return sqlSession.selectList("dao.HealthGoodsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
-//
-//		} catch (Exception e) {
-//			return null;
-//
-//		} finally {
-//			if (sqlSession != null) {
-//				sqlSession.close();
-//			}
-//		}
-//	}
 
-	// HealthGoodsSelect (헬스용품 전체 조회)
-	public List<GoodsDTO> HealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	// AdminHealthGoodsSelect (헬스용품 전체 조회)
+	public List<GoodsDTO> AdminHealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
-			return sqlSession.selectList("adminMapper.HealthGoodsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
+			return sqlSession.selectList("adminMapper.AdminHealthGoodsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
 			return null;
@@ -62,12 +45,12 @@ public class GoodsDAO {
 		}
 	}
 
-	// HealthFoodSelect (헬스식품 전체 조회)
-	public List<GoodsDTO> HealthFoodSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	// AdminHealthFoodSelect (헬스식품 전체 조회)
+	public List<GoodsDTO> AdminHealthFoodSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
-			return sqlSession.selectList("adminMapper.HealthFoodSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
+			return sqlSession.selectList("adminMapper.AdminHealthFoodSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
 			return null;
@@ -80,11 +63,11 @@ public class GoodsDAO {
 	}
 
 	// NutrientsSelect (영양제 전체 조회)
-	public List<GoodsDTO> NutrientsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	public List<GoodsDTO> AdminNutrientsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
-			return sqlSession.selectList("adminMapper.NutrientsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
+			return sqlSession.selectList("adminMapper.AdminNutrientsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
 			return null;

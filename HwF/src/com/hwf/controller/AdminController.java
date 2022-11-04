@@ -39,19 +39,27 @@ public class AdminController extends HttpServlet {
 		String cmd = request.getParameter("cmd"); // ~~~?cmd=AdminMemberSelect
 		System.out.println("cmd : " + cmd); // Console창 출력테스트
 
-		if (cmd.equals("AdminMemberSelect")) { // http://localhost:8080/HwF/admin?cmd=AdminMemberSelect
+		if (cmd.equals("AdminMemberSelect")) { // 관리자) 회원 조회
 			AdminMemberSelect(request, response);
 		}
-//		else if (cmd.equals("HealthGoodsSelect")) { // http://localhost:8080/HwF/admin?cmd=HealthGoodsSelect
-//			HealthGoodsSelect(request, response);
+		
+//		else if (cmd.equals("GoodsSelect")) { // 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
+//			GoodsSelect(request, response);
 //		} 
-		else if (cmd.equals("GoodsSelect")) { // http://localhost:8080/HwF/admin?cmd=GoodsSelect
-			GoodsSelect(request, response);
+		else if (cmd.equals("AdminHealthGoodsSelect")) { //관리자) 헬스용품 전체 조회
+			AdminHealthGoodsSelect(request, response);
 		} 
-		else if (cmd.equals("AdminHealthGoodsInsert")) { 
+		else if (cmd.equals("AdminHealthFoodSelect")) { //관리자) 헬스식품 전체 조회
+			AdminHealthFoodSelect(request, response);
+		} 
+		else if (cmd.equals("AdminNutrientsSelect")) { //관리자) 영양제 전체 조회
+			AdminNutrientsSelect(request, response);
+		} 
+		
+		else if (cmd.equals("AdminHealthGoodsInsert")) { // 관리자) 헬스용품 등록
 			AdminHealthGoodsInsert(request, response);
 		}
-		else if (cmd.equals("AdminHealthFoodInsert")) { 
+		else if (cmd.equals("AdminHealthFoodInsert")) {  // 관리자) 헬스식품 등록
 			try {
 				AdminHealthFoodInsert(request, response);
 			} catch (IOException e) {
@@ -68,42 +76,77 @@ public class AdminController extends HttpServlet {
 	
 	/*************** 상품 전체 조회 ***************/
 	
-//	//관리자+회원) 헬스용품 전체 조회 <- 기존에 되던거 (추후 주석)
-//	public void HealthGoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//	
-//		HealthGoodsDAO dao = new HealthGoodsDAO();
-//		List<HealthGoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
-//		
-//		if (HealthGoodsSelect != null) {
-//			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); //data save
-//			request.getRequestDispatcher("/views/jsp/HealthGoodsSelect.jsp").forward(request, response);
-//			//response.sendRedirect("/views/jsp/HealthGoodsSelect.jsp");
-//		} 
-//		else {
-//			response.sendRedirect("/views/jsp/error.jsp"); //추후에 error페이지 만든 후 error 처리
+//	// 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회
+//	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//		GoodsDAO dao = new GoodsDAO();
+//		List<GoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
+//		List<GoodsDTO> HealthFoodSelect = dao.HealthFoodSelect();
+//		List<GoodsDTO> NutrientsSelect = dao.NutrientsSelect();
+//
+//		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
+//			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); // data save
+//			request.setAttribute("HealthFoodSelect", HealthFoodSelect); // data save
+//			request.setAttribute("NutrientsSelect", NutrientsSelect); // data save
+//			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response);
+//		} else {
+//			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 //		}
-//	} 
+//
+//	}
 	
 	
 	
-	// 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회
-	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*************** 상품 조회 ***************/
+	
+	// 관리자) 헬스용품 전체 조회
+	public void AdminHealthGoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		GoodsDAO dao = new GoodsDAO();
-		List<GoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
-		List<GoodsDTO> HealthFoodSelect = dao.HealthFoodSelect();
-		List<GoodsDTO> NutrientsSelect = dao.NutrientsSelect();
+		List<GoodsDTO> AdminHealthGoodsSelect = dao.AdminHealthGoodsSelect();
 
-		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
-			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); // data save
-			request.setAttribute("HealthFoodSelect", HealthFoodSelect); // data save
-			request.setAttribute("NutrientsSelect", NutrientsSelect); // data save
-			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response);
+		if (AdminHealthGoodsSelect != null) {
+			request.setAttribute("AdminHealthGoodsSelect", AdminHealthGoodsSelect); // data save
+			request.getRequestDispatcher("/views/jsp/AdminHealthGoodsSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
-		}
+		}	
 
 	}
+	
+	
+	
+	// 관리자) 헬스식품 전체 조회
+	public void AdminHealthFoodSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		GoodsDAO dao = new GoodsDAO();
+		List<GoodsDTO> AdminHealthFoodSelect = dao.AdminHealthFoodSelect();
+
+		if (AdminHealthFoodSelect != null) {
+			request.setAttribute("AdminHealthFoodSelect", AdminHealthFoodSelect); // data save
+			request.getRequestDispatcher("/views/jsp/AdminHealthFoodSelect.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+		}	
+
+	}
+		
+		
+		
+	// 관리자) 영양제 전체 조회
+	public void AdminNutrientsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		GoodsDAO dao = new GoodsDAO();
+		List<GoodsDTO> AdminNutrientsSelect = dao.AdminNutrientsSelect();
+
+		if (AdminNutrientsSelect != null) {
+			request.setAttribute("AdminNutrientsSelect", AdminNutrientsSelect); // data save
+			request.getRequestDispatcher("/views/jsp/AdminNutrientsSelect.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+		}	
+
+	}		
 
 	
 	

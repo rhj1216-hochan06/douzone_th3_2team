@@ -15,7 +15,7 @@
 <!-- 부트스트랩 css 사용 -->
 <%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrap.css"> --%>
 
-<title>상품 수정</title>
+<title>상품 관리</title>
 </head>
 
 <body>
@@ -37,15 +37,15 @@
 			<br><br>
 			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
 			<br><br>
-			<h1 class="contentTopText">관리자 [상품 수정] 페이지</h1>
+			<h1 class="contentTopText">관리자 [상품 관리] 페이지</h1>
 			<br><br>
 		</div>
 		
 		<div class="contentBottom">
 			<br><br><br><br><br><br>
-			<a href="javascript:location.href='AdminHealthGoodsUpdate.jsp'"><img src="${path}/views/img/IconHealthGoods.png" alt="헬스용품 수정" style="width: 150px; height: 150px"><span>헬스용품 수정</span></a>
-			<a href="javascript:location.href='AdminHealthFoodUpdate.jsp'"><img src="${path}/views/img/IconHealthFood.png" alt="헬스식품 수정" style="width: 150px; height: 150px"><span>헬스식품 수정</span></a>
-			<a href="javascript:location.href='AdminNutrientsUpdate.jsp'"><img src="${path}/views/img/IconNutrients.png" alt="영양제 수정" style="width: 150px; height: 150px"><span>영양제 수정</span></a>
+			<a href="javascript:location.href='../../admin?cmd=AdminHealthGoodsSelect'"><img src="${path}/views/img/IconHealthGoods.png" alt="헬스용품 관리" style="width: 150px; height: 150px"><span>헬스용품 관리</span></a>
+			<a href="javascript:location.href='../../admin?cmd=AdminHealthFoodSelect'"><img src="${path}/views/img/IconHealthFood.png" alt="헬스식품 관리" style="width: 150px; height: 150px"><span>헬스식품 관리</span></a>
+			<a href="javascript:location.href='../../admin?cmd=AdminNutrientsSelect'"><img src="${path}/views/img/IconNutrients.png" alt="영양제 관리" style="width: 150px; height: 150px"><span>영양제 관리</span></a>
 			<br><br><br><br><br><br><br>
 		</div>
 		

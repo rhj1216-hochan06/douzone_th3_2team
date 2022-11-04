@@ -44,15 +44,15 @@
 		<div class="contentBottom">
 			<br>
 			<%-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
-			<a href="javascript:location.href='admin?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a>
+			<%-- <a href="javascript:location.href='admin?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
+			<a href="javascript:location.href='views/jsp/AdminGoodsSelect.jsp'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 관리" style="width: 150px; height: 150px"><span>상품 관리</span></a>
 			
 			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a> --%>
 			<a href="javascript:location.href='views/jsp/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			
-			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsUpdate'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> --%>
 			<a href="javascript:location.href='views/jsp/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a>
 			
-			<a href="javascript:location.href='admin?cmd=AdminGoodsDelete'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>
+			<a href="javascript:location.href='views/jsp/AdminGoodsDelete.jsp'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>
 			
 			<br><br><br>
 			
