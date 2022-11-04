@@ -16,6 +16,10 @@
 			<div>
 				<img src="./views/img/logo.png" />
 			</div>
+<div id="logindata">
+	ID : ${requestScope.memberid }
+	Name : ${requestScope.membername }
+</div>
 
 			<div>홈페이지 제목 (팀명)</div>
 

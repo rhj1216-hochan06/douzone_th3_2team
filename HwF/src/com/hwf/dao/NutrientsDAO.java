@@ -16,6 +16,7 @@ public class NutrientsDAO {
 	private SqlSession sqlSession = null;
 
 	public NutrientsDAO() {
+		System.out.println("NutrientsDAO 생성자 함수 실행");
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
 

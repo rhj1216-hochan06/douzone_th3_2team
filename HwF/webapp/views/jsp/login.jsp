@@ -13,11 +13,6 @@
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <title>login</title>
-<script type="text/javascript">
-	function join() {
-		location.href = "${path}/user/join.do";
-	}
-</script>
 </head>
 <body>
 	<header>

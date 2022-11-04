@@ -39,37 +39,36 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-			<form action="${path}/user/login_check.do" method="post">
-				<table>
-
-					<h2>회원가입</h2>
-					<form action="${path}/user/insertUser.do" method="post">
-						<table>
-							<tr>
-								<td>아이디</td>
-								<td><input name="userid"></td>
-							</tr>
-							<tr>
-								<td>비밀번호</td>
-								<td><input type="password" name="passwd"></td>
-							</tr>
-							<tr>
-								<td>이름</td>
-								<td><input name="name"></td>
-							</tr>
-							<tr>
-								<td>사용권한</td>
-								<td><select name="authority">
-										<option value="ROLE_USER">일반사용자</option>
-										<option value="ROLE_ADMIN">관리자</option>
-								</select></td>
-							</tr>
-							<tr>
-								<td colspan="2" align="center"><input type="submit"
-									value="회원가입"></td>
-							</tr>
-						</table>
-					</form>
+		<form action="./Member?cmd=insertmember" method="post" >
+			<table>
+				<h2>회원가입</h2>
+				<tr>
+					<td>아이디</td>
+					<td><input name="userid"required></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="passwd"required></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input name="name"required></td>
+				</tr>
+				<tr>
+					<td>사용권한</td>
+					<td><select name="sex"required>
+							<option value="2">여자</option>
+							<option value="1">남자</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+					<input type="submit"
+						value="회원가입" onclick="location.href='Member?cmd=insertmember'">
+						</td>
+				</tr>
+			</table>
+			</form>
 </body>
 </html>
 

@@ -22,4 +22,5 @@ public class MemberDTO {
 		this.memberpwd = memberpwd;
 	}
 
+
 }
