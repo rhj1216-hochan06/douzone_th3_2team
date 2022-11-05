@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>join</title>
+<title>mypage</title>
 </head>
 <body>
 	<header>
@@ -39,54 +39,37 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-		<form action="./Member?cmd=insertmember" method="post" >
-			<table>
-				<h2>회원가입</h2>
-				<tr>
-					<td>아이디</td>
-					<td><input name="userid"required></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="passwd"required></td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td><input name="name"required></td>
-				</tr>
-				<tr>
-					<td>사용권한</td>
-					<td><select name="sex"required>
-							<option value="2">여자</option>
-							<option value="1">남자</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
-					<input type="submit"
-						value="회원가입" onclick="location.href='Member?cmd=insertmember'">
-						</td>
-				</tr>
+
+
+			<div id="mypage">
+			<table id ="mypage">
+					<tr id="id" ><td>ID : ${memberid}</tr>
+					<tr id="name" ><td>Name : ${membername}</tr>
+					<tr id="sex" ><td>sex : ${membersex}</tr>
+					<tr id="survey" ><td>Survey</tr>
+					<tr id="inbody" ><td>InbodyTest</tr>
+					<tr id="community" ><td>Community</tr>
+				
 			</table>
-			</form>
+		
+			</div>
+	
+
+
+
+		</nav>
+	</header>
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<input type="button" value="로그아웃" onclick="location.href='Member?cmd=logout'">
+	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

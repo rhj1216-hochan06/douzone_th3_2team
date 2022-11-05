@@ -17,7 +17,7 @@ import com.hwf.model.MemberDTO;
 
 @WebServlet("/Member")
 public class MemberController extends HttpServlet {
-
+	
 	@Inject
 	MemberDAO MemberDao;
 
@@ -41,7 +41,10 @@ public class MemberController extends HttpServlet {
 			mypage(request, response);
 		} else if (cmd.equals("insertmember")) {
 			insertmember(request, response);
+		}  else if (cmd.equals("logout")) {
+			logout(request, response);
 		}else
+			
 			System.out.println("service code error");
 	}
 
@@ -49,9 +52,19 @@ public class MemberController extends HttpServlet {
 	// 전체조회
 	////////////////////////////////////////////////////////////////////
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.getRequestDispatcher("/views/jsp/login.jsp").forward(request, response);
-
+		try {
+			HttpSession session;
+			session = request.getSession();
+			String name = session .getAttribute("membername1").toString();
+			System.out.println(name);
+			if (name.equalsIgnoreCase("환영합니다. 고객님"))
+			request.getRequestDispatcher("/views/jsp/login.jsp").forward(request, response);
+		} catch (Exception e) {
+			//null 이면 에러 발생 = 로그인 기록 없음
+			System.out.println("login error");
+			request.getRequestDispatcher("/views/jsp/login.jsp").forward(request, response);
+		}  
+		request.getRequestDispatcher("/views/jsp/mypage.jsp").forward(request, response);
 	}
 
 	public void logincheck(HttpServletRequest request, HttpServletResponse response)
@@ -71,28 +84,47 @@ public class MemberController extends HttpServlet {
 		System.out.println("로그인 정보 불러오기 ");
 		System.out.println(dto2.getMemberid().toString());
 
+		HttpSession session;
+		session = request.getSession();
+		
+		
+		
+		
+		
 		if (memberpwd.equals(dto2.getMemberpwd()))// 로그인 성공
 		{
 
 			// 로그인이 되면
 			System.out.println("로그인 성공 ");
-			HttpSession session;
-			session = request.getSession();
+			
+			
+			String membersex = "";
 
-			// 로그인 세션값 설정
-			session.setAttribute("memberid", memberid);
-			session.setAttribute("membername", dto2.getMembername());
-			System.out.println("login memberid 확인: " + session.getAttribute("memberid"));
-			System.out.println("login membername 확인: " + session.getAttribute("membername"));
+			if (dto2.getMembersex().equals("1"))
+				membersex = "남자";
+			else
+				membersex = "여자";
 
-			// 세션 유지시간 설정(초단위) 20분
-			session.setMaxInactiveInterval(20 * 60);
+			// data save
 
-			request.setAttribute("dto", dto2); // data save
-			request.setAttribute("memberid", memberid);
-			request.setAttribute("membername", dto2.getMembername());
+			
+			
+			
+	        session.setAttribute("memberid", memberid);
+	        session.setAttribute("membername", dto2.getMembername());
+	        session.setAttribute("membername1", dto2.getMembername()+"님 환영합니다.");
+	        session.setAttribute("membersex", membersex);
+	        
+	        System.out.println("memberid 확인: " + session.getAttribute("memberid").toString());
+	        System.out.println("membername: " +  session.getAttribute("membername").toString());
+	        System.out.println("membersex: " +  session.getAttribute("membersex").toString());
+	        
+	        //세션 유지시간 설정(초단위) 20분
+	        session.setMaxInactiveInterval(20*60);
+			
+			
+		
 
-			System.out.println(request.getAttribute("dto").toString());
 
 			request.getRequestDispatcher("/Main.jsp").forward(request, response);
 		} else {
@@ -120,9 +152,9 @@ public class MemberController extends HttpServlet {
 
 		MemberDAO dao = new MemberDAO();
 		System.out.println(dto.toString());
-		
+
 		int rowcount = dao.insert(dto);
-		
+
 		if (rowcount > 0) {
 			// 성공
 			request.getRequestDispatcher("/views/jsp/login.jsp").forward(request, response);
@@ -137,7 +169,18 @@ public class MemberController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/mypage.jsp").forward(request, response);
 
 	}
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {HttpSession session;
+			session = request.getSession();
+			session.setAttribute("membername1","환영합니다. 고객님");
+			
 
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/login.jsp").forward(request, response);
+		}  
+	
+		request.getRequestDispatcher("/Main.jsp").forward(request, response);
+	}
 	////////////////////////////////////////////////////////////////////
 	// 전체조회 끝
 	////////////////////////////////////////////////////////////////////
