@@ -160,6 +160,41 @@ public class GoodsDAO {
 	
 	
 	
+	//AdminNutrientsDetail (영양제 상세보기)
+	public NutrientsDTO AdminNutrientsDetail(int nutrientsId) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			NutrientsDTO dto = sqlSession.selectOne("adminMapper.AdminNutrientsDetail", nutrientsId); //""자리에는 mapper.xml에서의 namespace.id
+			return dto;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
+	
+	// AdminNutrientsUpdate (영양제 수정)
+	public int AdminNutrientsUpdate(NutrientsDTO dto) {
+		try {
+			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
+			int result = sqlSession.update("adminMapper.AdminNutrientsUpdate", dto); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return result;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+			
+		} finally { 
+			if (sqlSession!=null) {sqlSession.close();} 
+		}
+	}		
+	
+	
+	
 	/*************** 상품 등록 ***************/
 	
 	// AdminHealthGoodsInsert (헬스용품 등록)
@@ -203,5 +238,26 @@ public class GoodsDAO {
 			}
 		}
 	}
+	
+	// AdminNutrientsInsert (영양제 등록)
+	public int AdminNutrientsInsert(NutrientsDTO dto) {
+		try {
+			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
+
+			int result = sqlSession.insert("adminMapper.AdminNutrientsInsert", dto); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
+			sqlSession.commit();
+			return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			sqlSession.rollback(); // 단일 쿼리 실행시 의미 없음
+			return 0;
+
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}	
 
 }

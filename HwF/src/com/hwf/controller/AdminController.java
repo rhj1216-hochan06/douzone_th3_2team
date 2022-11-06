@@ -25,8 +25,6 @@ import com.hwf.model.NutrientsDTO;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
-
-//	private Model model;
 	
 	// 디폴트 생성자
 	public AdminController() {
@@ -67,7 +65,6 @@ public class AdminController extends HttpServlet {
 		} 
 		else if (cmd.equals("AdminHealthGoodsUpdate")) { //관리자) 헬스용품 수정
 			AdminHealthGoodsUpdate(request, response);
-//			AdminHealthGoodsUpdate(request, response, model);
 		} 
 		else if (cmd.equals("AdminHealthFoodDetail")) { //관리자) 헬스식품 상세보기
 			AdminHealthFoodDetail(request, response);
@@ -75,13 +72,22 @@ public class AdminController extends HttpServlet {
 		else if (cmd.equals("AdminHealthFoodUpdate")) { //관리자) 헬스식품 수정
 			AdminHealthFoodUpdate(request, response);
 		} 
+		else if (cmd.equals("AdminNutrientsDetail")) { //관리자) 영양제 상세보기
+			AdminNutrientsDetail(request, response);
+		} 
+		else if (cmd.equals("AdminNutrientsUpdate")) { //관리자) 영양제 수정
+			AdminNutrientsUpdate(request, response);
+		} 
 		
 		// 상품 등록
-		else if (cmd.equals("AdminHealthGoodsInsert")) { // 관리자) 헬스용품 등록
+		else if (cmd.equals("AdminHealthGoodsInsert")) { //관리자) 헬스용품 등록
 			AdminHealthGoodsInsert(request, response);
 		}
-		else if (cmd.equals("AdminHealthFoodInsert")) {  // 관리자) 헬스식품 등록
+		else if (cmd.equals("AdminHealthFoodInsert")) {  //관리자) 헬스식품 등록
 			AdminHealthFoodInsert(request, response);
+		}
+		else if (cmd.equals("AdminNutrientsInsert")) {  //관리자) 영양제 등록
+			AdminNutrientsInsert(request, response);
 		}
 	}
 
@@ -191,26 +197,8 @@ public class AdminController extends HttpServlet {
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
 		String healthGoodsLink = request.getParameter("healthGoodsLink");
 		
-		System.out.println(healthGoodsId + ",\t" + healthGoodsName + ",\t" + healthGoodsPrice +",\t" + healthGoodsCategory + ",\t" + healthGoodsImg + ",\t" + healthGoodsDetail + ",\t" + healthGoodsLink);
-		
 		GoodsDAO dao = new GoodsDAO();
 		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
-		
-//		request.setAttribute("healthGoodsName", healthGoodsName);
-//		request.setAttribute("healthGoodsPrice", healthGoodsPrice);
-//		request.setAttribute("healthGoodsCategory", healthGoodsCategory);
-//		request.setAttribute("healthGoodsImg", healthGoodsImg);
-//		request.setAttribute("healthGoodsDetail", healthGoodsDetail);
-//		request.setAttribute("healthGoodsLink", healthGoodsLink);
-		
-//		model.addAttribute("healthGoodsName", dtoHealthGoods);
-		
-//		model.addAttribute("healthGoodsName", healthGoodsName);
-//		model.addAttribute("healthGoodsPrice", healthGoodsPrice);
-//		model.addAttribute("healthGoodsCategory", healthGoodsCategory);
-//		model.addAttribute("healthGoodsImg", healthGoodsImg);
-//		model.addAttribute("healthGoodsDetail", healthGoodsDetail);
-//		model.addAttribute("healthGoodsLink", healthGoodsLink);
 		
 		int resultHealthGoodsUpdate = dao.AdminHealthGoodsUpdate(dtoHealthGoods);
 		if( resultHealthGoodsUpdate > 0 ) {
@@ -249,14 +237,56 @@ public class AdminController extends HttpServlet {
 		String hfDom = request.getParameter("hfDom");
 		String hfLink = request.getParameter("hfLink");
 		
-		System.out.println(hfId + ",\t" + hfName + ",\t" + hfPrice +",\t" + hfCategory + ",\t" + hfImg + ",\t" + hfDetail + ",\t" + hfLink);
-		
 		GoodsDAO dao = new GoodsDAO();
 		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
 		
 		int resultHealthFoodUpdate = dao.AdminHealthFoodUpdate(dtoHealthFood);
 		if( resultHealthFoodUpdate > 0 ) {
 			response.sendRedirect("admin?cmd=AdminHealthFoodSelect"); //.안붙혀지면 에러!!!!!!!!
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+	}
+	
+	
+	
+	
+	//관리자) 영양제 상세보기
+	public void AdminNutrientsDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+			
+		GoodsDAO dao = new GoodsDAO();
+		NutrientsDTO dtoNutrients = dao.AdminNutrientsDetail(nutrientsId);
+			
+		if(dtoNutrients != null) {
+			request.setAttribute("com.hwf.model.NutrientsDTO", dtoNutrients);
+			request.getRequestDispatcher("/views/jsp/AdminNutrientsUpdate.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+			
+	}
+	
+	//관리자) 영양제 수정
+	public void AdminNutrientsUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+		String nutrientsName = request.getParameter("nutrientsName");
+		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
+		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+		String nutrientsImg = request.getParameter("nutrientsImg");
+		String nutrientsDetail = request.getParameter("nutrientsDetail");
+		String nutrientsDom = request.getParameter("nutrientsDom");
+		String dailyIntake = request.getParameter("dailyIntake");
+		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
+		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
+		String nutrientsLink = request.getParameter("nutrientsLink");
+		
+		GoodsDAO dao = new GoodsDAO();
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, nutrientsLink);
+		
+		int resultNutrientsUpdate = dao.AdminNutrientsUpdate(dtoNutrients);
+		if( resultNutrientsUpdate > 0 ) {
+			response.sendRedirect("admin?cmd=AdminNutrientsSelect"); //.안붙혀지면 에러!!!!!!!!
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -311,12 +341,11 @@ public class AdminController extends HttpServlet {
 //		Date hfDom = request.getParameter("hfDom");
 		
 		String hfDom = request.getParameter("hfDom");       
-		System.out.println(hfDom);
+//		System.out.println(hfDom);
 		String hfLink = request.getParameter("hfLink");
 		
 		GoodsDAO dao = new GoodsDAO();
 		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
-//		System.out.println(dtoHealthFood.getHfId());
 		
 		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
 		if (resultHealthFoodInsert > 0) {
@@ -328,7 +357,32 @@ public class AdminController extends HttpServlet {
 	}
 		
 		
-		// 영양제 등록
+	// 관리자) 영양제 등록
+	public void AdminNutrientsInsert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");	
+		
+		String nutrientsName = request.getParameter("nutrientsName");
+		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
+		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+		String nutrientsImg = request.getParameter("nutrientsImg");
+		String nutrientsDetail = request.getParameter("nutrientsDetail");
+		String nutrientsDom = request.getParameter("nutrientsDom");       
+		String dailyIntake = request.getParameter("dailyIntake");
+		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
+		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
+		String nutrientsLink = request.getParameter("nutrientsLink");
+		
+		GoodsDAO dao = new GoodsDAO();
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, nutrientsLink);
+		
+		int resultNutrientsInsert = dao.AdminNutrientsInsert(dtoNutrients);
+		if (resultNutrientsInsert > 0) {
+			response.sendRedirect("admin?cmd=AdminNutrientsSelect");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+		
+	}	
 
 
 	

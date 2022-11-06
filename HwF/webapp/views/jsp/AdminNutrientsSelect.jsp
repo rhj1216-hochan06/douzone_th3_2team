@@ -58,20 +58,23 @@
 					<th>1일 섭취 갯수</th>
 					<th>1통 당 갯수</th>
 					<th>현재 잔여 갯수</th>
+					<!-- <th>추천 링크</th> -->
 				</tr>
 		
 				<c:forEach var="AdminNutrientsSelect" items="${ AdminNutrientsSelect }">
-					<tr>
-						<td>${ AdminNutrientsSelect.nutrientsID }</td>
+					<tr class="row" id="${AdminNutrientsSelect.nutrientsId}" title="${AdminNutrientsSelect.nutrientsName} 수정"
+						onclick="location.href='admin?cmd=AdminNutrientsDetail&nutrientsId=${AdminNutrientsSelect.nutrientsId}'" >
+						<td>${ AdminNutrientsSelect.nutrientsId }</td>
 						<td>${ AdminNutrientsSelect.nutrientsName }</td>
 						<td>${ AdminNutrientsSelect.nutrientsPrice }</td>
 						<td>${ AdminNutrientsSelect.nutrientsCategory }</td>
 						<td><img src="${ AdminNutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminNutrientsSelect.nutrientsDetail }</td>
-						<td>${ AdminNutrientsSelect.nutrientsDoM }</td>
+						<td>${ AdminNutrientsSelect.nutrientsDom }</td>
 						<td>${ AdminNutrientsSelect.dailyIntake }</td>
 						<td>${ AdminNutrientsSelect.numPerBottle }</td>
 						<td>${ AdminNutrientsSelect.remainingNum }</td>
+						<%-- <td>${ AdminNutrientsSelect.nutrientsLink }</td> --%>
 					</tr>
 				</c:forEach>
 			</table>

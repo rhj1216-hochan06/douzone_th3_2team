@@ -36,8 +36,13 @@
  	</select>
  	
 	<update id="AdminHealthGoodsUpdate" parameterType="com.hwf.model.HealthGoodsDTO">
- 		update healthgoods 
- 		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
+ 		update healthgoods set 
+ 		healthGoodsName = #{healthGoodsName}, 
+ 		healthGoodsPrice = #{healthGoodsPrice}, 
+ 		healthGoodsCategory = #{healthGoodsCategory}, 
+ 		healthGoodsImg = #{healthGoodsImg}, 
+ 		healthGoodsDetail = #{healthGoodsDetail}, 
+ 		Link = #{healthGoodsLink} 
  		where healthGoodsId = #{healthGoodsId}
  	</update>
  	
@@ -50,11 +55,39 @@
  	</select>
  	
 	<update id="AdminHealthFoodUpdate" parameterType="com.hwf.model.HealthFoodDTO">
- 		update healthfood 
- 		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
- 		where healthGoodsId = #{healthGoodsId}
+ 		update healthfood set 
+ 		hfName = #{hfName}, 
+ 		hfPrice = #{hfPrice}, 
+ 		hfCategory = #{hfCategory}, 
+ 		hfImg = #{hfImg}, 
+ 		hfDetail = #{hfDetail}, 
+ 		hfDom = to_date(#{hfDom},'yyyy-mm-dd'),
+ 		Link = #{hfLink} 
+ 		where hfId = #{hfId}
  	</update>
  	
+ 	
+ 	
+ 	 <!-- 관리자) 영양제 수정 -->
+	<select id="AdminNutrientsDetail" resultType="com.hwf.model.NutrientsDTO" parameterType="int">
+ 		select * from nutrients
+ 		where nutrientsId = #{nutrientsId}
+ 	</select>
+ 	
+	<update id="AdminNutrientsUpdate" parameterType="com.hwf.model.NutrientsDTO">
+ 		update nutrients set 
+ 		nutrientsName = #{nutrientsName}, 
+ 		nutrientsPrice = #{nutrientsPrice}, 
+ 		nutrientsCategory = #{nutrientsCategory}, 
+ 		nutrientsImg = #{nutrientsImg}, 
+ 		nutrientsDetail = #{nutrientsDetail}, 
+ 		nutrientsDom = to_date(#{nutrientsDom},'yyyy-mm-dd'), 
+ 		dailyIntake = #{dailyIntake}, 
+ 		numPerBottle = #{numPerBottle}, 
+ 		remainingNum = #{remainingNum}, 
+ 		Link = #{nutrientsLink} 
+ 		where nutrientsId = #{nutrientsId}
+ 	</update>
  	
  	
  	<!-- ***** 관리자) 상품 삭제 ***** -->
@@ -71,29 +104,15 @@
  	
  	<!-- 관리자) 헬스식품 등록 -->
  	<insert id="AdminHealthFoodInsert" parameterType="com.hwf.model.HealthFoodDTO">
- 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd hh24:mi:SS'), #{healthFoodLink}) -->
-
-		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{to_date(hfDom,'yyyy-mm-dd')}, #{healthFoodLink}) -->
- 		
- 		insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd'), #{healthFoodLink})
-
-		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{to_date(#{hfDom},'yyyy.mm.dd hh24:mi:SS')}, #{healthFoodLink}) -->
- 	
- 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{hfDom}, #{healthFoodLink}) -->
- 		
- 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, DATE_FORMAT(#{hfDom, jdbc= DATE}, '%Y-%m-%d'), #{healthFoodLink}) -->
- 		
- 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{hfDom, jdbc= DATE}, #{healthFoodLink}) -->
+		insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd'), #{hfLink})
  	</insert>
  	
  	<!-- 관리자) 영양제 등록 -->
+ 	<insert id="AdminNutrientsInsert" parameterType="com.hwf.model.NutrientsDTO">
+		insert into nutrients(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, Link)
+ 		values(nutrients_id_seq.nextval, #{nutrientsName}, #{nutrientsPrice}, #{nutrientsCategory}, #{nutrientsImg}, #{nutrientsDetail}, to_date(#{nutrientsDom},'yyyy-mm-dd'), #{dailyIntake}, #{numPerBottle}, #{remainingNum}, #{nutrientsLink})
+ 	</insert>
  	
  	
  	

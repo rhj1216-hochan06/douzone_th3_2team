@@ -17,10 +17,12 @@ public class HealthFoodDTO {
 	private int hfCategory;			//헬스식품 카테고리
 	private String hfImg;			//헬스식품 이미지
 	private String hfDetail;		//헬스식품 상세설명
+	
 //	private java.sql.Date hfDom;    //헬스식품 제조날짜
 //	private java.util.Date hfDom;   //헬스식품 제조날짜
 //	private Date hfDom;				//헬스식품 제조날짜
 	private String hfDom;			//헬스식품 제조날짜
+	
 	private String hfLink; 			//인바디,설문 연결값
 	
 	

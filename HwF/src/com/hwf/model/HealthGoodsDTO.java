@@ -18,19 +18,7 @@ public class HealthGoodsDTO { // model
 	private String healthGoodsImg;		//헬스용품 이미지
 	private String healthGoodsDetail;	//헬스용품 상세설명
 	private String healthGoodsLink; 	//인바디,설문 연결값
-
 	
-//	//AdminController - AdminHealthGoodsUpdate()에서 필요한 생성자
-//	public HealthGoodsDTO (int healthGoodsId, String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String healthGoodsLink) {
-//		super();
-//		this.healthGoodsId = healthGoodsId;
-//		this.healthGoodsName = healthGoodsName;
-//		this.healthGoodsPrice = healthGoodsPrice;
-//		this.healthGoodsCategory = healthGoodsCategory;
-//		this.healthGoodsImg = healthGoodsImg;
-//		this.healthGoodsDetail = healthGoodsDetail;
-//		this.healthGoodsLink = healthGoodsLink;
-//	}
 	
 	//AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
 	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String healthGoodsLink) {

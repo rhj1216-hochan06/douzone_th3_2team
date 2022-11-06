@@ -54,7 +54,7 @@
 					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" value="${ com.hwf.model.GoodsDTO.healthGoodsCategory }"> </td></tr>
 					<tr><td>이미지</td><td><input type="text" name="healthGoodsImg" value="${ com.hwf.model.GoodsDTO.healthGoodsImg }"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail">${ com.hwf.model.GoodsDTO.healthGoodsDetail }</textArea></td></tr>
-					<tr><td>설문조사 링크</td><td><input type="number" name="healthGoodsLink" value="${ com.hwf.model.GoodsDTO.healthGoodsLink }"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="number" name="healthGoodsLink" value="${ com.hwf.model.GoodsDTO.healthGoodsLink }"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    
