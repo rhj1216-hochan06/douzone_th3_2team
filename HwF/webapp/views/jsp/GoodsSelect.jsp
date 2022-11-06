@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <!-- JSTL 사용하기 위해 태그라이브러리 임포트 -->
@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
-<title>상품 조회</title>
+<title>전체 상품 조회</title>
 </head>
 
 <!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/GoodsSelect.jsp -->
@@ -38,7 +38,7 @@
 			<br><br>
 			<a href="javascript:location.href='AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a> 
 			<br><br>
-			<h1 class="contentTopText">관리자 [상품 조회] 페이지</h1>
+			<h1 class="contentTopText">관리자 [전체 상품 조회] 페이지</h1>
 			<br><br>
 		</div>
 	
@@ -156,4 +156,4 @@
 	<footer>회사 이름, 대표 이름 등등</footer>
 
 </body>
-</html> --%>
+</html>

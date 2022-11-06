@@ -59,7 +59,7 @@
 					</tr>
 			
 					<c:forEach var="AdminHealthGoodsSelect" items="${ AdminHealthGoodsSelect }">
-						<tr id = "${AdminHealthGoodsSelect.healthGoodsId}" title="${AdminHealthGoodsSelect.healthGoodsName} 수정"
+						<tr class="row" id="${AdminHealthGoodsSelect.healthGoodsId}" title="${AdminHealthGoodsSelect.healthGoodsName} 수정"
 						onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
 						<%-- <tr onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
 																					&healthGoodsName=${AdminHealthGoodsSelect.healthGoodsName}'" >

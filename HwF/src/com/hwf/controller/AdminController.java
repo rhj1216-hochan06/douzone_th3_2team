@@ -45,9 +45,9 @@ public class AdminController extends HttpServlet {
 		}
 		
 		// 상품 전체 조회
-//		else if (cmd.equals("GoodsSelect")) { // 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
-//			GoodsSelect(request, response);
-//		} 
+		else if (cmd.equals("GoodsSelect")) { // 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
+			GoodsSelect(request, response);
+		} 
 		else if (cmd.equals("AdminHealthGoodsSelect")) { //관리자) 헬스용품 전체 조회
 			AdminHealthGoodsSelect(request, response);
 		} 
@@ -95,24 +95,24 @@ public class AdminController extends HttpServlet {
 	
 	/*************** 상품 전체 조회 ***************/
 	
-//	// 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회
-//	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//		GoodsDAO dao = new GoodsDAO();
-//		List<GoodsDTO> HealthGoodsSelect = dao.HealthGoodsSelect();
-//		List<GoodsDTO> HealthFoodSelect = dao.HealthFoodSelect();
-//		List<GoodsDTO> NutrientsSelect = dao.NutrientsSelect();
-//
-//		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
-//			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); // data save
-//			request.setAttribute("HealthFoodSelect", HealthFoodSelect); // data save
-//			request.setAttribute("NutrientsSelect", NutrientsSelect); // data save
-//			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response);
-//		} else {
-//			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
-//		}
-//
-//	}
+	// 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회
+	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		GoodsDAO dao = new GoodsDAO();
+		List<GoodsDTO> HealthGoodsSelect = dao.AdminHealthGoodsSelect();
+		List<GoodsDTO> HealthFoodSelect = dao.AdminHealthFoodSelect();
+		List<GoodsDTO> NutrientsSelect = dao.AdminNutrientsSelect();
+
+		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
+			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); // data save
+			request.setAttribute("HealthFoodSelect", HealthFoodSelect); // data save
+			request.setAttribute("NutrientsSelect", NutrientsSelect); // data save
+			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+		}
+
+	}
 	
 	
 	

@@ -59,9 +59,8 @@
 				</tr>
 		
 				<c:forEach var="AdminHealthFoodSelect" items="${ AdminHealthFoodSelect }">
-					<tr id = "${AdminHealthFoodSelect.hfId}" title="${AdminHealthFoodSelect.hfName} 수정"
+					<tr class="row" id="${AdminHealthFoodSelect.hfId}" title="${AdminHealthFoodSelect.hfName} 수정"
 						onclick="location.href='admin?cmd=AdminHealthFoodDetail&hfId=${AdminHealthFoodSelect.hfId}'" >
-						<tr>
 						<td>${ AdminHealthFoodSelect.hfId }</td>
 						<td>${ AdminHealthFoodSelect.hfName }</td>
 						<td>${ AdminHealthFoodSelect.hfPrice }</td>

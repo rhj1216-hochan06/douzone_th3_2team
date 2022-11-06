@@ -139,6 +139,21 @@ footer {
 	color:#57648C;
 }
 
+.contentBottom img:hover {
+	transform: scale(1.1);
+}
+
+
+.contentBottom .row:hover {
+	background-color: #C2B4D6;
+} 
+
+/*
+.contentBottom table tr:hover {
+	background-color: #C2B4D6;
+}
+*/
+
 /*
 .contentBottom table {
 	margin-left: auto; 

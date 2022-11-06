@@ -46,6 +46,7 @@
 			<a href="javascript:location.href='../../admin?cmd=AdminHealthGoodsSelect'"><img src="${path}/views/img/IconHealthGoods.png" alt="헬스용품 관리" style="width: 150px; height: 150px"><span>헬스용품 관리</span></a>
 			<a href="javascript:location.href='../../admin?cmd=AdminHealthFoodSelect'"><img src="${path}/views/img/IconHealthFood.png" alt="헬스식품 관리" style="width: 150px; height: 150px"><span>헬스식품 관리</span></a>
 			<a href="javascript:location.href='../../admin?cmd=AdminNutrientsSelect'"><img src="${path}/views/img/IconNutrients.png" alt="영양제 관리" style="width: 150px; height: 150px"><span>영양제 관리</span></a>
+			<a href="javascript:location.href='../../admin?cmd=GoodsSelect'"><img src="${path}/views/img/AllGoods.png" alt="전체상품 조회" style="width: 150px; height: 150px"><span>전체상품 조회</span></a>
 			<br><br><br><br><br><br><br>
 		</div>
 		
