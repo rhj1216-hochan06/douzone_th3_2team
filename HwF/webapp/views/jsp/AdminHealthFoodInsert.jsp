@@ -54,7 +54,7 @@
 					<tr><td>이미지</td><td><input type="text" name="hfImg"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail"></textArea></td></tr>
 					<!-- <tr><td>제조날짜</td><td><input type="text" name="hfDom"> </td></tr> -->
-					<!-- <tr><td>제조날짜</td><td><input type="date" name="hfDom"> </td></tr> -->
+					<tr><td>제조날짜</td><td><input type="date" name="hfDom"> </td></tr>
 					<tr><td>설문조사 링크</td><td><input type="text" name="hfLink" required="required"> </td></tr>
 				</table>
 				<br><br>

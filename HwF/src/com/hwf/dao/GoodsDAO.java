@@ -7,7 +7,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Component;
 
 import com.hwf.config.SqlSessionFactoryService;
-import com.hwf.model.GoodsDTO;
+//import com.hwf.model.GoodsDTO;
+import com.hwf.model.HealthFoodDTO;
+import com.hwf.model.HealthGoodsDTO;
+import com.hwf.model.NutrientsDTO;
 
 @Component
 public class GoodsDAO {
@@ -28,7 +31,7 @@ public class GoodsDAO {
 	/*************** 상품 전체 조회 ***************/
 
 	// AdminHealthGoodsSelect (헬스용품 전체 조회)
-	public List<GoodsDTO> AdminHealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	public List<HealthGoodsDTO> AdminHealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
@@ -45,7 +48,7 @@ public class GoodsDAO {
 	}
 
 	// AdminHealthFoodSelect (헬스식품 전체 조회)
-	public List<GoodsDTO> AdminHealthFoodSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	public List<HealthFoodDTO> AdminHealthFoodSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
@@ -62,7 +65,7 @@ public class GoodsDAO {
 	}
 
 	// NutrientsSelect (영양제 전체 조회)
-	public List<GoodsDTO> AdminNutrientsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
+	public List<NutrientsDTO> AdminNutrientsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
@@ -84,14 +87,14 @@ public class GoodsDAO {
 	
 	//AdminHealthGoodsDetail (헬스용품 상세보기)
 //	public GoodsDTO AdminHealthGoodsDetail(GoodsDTO dto) {
-	public GoodsDTO AdminHealthGoodsDetail(int HealthGoodsId) {	
+	public HealthGoodsDTO AdminHealthGoodsDetail(int HealthGoodsId) {	
 		try {
 //			sqlSession = sqlSessionFactory.openSession();
 //			GoodsDTO dto2 = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", dto); //""자리에는 mapper.xml에서의 namespace.id
 //			return dto2;
 			
 			sqlSession = sqlSessionFactory.openSession();
-			GoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", HealthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
+			HealthGoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", HealthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			
 		} catch (Exception e) {
@@ -104,7 +107,7 @@ public class GoodsDAO {
 	}
 	
 	// AdminHealthGoodsUpdate (헬스용품 수정)
-	public int AdminHealthGoodsUpdate(GoodsDTO dto) {
+	public int AdminHealthGoodsUpdate(HealthGoodsDTO dto) {
 		try {
 			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
 			int result = sqlSession.update("adminMapper.AdminHealthGoodsUpdate",dto); //""자리에는 mapper.xml에서의 namespace.id
@@ -123,10 +126,10 @@ public class GoodsDAO {
 	
 	
 	//AdminHealthFoodDetail (헬스식품 상세보기)
-	public GoodsDTO AdminHealthFoodDetail(int hfId) {
+	public HealthFoodDTO AdminHealthFoodDetail(int hfId) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			GoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfId); //""자리에는 mapper.xml에서의 namespace.id
+			HealthFoodDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfId); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			
 		} catch (Exception e) {
@@ -139,7 +142,7 @@ public class GoodsDAO {
 	}
 	
 	// AdminHealthFoodUpdate (헬스식품 수정)
-	public int AdminHealthFoodUpdate(GoodsDTO dto) {
+	public int AdminHealthFoodUpdate(HealthFoodDTO dto) {
 		try {
 			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
 			int result = sqlSession.update("adminMapper.AdminHealthFoodUpdate", dto); //""자리에는 mapper.xml에서의 namespace.id
@@ -160,7 +163,7 @@ public class GoodsDAO {
 	/*************** 상품 등록 ***************/
 	
 	// AdminHealthGoodsInsert (헬스용품 등록)
-	public int AdminHealthGoodsInsert(GoodsDTO dto) {
+	public int AdminHealthGoodsInsert(HealthGoodsDTO dto) {
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 
@@ -181,7 +184,7 @@ public class GoodsDAO {
 	}
 	
 	// AdminHealthFoodInsert (헬스식품 등록)
-	public int AdminHealthFoodInsert(GoodsDTO dto) {
+	public int AdminHealthFoodInsert(HealthFoodDTO dto) {
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
 

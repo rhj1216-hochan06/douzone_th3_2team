@@ -11,17 +11,17 @@
 	<!-- ***** 관리자) 상품 전체 조회 ***** -->
  
  	<!-- 관리자) 헬스용품 전체 조회 -->
- 	<select id="AdminHealthGoodsSelect" resultType="com.hwf.model.GoodsDTO">
+ 	<select id="AdminHealthGoodsSelect" resultType="com.hwf.model.HealthGoodsDTO">
  		select * from healthgoods order by healthgoodsId
  	</select>
  	
  	<!-- 관리자) 헬스식품 전체 조회 -->
- 	<select id="AdminHealthFoodSelect" resultType="com.hwf.model.GoodsDTO">
+ 	<select id="AdminHealthFoodSelect" resultType="com.hwf.model.HealthFoodDTO">
  		select * from healthfood order by hfId
  	</select>
  	
  	<!-- 관리자) 영양제 전체 조회 -->
- 	<select id="AdminNutrientsSelect" resultType="com.hwf.model.GoodsDTO">
+ 	<select id="AdminNutrientsSelect" resultType="com.hwf.model.NutrientsDTO">
  		select * from nutrients order by nutrientsId
  	</select>
  	
@@ -30,24 +30,26 @@
 	<!-- ***** 관리자) 상품 수정 ***** -->
 	
 	<!-- 관리자) 헬스용품 수정 -->
-	<select id="AdminHealthGoodsDetail" resultType="com.hwf.model.GoodsDTO" parameterType="int">
+	<select id="AdminHealthGoodsDetail" resultType="com.hwf.model.HealthGoodsDTO" parameterType="int">
  		select * from healthgoods 
  		where healthGoodsId = #{healthGoodsId}
  	</select>
  	
-	<update id="AdminHealthGoodsUpdate" parameterType="com.hwf.model.GoodsDTO">
+	<update id="AdminHealthGoodsUpdate" parameterType="com.hwf.model.HealthGoodsDTO">
  		update healthgoods 
  		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
  		where healthGoodsId = #{healthGoodsId}
  	</update>
  	
+ 	
+ 	
  	<!-- 관리자) 헬스식품 수정 -->
-	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.GoodsDTO" parameterType="int">
+	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="int">
  		select * from healthfood
  		where hfId = #{hfId}
  	</select>
  	
-	<update id="AdminHealthFoodUpdate" parameterType="com.hwf.model.GoodsDTO">
+	<update id="AdminHealthFoodUpdate" parameterType="com.hwf.model.HealthFoodDTO">
  		update healthfood 
  		set healthGoodsName = #{healthGoodsName}, healthGoodsPrice = #{healthGoodsPrice}, healthGoodsCategory = #{healthGoodsCategory}, healthGoodsImg = #{healthGoodsImg}, healthGoodsDetail = #{healthGoodsDetail}, Link = #{healthGoodsLink} 
  		where healthGoodsId = #{healthGoodsId}
@@ -56,24 +58,27 @@
  	
  	
  	<!-- ***** 관리자) 상품 삭제 ***** -->
- 
+
  
  	
  	<!-- ***** 관리자) 상품 등록 ***** -->
   	
  	<!-- 관리자) 헬스용품 등록 -->
- 	<insert id="AdminHealthGoodsInsert" parameterType="com.hwf.model.GoodsDTO">
+ 	<insert id="AdminHealthGoodsInsert" parameterType="com.hwf.model.HealthGoodsDTO">
  		insert into healthgoods(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, Link)
  		values(healthgoods_id_seq.nextval, #{healthGoodsName}, #{healthGoodsPrice}, #{healthGoodsCategory}, #{healthGoodsImg}, #{healthGoodsDetail}, #{healthGoodsLink})
  	</insert>
  	
  	<!-- 관리자) 헬스식품 등록 -->
- 	<insert id="AdminHealthFoodInsert" parameterType="com.hwf.model.GoodsDTO">
+ 	<insert id="AdminHealthFoodInsert" parameterType="com.hwf.model.HealthFoodDTO">
  		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy.mm.dd hh24:mi:SS'), #{healthFoodLink}) -->
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd hh24:mi:SS'), #{healthFoodLink}) -->
 
 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{to_date(hfDom,'yy/mm/dd')}, #{healthFoodLink}) -->
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{to_date(hfDom,'yyyy-mm-dd')}, #{healthFoodLink}) -->
+ 		
+ 		insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd'), #{healthFoodLink})
 
 		<!-- insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, Link)
  		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, #{to_date(#{hfDom},'yyyy.mm.dd hh24:mi:SS')}, #{healthFoodLink}) -->

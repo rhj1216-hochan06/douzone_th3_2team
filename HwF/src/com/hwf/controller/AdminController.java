@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 //import com.hwf.*;
 import com.hwf.dao.GoodsDAO;
 import com.hwf.dao.MemberDAO;
-import com.hwf.model.GoodsDTO;
+import com.hwf.model.HealthFoodDTO;
+//import com.hwf.model.GoodsDTO;
+import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.MemberDTO;
+import com.hwf.model.NutrientsDTO;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
@@ -78,16 +81,7 @@ public class AdminController extends HttpServlet {
 			AdminHealthGoodsInsert(request, response);
 		}
 		else if (cmd.equals("AdminHealthFoodInsert")) {  // 관리자) 헬스식품 등록
-//			AdminHealthFoodInsert(request, response);
-//			try {
-//				AdminHealthFoodInsert(request, response);
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			AdminHealthFoodInsert(request, response);
 		}
 	}
 
@@ -99,9 +93,9 @@ public class AdminController extends HttpServlet {
 	public void GoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		GoodsDAO dao = new GoodsDAO();
-		List<GoodsDTO> HealthGoodsSelect = dao.AdminHealthGoodsSelect();
-		List<GoodsDTO> HealthFoodSelect = dao.AdminHealthFoodSelect();
-		List<GoodsDTO> NutrientsSelect = dao.AdminNutrientsSelect();
+		List<HealthGoodsDTO> HealthGoodsSelect = dao.AdminHealthGoodsSelect();
+		List<HealthFoodDTO> HealthFoodSelect = dao.AdminHealthFoodSelect();
+		List<NutrientsDTO> NutrientsSelect = dao.AdminNutrientsSelect();
 
 		if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
 			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); // data save
@@ -122,7 +116,7 @@ public class AdminController extends HttpServlet {
 	public void AdminHealthGoodsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		GoodsDAO dao = new GoodsDAO();
-		List<GoodsDTO> AdminHealthGoodsSelect = dao.AdminHealthGoodsSelect();
+		List<HealthGoodsDTO> AdminHealthGoodsSelect = dao.AdminHealthGoodsSelect();
 
 		if (AdminHealthGoodsSelect != null) {
 			request.setAttribute("AdminHealthGoodsSelect", AdminHealthGoodsSelect); // data save
@@ -139,7 +133,7 @@ public class AdminController extends HttpServlet {
 	public void AdminHealthFoodSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		GoodsDAO dao = new GoodsDAO();
-		List<GoodsDTO> AdminHealthFoodSelect = dao.AdminHealthFoodSelect();
+		List<HealthFoodDTO> AdminHealthFoodSelect = dao.AdminHealthFoodSelect();
 
 		if (AdminHealthFoodSelect != null) {
 			request.setAttribute("AdminHealthFoodSelect", AdminHealthFoodSelect); // data save
@@ -156,7 +150,7 @@ public class AdminController extends HttpServlet {
 	public void AdminNutrientsSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		GoodsDAO dao = new GoodsDAO();
-		List<GoodsDTO> AdminNutrientsSelect = dao.AdminNutrientsSelect();
+		List<NutrientsDTO> AdminNutrientsSelect = dao.AdminNutrientsSelect();
 
 		if (AdminNutrientsSelect != null) {
 			request.setAttribute("AdminNutrientsSelect", AdminNutrientsSelect); // data save
@@ -176,10 +170,10 @@ public class AdminController extends HttpServlet {
 		int healthGoodsId = Integer.parseInt(request.getParameter("healthGoodsId"));
 			
 		GoodsDAO dao = new GoodsDAO();
-		GoodsDTO dtoHealthGoods = dao.AdminHealthGoodsDetail(healthGoodsId);
+		HealthGoodsDTO dtoHealthGoods = dao.AdminHealthGoodsDetail(healthGoodsId);
 			
 		if(dtoHealthGoods != null) {
-			request.setAttribute("com.hwf.model.GoodsDTO", dtoHealthGoods);
+			request.setAttribute("com.hwf.model.HealthGoodsDTO", dtoHealthGoods);
 			request.getRequestDispatcher("/views/jsp/AdminHealthGoodsUpdate.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
@@ -200,7 +194,7 @@ public class AdminController extends HttpServlet {
 		System.out.println(healthGoodsId + ",\t" + healthGoodsName + ",\t" + healthGoodsPrice +",\t" + healthGoodsCategory + ",\t" + healthGoodsImg + ",\t" + healthGoodsDetail + ",\t" + healthGoodsLink);
 		
 		GoodsDAO dao = new GoodsDAO();
-		GoodsDTO dtoHealthGoods = new GoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
+		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
 		
 //		request.setAttribute("healthGoodsName", healthGoodsName);
 //		request.setAttribute("healthGoodsPrice", healthGoodsPrice);
@@ -233,10 +227,10 @@ public class AdminController extends HttpServlet {
 		int hfId = Integer.parseInt(request.getParameter("hfId"));
 			
 		GoodsDAO dao = new GoodsDAO();
-		GoodsDTO dtoHealthFood = dao.AdminHealthGoodsDetail(hfId);
+		HealthFoodDTO dtoHealthFood = dao.AdminHealthFoodDetail(hfId);
 			
 		if(dtoHealthFood != null) {
-			request.setAttribute("com.hwf.model.GoodsDTO", dtoHealthFood);
+			request.setAttribute("com.hwf.model.HealthFoodDTO", dtoHealthFood);
 			request.getRequestDispatcher("/views/jsp/AdminHealthFoodUpdate.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
@@ -258,7 +252,7 @@ public class AdminController extends HttpServlet {
 		System.out.println(hfId + ",\t" + hfName + ",\t" + hfPrice +",\t" + hfCategory + ",\t" + hfImg + ",\t" + hfDetail + ",\t" + hfLink);
 		
 		GoodsDAO dao = new GoodsDAO();
-		GoodsDTO dtoHealthFood = new GoodsDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
 		
 		int resultHealthFoodUpdate = dao.AdminHealthFoodUpdate(dtoHealthFood);
 		if( resultHealthFoodUpdate > 0 ) {
@@ -287,7 +281,7 @@ public class AdminController extends HttpServlet {
 		String healthGoodsLink = request.getParameter("healthGoodsLink");
 		
 		GoodsDAO dao = new GoodsDAO();
-		GoodsDTO dtoHealthGoods = new GoodsDTO(healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
+		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
 		
 		int resultHealthGoodsInsert = dao.AdminHealthGoodsInsert(dtoHealthGoods);
 		if (resultHealthGoodsInsert > 0) {
@@ -301,36 +295,37 @@ public class AdminController extends HttpServlet {
 		
 		
 	// 관리자) 헬스식품 등록
-//	public void AdminHealthFoodInsert(HttpServletRequest request, HttpServletResponse response) throws IOException, ParseException {
-//		request.setCharacterEncoding("UTF-8");	
-//		
-//		String hfName = request.getParameter("hfName");
-//		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
-//		String hfImg = request.getParameter("hfImg");
-//		String hfDetail = request.getParameter("hfDetail");
-//		
+	public void AdminHealthFoodInsert(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("UTF-8");	
+		
+		String hfName = request.getParameter("hfName");
+		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
+		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+		String hfImg = request.getParameter("hfImg");
+		String hfDetail = request.getParameter("hfDetail");
+		
 //		SimpleDateFormat SDF = new SimpleDateFormat("yy-MM-dd");
 //		String hfDomString = request.getParameter("hfDom");
 //		Date hfDom = (Date) SDF.parse(hfDomString);
-//
-////		Date hfDom = request.getParameter("hfDom");
-//		
-////		String hfDom = request.getParameter("hfDom");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-//		String hfLink = request.getParameter("hfLink");
-//		
-//		GoodsDAO dao = new GoodsDAO();
-//		GoodsDTO dtoHealthFood = new GoodsDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
-//		
-//		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
-//		
-//		if (resultHealthFoodInsert > 0) {
-//			response.sendRedirect("admin?cmd=AdminHealthGoodsSelect");
-//		} else {
-//			response.sendRedirect("/views/jsp/error.jsp");
-//		}
-//		
-//	}
+
+//		Date hfDom = request.getParameter("hfDom");
+		
+		String hfDom = request.getParameter("hfDom");       
+		System.out.println(hfDom);
+		String hfLink = request.getParameter("hfLink");
+		
+		GoodsDAO dao = new GoodsDAO();
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
+//		System.out.println(dtoHealthFood.getHfId());
+		
+		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
+		if (resultHealthFoodInsert > 0) {
+			response.sendRedirect("admin?cmd=AdminHealthFoodSelect");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+		
+	}
 		
 		
 		// 영양제 등록
