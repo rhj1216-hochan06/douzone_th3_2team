@@ -195,10 +195,10 @@ public class AdminController extends HttpServlet {
 		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
-		String healthGoodsLink = request.getParameter("healthGoodsLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
+		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link);
 		
 		int resultHealthGoodsUpdate = dao.AdminHealthGoodsUpdate(dtoHealthGoods);
 		if( resultHealthGoodsUpdate > 0 ) {
@@ -235,10 +235,10 @@ public class AdminController extends HttpServlet {
 		String hfImg = request.getParameter("hfImg");
 		String hfDetail = request.getParameter("hfDetail");
 		String hfDom = request.getParameter("hfDom");
-		String hfLink = request.getParameter("hfLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, link);
 		
 		int resultHealthFoodUpdate = dao.AdminHealthFoodUpdate(dtoHealthFood);
 		if( resultHealthFoodUpdate > 0 ) {
@@ -279,10 +279,10 @@ public class AdminController extends HttpServlet {
 		String dailyIntake = request.getParameter("dailyIntake");
 		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
 		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
-		String nutrientsLink = request.getParameter("nutrientsLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, nutrientsLink);
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link);
 		
 		int resultNutrientsUpdate = dao.AdminNutrientsUpdate(dtoNutrients);
 		if( resultNutrientsUpdate > 0 ) {
@@ -308,10 +308,10 @@ public class AdminController extends HttpServlet {
 		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
-		String healthGoodsLink = request.getParameter("healthGoodsLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, healthGoodsLink);
+		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link);
 		
 		int resultHealthGoodsInsert = dao.AdminHealthGoodsInsert(dtoHealthGoods);
 		if (resultHealthGoodsInsert > 0) {
@@ -342,10 +342,10 @@ public class AdminController extends HttpServlet {
 		
 		String hfDom = request.getParameter("hfDom");       
 //		System.out.println(hfDom);
-		String hfLink = request.getParameter("hfLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, hfLink);
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, link);
 		
 		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
 		if (resultHealthFoodInsert > 0) {
@@ -370,10 +370,10 @@ public class AdminController extends HttpServlet {
 		String dailyIntake = request.getParameter("dailyIntake");
 		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
 		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
-		String nutrientsLink = request.getParameter("nutrientsLink");
+		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, nutrientsLink);
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link);
 		
 		int resultNutrientsInsert = dao.AdminNutrientsInsert(dtoNutrients);
 		if (resultNutrientsInsert > 0) {

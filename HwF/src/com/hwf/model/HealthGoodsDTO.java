@@ -17,17 +17,17 @@ public class HealthGoodsDTO { // model
 	private int healthGoodsCategory;	//헬스용품 카테고리
 	private String healthGoodsImg;		//헬스용품 이미지
 	private String healthGoodsDetail;	//헬스용품 상세설명
-	private String healthGoodsLink; 	//인바디,설문 연결값
+	private String link; 				//인바디,설문 연결값
 	
 	
 	//AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
-	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String healthGoodsLink) {
+	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String Link) {
 		super();
 		this.healthGoodsName = healthGoodsName;
 		this.healthGoodsPrice = healthGoodsPrice;
 		this.healthGoodsCategory = healthGoodsCategory;
 		this.healthGoodsImg = healthGoodsImg;
 		this.healthGoodsDetail = healthGoodsDetail;
-		this.healthGoodsLink = healthGoodsLink;
+		this.link = link;
 	}
 }

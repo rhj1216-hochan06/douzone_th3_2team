@@ -57,7 +57,7 @@
 					<th>카테고리</th>
 					<th>이미지</th>
 					<th>상세설명</th>
-					<!-- <th>추천 링크</th> -->
+					<th>추천 링크</th>
 				</tr>
 		
 				<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
@@ -68,7 +68,7 @@
 						<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
 						<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
-						<%-- <td>${ HealthGoodsSelect.healthGoodsLink }</td> --%>
+						<td>${ HealthGoodsSelect.link }</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -90,7 +90,7 @@
 					<th>이미지</th>
 					<th>상세설명</th>
 					<th>제조날짜</th>
-					<!-- <th>추천 링크</th> -->
+					<th>추천 링크</th>
 				</tr>
 		
 				<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
@@ -102,7 +102,7 @@
 						<td><img src="${ HealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ HealthFoodSelect.hfDetail }</td>
 						<td>${ HealthFoodSelect.hfDom }</td>
-						<%-- <td>${ AdminHealthFoodSelect.hfLink }</td> --%>
+						<td>${ HealthFoodSelect.link }</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -127,7 +127,7 @@
 					<th>1일 섭취 갯수</th>
 					<th>1통 당 갯수</th>
 					<th>현재 잔여 갯수</th>
-					<!-- <th>추천 링크</th> -->
+					<th>추천 링크</th>
 				</tr>
 		
 				<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
@@ -142,7 +142,7 @@
 						<td>${ NutrientsSelect.dailyIntake }</td>
 						<td>${ NutrientsSelect.numPerBottle }</td>
 						<td>${ NutrientsSelect.remainingNum }</td>
-						<%-- <td>${ AdminNutrientsSelect.nutrientsLink }</td> --%>
+						<td>${ NutrientsSelect.link }</td>
 					</tr>
 				</c:forEach>
 			</table>

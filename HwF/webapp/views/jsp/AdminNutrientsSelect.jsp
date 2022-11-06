@@ -58,7 +58,7 @@
 					<th>1일 섭취 갯수</th>
 					<th>1통 당 갯수</th>
 					<th>현재 잔여 갯수</th>
-					<!-- <th>추천 링크</th> -->
+					<th>추천 링크</th>
 				</tr>
 		
 				<c:forEach var="AdminNutrientsSelect" items="${ AdminNutrientsSelect }">
@@ -74,7 +74,7 @@
 						<td>${ AdminNutrientsSelect.dailyIntake }</td>
 						<td>${ AdminNutrientsSelect.numPerBottle }</td>
 						<td>${ AdminNutrientsSelect.remainingNum }</td>
-						<%-- <td>${ AdminNutrientsSelect.nutrientsLink }</td> --%>
+						<td>${ AdminNutrientsSelect.link }</td>
 					</tr>
 				</c:forEach>
 			</table>

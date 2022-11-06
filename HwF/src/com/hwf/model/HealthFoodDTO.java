@@ -23,11 +23,11 @@ public class HealthFoodDTO {
 //	private Date hfDom;				//헬스식품 제조날짜
 	private String hfDom;			//헬스식품 제조날짜
 	
-	private String hfLink; 			//인바디,설문 연결값
+	private String link; 			//인바디,설문 연결값
 	
 	
 	//AdminController - AdminHealthFoodInsert()에서 필요한 생성자
-	public HealthFoodDTO(String hfName, int hfPrice, int hfCategory, String hfImg, String hfDetail, String hfDom, String hfLink) {
+	public HealthFoodDTO(String hfName, int hfPrice, int hfCategory, String hfImg, String hfDetail, String hfDom, String link) {
 		super();
 		this.hfName = hfName;
 		this.hfPrice = hfPrice;
@@ -35,7 +35,7 @@ public class HealthFoodDTO {
 		this.hfImg = hfImg;
 		this.hfDetail = hfDetail;
 		this.hfDom = hfDom;
-		this.hfLink = hfLink;
+		this.link = link;
 	}
 
 }

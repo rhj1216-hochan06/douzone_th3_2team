@@ -55,7 +55,7 @@
 					<tr><td>이미지</td><td><input type="text" name="hfImg" value="${ hfImg }"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail">${ hfDetail }</textArea></td></tr>
 					<tr><td>제조날짜</td><td><input type="date" name="hfDom"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="number" name="hfLink" value="${ hfLink }"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="number" name="link" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    

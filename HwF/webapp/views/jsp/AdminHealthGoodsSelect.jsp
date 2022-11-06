@@ -55,7 +55,7 @@
 						<th>카테고리</th>
 						<th>이미지</th>
 						<th>상세설명</th>
-						<!-- <th>추천 링크</th> -->
+						<th>추천 링크</th>
 					</tr>
 			
 					<c:forEach var="AdminHealthGoodsSelect" items="${ AdminHealthGoodsSelect }">
@@ -67,14 +67,14 @@
 																					&healthGoodsCategory=${AdminHealthGoodsSelect.healthGoodsCategory}
 																					&healthGoodsImg=${AdminHealthGoodsSelect.healthGoodsImg}
 																					&healthGoodsDetail=${AdminHealthGoodsSelect.healthGoodsDetail}
-																					&healthGoodsLink=${AdminHealthGoodsSelect.healthGoodsLink}'" > --%>
+																					&healthGoodsLink=${AdminHealthGoodsSelect.link}'" > --%>
 							<td>${ AdminHealthGoodsSelect.healthGoodsId }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsName }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsPrice }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsCategory }</td>
 							<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>
-							<%-- <td>${ AdminHealthGoodsSelect.healthGoodsLink }</td> --%>
+							<td>${ AdminHealthGoodsSelect.link }</td>
 						</tr>
 					</c:forEach>
 				</table>

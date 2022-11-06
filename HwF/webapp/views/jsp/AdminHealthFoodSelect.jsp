@@ -55,7 +55,7 @@
 					<th>이미지</th>
 					<th>상세설명</th>
 					<th>제조날짜</th>
-					<!-- <th>추천 링크</th> -->
+					<th>추천 링크</th>
 				</tr>
 		
 				<c:forEach var="AdminHealthFoodSelect" items="${ AdminHealthFoodSelect }">
@@ -68,7 +68,7 @@
 						<td><img src="${ AdminHealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminHealthFoodSelect.hfDetail }</td>
 						<td>${ AdminHealthFoodSelect.hfDom }</td>
-						<%-- <td>${ AdminHealthFoodSelect.hfLink }</td> --%>
+						<td>${ AdminHealthFoodSelect.link }</td>
 					</tr>
 				</c:forEach>
 			</table>

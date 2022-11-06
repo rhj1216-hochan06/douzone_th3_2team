@@ -57,7 +57,7 @@
 					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyIntake"> </td></tr>
 					<tr><td>1통 당 갯수</td><td><input type="text" name="numPerBottle"> </td></tr>
 					<tr><td>현재 잔여 갯수</td><td><input type="text" name="remainingNum"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="text" name="nutrientsLink" required="required"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="text" name="link" required="required"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="등록">

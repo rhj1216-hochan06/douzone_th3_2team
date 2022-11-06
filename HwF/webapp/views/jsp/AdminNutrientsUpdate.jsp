@@ -58,7 +58,7 @@
 					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyIntake" value="${ dailyIntake }"> </td></tr>
 					<tr><td>1통 당 갯수</td><td><input type="number" name="numPerBottle" value="${ numPerBottle }"> </td></tr>
 					<tr><td>현재 잔여 갯수</td><td><input type="number" name="remainingNum" value="${ remainingNum }"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="text" name="nutrientsLink" value="${ nutrientsLink }"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="text" name="nutrientsLink" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    

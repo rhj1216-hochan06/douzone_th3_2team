@@ -49,12 +49,12 @@
 			<form action="./admin?cmd=AdminHealthGoodsUpdate" method="post"> <!-- <form action="admin?cmd=AdminHealthGoodsUpdate"과 동일한 결과 -->
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>번호</td><td><input type="number" name="healthGoodsId" value="${ param.healthGoodsId }"> </td></tr>
-					<tr><td>이름</td><td><input type="text" name="healthGoodsName" value="${ com.hwf.model.GoodsDTO.healthGoodsName }"> </td></tr>
-					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" value="${ com.hwf.model.GoodsDTO.healthGoodsPrice }"> </td></tr>
-					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" value="${ com.hwf.model.GoodsDTO.healthGoodsCategory }"> </td></tr>
-					<tr><td>이미지</td><td><input type="text" name="healthGoodsImg" value="${ com.hwf.model.GoodsDTO.healthGoodsImg }"> </td></tr>
-					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail">${ com.hwf.model.GoodsDTO.healthGoodsDetail }</textArea></td></tr>
-					<tr><td>추천 링크</td><td><input type="number" name="healthGoodsLink" value="${ com.hwf.model.GoodsDTO.healthGoodsLink }"> </td></tr>
+					<tr><td>이름</td><td><input type="text" name="healthGoodsName" value="${ healthGoodsName }"> </td></tr>
+					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" value="${ healthGoodsPrice }"> </td></tr>
+					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" value="${ healthGoodsCategory }"> </td></tr>
+					<tr><td>이미지</td><td><input type="text" name="healthGoodsImg" value="${ healthGoodsImg }"> </td></tr>
+					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail">${ healthGoodsDetail }</textArea></td></tr>
+					<tr><td>추천 링크</td><td><input type="number" name="link" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    
