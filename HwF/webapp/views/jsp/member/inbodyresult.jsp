@@ -48,7 +48,7 @@
 	근육량 : ${bodymuscle}<br>
 	체지방량 : ${bodyfat}<br>
 	인바디결과 :${inbodyresult}<br>
-	
+	링크 : ${link}
 	
 	
 	

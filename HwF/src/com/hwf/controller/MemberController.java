@@ -183,10 +183,12 @@ public class MemberController extends HttpServlet {
 		if (goal.equals("1")) {
 			link = "증량";
 			goal = "증량";
+			session.setAttribute("link", link);
 			session.setAttribute("goal", goal);
 		} else if (goal.equals("2")) {
 			link = "다이어트";
 			goal = "감량";
+			session.setAttribute("link", link);
 			session.setAttribute("goal", goal);
 		}
 
