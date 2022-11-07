@@ -1,50 +1,47 @@
 package com.hwf.controller;
 
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import com.hwf.dao.NutrientsDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hwf.dao.CartDAO;
 import com.hwf.model.NutrientsDTO;
 
-@WebServlet("/cart")
-public class CartController extends HttpServlet {
-	public CartController() {
+@RestController
+public class CartController {
+
+	@Autowired
+	private CartDAO cartdao;
+
+	@RequestMapping(value = "/views/jsp/buy/cart", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+
+		return "cart";
 	}
 
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@RequestMapping(value = "/HwF/nutrients" , method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, String> buydaycart(Locale locale, Model model, HttpServletRequest request) {
 
-		response.setCharacterEncoding("UTF-8");
+		System.out.println("123");
+		HashMap<String, String> result = new HashMap<String, String>();
 
-		String cmd = request.getParameter("cmd");
+		String productsName = request.getParameter("productsName");
 
-		System.out.println("cmd : " + cmd);
+		List<NutrientsDTO> list = cartdao.selectusename(productsName);
 
-		if (cmd.equals("list")) {
-			list(request, response);
-		}
+		System.out.println(list.get(0));
+
+		return result;
+
 	}
-
-	//////////////////////////////////////////////////////////////////////////////////////
-	// 메소드 시작
-	//////////////////////////////////////////////////////////////////////////////////////
-	
-	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		NutrientsDAO dao = new NutrientsDAO();
-		List<NutrientsDTO> list = dao.selectAll();
-
-		if (list != null) {
-			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
-		} else {
-			response.sendRedirect("views/error.jsp");
-		}
-	}
-
 }

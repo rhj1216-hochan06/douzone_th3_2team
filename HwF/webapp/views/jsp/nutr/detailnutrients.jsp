@@ -12,7 +12,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/detailnutrients.css" />
 
-<script type="text/javascript" src="${path}/views/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="${path}/views/js/nutr.js"></script>
+
 
 <title>allList</title>
 
@@ -96,13 +98,19 @@
 
 	<div id="nutrientsListDiv">
 
+		<!-- 선택한 상품 보여주기 -->
 		<c:forEach var="list" items="${ list }">
 
 			<div>
-				<img alt="사진" src="${list.nutrientsIMG }">
+				<img id="nutrientsIMG" alt="사진" src="${list.nutrientsIMG }">
+
 			</div>
 
 			<div id="nutrdiscription">
+
+				<div id="listId">${list.nutrientsID }</div>
+				<div id="listName">${list.nutrientsName }</div>
+				<br />
 
 				<div>${list.nutrientsDetail }</div>
 
@@ -147,11 +155,11 @@
 				<form name="buyday" action="" method="post">
 					<h1>일 수 총 가격</h1>
 
-					<div id="onetotal">0</div>
-
+					<input id="onetotal" name="onetotal" value="0" readonly />
+					<p />
 					<a>수량 결정</a>
-
-					<div id="countone">0</div>
+					<p />
+					<input id="countone" name="countone" value="0" readonly />
 
 					<div id="calculationdiv">
 
@@ -164,14 +172,21 @@
 						<input type='radio' name='getnu' value='onetime' />한번에 받기 <input
 							type='radio' name='getnu' value='splittime' />나눠서 받기
 						<p />
-						<input type='date' id="selectdate" value="2022-11-06"/>
-						
-						<input type='button'
+						<input type='date' id="selectdate" value="2022-11-06" />
+
+						<div>
+							끝나는 날 : <input id="finishnutr" name="finishnutr" value="0"
+								readonly />
+						</div>
+						<p />
+						<p />
+						<input type="submit" id="bottlebasket" class="calculation"
+							value="장바구니"> <input type='button'
 							onclick="selectnudate()" class="calculation" value='날짜 선택' />
+
 					</div>
 
 				</form>
-				<a href="" title="장바구니에 담기" class="basket">장바구니</a>
 			</div>
 
 
@@ -181,11 +196,11 @@
 				<form name="buybottle" action="" method="post">
 					<h1>낱개 총 가격</h1>
 
-					<div id="total">0</div>
-
+					<input id="total" name="total" value="0" readonly />
+					<p />
 					<a>수량 결정</a>
-
-					<div id="countnum">0</div>
+					<p />
+					<input id="countnum" name="countnum" value="0" readonly />
 
 					<div id="calculationdiv">
 
@@ -195,14 +210,28 @@
 					</div>
 
 					<div id="calender2">
-						<input type='radio' name='getnu' value='onetime' />한번에 받기 <input
-							type='radio' name='getnu' value='splittime' />나눠서 받기
+						<input type='radio' name='getnuall' value='onetime' />한번에 받기 <input
+							type='radio' name='getnuall' value='splittime' />나눠서 받기
 						<p />
-						<input type='date' name='onebuyday' value='2022-11-6' />
+						<input type='date' id="selectdate2" value="2022-11-06" />
+
+						<div>
+							끝나는 날 : <input id="finishnutr2" name="finishnutr2" value="0"
+								readonly />
+						</div>
+						<p />
+						<p />
+
+						<input type="submit" id="bottlebasket" class="calculation"
+							value="장바구니"> <input type='button'
+							onclick="selectnudate2()" class="calculation" value='날짜 선택' />
+
+
+
 					</div>
 
 				</form>
-				<a href="" title="장바구니에 담기" class="basket">장바구니</a>
+
 			</div>
 
 		</div>

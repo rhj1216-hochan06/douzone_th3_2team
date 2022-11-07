@@ -249,9 +249,21 @@ article table {
 	text-decoration: none;
 }
 
+#inputtest {
+	border: none;
+}
+
 /* -- 달력 -- */
 #calender1, #calender2 {
 	margin-bottom: 2rem;
+}
+
+/* input tag 조절 */
+#onetotal, #countone, #finishnutr, #selectdate, #total, #countnum,
+	#finishnutr2, #selectdate2 {
+	border: none;
+	text-align: center;
+	font-size: 1.1rem;
 }
 
 /* -------------------------------- */
