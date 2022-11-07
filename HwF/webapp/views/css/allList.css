@@ -41,16 +41,6 @@ header div img {
 	width: 7rem;
 }
 
-#loginimg {
-	position: absolute;
-	right: 10%;
-}
-
-#loginimg img {
-	width: 5rem;
-	cursor: pointer;
-}
-
 nav {
 	display: flex;
 	flex-direction: column;
@@ -100,6 +90,7 @@ header nav table img {
 }
 
 article {
+	display: none;
 	text-align: center;
 }
 
@@ -146,6 +137,40 @@ article table {
 
 #allnutrientsImg {
 	width: 14rem;
+}
+
+/* nutrientsList table start */
+#nutrientsListDiv {
+	display: flex;
+	justify-content: center;
+}
+
+#nutrientsListDiv table {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	align-items: center;
+	width: 80rem;
+	margin: 5rem;
+	align-items: center;
+}
+
+#nutrientsListDiv table tr:hover {
+	background-color: lightgray;
+	cursor: pointer;
+}
+
+#nutrientsListDiv table th {
+	background-color: lightblue;
+	font-size: 1.4rem;
+}
+
+#nutrientsListDiv td, #nutrientsListDiv th {
+	border: 1px solid black;
+}
+
+#nutrientsListDiv img {
+	width: 6rem;
 }
 
 footer {
