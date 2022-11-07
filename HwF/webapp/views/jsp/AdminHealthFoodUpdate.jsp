@@ -48,14 +48,14 @@
 			
 			<form action="./admin?cmd=AdminHealthFoodUpdate" method="post"> <!-- <form action="admin?cmd=AdminHealthFoodUpdate"과 동일한 결과 -->
 				<table style="margin-left: auto; margin-right:auto;">
-					<tr><td>번호</td><td><input type="number" name="hfId" value="${ param.hfId }"> </td></tr>
-					<tr><td>이름</td><td><input type="text" name="hfName" value="${ hfName }"> </td></tr>
-					<tr><td>가격</td><td><input type="number" name="hfPrice" value="${ hfPrice }"> </td></tr>
-					<tr><td>카테고리</td><td><input type="number" name="hfCategory" value="${ hfCategory }"> </td></tr>
-					<tr><td>이미지</td><td><input type="text" name="hfImg" value="${ hfImg }"> </td></tr>
-					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail">${ hfDetail }</textArea></td></tr>
-					<tr><td>제조날짜</td><td><input type="date" name="hfDom"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="number" name="link" value="${ link }"> </td></tr>
+					<tr><td>번호</td><td><input type="number" name="hfId" value="${hfId}"> </td></tr>
+					<tr><td>이름</td><td><input type="text" name="hfName" value="${hfName}"> </td></tr>
+					<tr><td>가격</td><td><input type="number" name="hfPrice" value="${hfPrice}"> </td></tr>
+					<tr><td>카테고리</td><td><input type="number" name="hfCategory" value="${hfCategory}"> </td></tr>
+					<tr><td>이미지</td><td><input type="text" name="hfImg" value="${hfImg}"> </td></tr>
+					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail">${hfDetail}</textArea></td></tr>
+					<tr><td>제조날짜</td><td><input type="date" name="hfDom" value="${hfDom}"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="number" name="link" value="${link}"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    

@@ -46,7 +46,6 @@
 			
 			<h3>헬스용품 관리</h3> <br>
 			
-			<!-- <div id=tableHealthGoods"> -->
 				<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
 					<tr>
 						<th>번호</th>
@@ -61,13 +60,6 @@
 					<c:forEach var="AdminHealthGoodsSelect" items="${ AdminHealthGoodsSelect }">
 						<tr class="row" id="${AdminHealthGoodsSelect.healthGoodsId}" title="${AdminHealthGoodsSelect.healthGoodsName} 수정"
 						onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
-						<%-- <tr onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
-																					&healthGoodsName=${AdminHealthGoodsSelect.healthGoodsName}'" >
-																					&healthGoodsPrice=${AdminHealthGoodsSelect.healthGoodsPrice}
-																					&healthGoodsCategory=${AdminHealthGoodsSelect.healthGoodsCategory}
-																					&healthGoodsImg=${AdminHealthGoodsSelect.healthGoodsImg}
-																					&healthGoodsDetail=${AdminHealthGoodsSelect.healthGoodsDetail}
-																					&healthGoodsLink=${AdminHealthGoodsSelect.link}'" > --%>
 							<td>${ AdminHealthGoodsSelect.healthGoodsId }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsName }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsPrice }</td>
@@ -75,10 +67,11 @@
 							<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>
 							<td>${ AdminHealthGoodsSelect.link }</td>
+							<%-- <td><input type="button" value="삭제" onclick='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${ AdminHealthGoodsSelect.healthGoodsId }'></td> --%>
 						</tr>
+						
 					</c:forEach>
 				</table>
-			<!-- </div> -->
 			
 			<br><br>
 		

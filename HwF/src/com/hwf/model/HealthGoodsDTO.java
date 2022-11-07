@@ -21,7 +21,7 @@ public class HealthGoodsDTO { // model
 	
 	
 	//AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
-	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String Link) {
+	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String link) {
 		super();
 		this.healthGoodsName = healthGoodsName;
 		this.healthGoodsPrice = healthGoodsPrice;

@@ -50,6 +50,7 @@
  	
  	<!-- 관리자) 헬스식품 수정 -->
 	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="int">
+	<!-- <select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="com.hwf.model.HealthFoodDTO"> -->
  		select * from healthfood
  		where hfId = #{hfId}
  	</select>
@@ -91,6 +92,9 @@
  	
  	
  	<!-- ***** 관리자) 상품 삭제 ***** -->
+ 	<delete id="AdminHealthGoodsDelete" parameterType="int">
+ 		delete from healthgoods where healthgoodsId = #{healthgoodsId}
+ 	</delete>
 
  
  	

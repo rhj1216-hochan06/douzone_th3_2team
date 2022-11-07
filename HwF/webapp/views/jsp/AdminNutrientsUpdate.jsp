@@ -48,7 +48,7 @@
 			
 			<form action="./admin?cmd=AdminNutrientsUpdate" method="post">
 				<table style="margin-left: auto; margin-right:auto;">
-					<tr><td>번호</td><td><input type="number" name="nutrientsId" value="${ param.nutrientsId }"> </td></tr>
+					<tr><td>번호</td><td><input type="number" name="nutrientsId" value="${ nutrientsId }"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="nutrientsName" value="${ nutrientsName }"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="nutrientsPrice" value="${ nutrientsPrice }"> </td></tr>
 					<tr><td>카테고리</td><td><input type="number" name="nutrientsCategory" value="${ nutrientsCategory }"> </td></tr>
@@ -58,7 +58,7 @@
 					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyIntake" value="${ dailyIntake }"> </td></tr>
 					<tr><td>1통 당 갯수</td><td><input type="number" name="numPerBottle" value="${ numPerBottle }"> </td></tr>
 					<tr><td>현재 잔여 갯수</td><td><input type="number" name="remainingNum" value="${ remainingNum }"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="text" name="nutrientsLink" value="${ link }"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="text" name="link" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    

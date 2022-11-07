@@ -89,10 +89,6 @@ public class GoodsDAO {
 //	public GoodsDTO AdminHealthGoodsDetail(GoodsDTO dto) {
 	public HealthGoodsDTO AdminHealthGoodsDetail(int HealthGoodsId) {	
 		try {
-//			sqlSession = sqlSessionFactory.openSession();
-//			GoodsDTO dto2 = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", dto); //""자리에는 mapper.xml에서의 namespace.id
-//			return dto2;
-			
 			sqlSession = sqlSessionFactory.openSession();
 			HealthGoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", HealthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
@@ -192,6 +188,28 @@ public class GoodsDAO {
 			if (sqlSession!=null) {sqlSession.close();} 
 		}
 	}		
+	
+	
+	
+	/*************** 상품 삭제 ***************/
+
+	public int AdminHealthGoodsDelete(int healthGoodsId) {
+		sqlSession = sqlSessionFactory.openSession();
+		System.out.println("여기");
+		
+		try {
+			int resultHealthGoodsDelete = sqlSession.delete("adminMapper.AdminHealthGoodsDelete", healthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
+			System.out.println("여기!!!");
+			sqlSession.commit();
+			return resultHealthGoodsDelete; //AdminController-AdminHealthGoodsDelete()에서 resultHealthGoodsDelete로 받기때문에 resultHealthGoodsDelete 리턴
+		
+		} catch (Exception e) {
+			return 0;
+			
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
 	
 	
 	

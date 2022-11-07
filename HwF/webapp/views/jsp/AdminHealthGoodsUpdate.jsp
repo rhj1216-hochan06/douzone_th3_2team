@@ -48,7 +48,7 @@
 			
 			<form action="./admin?cmd=AdminHealthGoodsUpdate" method="post"> <!-- <form action="admin?cmd=AdminHealthGoodsUpdate"과 동일한 결과 -->
 				<table style="margin-left: auto; margin-right:auto;">
-					<tr><td>번호</td><td><input type="number" name="healthGoodsId" value="${ param.healthGoodsId }"> </td></tr>
+					<tr><td>번호</td><td><input type="number" name="healthGoodsId" value="${ healthGoodsId }"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="healthGoodsName" value="${ healthGoodsName }"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" value="${ healthGoodsPrice }"> </td></tr>
 					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" value="${ healthGoodsCategory }"> </td></tr>
@@ -57,8 +57,17 @@
 					<tr><td>추천 링크</td><td><input type="number" name="link" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
-				<input type="submit" value="수정">    
+				<input type="submit" value="수정" >
+				<!-- <input type="submit" value="수정" id="AdminHealthGoodsUpdate">
+				<input type="submit" value="삭제" id="AdminHealthGoodsDelete"> -->
+				<input type="button" value="삭제" onclick="javascript:location.href='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${ AdminHealthGoodsSelect.healthGoodsId }'">
 			</form>
+			
+			
+			
+			<!-- <form action="./admin?cmd=AdminHealthGoodsDelete" method="post"> <form action="admin?cmd=AdminHealthGoodsUpdate"과 동일한 결과 
+				<input type="submit" value="삭제" id="AdminHealthGoodsDelete"> 
+			</form> -->
 			
 			<br>
 		</div> <!-- end contentBottom -->
