@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>mypage</title>
+<title>Survayresult</title>
 </head>
 <body>
 	<header>
@@ -39,37 +39,38 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
-
-			<div id="mypage">
-			<table id ="mypage">
-					<tr id="id" ><td>ID : ${memberid}</tr>
-					<tr id="name" ><td>Name : ${membername}</tr>
-					<tr id="sex" ><td>sex : ${membersex}</tr>
-					<tr id="survey" ><td>Survey</tr>
-					<tr id="inbody" ><td>InbodyTest</tr>
-					<tr id="community" ><td>Community</tr>
-				
-			</table>
-		
-			</div>
-	
-
-
-
 		</nav>
 	</header>
+	<div id="surveyresult">
+	${membername} 님의 설문조사 결과<br>
+	목표 : ${goal}<br>
+	현재 상태 : ${currentstate}<br>
+	현재 섭취량 : ${currentintke}<br>
+	
+	</div>
+	<br>
 
 
 
 
 
 
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<input type="button" value="로그아웃" onclick="location.href='Member?cmd=logout'">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<input type="button" value="마이페이지"
+		onclick="location.href='Member?cmd=login'">
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>login</title>
+<title>Inbody</title>
 </head>
 <body>
 	<header>
@@ -39,46 +39,49 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
-
-			<form action="./Member?cmd=logincheck" method="post">
-
-				<table>
-
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="memberid" required></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="memberpwd" required>
-					</tr>
-					<tr>
-
-						<td colspan="2" align="center">
-							<input type="submit"
-							value="로그인">
-							<input type="button" value="회원가입"
-							onclick="location.href='Member?cmd=join'"></td>
-					</tr>
-				</table>
-
-			</form>
-
-
 		</nav>
 	</header>
+	<div id="form">
+		<form action="./Member?cmd=inbodyresult" method="post">
+			<table>
+					<tr>
+						<td>키</td><td><input type="number" name="memberheight" required></td>
+					</tr>
+					<tr>
+						<td>몸무게</td><td><input type="number" name="memberweight" required></td>
+					</tr>
+					<tr>
+						<td>근육량</td><td><input type="text" name="bodymuscle" required></td>
+					</tr>
+					<tr>
+						<td>체지방량</td><td><input type="text" name="bodyfat" required></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="인바디값 제출">
+					</tr>
+				</table>
+		</form>
+		
+	</div>
 
 
 
 
-
-
-
-
-
-
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>
