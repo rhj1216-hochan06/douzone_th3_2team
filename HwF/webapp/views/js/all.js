@@ -11,3 +11,12 @@ const change = (choice) => {
 		}
 	}
 };
+
+   function YnCheck(obj) {
+      var checked = obj.checked;
+      if(checked) {
+         obj.value = 1;
+      } else {
+         obj.value = 0;
+      }
+   };
