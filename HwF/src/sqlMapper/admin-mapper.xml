@@ -6,7 +6,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
  
  <!-- <mapper namespace="dao"> -->
- <mapper namespace="adminMapper"> <!-- MemberDAO, GoodsDAO 에서도 dao->adminMapper로 변경  -->
+ <mapper namespace="adminMapper">
  
 	<!-- ***** 관리자) 상품 전체 조회 ***** -->
  
@@ -47,7 +47,6 @@
  	</update>
  	
  	
- 	
  	<!-- 관리자) 헬스식품 수정 -->
 	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="int">
 	<!-- <select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="com.hwf.model.HealthFoodDTO"> -->
@@ -66,7 +65,6 @@
  		link = #{link} 
  		where hfId = #{hfId}
  	</update>
- 	
  	
  	
  	 <!-- 관리자) 영양제 수정 -->
@@ -91,10 +89,26 @@
  	</update>
  	
  	
+ 	
  	<!-- ***** 관리자) 상품 삭제 ***** -->
+ 	
+ 	<!-- 관리자) 헬스용품 삭제 -->
  	<delete id="AdminHealthGoodsDelete" parameterType="int">
- 		delete from healthgoods where healthgoodsId = #{healthgoodsId}
+ 		delete from healthgoods 
+ 		where healthGoodsId = #{healthGoodsId}
  	</delete>
+ 	
+ 	<!-- 관리자) 헬스식품 삭제 -->
+ 	<delete id="AdminHealthFoodDelete" parameterType="int">
+ 		delete from healthfood 
+ 		where hfId = #{hfId}
+ 	</delete>
+ 	
+  	<!-- 관리자) 영양제 삭제 -->
+ 	<delete id="AdminNutrientsDelete" parameterType="int">
+ 		delete from nutrients 
+ 		where nutrientsId = #{nutrientsId}
+ 	</delete>	 	
 
  
  	

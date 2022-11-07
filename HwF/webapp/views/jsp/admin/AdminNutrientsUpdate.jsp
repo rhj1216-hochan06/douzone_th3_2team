@@ -12,6 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
+<script type="text/javascript" defer src="${path}/views/js/AdminNutrientsJS.js"></script>
 <title>영양제 수정</title>
 </head>
 
@@ -61,7 +62,8 @@
 					<tr><td>추천 링크</td><td><input type="text" name="link" value="${ link }"> </td></tr>
 				</table>
 				<br><br>
-				<input type="submit" value="수정">    
+				<input type="submit" value="수정"> 
+				<input type="button" value="삭제"  onclick='return submitDelete(this.form);'>    
 			</form>
 			
 			<br>

@@ -193,13 +193,11 @@ public class GoodsDAO {
 	
 	/*************** 상품 삭제 ***************/
 
+	// AdminHealthGoodsDelete (헬스용품 삭제)
 	public int AdminHealthGoodsDelete(int healthGoodsId) {
 		sqlSession = sqlSessionFactory.openSession();
-		System.out.println("여기");
-		
 		try {
 			int resultHealthGoodsDelete = sqlSession.delete("adminMapper.AdminHealthGoodsDelete", healthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
-			System.out.println("여기!!!");
 			sqlSession.commit();
 			return resultHealthGoodsDelete; //AdminController-AdminHealthGoodsDelete()에서 resultHealthGoodsDelete로 받기때문에 resultHealthGoodsDelete 리턴
 		
@@ -210,6 +208,38 @@ public class GoodsDAO {
 			if (sqlSession != null) {sqlSession.close();}
 		}
 	}
+	
+	// AdminHealthFoodDelete (헬스식품 삭제)
+	public int AdminHealthFoodDelete(int hfId) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			int resultHealthFoodDelete = sqlSession.delete("adminMapper.AdminHealthFoodDelete", hfId); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return resultHealthFoodDelete;
+		
+		} catch (Exception e) {
+			return 0;
+				
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
+	
+	// AdminNutrientsDelete (영양제 삭제)
+	public int AdminNutrientsDelete(int nutrientsId) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			int resultNutrientsDelete = sqlSession.delete("adminMapper.AdminNutrientsDelete", nutrientsId); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return resultNutrientsDelete;
+		
+		} catch (Exception e) {
+			return 0;
+				
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}	
 	
 	
 	

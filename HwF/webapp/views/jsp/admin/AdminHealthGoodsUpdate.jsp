@@ -12,6 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
+<script type="text/javascript" defer src="${path}/views/js/AdminHealthGoodsJS.js"></script>
 <title>헬스용품 수정</title>
 </head>
 
@@ -56,17 +57,18 @@
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail">${ healthGoodsDetail }</textArea></td></tr>
 					<tr><td>추천 링크</td><td><input type="text" name="link" value="${ link }"> </td></tr>
 				</table>
-				<br><br>
 				<input type="submit" value="수정" >
-				<!-- <input type="submit" value="수정" id="AdminHealthGoodsUpdate">
-				<input type="submit" value="삭제" id="AdminHealthGoodsDelete"> -->
-				<input type="button" value="삭제" onclick="javascript:location.href='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${ AdminHealthGoodsSelect.healthGoodsId }'">
+				<input type="button" value="삭제"  onclick='return submitDelete(this.form);'> 
+				
+				<!-- <input type="submit" value="수정" name="submitUpdate"> -->
+				<!-- <input type="submit" value="삭제" name="submitDelete"> -->
+				<%-- <input type="button" value="삭제" onclick="location.href='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${AdminHealthGoodsUpdate.healthGoodsId}'" > --%>
+				<%-- <a href="javascript:location.href='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${ AdminHealthGoodsUpdate.healthGoodsId }'">삭제</a> --%>
+				
 			</form>
 			
-			
-			
-			<!-- <form action="./admin?cmd=AdminHealthGoodsDelete" method="post"> <form action="admin?cmd=AdminHealthGoodsUpdate"과 동일한 결과 
-				<input type="submit" value="삭제" id="AdminHealthGoodsDelete"> 
+			<!-- <form action="./admin?cmd=AdminHealthGoodsDelete" method="post">
+				<input type="submit" value="삭제"> 
 			</form> -->
 			
 			<br>

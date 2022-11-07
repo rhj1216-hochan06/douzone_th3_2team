@@ -5,6 +5,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
+<!-- Date타입으로 형변환 위해 필요 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
+<script type="text/javascript" defer src="${path}/views/js/AdminHealthFoodJS.js"></script>
 <title>헬스식품 수정</title>
 </head>
 
@@ -54,11 +58,15 @@
 					<tr><td>카테고리</td><td><input type="number" name="hfCategory" value="${hfCategory}"> </td></tr>
 					<tr><td>이미지</td><td><input type="text" name="hfImg" value="${hfImg}"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail">${hfDetail}</textArea></td></tr>
-					<tr><td>제조날짜</td><td><input type="date" name="hfDom" value="${hfDom}"> </td></tr>
+			 		<tr><td>제조날짜</td><td><input type="date" name="hfDom" value="${hfDom}"/> </td></tr>
+					<%-- <tr><td>제조날짜</td><td><input type="date" name="hfDom" value="<fmt:formatDate value="${hfDom}" pattern="yyyy-MM-dd HH:mm:ss"/>"> </td></tr> --%>
+					<%-- <tr><td>제조날짜</td><td><input type="date" name="hfDom" value="<fmt:formatDate value="${hfDom}" pattern="yyyy-MM-dd"/>"> </td></tr> --%>
+					<%-- <tr><td>제조날짜</td><td><input type="date" name="hfDom" value="<fmt:formatDate value="${hfDomDate}" pattern="yyyy-MM-dd"/>"> </td></tr> --%>
 					<tr><td>추천 링크</td><td><input type="text" name="link" value="${link}"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    
+				<input type="button" value="삭제"  onclick='return submitDelete(this.form);'> 
 			</form>
 			
 			<br>

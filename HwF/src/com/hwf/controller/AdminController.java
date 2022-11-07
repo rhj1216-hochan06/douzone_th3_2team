@@ -86,6 +86,12 @@ public class AdminController extends HttpServlet {
 		else if (cmd.equals("AdminHealthGoodsDelete")) { //관리자) 헬스용품 삭제
 			AdminHealthGoodsDelete(request, response);
 		} 
+		else if (cmd.equals("AdminHealthFoodDelete")) { //관리자) 헬스식품 삭제
+			AdminHealthFoodDelete(request, response);
+		} 
+		else if (cmd.equals("AdminNutrientsDelete")) { //관리자) 영양제 삭제
+			AdminNutrientsDelete(request, response);
+		} 
 		
 		
 		// 상품 등록
@@ -222,14 +228,13 @@ public class AdminController extends HttpServlet {
 		
 		GoodsDAO dao = new GoodsDAO();
 		HealthGoodsDTO dtoHealthGoods = new HealthGoodsDTO(healthGoodsId, healthGoodsName, healthGoodsPrice, healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link);
-	
-//		int resultHealthGoodsDelete = dao.AdminHealthGoodsDelete(healthGoodsId);
-//		System.out.println("왔니");
 		
 		int resultHealthGoodsUpdate = dao.AdminHealthGoodsUpdate(dtoHealthGoods);
+		
 		if( resultHealthGoodsUpdate > 0 ) {
 			response.sendRedirect("admin?cmd=AdminHealthGoodsSelect"); //.안붙혀지면 에러!!!!!!!!
-		} else {
+		} 
+		else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
 	}
@@ -242,14 +247,6 @@ public class AdminController extends HttpServlet {
 			
 		GoodsDAO dao = new GoodsDAO();
 		HealthFoodDTO dtoHealthFood = dao.AdminHealthFoodDetail(hfId);
-			
-//		SimpleDateFormat SDF = new SimpleDateFormat("yy-MM-dd");
-//		String hfDomString = request.getParameter("hfDom");
-//		Date hfDom = (Date) SDF.parse(hfDomString);
-		
-//        String HfDomString = dtoHealthFood.getHfDom(); //String 타입의 HfDom
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy MM-dd");  //포맷터
-//        Date HfDomDate = formatter.parse(HfDomString); //String 타입의 HfDom -> Date 타입의 HfDom
         
 		HttpSession session;	      
 		session = request.getSession();
@@ -260,7 +257,7 @@ public class AdminController extends HttpServlet {
         session.setAttribute("hfCategory", dtoHealthFood.getHfCategory());
         session.setAttribute("hfImg", dtoHealthFood.getHfImg());
         session.setAttribute("hfDetail", dtoHealthFood.getHfDetail());
-        session.setAttribute("hfDom", dtoHealthFood.getHfDom());
+        session.setAttribute("hfDom", dtoHealthFood.getHfDom()); //jsp로 출력시킬때 Date타입으로 형변환 필요
         session.setAttribute("link", dtoHealthFood.getLink());
         
         //세션 유지시간 설정(초단위) 20분
@@ -283,7 +280,7 @@ public class AdminController extends HttpServlet {
 		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
 		String hfImg = request.getParameter("hfImg");
 		String hfDetail = request.getParameter("hfDetail");
-		String hfDom = request.getParameter("hfDom");
+		String hfDom = request.getParameter("hfDom"); 
 		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
@@ -317,7 +314,7 @@ public class AdminController extends HttpServlet {
         session.setAttribute("nutrientsCategory", dtoNutrients.getNutrientsCategory());
         session.setAttribute("nutrientsImg", dtoNutrients.getNutrientsImg());
         session.setAttribute("nutrientsDetail", dtoNutrients.getNutrientsDetail());
-        session.setAttribute("nutrientsDom", dtoNutrients.getNutrientsDom());
+        session.setAttribute("nutrientsDom", dtoNutrients.getNutrientsDom()); //jsp로 출력시킬때 Date타입으로 형변환 필요
         session.setAttribute("dailyIntake", dtoNutrients.getDailyIntake());
         session.setAttribute("numPerBottle", dtoNutrients.getNumPerBottle());
         session.setAttribute("remainingNum", dtoNutrients.getRemainingNum());
@@ -363,22 +360,44 @@ public class AdminController extends HttpServlet {
 	
 	
 	/*************** 상품 삭제 ***************/
+	
+	// 관리자) 헬스용품 삭제
 	public void AdminHealthGoodsDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int healthGoodsId = Integer.parseInt(request.getParameter("healthGoodsId"));
-		System.out.println(healthGoodsId);
 		
 		GoodsDAO dao = new GoodsDAO();
 		
 		int resultHealthGoodsDelete = dao.AdminHealthGoodsDelete(healthGoodsId);
-		
-//		if (resultHealthGoodsDelete > 0) {
-//			AdminHealthGoodsSelect(request, response); //또는 response.sendRedirect("admin?cmd=AdminHealthGoodsSelect");
-//		}
-		
-		if( resultHealthGoodsDelete > 0 ) {
-			response.sendRedirect("admin?cmd=AdminHealthGoodsSelect"); //.안붙혀지면 에러!!!!!!!!
-		} else {
-			response.sendRedirect("/views/jsp/error.jsp");
+		if (resultHealthGoodsDelete > 0) {
+			AdminHealthGoodsSelect(request, response);
+		}
+	}
+	
+	
+	
+	// 관리자) 헬스식품 삭제
+	public void AdminHealthFoodDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int hfId = Integer.parseInt(request.getParameter("hfId"));
+			
+		GoodsDAO dao = new GoodsDAO();
+			
+		int resultHealthFoodDelete = dao.AdminHealthFoodDelete(hfId);
+		if (resultHealthFoodDelete > 0) {
+			AdminHealthFoodSelect(request, response);
+		}
+	}
+	
+	
+	
+	// 관리자) 영양제 삭제
+	public void AdminNutrientsDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+				
+		GoodsDAO dao = new GoodsDAO();
+				
+		int resultNutrientsDelete = dao.AdminNutrientsDelete(nutrientsId);
+		if (resultNutrientsDelete > 0) {
+			AdminNutrientsSelect(request, response);
 		}
 	}
 	
