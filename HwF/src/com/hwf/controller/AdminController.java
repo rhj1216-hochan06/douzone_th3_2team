@@ -116,7 +116,7 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect);
 			request.setAttribute("HealthFoodSelect", HealthFoodSelect);
 			request.setAttribute("NutrientsSelect", NutrientsSelect);
-			request.getRequestDispatcher("/views/jsp/GoodsSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/GoodsSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}
@@ -135,7 +135,7 @@ public class AdminController extends HttpServlet {
 
 		if (AdminHealthGoodsSelect != null) {
 			request.setAttribute("AdminHealthGoodsSelect", AdminHealthGoodsSelect);
-			request.getRequestDispatcher("/views/jsp/AdminHealthGoodsSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminHealthGoodsSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}	
@@ -152,7 +152,7 @@ public class AdminController extends HttpServlet {
 
 		if (AdminHealthFoodSelect != null) {
 			request.setAttribute("AdminHealthFoodSelect", AdminHealthFoodSelect); 
-			request.getRequestDispatcher("/views/jsp/AdminHealthFoodSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminHealthFoodSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}	
@@ -169,7 +169,7 @@ public class AdminController extends HttpServlet {
 
 		if (AdminNutrientsSelect != null) {
 			request.setAttribute("AdminNutrientsSelect", AdminNutrientsSelect);
-			request.getRequestDispatcher("/views/jsp/AdminNutrientsSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminNutrientsSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}	
@@ -203,7 +203,7 @@ public class AdminController extends HttpServlet {
 			
 		if(dtoHealthGoods != null) {
 			request.setAttribute("com.hwf.model.HealthGoodsDTO", dtoHealthGoods);
-			request.getRequestDispatcher("/views/jsp/AdminHealthGoodsUpdate.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminHealthGoodsUpdate.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -268,7 +268,7 @@ public class AdminController extends HttpServlet {
         
 		if(dtoHealthFood != null) {
 			request.setAttribute("com.hwf.model.HealthFoodDTO", dtoHealthFood);
-			request.getRequestDispatcher("/views/jsp/AdminHealthFoodUpdate.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminHealthFoodUpdate.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -328,7 +328,7 @@ public class AdminController extends HttpServlet {
 			
 		if(dtoNutrients != null) {
 			request.setAttribute("com.hwf.model.NutrientsDTO", dtoNutrients);
-			request.getRequestDispatcher("/views/jsp/AdminNutrientsUpdate.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminNutrientsUpdate.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -484,7 +484,7 @@ public class AdminController extends HttpServlet {
 
 		if (AdminMemberSelect != null) {
 			request.setAttribute("AdminMemberSelect", AdminMemberSelect); // data save
-			request.getRequestDispatcher("/views/jsp/AdminMemberSelect.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/admin/AdminMemberSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}

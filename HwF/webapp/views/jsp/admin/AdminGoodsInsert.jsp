@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
 <!-- 부트스트랩 css 사용 -->
 <%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrap.css"> --%>
 
@@ -35,7 +35,7 @@
 	
 		<div class="contentTop">
 			<br><br>
-			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
+			<a href="javascript:location.href='../../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
 			<br><br>
 			<h1 class="contentTopText">관리자 [상품 등록] 페이지</h1>
 			<br><br>

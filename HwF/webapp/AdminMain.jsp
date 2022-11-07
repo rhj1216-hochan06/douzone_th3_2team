@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
 <!-- 부트스트랩 css 사용 -->
 <%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrap.css"> --%>
 
@@ -43,16 +43,13 @@
 		
 		<div class="contentBottom">
 			<br>
-			<%-- <a href="javascript:location.href='member?cmd=HealthGoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
-			<%-- <a href="javascript:location.href='admin?cmd=GoodsSelect'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 조회" style="width: 150px; height: 150px"><span>상품 조회</span></a> --%>
-			<a href="javascript:location.href='views/jsp/AdminGoodsSelect.jsp'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 관리" style="width: 150px; height: 150px"><span>상품 관리</span></a>
+			<a href="javascript:location.href='views/jsp/admin/AdminGoodsSelect.jsp'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 관리" style="width: 150px; height: 150px"><span>상품 관리</span></a>
 			
-			<%-- <a href="javascript:location.href='admin?cmd=AdminGoodsInsert'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a> --%>
-			<a href="javascript:location.href='views/jsp/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
+			<a href="javascript:location.href='views/jsp/admin/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			
-			<a href="javascript:location.href='views/jsp/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> 
+			<a href="javascript:location.href='views/jsp/admin/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> 
 			
-			<a href="javascript:location.href='views/jsp/AdminGoodsDelete.jsp'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a> 
+			<a href="javascript:location.href='views/jsp/admin/AdminGoodsDelete.jsp'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a> 
 			
 			<br><br><br>
 			

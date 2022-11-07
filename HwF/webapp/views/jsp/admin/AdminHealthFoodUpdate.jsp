@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
 <title>헬스식품 수정</title>
 </head>
 
@@ -55,7 +55,7 @@
 					<tr><td>이미지</td><td><input type="text" name="hfImg" value="${hfImg}"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail">${hfDetail}</textArea></td></tr>
 					<tr><td>제조날짜</td><td><input type="date" name="hfDom" value="${hfDom}"> </td></tr>
-					<tr><td>추천 링크</td><td><input type="number" name="link" value="${link}"> </td></tr>
+					<tr><td>추천 링크</td><td><input type="text" name="link" value="${link}"> </td></tr>
 				</table>
 				<br><br>
 				<input type="submit" value="수정">    

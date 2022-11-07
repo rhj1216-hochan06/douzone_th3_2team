@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
 <title>헬스용품 등록</title>
 </head>
 
@@ -36,7 +36,7 @@
 	
 		<div class="contentTop">
 			<br><br>
-			<a href="javascript:location.href='../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
+			<a href="javascript:location.href='../../../AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
 			<br><br>
 			<h1 class="contentTopText">관리자 [헬스용품 등록] 페이지</h1>
 			<br><br>
@@ -49,7 +49,8 @@
 			<!-- <form action="admin?cmd=AdminGoodsInsert" method="post">	 <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
 			<!-- <form action="./admin?cmd=AdminGoodsInsert" method="post">  <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
 			<!-- <form action="../admin?cmd=AdminGoodsInsert" method="post"> <!-- http://localhost:8080/ HwF/views/admin?cmd=AdminHealthGoodsInsert -->
-			<form action="../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsInsert -->
+			<!-- <form action="../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsInsert -->
+			<form action="../../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsSelect -->
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>이름</td><td><input type="text" name="healthGoodsName" required="required"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" required="required"> </td></tr>
