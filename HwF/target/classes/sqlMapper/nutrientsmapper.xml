@@ -10,25 +10,23 @@
 	</select>
 
 	<select id="selectvitamin" resultType="nutrdto">
-		select * from NUTRIENTS
-		where NUTRIENTSCATEGORY = 1
+		select * from nutrients where NUTRIENTSCATEGORY = 1
 	</select>
-
+	
 	<select id="selectprotein" resultType="nutrdto">
-		select * from NUTRIENTS
-		where NUTRIENTSCATEGORY = 2
+		select * from nutrients where NUTRIENTSCATEGORY = 2
 	</select>
-
+	
 	<select id="selectdiet" resultType="nutrdto">
-		select * from NUTRIENTS where
-		NUTRIENTSCATEGORY = 3
+		select * from nutrients where NUTRIENTSCATEGORY = 3
 	</select>
 
-	<select id="selectdetail" resultType="nutrdto"
-		parameterType="int">
-		select * from NUTRIENTS where NUTRIENTSID =
-		#{nutrientsid}
+	<select id="selectdetail" resultType="nutrdto" parameterType="int">
+		select * from nutrients where NUTRIENTSID = #{NUTRIENTSID}
 	</select>
-
-
+	
+	<select id="selectusename" resultType="nutrdto" parameterType="String">
+		select * from NUTRIENTS where NUTRIENTSNAME = #{nutrientsname}
+	</select>
+	
 </mapper>

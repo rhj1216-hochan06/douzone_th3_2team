@@ -5,9 +5,13 @@
 
 <mapper namespace="memberdao">
 
+	<select id="selectAll" resultType="memberdto">
+		select * from cart
+	</select>
 
 	<insert id="insert" parameterType="memberdto">
-		insert into member(memberid,memberpwd, membername, membersex)
+		insert into
+		member(memberid,memberpwd, membername, membersex)
 		values(#{memberid},#{memberpwd},#{membername},#{membersex})
 	</insert>
 
@@ -16,17 +20,6 @@
 		parameterType="String">
 		select * from member where memberid = #{memberid}
 	</select>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cartdao">
+
+	<insert id="insertnutr">
+		insert into cart (memberId,
+		productsId, productsName,
+		productsIMG, productsPrice, reservation,
+		purchasetime, Endtime)
+		values (
+		#{memberId},
+		#{productsId},
+		#{productsName},
+		#{productsIMG},
+		#{productsPrice},
+		#{reservation},
+		to_date(#{purchasetime}, 'yyyy.mm.dd
+		hh24:mi:SS'),
+		to_date(#{Endtime}, 'yyyy.mm.dd hh24:mi:SS'),
+		);
+	</insert>
+
+
+</mapper>

@@ -18,7 +18,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -52,10 +52,8 @@
 						<td><input type="password" name="memberpwd" required>
 					</tr>
 					<tr>
-						<td colspan="2" align="center">
-							<input type="submit"
-							value="로그인">
-							<input type="button" value="회원가입"
+						<td colspan="2" align="center"><input type="submit"
+							value="로그인"> <input type="button" value="회원가입"
 							onclick="location.href='Member?cmd=join'"></td>
 					</tr>
 				</table>

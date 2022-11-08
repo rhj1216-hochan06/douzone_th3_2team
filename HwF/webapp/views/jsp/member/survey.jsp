@@ -46,18 +46,15 @@
 			당신의 목표는? : <select name="goal">
 				<option value="1">근육 만들기~~~</option>
 				<option value="2">다이어트!</option>
-			</select> <br> 
-			일어선 상태로 고개만 숙여 발을 본다면?: <select name="currentstate">
+			</select> <br> 일어선 상태로 고개만 숙여 발을 본다면?: <select name="currentstate">
 				<option value="1">배만 보인다</option>
 				<option value="2">발이 배에 살짝 가려저 보인다.</option>
 				<option value="3">발이 잘 보인다</option>
-			</select> <br> 
-			삼시세끼를 영양소를 구분해 잘 챙겨 먹는다: <select name="currentintke">
-				<option value="1"> 항상 배가 부를 때 까지 먹는다</option>
-				<option value="2"> 적당히 배부를게 잘 챙겨 먹는다</option>
-				<option value="3"> 끼니는 대충 해결 하는것 영양소는 중요하지 않다.</option>
-			</select> <br>
-			<input type="submit" value="제출" >
+			</select> <br> 삼시세끼를 영양소를 구분해 잘 챙겨 먹는다: <select name="currentintke">
+				<option value="1">항상 배가 부를 때 까지 먹는다</option>
+				<option value="2">적당히 배부를게 잘 챙겨 먹는다</option>
+				<option value="3">끼니는 대충 해결 하는것 영양소는 중요하지 않다.</option>
+			</select> <br> <input type="submit" value="제출">
 		</form>
 	</div>
 
@@ -78,7 +75,7 @@
 	<br>
 	<br>
 	<br>
-	
+
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

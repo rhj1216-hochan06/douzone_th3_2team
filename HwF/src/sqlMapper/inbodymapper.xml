@@ -8,22 +8,8 @@
 
 	<insert id="insert" parameterType="inbodydto">
 		insert into inbody
- 	 	values(inbody_ID_SEQ.nextval,#{memberheight},#{memberweight},#{bodymuscle},#{bodyfat},#{inbodyresult},#{link},#{memberid})
+		values(inbody_ID_SEQ.nextval,#{memberheight},#{memberweight},#{bodymuscle},#{bodyfat},#{inbodyresult},#{link},#{memberid})
 	</insert>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </mapper>

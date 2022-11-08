@@ -18,7 +18,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='../../../Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -44,24 +44,29 @@
 	<div id="form">
 		<form action="./Member?cmd=inbodyresult" method="post">
 			<table>
-					<tr>
-						<td>키</td><td><input type="number" name="memberheight" required></td>
-					</tr>
-					<tr>
-						<td>몸무게</td><td><input type="number" name="memberweight" required></td>
-					</tr>
-					<tr>
-						<td>근육량</td><td><input type="text" name="bodymuscle" required></td>
-					</tr>
-					<tr>
-						<td>체지방량</td><td><input type="text" name="bodyfat" required></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="submit" value="인바디값 제출">
-					</tr>
-				</table>
+				<tr>
+					<td>키</td>
+					<td><input type="number" name="memberheight" required></td>
+				</tr>
+				<tr>
+					<td>몸무게</td>
+					<td><input type="number" name="memberweight" required></td>
+				</tr>
+				<tr>
+					<td>근육량</td>
+					<td><input type="text" name="bodymuscle" required></td>
+				</tr>
+				<tr>
+					<td>체지방량</td>
+					<td><input type="text" name="bodyfat" required></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="인바디값 제출">
+				</tr>
+			</table>
 		</form>
-		
+
 	</div>
 
 
@@ -81,7 +86,7 @@
 	<br>
 	<br>
 	<br>
-	
+
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

@@ -1,6 +1,9 @@
 package com.hwf.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -10,11 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.hwf.dao.GoodsDAO;
 import com.hwf.dao.InbodyDAO;
 import com.hwf.dao.MemberDAO;
+import com.hwf.dao.RecommendDAO;
+import com.hwf.dao.SearchDAO;
 import com.hwf.dao.SurveyDAO;
+import com.hwf.model.HealthFoodDTO;
+import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.InbodyDTO;
 import com.hwf.model.MemberDTO;
+import com.hwf.model.NutrientsDTO;
 import com.hwf.model.SurveyDTO;
 
 @WebServlet("/Member")
@@ -28,6 +37,7 @@ public class MemberController extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 		String cmd = request.getParameter("cmd");
@@ -47,8 +57,12 @@ public class MemberController extends HttpServlet {
 			logout(request, response);
 		} else if (cmd.equals("survey")) {
 			survey(request, response);
+		} else if (cmd.equals("surveylist")) {
+			surveylist(request, response);
 		} else if (cmd.equals("surveyresult")) {
 			surveyresult(request, response);
+		} else if (cmd.equals("surveyDelete")) {
+			surveyDelete(request, response);
 		} else if (cmd.equals("inbody")) {
 			inbody(request, response);
 		} else if (cmd.equals("inbodyresult")) {
@@ -58,18 +72,19 @@ public class MemberController extends HttpServlet {
 	}
 
 	////////////////////////////////////////////////////////////////////
-	// ÀüÃ¼Á¶È¸
+	// ì „ì²´ì¡°íšŒ
 	////////////////////////////////////////////////////////////////////
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session;
 			session = request.getSession();
+
 			String name = session.getAttribute("membername1").toString();
 			System.out.println(name);
-			if (name.equalsIgnoreCase("È¯¿µÇÕ´Ï´Ù. °í°´´Ô"))
+			if (name.equalsIgnoreCase("í™˜ì˜í•©ë‹ˆë‹¤. ê³ ê°ë‹˜"))
 				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} catch (Exception e) {
-			// null ÀÌ¸é ¿¡·¯ ¹ß»ı = ·Î±×ÀÎ ±â·Ï ¾øÀ½
+			// null ì´ë©´ ì—ëŸ¬ ë°œìƒ = ë¡œê·¸ì¸ ê¸°ë¡ ì—†ìŒ
 			System.out.println("login error");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
@@ -81,7 +96,7 @@ public class MemberController extends HttpServlet {
 		String memberid = request.getParameter("memberid");
 		String memberpwd = request.getParameter("memberpwd");
 
-		MemberDTO dto = new MemberDTO(memberid, memberpwd); // È¸¿ø id¿Í pwd¸¦ ¼¼ÆÃ
+		MemberDTO dto = new MemberDTO(memberid, memberpwd); // íšŒì› idì™€ pwdë¥¼ ì„¸íŒ…
 
 		MemberDAO dao = new MemberDAO();
 
@@ -89,42 +104,47 @@ public class MemberController extends HttpServlet {
 		// List<MemberDTO> list = dao.checkMember(dto);
 
 		MemberDTO dto2 = dao.checkMember(dto);
-		System.out.println("·Î±×ÀÎ Á¤º¸ ºÒ·¯¿À±â ");
+		System.out.println("ë¡œê·¸ì¸ ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸° ");
 		System.out.println(dto2.getMemberid().toString());
+
+		// ê´€ë¦¬ì ë¡œê·¸ì¸
+		if (dto2.getMemberid().equals("admin")) {
+			request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
+		}
 
 		HttpSession session;
 		session = request.getSession();
 
-		if (memberpwd.equals(dto2.getMemberpwd()))// ·Î±×ÀÎ ¼º°ø
+		if (memberpwd.equals(dto2.getMemberpwd()))// ë¡œê·¸ì¸ ì„±ê³µ
 		{
 
-			// ·Î±×ÀÎÀÌ µÇ¸é
-			System.out.println("·Î±×ÀÎ ¼º°ø ");
+			// ë¡œê·¸ì¸ì´ ë˜ë©´
+			System.out.println("ë¡œê·¸ì¸ ì„±ê³µ ");
 
 			String membersex = "";
 
 			if (dto2.getMembersex().equals("1"))
-				membersex = "³²ÀÚ";
+				membersex = "ë‚¨ì";
 			else
-				membersex = "¿©ÀÚ";
+				membersex = "ì—¬ì";
 
 			// data save
 
 			session.setAttribute("memberid", memberid);
 			session.setAttribute("membername", dto2.getMembername());
-			session.setAttribute("membername1", dto2.getMembername() + "´Ô È¯¿µÇÕ´Ï´Ù.");
+			session.setAttribute("membername1", dto2.getMembername() + "ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
 			session.setAttribute("membersex", membersex);
 
-			System.out.println("memberid È®ÀÎ: " + session.getAttribute("memberid").toString());
+			System.out.println("memberid í™•ì¸: " + session.getAttribute("memberid").toString());
 			System.out.println("membername: " + session.getAttribute("membername").toString());
 			System.out.println("membersex: " + session.getAttribute("membersex").toString());
 
-			// ¼¼¼Ç À¯Áö½Ã°£ ¼³Á¤(ÃÊ´ÜÀ§) 20ºĞ
+			// ì„¸ì…˜ ìœ ì§€ì‹œê°„ ì„¤ì •(ì´ˆë‹¨ìœ„) 20ë¶„
 			session.setMaxInactiveInterval(20 * 60);
 
 			request.getRequestDispatcher("/Main.jsp").forward(request, response);
 		} else {
-			System.out.println("ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			System.out.println("ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 
@@ -144,18 +164,19 @@ public class MemberController extends HttpServlet {
 		String membername = request.getParameter("name");
 		String membersex = request.getParameter("sex");
 
-		MemberDTO dto = new MemberDTO(memberid, memberpwd, membername, membersex); // È¸¿ø id¿Í pwd¸¦ ¼¼ÆÃ
+		MemberDTO dto = new MemberDTO(memberid, memberpwd, membername, membersex); // íšŒì› idì™€ pwdë¥¼ ì„¸íŒ…
 
 		MemberDAO dao = new MemberDAO();
+		System.out.println(membername);
 		System.out.println(dto.toString());
 
 		int rowcount = dao.insert(dto);
 
 		if (rowcount > 0) {
-			// ¼º°ø
+			// ì„±ê³µ
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} else {
-			System.out.println("È¸¿ø°¡ÀÔ ½ÇÆĞ");
+			System.out.println("íšŒì›ê°€ì… ì‹¤íŒ¨");
 			request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
 		}
 	}
@@ -163,6 +184,56 @@ public class MemberController extends HttpServlet {
 	public void survey(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/survey.jsp").forward(request, response);
+
+	}
+
+	public void surveyDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		int surveyid = Integer.parseInt(request.getParameter("surveyid"));
+		SurveyDAO dao = new SurveyDAO();
+		int resultSurveyDelete = dao.SurveyDelete(surveyid);
+		if (resultSurveyDelete > 0) {
+			HttpSession session;
+			session = request.getSession();
+			
+			String memberid = session.getAttribute("memberid").toString();
+			System.out.println(memberid);
+			List<SurveyDTO> SurveyserachAll = dao.serachAll(memberid);
+
+			if (SurveyserachAll != null) {
+				request.setAttribute("SurveyserachAll", SurveyserachAll);
+				// System.out.println(SurveyserachAll.get(0).toString());
+
+				request.getRequestDispatcher("/views/jsp/member/surveylist.jsp").forward(request, response);
+			} else {
+
+				response.sendRedirect("views/error.jsp");
+			}
+		}
+	}
+
+	public void surveylist(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session;
+		session = request.getSession();
+		String memberid = session.getAttribute("memberid").toString();
+
+		SurveyDAO dao = new SurveyDAO();
+
+		System.out.println(memberid);
+		List<SurveyDTO> SurveyserachAll = dao.serachAll(memberid);
+
+		if (SurveyserachAll != null) {
+			request.setAttribute("SurveyserachAll", SurveyserachAll);
+			// System.out.println(SurveyserachAll.get(0).toString());
+
+			request.getRequestDispatcher("/views/jsp/member/surveylist.jsp").forward(request, response);
+		} else {
+
+			response.sendRedirect("views/error.jsp");
+		}
 
 	}
 
@@ -181,36 +252,36 @@ public class MemberController extends HttpServlet {
 		String link = "";
 
 		if (goal.equals("1")) {
-			link = "Áõ·®";
-			goal = "Áõ·®";
+			link = "ì¦ëŸ‰";
+			goal = "ì¦ëŸ‰";
 			session.setAttribute("link", link);
 			session.setAttribute("goal", goal);
 		} else if (goal.equals("2")) {
-			link = "´ÙÀÌ¾îÆ®";
-			goal = "°¨·®";
+			link = "ë‹¤ì´ì–´íŠ¸";
+			goal = "ê°ëŸ‰";
 			session.setAttribute("link", link);
 			session.setAttribute("goal", goal);
 		}
 
 		if (currentstate.equals("1")) {
-			currentstate = "ºñ¸¸";
+			currentstate = "ë¹„ë§Œ";
 			session.setAttribute("currentstate", currentstate);
 		} else if (currentstate.equals("2")) {
-			currentstate = "Á¤»ó";
+			currentstate = "ì •ìƒ";
 			session.setAttribute("currentstate", currentstate);
 		} else if (currentstate.equals("3")) {
-			currentstate = "¿Ö¼Ò";
+			currentstate = "ì™œì†Œ";
 			session.setAttribute("currentstate", currentstate);
 		}
 
 		if (currentintke.equals("1")) {
-			currentintke = "°ú´Ù";
+			currentintke = "ê³¼ë‹¤";
 			session.setAttribute("currentintke", currentintke);
 		} else if (currentstate.equals("2")) {
-			currentintke = "Á¤»ó";
+			currentintke = "ì •ìƒ";
 			session.setAttribute("currentintke", currentintke);
 		} else if (currentstate.equals("3")) {
-			currentintke = "ºÎÁ·";
+			currentintke = "ë¶€ì¡±";
 			session.setAttribute("currentintke", currentintke);
 		}
 		memberid = session.getAttribute("memberid").toString();
@@ -224,11 +295,36 @@ public class MemberController extends HttpServlet {
 
 		int rowcount = dao.insert(dto);
 
+		// ì»¬ëŸ¼ëª…
+
+		String column = "";
+		String keyvalue = link;
+		System.out.println(column + " / " + keyvalue);
+
+		Map<String, String> map = new HashMap<>(); // collection
+		map.put("column", column); // column : title or writer or contnet
+		map.put("keyvalue", keyvalue); // keyvalue : ê¹€ì—°ì•„
+
+		RecommendDAO dao1 = new RecommendDAO();
+
+		List<HealthGoodsDTO> HealthGoodsSelect = dao1.suverysearchingHealthGoods(map);
+		List<HealthFoodDTO> HealthFoodSelect = dao1.suverysearchingHealthFood(map);
+		List<NutrientsDTO> NutrientsSelect = dao1.suverysearchingNutrients(map);
+
+		System.out.println("ì™”ìŠµë‹ˆë‹¤ ì»¨íŠ¸ë¡¤ëŸ¬ survey");
+
 		if (rowcount > 0) {
-			// ¼º°ø
-			request.getRequestDispatcher("/views/jsp/member/surveyresult.jsp").forward(request, response);
+			if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
+				request.setAttribute("HealthGoodsSelect", HealthGoodsSelect);
+				request.setAttribute("HealthFoodSelect", HealthFoodSelect);
+				request.setAttribute("NutrientsSelect", NutrientsSelect);
+
+				request.getRequestDispatcher("/views/jsp/recommend/recommendpage.jsp").forward(request, response);
+
+			}
+			System.out.println("ë°ë² ì— ë“¤ì–´ê°€ê³  ê²€ìƒ‰ê°’ì€ ì—†ìŒ");
 		} else {
-			System.out.println("¼³¹® ½ÇÆĞ");
+
 			request.getRequestDispatcher("/views/jsp/member/survey.jsp").forward(request, response);
 		}
 
@@ -248,53 +344,73 @@ public class MemberController extends HttpServlet {
 
 		session.setMaxInactiveInterval(20 * 60);
 
-		String memberheight = request.getParameter("memberheight"); // Å°
-		String memberweight = request.getParameter("memberweight"); // ¸ö¹«°Ô
-		String bodymuscle = request.getParameter("bodymuscle"); // ±ÙÀ°·®
-		String bodyfat = request.getParameter("bodyfat"); // Ã¼Áö¹æ·®
-		String inbodyresult = "";// »óÅÂ °á°ú bmi
+		String memberheight = request.getParameter("memberheight"); // í‚¤
+		String memberweight = request.getParameter("memberweight"); // ëª¸ë¬´ê²Œ
+		String bodymuscle = request.getParameter("bodymuscle"); // ê·¼ìœ¡ëŸ‰
+		String bodyfat = request.getParameter("bodyfat"); // ì²´ì§€ë°©ëŸ‰
+		String inbodyresult = "";// ìƒíƒœ ê²°ê³¼ bmi
 		String link = "";
-		double iresult =Double.parseDouble(memberweight)/((Double.parseDouble(memberheight)/100)*(Double.parseDouble(memberheight)/100));
-		
-		System.out.println("iresult"+iresult);
-		inbodyresult = String.format("%.2f", iresult);
-		
-		int ir =(int) (iresult * 10);
-		System.out.println("ir"+ir);
+		double iresult = Double.parseDouble(memberweight)
+				/ ((Double.parseDouble(memberheight) / 100) * (Double.parseDouble(memberheight) / 100));
 
-		if (ir < 185) {// ÀúÃ¼Áß
-			 link = "Áõ·®";
-		} else if (185 <= ir && ir < 229) {//Á¤»ó
-			link = "µÑ´Ù";
-		} else {// °úÃ¼Áß
-			 link = "´ÙÀÌ¾îÆ®";
+		System.out.println("iresult" + iresult);
+		inbodyresult = String.format("%.2f", iresult);
+
+		int ir = (int) (iresult * 10);
+		System.out.println("ir" + ir);
+
+		if (ir < 185) {// ì €ì²´ì¤‘
+			link = "ì¦ëŸ‰";
+		} else if (185 <= ir && ir < 229) {// ì •ìƒ
+			link = "ë‘˜ë‹¤";
+		} else {// ê³¼ì²´ì¤‘
+			link = "ë‹¤ì´ì–´íŠ¸";
 		}
 		if (20 < Integer.parseInt(bodyfat)) {
-			link = "´ÙÀÌ¾îÆ®";
+			link = "ë‹¤ì´ì–´íŠ¸";
 		}
 		String memberid = session.getAttribute("memberid").toString();
 
-		InbodyDTO dto = new InbodyDTO(Integer.parseInt(memberheight), Integer.parseInt(memberweight), bodymuscle, bodyfat, inbodyresult, link, memberid);
+		InbodyDTO dto = new InbodyDTO(Integer.parseInt(memberheight), Integer.parseInt(memberweight), bodymuscle,
+				bodyfat, inbodyresult, link, memberid);
 		InbodyDAO dao = new InbodyDAO();
 		int rowcount = dao.insert(dto);
-		
-	
-		
-		
 
+		// ì»¬ëŸ¼ëª…
+		String column = "";
+		String keyvalue = link;
+		System.out.println(column + " / " + keyvalue);
+
+		Map<String, String> map = new HashMap<>(); // collection
+		map.put("column", column); // column : title or writer or contnet
+		map.put("keyvalue", keyvalue); // keyvalue : ê¹€ì—°ì•„
+
+		RecommendDAO dao1 = new RecommendDAO();
+		List<HealthGoodsDTO> HealthGoodsSelect = dao1.inbodysearchingHealthGoods(map);
+		List<HealthFoodDTO> HealthFoodSelect = dao1.inbodysearchingHealthFood(map);
+		List<NutrientsDTO> NutrientsSelect = dao1.inbodysearchingNutrients(map);
+
+		System.out.println("ì™”ìŠµë‹ˆë‹¤ ì»¨íŠ¸ë¡¤ëŸ¬ inbody : " + HealthGoodsSelect);
 		if (rowcount > 0) {
-			// ¼º°ø
-			session.setAttribute("memberheight", memberheight);
-			session.setAttribute("memberweight", memberweight);
-			session.setAttribute("bodymuscle", bodymuscle);
-			session.setAttribute("bodyfat", bodyfat);
-			session.setAttribute("inbodyresult", inbodyresult);
-			session.setAttribute("link", link);
-			session.setAttribute("memberid", memberid);
-			
-			request.getRequestDispatcher("/views/jsp/member/inbodyresult.jsp").forward(request, response);
+			if (HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
+
+				session.setAttribute("memberheight", memberheight);
+				session.setAttribute("memberweight", memberweight);
+				session.setAttribute("bodymuscle", bodymuscle);
+				session.setAttribute("bodyfat", bodyfat);
+				session.setAttribute("inbodyresult", inbodyresult);
+				session.setAttribute("link", link);
+				session.setAttribute("memberid", memberid);
+
+				request.setAttribute("HealthGoodsSelect", HealthGoodsSelect);
+				request.setAttribute("HealthFoodSelect", HealthFoodSelect);
+				request.setAttribute("NutrientsSelect", NutrientsSelect);
+				request.getRequestDispatcher("/views/jsp/recommend/inbodyrecommend.jsp").forward(request, response);
+//				
+			}
+			System.out.println("ì¸ë°”ë”” ì €ì¥ ì™„ë£Œ ì¶”ì²œ ì—†ìŒ");
 		} else {
-			System.out.println("¼³¹® ½ÇÆĞ");
+
 			request.getRequestDispatcher("/views/jsp/member/inbody.jsp").forward(request, response);
 		}
 
@@ -310,7 +426,7 @@ public class MemberController extends HttpServlet {
 		try {
 			HttpSession session;
 			session = request.getSession();
-			session.setAttribute("membername1", "È¯¿µÇÕ´Ï´Ù. °í°´´Ô");
+			session.setAttribute("membername1", "í™˜ì˜í•©ë‹ˆë‹¤. ê³ ê°ë‹˜");
 
 		} catch (Exception e) {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
@@ -319,6 +435,6 @@ public class MemberController extends HttpServlet {
 		request.getRequestDispatcher("/Main.jsp").forward(request, response);
 	}
 	////////////////////////////////////////////////////////////////////
-	// ÀüÃ¼Á¶È¸ ³¡
+	// ì „ì²´ì¡°íšŒ ë
 	////////////////////////////////////////////////////////////////////
 }

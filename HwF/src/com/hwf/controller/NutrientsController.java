@@ -58,7 +58,7 @@ public class NutrientsController extends HttpServlet {
 	}
 
 	////////////////////////////////////////////////////////////////////
-	// ¿¸√º¡∂»∏
+	// Ï†ÑÏ≤¥Ï°∞Ìöå
 	////////////////////////////////////////////////////////////////////
 	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -67,7 +67,7 @@ public class NutrientsController extends HttpServlet {
 
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/allList.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}
@@ -80,7 +80,7 @@ public class NutrientsController extends HttpServlet {
 
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/allList.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}
@@ -93,7 +93,7 @@ public class NutrientsController extends HttpServlet {
 
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/allList.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}
@@ -106,13 +106,13 @@ public class NutrientsController extends HttpServlet {
 
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/allList.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}
 	}
 	////////////////////////////////////////////////////////////////////
-	// ¿¸√º¡∂»∏ ≥°
+	// Ï†ÑÏ≤¥Ï°∞Ìöå ÎÅù
 	////////////////////////////////////////////////////////////////////
 
 	public void nutrientsDetail(HttpServletRequest request, HttpServletResponse response, String choicenutr)
@@ -125,7 +125,7 @@ public class NutrientsController extends HttpServlet {
 		
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-			request.getRequestDispatcher("/views/jsp/detailnutrients.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/jsp/nutr/detailnutrients.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}

@@ -40,30 +40,43 @@
 				</tr>
 			</table>
 
-	</nav>
-	
-	
+		</nav>
 
 
 
-	
+
+
+
 	</header>
 
-		<div id="mypage">
-			<table id ="mypage">
-					<tr id="id"  ><td>ID : ${memberid}</tr>
-					<tr id="name" ><td>Name : ${membername}</tr>
-					<tr id="sex" ><td>sex : ${membersex}</tr>
-					<tr id="survey" >
-					<td>Survey<input type="button" value="Survey" onclick="location.href='Member?cmd=survey'" ></td>
-					</tr>
-					<tr id="inbody" ><td>InbodyTest<input type="button" value="inbody" onclick="location.href='Member?cmd=inbody'" ></tr>
-					
-					<tr id="community" ><td>Community</tr>
-				
-			</table>
+	<div id="mypage">
+		<table id="mypage">
+			<tr id="id">
+				<td>ID : ${memberid}
+			</tr>
+			<tr id="name">
+				<td>Name : ${membername}
+			</tr>
+			<tr id="sex">
+				<td>sex : ${membersex}
+			</tr>
+			<tr id="surveylist">
+				<td>Surveylist<input type="button" value="Surveylist"
+					onclick="location.href='Member?cmd=surveylist'"></td>
+			</tr>
 		
-			</div>
+			<tr id="inbody">
+				<td>InbodyTest<input type="button" value="inbody"
+					onclick="location.href='Member?cmd=inbody'">
+			</tr>
+
+			<tr id="community">
+				<td>Community
+			</tr>
+
+		</table>
+
+	</div>
 
 
 
@@ -71,8 +84,22 @@
 
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<input type="button" value="로그아웃" onclick="location.href='Member?cmd=logout'">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<input type="button" value="로그아웃"
+		onclick="location.href='Member?cmd=logout'">
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

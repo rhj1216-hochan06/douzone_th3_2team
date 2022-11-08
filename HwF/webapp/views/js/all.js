@@ -1,3 +1,4 @@
+// 메뉴 선택
 const change = (choice) => {
 	const parentElem = document.getElementById("selectList");
 	document.getElementById("nutrientsListDiv").style.display = "none";
@@ -12,11 +13,3 @@ const change = (choice) => {
 	}
 };
 
-   function YnCheck(obj) {
-      var checked = obj.checked;
-      if(checked) {
-         obj.value = 1;
-      } else {
-         obj.value = 0;
-      }
-   };

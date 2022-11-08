@@ -1,7 +1,5 @@
 package com.hwf.model;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,17 +8,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class NutrientsDTO {
-
-	private int nutrientsID; // ¿µ¾çÁ¦ ¹øÈ£ 
-	private String nutrientsName; // ¿µ¾çÁ¦ ÀÌ¸§ 
-	private int nutrientsPrice; // ¿µ¾çÁ¦ °¡°İ 
-	private int nutrientsCategory; // ¿µ¾çÁ¦ Ä«Å×°í¸® 
-	private String nutrientsIMG; // ¿µ¾çÁ¦ »çÁø ÁÖ¼Ò
-	private String nutrientsDetail; // ¿µ¾çÁ¦ ¼³¸í 
-	private String nutrientsDOM; // ¿µ¾çÁ¦ Á¦Á¶³¯Â¥ 
-	private String dailyInTake; // ¿µ¾çÁ¦ ÇÏ·ç¿¡ ¸Ô¾î¾ß ÇÏ´Â ¼ö·® 
-	private int numperbottle; // ¿µ¾çÁ¦ ÇÑº´¿¡ ÀÖ´Â ¼ö·® 
-	private int remainingNum; // ÇöÀç ÀÜ¿© °¹¼ö 
-	private String nutrientsTestLink; // ÀÎ¹Ùµğ, ¼³¹® °á°ú
-
+	
+/*************** NutrientsDTO (ì˜ì–‘ì œ) ***************/
+	
+	private int nutrientsID; 		//ì˜ì–‘ì œ id
+	private String nutrientsName;	//ì˜ì–‘ì œ ì´ë¦„
+	private int nutrientsPrice;		//ì˜ì–‘ì œ ê°€ê²©
+	private int nutrientsCategory;	//ì˜ì–‘ì œ ì¹´í…Œê³ ë¦¬
+	private String nutrientsIMG;	//ì˜ì–‘ì œ ì´ë¯¸ì§€
+	private String nutrientsDetail;	//ì˜ì–‘ì œ ìƒì„¸ì„¤ëª…
+	private String nutrientsDOM;	//ì˜ì–‘ì œ ì œì¡°ë‚ ì§œ
+	private String dailyInTake;		//1ì¼ ì„­ì·¨ ê°¯ìˆ˜
+	private int numperbottle;		//1í†µ ë‹¹ ê°¯ìˆ˜
+	private int remainingNum; 		//í˜„ì¬ ì”ì—¬ ê°¯ìˆ˜
+	private String link; 	//ì¸ë°”ë””,ì„¤ë¬¸ ì—°ê²°ê°’ (Link -> nutrientsLinkë¡œ ë³€ê²½)
+	
+	
+	//AdminController - AdminNutrientsInsert()ì—ì„œ í•„ìš”í•œ ìƒì„±ì
+	public NutrientsDTO(String nutrientsName, int nutrientsPrice, int nutrientsCategory, String nutrientsIMG, String nutrientsDetail, String nutrientsDOM, String dailyInTake, int numperbottle, int remainingNum, String link) {
+		super();
+		this.nutrientsName = nutrientsName;
+		this.nutrientsPrice = nutrientsPrice;
+		this.nutrientsCategory = nutrientsCategory;
+		this.nutrientsIMG = nutrientsIMG;
+		this.nutrientsDetail = nutrientsDetail;
+		this.nutrientsDOM = nutrientsDOM;
+		this.dailyInTake = dailyInTake;
+		this.numperbottle = numperbottle;
+		this.remainingNum = remainingNum;
+		this.link = link;
+	}
 }

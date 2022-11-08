@@ -26,9 +26,14 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
+
 
 			<table>
 				<tr>
@@ -63,9 +68,9 @@
 
 				<table id="healthintro">
 					<th>헬스장 및 운동법 소개</th>
-					<tr>
-						<td><img src="./views/img/logo.png" /></td>
-					</tr>
+					<td><a href="./views/jsp/etc/introduce.jsp"> <img
+							src="./views/img/logo.png" />
+					</a></td>
 				</table>
 			</div>
 		</article>
@@ -79,18 +84,33 @@
 						<h1>모든 영양제</h1> <img id="allnutrientsImg"
 						src="./views/img/allList.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=vitaminList'">
 						<h1>비타민</h1> <img src="./views/img/vitamin.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=proteinList'">
 						<h1>헬스 보충제</h1> <img src="./views/img/protein.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=dietList'">
 						<h1>다이어트 보충제</h1> <img src="./views/img/diet.png" />
 					</td>
 				</tr>
 			</table>
 		</article>
+		<article class="category" id="s7">
+			<table>
+				<th colspan="2">문의</th>
+				<tr>
+					<td><a href="./views/jsp/qna/FQA.jsp">
+
+							<h1>FQA</h1> <img src="./views/img/vitamin.png" />
+					</a></td>
+					<td><a href="board?cmd=list">
+							<h1>1:1 문의</h1> <img src="./views/img/protein.png" />
+					</a></td>
+				</tr>
+			</table>
+		</article>
+
 	</div>
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

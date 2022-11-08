@@ -42,16 +42,12 @@
 		</nav>
 	</header>
 	<div id="inbodyresult">
-	${membername} 님의 설문조사 결과<br>
-	키 : ${memberheight}<br>
-	몸무게 : ${memberweight}<br>
-	근육량 : ${bodymuscle}<br>
-	체지방량 : ${bodyfat}<br>
-	인바디결과 :${inbodyresult}<br>
-	링크 : ${link}
-	
-	
-	
+		${membername} 님의 설문조사 결과<br> 키 : ${memberheight}<br> 몸무게 :
+		${memberweight}<br> 근육량 : ${bodymuscle}<br> 체지방량 :
+		${bodyfat}<br> 인바디결과 :${inbodyresult}<br> 링크 : ${link}
+
+
+
 	</div>
 	<br>
 

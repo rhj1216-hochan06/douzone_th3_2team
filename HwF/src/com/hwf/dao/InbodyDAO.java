@@ -11,31 +11,25 @@ import com.hwf.model.InbodyDTO;
 public class InbodyDAO {
 	private SqlSessionFactory sqlSessionFactory;
 	private SqlSession sqlSession = null;
-	
 
 	public InbodyDAO() {
-		System.out.println("InbodyDAO 생성자 함수 실행");
+
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
-	
-	
-	
+
 	// insert
 	public int insert(InbodyDTO dto) {
-		
-		System.out.println("인바디 실행");
+
 		System.out.println(dto.toString());
-		
-		
+
 		try {
-			
-			System.out.println("1");
+
 			sqlSession = sqlSessionFactory.openSession();
-			System.out.println("2");
+
 			int result = sqlSession.insert("inbodydao.insert", dto);
-			System.out.println("3");
+
 			sqlSession.commit();
-			System.out.println("4");
+
 			return result;
 
 		} catch (Exception e) {
