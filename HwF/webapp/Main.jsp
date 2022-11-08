@@ -79,13 +79,13 @@
 						<h1>모든 영양제</h1> <img id="allnutrientsImg"
 						src="./views/img/allList.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=vitaminList'">
 						<h1>비타민</h1> <img src="./views/img/vitamin.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=proteinList'">
 						<h1>헬스 보충제</h1> <img src="./views/img/protein.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=dietList'">
 						<h1>다이어트 보충제</h1> <img src="./views/img/diet.png" />
 					</td>
 				</tr>
