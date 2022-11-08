@@ -9,9 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class MemberDTO { // model
 
-	private String memberId; // 회원 id
-	private String memberPwd; // 회원 pw
-	private String memberName; // 회원 이름
-	private int memberSex; // 회원 성별
+	private String memberid; // 회원 id
+	private String memberpwd; // 회원 pw
+	private String membername; // 회원 이름
+	private String membersex; // 회원 성별
 
+	public MemberDTO(String memberid, String memberpwd) {
+		this.memberid = memberid;
+		this.memberpwd = memberpwd;
+	}
 }

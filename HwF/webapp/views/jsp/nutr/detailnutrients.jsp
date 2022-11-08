@@ -108,8 +108,9 @@
 
 			<div id="nutrdiscription">
 
-				<div id="listId">${list.nutrientsID }</div>
-				<div id="listName">${list.nutrientsName }</div>
+				<div>
+					<h3>${list.nutrientsName }</h3>
+				</div>
 				<br />
 
 				<div>${list.nutrientsDetail }</div>

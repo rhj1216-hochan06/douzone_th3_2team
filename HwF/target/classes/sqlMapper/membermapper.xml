@@ -9,5 +9,17 @@
 		select * from cart
 	</select>
 
+	<insert id="insert" parameterType="memberdto">
+		insert into
+		member(memberid,memberpwd, membername, membersex)
+		values(#{memberid},#{memberpwd},#{membername},#{membersex})
+	</insert>
+
+
+	<select id="selectpwd" resultType="memberdto"
+		parameterType="String">
+		select * from member where memberid = #{memberid}
+	</select>
+
 
 </mapper>

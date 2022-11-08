@@ -23,6 +23,11 @@
 		<typeAlias alias="purchasedto"
 			type="com.hwf.model.PurchaseDTO" />
 
+		<typeAlias alias="inbodydto" type="com.hwf.model.InbodyDTO" />
+
+		<typeAlias alias="surveydto" type="com.hwf.model.SurveyDTO" />
+
+
 	</typeAliases>
 
 
@@ -46,5 +51,7 @@
 		<mapper resource="sqlMapper/membermapper.xml" />
 		<mapper resource="sqlMapper/nutrientsmapper.xml" />
 		<mapper resource="sqlMapper/purchasemapper.xml" />
+		<mapper resource="sqlMapper/inbodymapper.xml" />
+		<mapper resource="sqlMapper/surveymapper.xml" />
 	</mappers>
 </configuration>

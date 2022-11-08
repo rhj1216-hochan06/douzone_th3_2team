@@ -87,6 +87,13 @@
 			<version>3.5.11</version>
 		</dependency>
 
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
