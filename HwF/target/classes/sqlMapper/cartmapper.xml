@@ -5,9 +5,23 @@
 
 <mapper namespace="cartdao">
 
-	<select id="selectAll" resultType="cartdto">
-		select * from cart
-	</select>
+	<insert id="insertnutr">
+		insert into cart (memberId,
+		productsId, productsName,
+		productsIMG, productsPrice, reservation,
+		purchasetime, Endtime)
+		values (
+		#{memberId},
+		#{productsId},
+		#{productsName},
+		#{productsIMG},
+		#{productsPrice},
+		#{reservation},
+		to_date(#{purchasetime}, 'yyyy.mm.dd
+		hh24:mi:SS'),
+		to_date(#{Endtime}, 'yyyy.mm.dd hh24:mi:SS'),
+		);
+	</insert>
 
 
 </mapper>

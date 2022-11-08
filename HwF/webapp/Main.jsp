@@ -16,10 +16,11 @@
 			<div>
 				<img src="./views/img/logo.png" />
 			</div>
+			<div id="logindata">${membername1}</div>
 
 			<div>홈페이지 제목 (팀명)</div>
 
-			<div id="loginimg">
+			<div id="loginimg" onclick="location.href='Member?cmd=login'">
 				<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
 			</div>
 		</div>
@@ -77,13 +78,13 @@
 					<td onclick="location.href='nutrients?cmd=list'">
 						<h1>모든 영양제</h1> <img id="allnutrientsImg" src="./views/img/allList.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=vitaminList'">
 						<h1>비타민</h1> <img src="./views/img/vitamin.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=proteinList'">
 						<h1>헬스 보충제</h1> <img src="./views/img/protein.png" />
 					</td>
-					<td>
+					<td onclick="location.href='nutrients?cmd=dietList'">
 						<h1>다이어트 보충제</h1> <img src="./views/img/diet.png" />
 					</td>
 				</tr>

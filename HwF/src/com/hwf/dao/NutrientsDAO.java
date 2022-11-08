@@ -23,10 +23,17 @@ public class NutrientsDAO {
 	
 	public List<NutrientsDTO> selectAll() {
 		try {
+<<<<<<< HEAD
 			sqlSession = sqlSessionFactory.openSession(); 
+=======
+			System.out.println(1);
+			sqlSession = sqlSessionFactory.openSession();
+			System.out.println(2);
+>>>>>>> origin/HongGeonho
 			return sqlSession.selectList("nutrdao.selectAll");
 
 		} catch (Exception e) {
+			System.out.println(3);
 			return null;
 		} finally {
 			if (sqlSession != null) {
