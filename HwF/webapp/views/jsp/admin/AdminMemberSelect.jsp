@@ -55,10 +55,10 @@
 		
 				<c:forEach var="AdminMemberSelect" items="${ AdminMemberSelect }">
 					<tr>
-						<td>${ AdminMemberSelect.memberId }</td>
-						<%-- <td>${ AdminMemberSelect.memberPwd }</td> --%>
-						<td>${ AdminMemberSelect.memberName }</td>
-						<td>${ AdminMemberSelect.memberSex }</td>
+						<td>${ AdminMemberSelect.memberid }</td>
+						<%-- <td>${ AdminMemberSelect.memberpwd }</td> --%>
+						<td>${ AdminMemberSelect.membername }</td>
+						<td>${ AdminMemberSelect.membersex }</td>
 					</tr>
 				</c:forEach>
 			</table>

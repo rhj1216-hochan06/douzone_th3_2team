@@ -18,7 +18,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -55,7 +55,7 @@
 						<td><input name="name" required></td>
 					</tr>
 					<tr>
-						<td>사용권한</td>
+						<td>성별</td>
 						<td><select name="sex" required>
 								<option value="2">여자</option>
 								<option value="1">남자</option>

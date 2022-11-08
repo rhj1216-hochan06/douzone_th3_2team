@@ -14,8 +14,15 @@ public class MemberDTO { // model
 	private String membername; // 회원 이름
 	private String membersex; // 회원 성별
 
-	public MemberDTO(String memberid, String memberpwd) {
+	public MemberDTO(String memberid, String membername) {
 		this.memberid = memberid;
-		this.memberpwd = memberpwd;
+		this.membername = membername;
 	}
+
+	public MemberDTO(String memberid, String membername, String membersex) {
+		this.memberid = memberid;
+		this.membername = membername;
+		this.membersex = membersex;
+	}
+	
 }
