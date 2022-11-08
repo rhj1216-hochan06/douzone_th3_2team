@@ -266,6 +266,10 @@ article table {
 	font-size: 1.1rem;
 }
 
+#hiddenid {
+	display: none;
+}
+
 /* -------------------------------- */
 
 /* nutrientsList table end */

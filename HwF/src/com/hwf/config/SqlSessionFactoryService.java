@@ -22,7 +22,6 @@ public class SqlSessionFactoryService {
 	} // end static
 
 	public static SqlSessionFactory getSqlSessionFactory() {
-		System.out.println("SqlSessionFactory getSqlSessionFactory()");
 		return sqlSessionFactory;
 	}
 }

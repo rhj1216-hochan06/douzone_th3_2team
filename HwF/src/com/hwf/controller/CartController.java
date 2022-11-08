@@ -1,47 +1,136 @@
 package com.hwf.controller;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hwf.dao.CartDAO;
+import com.hwf.dao.NutrientsDAO;
+import com.hwf.model.CartDTO;
 import com.hwf.model.NutrientsDTO;
 
-@RestController
-public class CartController {
+@WebServlet("/cart")
+public class CartController extends HttpServlet {
 
-	@Autowired
-	private CartDAO cartdao;
-
-	@RequestMapping(value = "/views/jsp/buy/cart", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-
-		return "cart";
+	public CartController() {
 	}
 
-	@RequestMapping(value = "/HwF/nutrients" , method = RequestMethod.POST)
-	@ResponseBody
-	public HashMap<String, String> buydaycart(Locale locale, Model model, HttpServletRequest request) {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("123");
-		HashMap<String, String> result = new HashMap<String, String>();
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 
-		String productsName = request.getParameter("productsName");
+		String cmd = request.getParameter("cmd");
 
-		List<NutrientsDTO> list = cartdao.selectusename(productsName);
+		System.out.println("cmd : " + cmd);
 
-		System.out.println(list.get(0));
+		if (cmd.equals("insertCart")) {
+			insertCart(request, response);
+		}else if (cmd.equals("insertbottleCart")) {
+			insertbottleCart(request, response);
+		}
+	}
 
-		return result;
+	public void insertCart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String cusId = "";
+
+		try {
+			HttpSession session;
+			session = request.getSession();
+
+			cusId = session.getAttribute("memberid").toString(); // 고객 id
+
+			if (cusId.equals("")) {
+				throw new Exception();
+			}
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+		String productId = request.getParameter("hiddenid"); // 제품 아이디 번호
+		String totalPrice = request.getParameter("onetotal"); // 총 가격
+		String totalCount = request.getParameter("countone"); // 총 수량
+		String getMethod = request.getParameter("getnu"); // 받는 방법
+
+		int n;
+
+		if (getMethod.equals("onetime")) {
+			n = 1;
+		} else {
+			n = 2;
+		}
+
+		String selectGetDay = request.getParameter("selectgetday"); // 받는 날짜
+		String finishDay = request.getParameter("finishnutr"); // 끝나는 날짜
+
+		NutrientsDAO nutrdao = new NutrientsDAO();
+		List<NutrientsDTO> list = nutrdao.selectdetail(Integer.parseInt(productId)); // 영앙제 정보
+
+		CartDAO cartdao = new CartDAO();
+		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
+				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
+
+		int count = cartdao.insertData(cartDto);
+		System.out.println(count);
+
+		request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
 
 	}
+
+	public void insertbottleCart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String cusId = "";
+
+		try {
+			HttpSession session;
+			session = request.getSession();
+
+			cusId = session.getAttribute("memberid").toString(); // 고객 id
+
+			if (cusId.equals("")) {
+				throw new Exception();
+			}
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+		String productId = request.getParameter("hiddenid"); // 제품 아이디 번호
+		String totalPrice = request.getParameter("total"); // 총 가격
+		String totalCount = request.getParameter("countnum"); // 총 수량
+		String getMethod = request.getParameter("getnuall"); // 받는 방법
+
+		int n;
+
+		if (getMethod.equals("onetime")) {
+			n = 1;
+		} else {
+			n = 2;
+		}
+
+		String selectGetDay = request.getParameter("selectgetday2"); // 받는 날짜
+		String finishDay = request.getParameter("finishnutr2"); // 끝나는 날짜
+
+		NutrientsDAO nutrdao = new NutrientsDAO();
+		List<NutrientsDTO> list = nutrdao.selectdetail(Integer.parseInt(productId)); // 영앙제 정보
+
+		CartDAO cartdao = new CartDAO();
+		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
+				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
+
+		int count = cartdao.insertData(cartDto);
+		System.out.println(count);
+
+		request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
+
+	}
+
 }

@@ -5,11 +5,13 @@
 
 <mapper namespace="cartdao">
 
-	<insert id="insertnutr">
-		insert into cart (memberId,
+	<insert id="insertnutr" parameterType="cartdto">
+		insert into cart
+		(memberId,
 		productsId, productsName,
-		productsIMG, productsPrice, reservation,
-		purchasetime, Endtime)
+		productsIMG, productsPrice,
+		reservation,
+		purchasetime, endtime)
 		values (
 		#{memberId},
 		#{productsId},
@@ -19,8 +21,9 @@
 		#{reservation},
 		to_date(#{purchasetime}, 'yyyy.mm.dd
 		hh24:mi:SS'),
-		to_date(#{Endtime}, 'yyyy.mm.dd hh24:mi:SS'),
-		);
+		to_date(#{endtime},
+		'yyyy.mm.dd hh24:mi:SS')
+		)
 	</insert>
 
 

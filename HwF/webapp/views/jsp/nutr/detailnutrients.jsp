@@ -103,12 +103,12 @@
 
 			<div>
 				<img id="nutrientsIMG" alt="사진" src="${list.nutrientsIMG }">
-
 			</div>
 
 			<div id="nutrdiscription">
 
 				<div>
+					<a id="nutrientsID">${list.nutrientsID }</a>
 					<h3>${list.nutrientsName }</h3>
 				</div>
 				<br />
@@ -153,7 +153,9 @@
 			<!-- 일 수 구매 -->
 
 			<div id="buy1">
-				<form name="buyday" action="" method="post">
+				<form name="buyday" action="${path}/cart?cmd=insertCart"
+					method="post">
+					<input type="text" id="hiddenid" name="hiddenid" value="0" />
 					<h1>일 수 총 가격</h1>
 
 					<input id="onetotal" name="onetotal" value="0" readonly />
@@ -173,7 +175,8 @@
 						<input type='radio' name='getnu' value='onetime' />한번에 받기 <input
 							type='radio' name='getnu' value='splittime' />나눠서 받기
 						<p />
-						<input type='date' id="selectdate" value="2022-11-06" />
+						<input type='date' id="selectdate" name="selectgetday"
+							value="2022-11-06" />
 
 						<div>
 							끝나는 날 : <input id="finishnutr" name="finishnutr" value="0"
@@ -194,7 +197,9 @@
 			<!-- 낱개 구매 -->
 
 			<div id="buy2">
-				<form name="buybottle" action="" method="post">
+				<form name="buybottle" action="${path}/cart?cmd=insertbottleCart"
+					method="post">
+					<input type="text" id="hiddenid" name="hiddenid" value="0" />
 					<h1>낱개 총 가격</h1>
 
 					<input id="total" name="total" value="0" readonly />
@@ -214,7 +219,8 @@
 						<input type='radio' name='getnuall' value='onetime' />한번에 받기 <input
 							type='radio' name='getnuall' value='splittime' />나눠서 받기
 						<p />
-						<input type='date' id="selectdate2" value="2022-11-06" />
+						<input type='date' id="selectdate2" name="selectgetday2"
+							value="2022-11-06" />
 
 						<div>
 							끝나는 날 : <input id="finishnutr2" name="finishnutr2" value="0"
