@@ -75,16 +75,16 @@
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
 				<tr>
-					<td onclick="location.href='healthGoods?cmd=healthgoodsList'">
+					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
 						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectDumbbell'">
+					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
 						<h1>운동용품</h1> <img src="${path}/views/img/IconHealthGoodsDumbbell.png" style="width: 150px; height: 150px"/>
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectBelt'">
+					<td onclick="location.href='healthgoods?cmd=selectBelt'">
 						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png" style="width: 150px; height: 150px"/>
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectGloves'">
+					<td onclick="location.href='healthgoods?cmd=selectGloves'">
 						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png" style="width: 150px; height: 150px"/>
 					</td>
 				</tr>
@@ -119,7 +119,7 @@
 		<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
 
 			<div>
-				<img id="healthGoodsImg" alt="사진" src="${healthGoodsList.healthGoodsImg }" border="2px">
+				<img id="healthGoodsImg" alt="사진" src="${ healthGoodsList.healthGoodsImg }">
 
 			</div>
 
@@ -139,10 +139,6 @@
 					<div>
 						가격 : <a id="result">${ healthGoodsList.healthGoodsPrice }</a>원
 					</div>
-					
-					<!-- <div onload="takeoneprice()">
-						1회 분량 가격 : <a id="takeone">0</a>원
-					</div> -->
 				</div>
 
 
@@ -175,51 +171,9 @@
 				</form>
 			</div>
 
-
-
-			<!-- <div id="buy2">
-				<form name="buybottle" action="" method="post">
-					<h1>낱개 총 가격</h1>
-
-					<input id="total" name="total" value="0" readonly />
-					<p />
-					<a>수량 결정</a>
-					<p />
-					<input id="countnum" name="countnum" value="0" readonly />
-
-					<div id="calculationdiv">
-
-						<input type='button' onclick="count('plus')" class="calculation"
-							value='+' /> <input type='button' onclick="count('minus')"
-							class="calculation" value='-' />
-					</div>
-
-					<div id="calender2">
-						<input type='radio' name='getnuall' value='onetime' />한번에 받기 <input
-							type='radio' name='getnuall' value='splittime' />나눠서 받기
-						<p />
-						<input type='date' id="selectdate2" value="2022-11-06" />
-
-						<div>
-							끝나는 날 : <input id="finishnutr2" name="finishnutr2" value="0"
-								readonly />
-						</div>
-						<p />
-						<p />
-
-						<input type="submit" id="bottlebasket" class="calculation"
-							value="장바구니"> <input type='button'
-							onclick="selectnudate2()" class="calculation" value='날짜 선택' />
-
-					</div> -->
-
-				<!-- </form> -->
-
 			</div>
 
 		</div>
-
-	<!-- </div> -->
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

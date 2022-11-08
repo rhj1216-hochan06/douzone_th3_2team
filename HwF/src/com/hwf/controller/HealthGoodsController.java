@@ -89,18 +89,13 @@ public class HealthGoodsController extends HttpServlet {
 	
 	//selectDumbbell (헬스용품 - 카테고리 '운동용품' 조회)
 	public void selectDumbbell(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("1");
 		HealthGoodsDAO dao = new HealthGoodsDAO();
-		System.out.println("2");
 		List<HealthGoodsDTO> selectDumbbell = dao.selectDumbbell();
 
-		System.out.println("3");
 		if (selectDumbbell != null) {
-			System.out.println("4");
 			request.setAttribute("healthGoodsList", selectDumbbell); // data save
 			System.out.println(selectDumbbell);
 			request.getRequestDispatcher("/views/jsp/healthGoods/allListHealthGoods.jsp").forward(request, response);
-			System.out.println("완료");
 		} else {
 			response.sendRedirect("views/jsp/error.jsp");
 		}
@@ -138,13 +133,13 @@ public class HealthGoodsController extends HttpServlet {
 		int healthGoodsId = Integer.parseInt(request.getParameter("healthGoodsId"));
 		
 		HealthGoodsDAO dao = new HealthGoodsDAO();
-		List<HealthGoodsDTO> healthGoodsList = dao.healthGoodsDetail(healthGoodsId);
+		List<HealthGoodsDTO> healthGoodsDetail = dao.healthGoodsDetail(healthGoodsId);
 		
-		if (healthGoodsList != null) {
-			request.setAttribute("healthGoodsList", healthGoodsList); // data save
+		if (healthGoodsDetail != null) {
+			request.setAttribute("healthGoodsList", healthGoodsDetail); // data save
 			request.getRequestDispatcher("/views/jsp/healthGoods/detailHealthGoods.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("views/error.jsp");
+			response.sendRedirect("views/jsp/error.jsp");
 		}
 	}
 

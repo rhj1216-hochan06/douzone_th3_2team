@@ -77,16 +77,16 @@
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
 				<tr>
-					<td onclick="location.href='healthGoods?cmd=healthgoodsList'">
+					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
 						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectDumbbell'">
+					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
 						<h1>운동용품</h1> <img src="${path}/views/img/IconHealthGoodsDumbbell.png" style="width: 150px; height: 150px"/>
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectBelt'">
+					<td onclick="location.href='healthgoods?cmd=selectBelt'">
 						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png" style="width: 150px; height: 150px"/>
 					</td>
-					<td onclick="location.href='healthGoods?cmd=selectGloves'">
+					<td onclick="location.href='healthgoods?cmd=selectGloves'">
 						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png" style="width: 150px; height: 150px"/>
 					</td>
 				</tr>

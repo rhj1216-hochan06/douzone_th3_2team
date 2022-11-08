@@ -74,6 +74,7 @@
 			</div>
 		</article>
 
+		<!--헬스용품 카테고리-->
 		<article class="category" id="s2">
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
