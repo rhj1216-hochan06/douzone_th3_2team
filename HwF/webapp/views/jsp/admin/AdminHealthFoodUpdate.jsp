@@ -50,7 +50,7 @@
 			<br>
 			<h3>헬스식품 수정</h3>
 			
-			<form action="./admin?cmd=AdminHealthFoodUpdate" method="post">
+			<form action="./admin?cmd=AdminHealthFoodUpdate" method="post" id="formHealthFoodUpdate">
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>번호</td><td><input type="number" name="hfid" value="${hfid}"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="hfName" value="${hfName}"> </td></tr>
