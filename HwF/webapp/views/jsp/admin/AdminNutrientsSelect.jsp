@@ -62,17 +62,17 @@
 				</tr>
 		
 				<c:forEach var="AdminNutrientsSelect" items="${ AdminNutrientsSelect }">
-					<tr class="row" id="${AdminNutrientsSelect.nutrientsId}" title="${AdminNutrientsSelect.nutrientsName} 수정"
-						onclick="location.href='admin?cmd=AdminNutrientsDetail&nutrientsId=${AdminNutrientsSelect.nutrientsId}'" >
-						<td>${ AdminNutrientsSelect.nutrientsId }</td>
+					<tr class="row" id="${AdminNutrientsSelect.nutrientsID}" title="${AdminNutrientsSelect.nutrientsName} 수정"
+						onclick="location.href='admin?cmd=AdminNutrientsDetail&nutrientsID=${AdminNutrientsSelect.nutrientsID}'" >
+						<td>${ AdminNutrientsSelect.nutrientsID }</td>
 						<td>${ AdminNutrientsSelect.nutrientsName }</td>
 						<td>${ AdminNutrientsSelect.nutrientsPrice }</td>
 						<td>${ AdminNutrientsSelect.nutrientsCategory }</td>
-						<td><img src="${ AdminNutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
+						<td><img src="${ AdminNutrientsSelect.nutrientsIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminNutrientsSelect.nutrientsDetail }</td>
-						<td>${ AdminNutrientsSelect.nutrientsDom }</td>
-						<td>${ AdminNutrientsSelect.dailyIntake }</td>
-						<td>${ AdminNutrientsSelect.numPerBottle }</td>
+						<td>${ AdminNutrientsSelect.nutrientsDOM }</td>
+						<td>${ AdminNutrientsSelect.dailyInTake }</td>
+						<td>${ AdminNutrientsSelect.numperbottle }</td>
 						<td>${ AdminNutrientsSelect.remainingNum }</td>
 						<td>${ AdminNutrientsSelect.link }</td>
 					</tr>

@@ -15,8 +15,6 @@
 <title>전체상품 조회</title>
 </head>
 
-<!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/GoodsSelect.jsp -->
-
 <body>
 
 	<!-- header -->
@@ -62,12 +60,12 @@
 		
 				<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
 					<tr>
-						<td>${ HealthGoodsSelect.healthGoodsId }</td>
-						<td>${ HealthGoodsSelect.healthGoodsName }</td>
-						<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
-						<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
-						<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
-						<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
+						<td>${ HealthGoodsSelect.goodsId }</td>
+						<td>${ HealthGoodsSelect.goodsName }</td>
+						<td>${ HealthGoodsSelect.goodsPrice }</td>
+						<td>${ HealthGoodsSelect.goodsCategory }</td>
+						<td><img src="${ HealthGoodsSelect.goodsImg }" style="width: 100px; height: 100px"/></td>
+						<td>${ HealthGoodsSelect.goodsDetail }</td>
 						<td>${ HealthGoodsSelect.link }</td>
 					</tr>
 				</c:forEach>
@@ -95,13 +93,13 @@
 		
 				<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
 					<tr>
-						<td>${ HealthFoodSelect.hfId }</td>
+						<td>${ HealthFoodSelect.hfid }</td>
 						<td>${ HealthFoodSelect.hfName }</td>
 						<td>${ HealthFoodSelect.hfPrice }</td>
 						<td>${ HealthFoodSelect.hfCategory }</td>
-						<td><img src="${ HealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
+						<td><img src="${ HealthFoodSelect.hfIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ HealthFoodSelect.hfDetail }</td>
-						<td>${ HealthFoodSelect.hfDom }</td>
+						<td>${ HealthFoodSelect.hfDoM }</td>
 						<td>${ HealthFoodSelect.link }</td>
 					</tr>
 				</c:forEach>
@@ -132,15 +130,15 @@
 		
 				<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
 					<tr>
-						<td>${ NutrientsSelect.nutrientsId }</td>
+						<td>${ NutrientsSelect.nutrientsID }</td>
 						<td>${ NutrientsSelect.nutrientsName }</td>
 						<td>${ NutrientsSelect.nutrientsPrice }</td>
 						<td>${ NutrientsSelect.nutrientsCategory }</td>
-						<td><img src="${ NutrientsSelect.nutrientsImg }" style="width: 100px; height: 100px"/></td>
+						<td><img src="${ NutrientsSelect.nutrientsIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ NutrientsSelect.nutrientsDetail }</td>
-						<td>${ NutrientsSelect.nutrientsDom }</td>
-						<td>${ NutrientsSelect.dailyIntake }</td>
-						<td>${ NutrientsSelect.numPerBottle }</td>
+						<td>${ NutrientsSelect.nutrientsDOM }</td>
+						<td>${ NutrientsSelect.dailyInTake }</td>
+						<td>${ NutrientsSelect.numperbottle }</td>
 						<td>${ NutrientsSelect.remainingNum }</td>
 						<td>${ NutrientsSelect.link }</td>
 					</tr>

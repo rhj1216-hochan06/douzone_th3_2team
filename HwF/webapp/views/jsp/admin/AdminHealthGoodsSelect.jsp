@@ -21,7 +21,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
+				<img src="${path}/views/img/logo.png" />
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -67,7 +67,6 @@
 							<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>
 							<td>${ AdminHealthGoodsSelect.link }</td>
-							<%-- <td><input type="button" value="삭제" onclick='admin?cmd=AdminHealthGoodsDelete&healthGoodsId=${ AdminHealthGoodsSelect.healthGoodsId }'></td> --%>
 						</tr>
 						
 					</c:forEach>

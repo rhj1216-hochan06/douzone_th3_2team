@@ -34,7 +34,6 @@ public class GoodsDAO {
 	public List<HealthGoodsDTO> AdminHealthGoodsSelect() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
-
 			return sqlSession.selectList("adminMapper.AdminHealthGoodsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
@@ -86,11 +85,10 @@ public class GoodsDAO {
 	/*************** 상품 수정 ***************/
 	
 	//AdminHealthGoodsDetail (헬스용품 상세보기)
-//	public GoodsDTO AdminHealthGoodsDetail(GoodsDTO dto) {
-	public HealthGoodsDTO AdminHealthGoodsDetail(int HealthGoodsId) {	
+	public HealthGoodsDTO AdminHealthGoodsDetail(int healthGoodsId) {	
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			HealthGoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", HealthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
+			HealthGoodsDTO dto = sqlSession.selectOne("adminMapper.AdminHealthGoodsDetail", healthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			
 		} catch (Exception e) {
@@ -105,8 +103,10 @@ public class GoodsDAO {
 	// AdminHealthGoodsUpdate (헬스용품 수정)
 	public int AdminHealthGoodsUpdate(HealthGoodsDTO dto) {
 		try {
+			System.out.println("3");
 			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
-			int result = sqlSession.update("adminMapper.AdminHealthGoodsUpdate",dto); //""자리에는 mapper.xml에서의 namespace.id
+			System.out.println("4");
+			int result = sqlSession.update("adminMapper.AdminHealthGoodsUpdate", dto); //""자리에는 mapper.xml에서의 namespace.id
 			sqlSession.commit();
 			return result;
 			
@@ -122,10 +122,12 @@ public class GoodsDAO {
 	
 	
 	//AdminHealthFoodDetail (헬스식품 상세보기)
-	public HealthFoodDTO AdminHealthFoodDetail(int hfId) {
+	public HealthFoodDTO AdminHealthFoodDetail(int hfid) {
 		try {
+			System.out.println("1");
 			sqlSession = sqlSessionFactory.openSession();
-			HealthFoodDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfId); //""자리에는 mapper.xml에서의 namespace.id
+			System.out.println("2");
+			HealthFoodDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfid); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			
 		} catch (Exception e) {
@@ -157,10 +159,10 @@ public class GoodsDAO {
 	
 	
 	//AdminNutrientsDetail (영양제 상세보기)
-	public NutrientsDTO AdminNutrientsDetail(int nutrientsId) {
+	public NutrientsDTO AdminNutrientsDetail(int nutrientsID) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			NutrientsDTO dto = sqlSession.selectOne("adminMapper.AdminNutrientsDetail", nutrientsId); //""자리에는 mapper.xml에서의 namespace.id
+			NutrientsDTO dto = sqlSession.selectOne("adminMapper.AdminNutrientsDetail", nutrientsID); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			
 		} catch (Exception e) {
@@ -210,10 +212,10 @@ public class GoodsDAO {
 	}
 	
 	// AdminHealthFoodDelete (헬스식품 삭제)
-	public int AdminHealthFoodDelete(int hfId) {
+	public int AdminHealthFoodDelete(int hfid) {
 		sqlSession = sqlSessionFactory.openSession();
 		try {
-			int resultHealthFoodDelete = sqlSession.delete("adminMapper.AdminHealthFoodDelete", hfId); //""자리에는 mapper.xml에서의 namespace.id
+			int resultHealthFoodDelete = sqlSession.delete("adminMapper.AdminHealthFoodDelete", hfid); //""자리에는 mapper.xml에서의 namespace.id
 			sqlSession.commit();
 			return resultHealthFoodDelete;
 		
@@ -226,10 +228,10 @@ public class GoodsDAO {
 	}
 	
 	// AdminNutrientsDelete (영양제 삭제)
-	public int AdminNutrientsDelete(int nutrientsId) {
+	public int AdminNutrientsDelete(int nutrientsID) {
 		sqlSession = sqlSessionFactory.openSession();
 		try {
-			int resultNutrientsDelete = sqlSession.delete("adminMapper.AdminNutrientsDelete", nutrientsId); //""자리에는 mapper.xml에서의 namespace.id
+			int resultNutrientsDelete = sqlSession.delete("adminMapper.AdminNutrientsDelete", nutrientsID); //""자리에는 mapper.xml에서의 namespace.id
 			sqlSession.commit();
 			return resultNutrientsDelete;
 		

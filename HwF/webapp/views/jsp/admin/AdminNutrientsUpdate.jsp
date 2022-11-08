@@ -49,15 +49,15 @@
 			
 			<form action="./admin?cmd=AdminNutrientsUpdate" method="post">
 				<table style="margin-left: auto; margin-right:auto;">
-					<tr><td>번호</td><td><input type="number" name="nutrientsId" value="${ nutrientsId }"> </td></tr>
+					<tr><td>번호</td><td><input type="number" name="nutrientsID" value="${ nutrientsID }"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="nutrientsName" value="${ nutrientsName }"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="nutrientsPrice" value="${ nutrientsPrice }"> </td></tr>
 					<tr><td>카테고리</td><td><input type="number" name="nutrientsCategory" value="${ nutrientsCategory }"> </td></tr>
-					<tr><td>이미지</td><td><input type="text" name="nutrientsImg" value="${ nutrientsImg }"> </td></tr>
+					<tr><td>이미지</td><td><input type="text" name="nutrientsIMG" value="${ nutrientsIMG }"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="nutrientsDetail">${ nutrientsDetail }</textArea></td></tr>
-					<tr><td>제조날짜</td><td><input type="date" name="nutrientsDom" value="${ nutrientsDom }"> </td></tr>
-					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyIntake" value="${ dailyIntake }"> </td></tr>
-					<tr><td>1통 당 갯수</td><td><input type="number" name="numPerBottle" value="${ numPerBottle }"> </td></tr>
+					<tr><td>제조날짜</td><td><input type="date" name="nutrientsDOM" value="${ nutrientsDOM }"> </td></tr>
+					<tr><td>1일 섭취 갯수</td><td><input type="text" name="dailyInTake" value="${ dailyInTake }"> </td></tr>
+					<tr><td>1통 당 갯수</td><td><input type="number" name="numperbottle" value="${ numperbottle }"> </td></tr>
 					<tr><td>현재 잔여 갯수</td><td><input type="number" name="remainingNum" value="${ remainingNum }"> </td></tr>
 					<tr><td>추천 링크</td><td><input type="text" name="link" value="${ link }"> </td></tr>
 				</table>

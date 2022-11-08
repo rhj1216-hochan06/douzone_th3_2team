@@ -51,9 +51,9 @@
 					<tr><td>이름</td><td><input type="text" name="hfName" required="required"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="hfPrice" required="required"> </td></tr>
 					<tr><td>카테고리</td><td><input type="number" name="hfCategory" required="required"> </td></tr>
-					<tr><td>이미지</td><td><input type="text" name="hfImg"> </td></tr>
+					<tr><td>이미지</td><td><input type="text" name="hfIMG"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="hfDetail"></textArea></td></tr>
-					<tr><td>제조날짜</td><td><input type="date" name="hfDom"> </td></tr>
+					<tr><td>제조날짜</td><td><input type="date" name="hfDoM"> </td></tr>
 					<tr><td>추천 링크</td><td><input type="text" name="link" required="required"> </td></tr>
 				</table>
 				<br><br>

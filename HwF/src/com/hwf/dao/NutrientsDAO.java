@@ -18,10 +18,12 @@ public class NutrientsDAO {
 	public NutrientsDAO() {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
-
+	
+	
+	
 	public List<NutrientsDTO> selectAll() {
 		try {
-			sqlSession = sqlSessionFactory.openSession();
+			sqlSession = sqlSessionFactory.openSession(); 
 			return sqlSession.selectList("nutrdao.selectAll");
 
 		} catch (Exception e) {
@@ -88,8 +90,5 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
-	
-	
 	
 }

@@ -75,8 +75,7 @@
 				<th colspan="4">영양제 카테고리</th>
 				<tr>
 					<td onclick="location.href='nutrients?cmd=list'">
-						<h1>모든 영양제</h1> <img id="allnutrientsImg"
-						src="./views/img/allList.png" />
+						<h1>모든 영양제</h1> <img id="allnutrientsImg" src="./views/img/allList.png" />
 					</td>
 					<td>
 						<h1>비타민</h1> <img src="./views/img/vitamin.png" />

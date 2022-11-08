@@ -151,25 +151,3 @@ footer {
 .contentBottom .row:hover {
 	background-color: #C2B4D6;
 } 
-
-/*
-.contentBottom table tr:hover {
-	background-color: #C2B4D6;
-}
-*/
-
-/*
-.contentBottom table {
-	margin-left: auto; 
-	margin-right:auto
-}
-*/
-
-/*
-#tableHealthGoods table tr:hover {
-	background-color: #C2B4D6;
-	cursor: pointer;
-}
-*/
-
-/* tr.row:hover td { background-color: #C2B4D6; } */

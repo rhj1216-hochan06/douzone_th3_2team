@@ -5,7 +5,6 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
  
- <!-- <mapper namespace="dao"> -->
  <mapper namespace="adminMapper">
  
 	<!-- ***** 관리자) 상품 전체 조회 ***** -->
@@ -49,9 +48,8 @@
  	
  	<!-- 관리자) 헬스식품 수정 -->
 	<select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="int">
-	<!-- <select id="AdminHealthFoodDetail" resultType="com.hwf.model.HealthFoodDTO" parameterType="com.hwf.model.HealthFoodDTO"> -->
  		select * from healthfood
- 		where hfId = #{hfId}
+ 		where hfId = #{hfid}
  	</select>
  	
 	<update id="AdminHealthFoodUpdate" parameterType="com.hwf.model.HealthFoodDTO">
@@ -59,11 +57,11 @@
  		hfName = #{hfName}, 
  		hfPrice = #{hfPrice}, 
  		hfCategory = #{hfCategory}, 
- 		hfImg = #{hfImg}, 
+ 		hfImg = #{hfIMG}, 
  		hfDetail = #{hfDetail}, 
- 		hfDom = to_date(#{hfDom},'yyyy-mm-dd'),
+ 		hfDom = to_date(#{hfDoM},'yyyy-mm-dd'),
  		link = #{link} 
- 		where hfId = #{hfId}
+ 		where hfId = #{hfid}
  	</update>
  	
  	
@@ -78,14 +76,14 @@
  		nutrientsName = #{nutrientsName}, 
  		nutrientsPrice = #{nutrientsPrice}, 
  		nutrientsCategory = #{nutrientsCategory}, 
- 		nutrientsImg = #{nutrientsImg}, 
+ 		nutrientsImg = #{nutrientsIMG}, 
  		nutrientsDetail = #{nutrientsDetail}, 
- 		nutrientsDom = to_date(#{nutrientsDom},'yyyy-mm-dd'), 
- 		dailyIntake = #{dailyIntake}, 
- 		numPerBottle = #{numPerBottle}, 
+ 		nutrientsDom = to_date(#{nutrientsDOM},'yyyy-mm-dd'), 
+ 		dailyIntake = #{dailyInTake}, 
+ 		numPerBottle = #{numperbottle}, 
  		remainingNum = #{remainingNum}, 
  		link = #{link} 
- 		where nutrientsId = #{nutrientsId}
+ 		where nutrientsId = #{nutrientsID}
  	</update>
  	
  	
@@ -101,13 +99,13 @@
  	<!-- 관리자) 헬스식품 삭제 -->
  	<delete id="AdminHealthFoodDelete" parameterType="int">
  		delete from healthfood 
- 		where hfId = #{hfId}
+ 		where hfId = #{hfid}
  	</delete>
  	
   	<!-- 관리자) 영양제 삭제 -->
  	<delete id="AdminNutrientsDelete" parameterType="int">
  		delete from nutrients 
- 		where nutrientsId = #{nutrientsId}
+ 		where nutrientsId = #{nutrientsID}
  	</delete>	 	
 
  
@@ -123,13 +121,13 @@
  	<!-- 관리자) 헬스식품 등록 -->
  	<insert id="AdminHealthFoodInsert" parameterType="com.hwf.model.HealthFoodDTO">
 		insert into healthfood(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, link)
- 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfImg}, #{hfDetail}, to_date(#{hfDom},'yyyy-mm-dd'), #{link})
+ 		values(hf_id_seq.nextval, #{hfName}, #{hfPrice}, #{hfCategory}, #{hfIMG}, #{hfDetail}, to_date(#{hfDoM},'yyyy-mm-dd'), #{link})
  	</insert>
  	
  	<!-- 관리자) 영양제 등록 -->
  	<insert id="AdminNutrientsInsert" parameterType="com.hwf.model.NutrientsDTO">
 		insert into nutrients(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link)
- 		values(nutrients_id_seq.nextval, #{nutrientsName}, #{nutrientsPrice}, #{nutrientsCategory}, #{nutrientsImg}, #{nutrientsDetail}, to_date(#{nutrientsDom},'yyyy-mm-dd'), #{dailyIntake}, #{numPerBottle}, #{remainingNum}, #{link})
+ 		values(nutrients_id_seq.nextval, #{nutrientsName}, #{nutrientsPrice}, #{nutrientsCategory}, #{nutrientsIMG}, #{nutrientsDetail}, to_date(#{nutrientsDOM},'yyyy-mm-dd'), #{dailyInTake}, #{numperbottle}, #{remainingNum}, #{link})
  	</insert>
  	
  	

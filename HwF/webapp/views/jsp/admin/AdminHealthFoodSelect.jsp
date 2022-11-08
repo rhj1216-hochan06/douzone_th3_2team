@@ -59,15 +59,15 @@
 				</tr>
 		
 				<c:forEach var="AdminHealthFoodSelect" items="${ AdminHealthFoodSelect }">
-					<tr class="row" id="${AdminHealthFoodSelect.hfId}" title="${AdminHealthFoodSelect.hfName} 수정"
-						onclick="location.href='admin?cmd=AdminHealthFoodDetail&hfId=${AdminHealthFoodSelect.hfId}'" >
-						<td>${ AdminHealthFoodSelect.hfId }</td>
+					<tr class="row" id="${AdminHealthFoodSelect.hfid}" title="${AdminHealthFoodSelect.hfName} 수정"
+						onclick="location.href='admin?cmd=AdminHealthFoodDetail&hfid=${AdminHealthFoodSelect.hfid}'" >
+						<td>${ AdminHealthFoodSelect.hfid }</td>
 						<td>${ AdminHealthFoodSelect.hfName }</td>
 						<td>${ AdminHealthFoodSelect.hfPrice }</td>
 						<td>${ AdminHealthFoodSelect.hfCategory }</td>
-						<td><img src="${ AdminHealthFoodSelect.hfImg }" style="width: 100px; height: 100px"/></td>
+						<td><img src="${ AdminHealthFoodSelect.hfIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminHealthFoodSelect.hfDetail }</td>
-						<td>${ AdminHealthFoodSelect.hfDom }</td>
+						<td>${ AdminHealthFoodSelect.hfDoM }</td>
 						<td>${ AdminHealthFoodSelect.link }</td>
 					</tr>
 				</c:forEach>

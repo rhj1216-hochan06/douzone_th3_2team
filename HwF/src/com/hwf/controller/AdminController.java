@@ -31,23 +31,20 @@ public class AdminController extends HttpServlet {
 		
 	}
 	
-	/*************** cmd ***************/
-	
-	// index.html에서 쓰인 'cmd'
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8"); // request에 set
+		request.setCharacterEncoding("UTF-8"); 
 
-		String cmd = request.getParameter("cmd"); // ~~~?cmd=AdminMemberSelect
-		System.out.println("cmd : " + cmd); // Console창 출력테스트
+		String cmd = request.getParameter("cmd");
+		System.out.println("cmd : " + cmd); //Console창 출력테스트
 
 		//회원 전체 조회
-		if (cmd.equals("AdminMemberSelect")) { // 관리자) 회원 조회
+		if (cmd.equals("AdminMemberSelect")) { //관리자) 회원 조회
 			AdminMemberSelect(request, response);
 		}
 		
 		
 		// 상품 전체 조회
-		else if (cmd.equals("GoodsSelect")) { // 관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
+		else if (cmd.equals("GoodsSelect")) { //관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
 			GoodsSelect(request, response);
 		} 
 		else if (cmd.equals("AdminHealthGoodsSelect")) { //관리자) 헬스용품 전체 조회
@@ -124,7 +121,7 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("NutrientsSelect", NutrientsSelect);
 			request.getRequestDispatcher("/views/jsp/admin/GoodsSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/jsp/error.jsp");
 		}
 
 	}
@@ -143,7 +140,7 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("AdminHealthGoodsSelect", AdminHealthGoodsSelect);
 			request.getRequestDispatcher("/views/jsp/admin/AdminHealthGoodsSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/jsp/error.jsp");
 		}	
 
 	}
@@ -160,7 +157,7 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("AdminHealthFoodSelect", AdminHealthFoodSelect); 
 			request.getRequestDispatcher("/views/jsp/admin/AdminHealthFoodSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/jsp/error.jsp");
 		}	
 
 	}
@@ -177,7 +174,7 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("AdminNutrientsSelect", AdminNutrientsSelect);
 			request.getRequestDispatcher("/views/jsp/admin/AdminNutrientsSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/error.jsp");
 		}	
 
 	}		
@@ -243,21 +240,21 @@ public class AdminController extends HttpServlet {
 	
 	//관리자) 헬스식품 상세보기
 	public void AdminHealthFoodDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int hfId = Integer.parseInt(request.getParameter("hfId"));
+		int hfid = Integer.parseInt(request.getParameter("hfid"));
 			
 		GoodsDAO dao = new GoodsDAO();
-		HealthFoodDTO dtoHealthFood = dao.AdminHealthFoodDetail(hfId);
+		HealthFoodDTO dtoHealthFood = dao.AdminHealthFoodDetail(hfid);
         
 		HttpSession session;	      
 		session = request.getSession();
 		
-		session.setAttribute("hfId", hfId);
+		session.setAttribute("hfid", hfid);
         session.setAttribute("hfName", dtoHealthFood.getHfName());
         session.setAttribute("hfPrice", dtoHealthFood.getHfPrice());
         session.setAttribute("hfCategory", dtoHealthFood.getHfCategory());
-        session.setAttribute("hfImg", dtoHealthFood.getHfImg());
+        session.setAttribute("hfIMG", dtoHealthFood.getHfIMG());
         session.setAttribute("hfDetail", dtoHealthFood.getHfDetail());
-        session.setAttribute("hfDom", dtoHealthFood.getHfDom()); //jsp로 출력시킬때 Date타입으로 형변환 필요
+        session.setAttribute("hfDoM", dtoHealthFood.getHfDoM()); //jsp로 출력시킬때 Date타입으로 형변환 필요
         session.setAttribute("link", dtoHealthFood.getLink());
         
         //세션 유지시간 설정(초단위) 20분
@@ -274,17 +271,17 @@ public class AdminController extends HttpServlet {
 	
 	//관리자) 헬스식품 수정
 	public void AdminHealthFoodUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-	    int hfId = Integer.parseInt(request.getParameter("hfId"));
+	    int hfid = Integer.parseInt(request.getParameter("hfid"));
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
 		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
-		String hfImg = request.getParameter("hfImg");
+		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
-		String hfDom = request.getParameter("hfDom"); 
+		String hfDoM = request.getParameter("hfDoM"); 
 		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfId, hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, link);
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfid, hfName, hfPrice, hfCategory, hfIMG, hfDetail, hfDoM, link);
 		
 		int resultHealthFoodUpdate = dao.AdminHealthFoodUpdate(dtoHealthFood);
 		
@@ -300,23 +297,23 @@ public class AdminController extends HttpServlet {
 	
 	//관리자) 영양제 상세보기
 	public void AdminNutrientsDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+		int nutrientsID = Integer.parseInt(request.getParameter("nutrientsID"));
 			
 		GoodsDAO dao = new GoodsDAO();
-		NutrientsDTO dtoNutrients = dao.AdminNutrientsDetail(nutrientsId);
+		NutrientsDTO dtoNutrients = dao.AdminNutrientsDetail(nutrientsID);
 		
 		HttpSession session;	      
 		session = request.getSession();
 		
-		session.setAttribute("nutrientsId", nutrientsId);
+		session.setAttribute("nutrientsID", nutrientsID);
         session.setAttribute("nutrientsName", dtoNutrients.getNutrientsName());
         session.setAttribute("nutrientsPrice", dtoNutrients.getNutrientsPrice());
         session.setAttribute("nutrientsCategory", dtoNutrients.getNutrientsCategory());
-        session.setAttribute("nutrientsImg", dtoNutrients.getNutrientsImg());
+        session.setAttribute("nutrientsIMG", dtoNutrients.getNutrientsIMG());
         session.setAttribute("nutrientsDetail", dtoNutrients.getNutrientsDetail());
-        session.setAttribute("nutrientsDom", dtoNutrients.getNutrientsDom()); //jsp로 출력시킬때 Date타입으로 형변환 필요
-        session.setAttribute("dailyIntake", dtoNutrients.getDailyIntake());
-        session.setAttribute("numPerBottle", dtoNutrients.getNumPerBottle());
+        session.setAttribute("nutrientsDOM", dtoNutrients.getNutrientsDOM()); //jsp로 출력시킬때 Date타입으로 형변환 필요
+        session.setAttribute("dailyInTake", dtoNutrients.getDailyInTake());
+        session.setAttribute("numperbottle", dtoNutrients.getNumperbottle());
         session.setAttribute("remainingNum", dtoNutrients.getRemainingNum());
         session.setAttribute("link", dtoNutrients.getLink());
         
@@ -334,20 +331,20 @@ public class AdminController extends HttpServlet {
 	
 	//관리자) 영양제 수정
 	public void AdminNutrientsUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+		int nutrientsID = Integer.parseInt(request.getParameter("nutrientsID"));
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
 		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
-		String nutrientsImg = request.getParameter("nutrientsImg");
+		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
-		String nutrientsDom = request.getParameter("nutrientsDom");
-		String dailyIntake = request.getParameter("dailyIntake");
-		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
+		String nutrientsDOM = request.getParameter("nutrientsDOM");
+		String dailyInTake = request.getParameter("dailyInTake");
+		int numperbottle = Integer.parseInt(request.getParameter("numperbottle"));
 		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
 		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link);
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsID, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsIMG, nutrientsDetail, nutrientsDOM, dailyInTake, numperbottle, remainingNum, link);
 		
 		int resultNutrientsUpdate = dao.AdminNutrientsUpdate(dtoNutrients);
 		if( resultNutrientsUpdate > 0 ) {
@@ -369,7 +366,7 @@ public class AdminController extends HttpServlet {
 		
 		int resultHealthGoodsDelete = dao.AdminHealthGoodsDelete(healthGoodsId);
 		if (resultHealthGoodsDelete > 0) {
-			AdminHealthGoodsSelect(request, response);
+			AdminHealthGoodsSelect(request, response); 
 		}
 	}
 	
@@ -377,11 +374,13 @@ public class AdminController extends HttpServlet {
 	
 	// 관리자) 헬스식품 삭제
 	public void AdminHealthFoodDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int hfId = Integer.parseInt(request.getParameter("hfId"));
-			
+		System.out.println("1");
+		int hfid = Integer.parseInt(request.getParameter("hfid")); 
+		System.out.println("2");
 		GoodsDAO dao = new GoodsDAO();
+		System.out.println("3");
 			
-		int resultHealthFoodDelete = dao.AdminHealthFoodDelete(hfId);
+		int resultHealthFoodDelete = dao.AdminHealthFoodDelete(hfid);
 		if (resultHealthFoodDelete > 0) {
 			AdminHealthFoodSelect(request, response);
 		}
@@ -391,11 +390,11 @@ public class AdminController extends HttpServlet {
 	
 	// 관리자) 영양제 삭제
 	public void AdminNutrientsDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int nutrientsId = Integer.parseInt(request.getParameter("nutrientsId"));
+		int nutrientsID = Integer.parseInt(request.getParameter("nutrientsID"));
 				
 		GoodsDAO dao = new GoodsDAO();
 				
-		int resultNutrientsDelete = dao.AdminNutrientsDelete(nutrientsId);
+		int resultNutrientsDelete = dao.AdminNutrientsDelete(nutrientsID);
 		if (resultNutrientsDelete > 0) {
 			AdminNutrientsSelect(request, response);
 		}
@@ -437,7 +436,7 @@ public class AdminController extends HttpServlet {
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
 		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
-		String hfImg = request.getParameter("hfImg");
+		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
 		
 //		SimpleDateFormat SDF = new SimpleDateFormat("yy-MM-dd");
@@ -446,12 +445,11 @@ public class AdminController extends HttpServlet {
 
 //		Date hfDom = request.getParameter("hfDom");
 		
-		String hfDom = request.getParameter("hfDom");       
-//		System.out.println(hfDom);
+		String hfDoM = request.getParameter("hfDoM");       
 		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfImg, hfDetail, hfDom, link);
+		HealthFoodDTO dtoHealthFood = new HealthFoodDTO(hfName, hfPrice, hfCategory, hfIMG, hfDetail, hfDoM, link);
 		
 		int resultHealthFoodInsert = dao.AdminHealthFoodInsert(dtoHealthFood);
 		if (resultHealthFoodInsert > 0) {
@@ -470,16 +468,16 @@ public class AdminController extends HttpServlet {
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
 		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
-		String nutrientsImg = request.getParameter("nutrientsImg");
+		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
-		String nutrientsDom = request.getParameter("nutrientsDom");       
-		String dailyIntake = request.getParameter("dailyIntake");
-		int numPerBottle = Integer.parseInt(request.getParameter("numPerBottle"));
+		String nutrientsDOM = request.getParameter("nutrientsDOM");       
+		String dailyInTake = request.getParameter("dailyInTake");
+		int numperbottle = Integer.parseInt(request.getParameter("numperbottle"));
 		int remainingNum = Integer.parseInt(request.getParameter("remainingNum"));
 		String link = request.getParameter("link");
 		
 		GoodsDAO dao = new GoodsDAO();
-		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link);
+		NutrientsDTO dtoNutrients = new NutrientsDTO(nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsIMG, nutrientsDetail, nutrientsDOM, dailyInTake, numperbottle, remainingNum, link);
 		
 		int resultNutrientsInsert = dao.AdminNutrientsInsert(dtoNutrients);
 		if (resultNutrientsInsert > 0) {

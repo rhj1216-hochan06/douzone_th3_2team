@@ -46,10 +46,6 @@
 			<br>
 			<h3>헬스용품 등록</h3>
 			
-			<!-- <form action="admin?cmd=AdminGoodsInsert" method="post">	 <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
-			<!-- <form action="./admin?cmd=AdminGoodsInsert" method="post">  <!-- http://localhost:8080/ HwF/views/jsp/admin?cmd=AdminHealthGoodsInsert -->
-			<!-- <form action="../admin?cmd=AdminGoodsInsert" method="post"> <!-- http://localhost:8080/ HwF/views/admin?cmd=AdminHealthGoodsInsert -->
-			<!-- <form action="../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsInsert -->
 			<form action="../../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsSelect -->
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>이름</td><td><input type="text" name="healthGoodsName" required="required"> </td></tr>
