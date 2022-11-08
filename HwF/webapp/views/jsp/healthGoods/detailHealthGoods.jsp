@@ -1,29 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css"
-	href="${path}/views/css/detailnutrients.css" />
 
+<link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="${path}/views/js/nutr.js"></script>
+<script type="text/javascript" src="${path}/views/js/healthGoodsJS.js"></script>
 
 
-<title>allList</title>
+<title>헬스용품 상세 페이지</title>
 
 </head>
 <body>
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -37,8 +35,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -118,39 +116,33 @@
 	<div id="nutrientsListDiv">
 
 		<!-- 선택한 상품 보여주기 -->
-		<c:forEach var="list" items="${ list }">
+		<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
 
 			<div>
-				<img id="nutrientsIMG" alt="사진" src="${list.nutrientsIMG }">
+				<img id="healthGoodsImg" alt="사진" src="${healthGoodsList.healthGoodsImg }" border="2px">
 
 			</div>
 
 			<div id="nutrdiscription">
 
 				<div>
-					<h3>${list.nutrientsName }</h3>
+					<h3>${ healthGoodsList.healthGoodsName }</h3>
 				</div>
 				<br />
 
-				<div>${list.nutrientsDetail }</div>
+				<div>${ healthGoodsList.healthGoodsDetail }</div>
 
 
 				<div>
 					<br />
-
+					
 					<div>
-						1병 당 가격 : <a id="result">${list.nutrientsPrice }</a>원
+						가격 : <a id="result">${ healthGoodsList.healthGoodsPrice }</a>원
 					</div>
-					<br />
-
-					<div>
-						1병 기준 섭취가능 수량 : <a id="numperbottle">${list.numperbottle }</a>회
-					</div>
-					<br />
-
-					<div onload="takeoneprice()">
+					
+					<!-- <div onload="takeoneprice()">
 						1회 분량 가격 : <a id="takeone">0</a>원
-					</div>
+					</div> -->
 				</div>
 
 
@@ -160,59 +152,32 @@
 
 
 		<div id="selectbuymethod">
-			<table>
-				<tr>
-					<td id="1" onclick="selectbuymethod(this.id)" title="일 수 수량 선택">일
-						수 구매</td>
-					<td id="2" onclick="selectbuymethod(this.id)" title="낱개 수량 선택">낱개
-						구매</td>
-				</tr>
-			</table>
 
-			<!-- 일 수 구매 -->
+		<!-- 일 수 구매 -->
 
 			<div id="buy1">
 				<form name="buyday" action="" method="post">
-					<h1>일 수 총 가격</h1>
+					<h1>총 가격</h1>
 
-					<input id="onetotal" name="onetotal" value="0" readonly />
-					<p />
-					<a>수량 결정</a>
-					<p />
+					<input id="onetotal" name="onetotal" value="0" readonly /> <p />
+					<a>수량 결정</a> <p />
 					<input id="countone" name="countone" value="0" readonly />
 
 					<div id="calculationdiv">
-
-						<input type='button' onclick="countnum('plus')"
-							class="calculation" value='+' /> <input type='button'
-							onclick="countnum('minus')" class="calculation" value='-' />
+						<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
+						<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
 					</div>
-
-					<div id="calender1">
-						<input type='radio' name='getnu' value='onetime' />한번에 받기 <input
-							type='radio' name='getnu' value='splittime' />나눠서 받기
-						<p />
-						<input type='date' id="selectdate" value="2022-11-06" />
-
-						<div>
-							끝나는 날 : <input id="finishnutr" name="finishnutr" value="0"
-								readonly />
-						</div>
-						<p />
-						<p />
-						<input type="submit" id="bottlebasket" class="calculation"
-							value="장바구니"> <input type='button'
-							onclick="selectnudate()" class="calculation" value='날짜 선택' />
-
+					
+					<div>
+						<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
 					</div>
 
 				</form>
 			</div>
 
 
-			<!-- 낱개 구매 -->
 
-			<div id="buy2">
+			<!-- <div id="buy2">
 				<form name="buybottle" action="" method="post">
 					<h1>낱개 총 가격</h1>
 
@@ -246,17 +211,15 @@
 							value="장바구니"> <input type='button'
 							onclick="selectnudate2()" class="calculation" value='날짜 선택' />
 
+					</div> -->
 
-
-					</div>
-
-				</form>
+				<!-- </form> -->
 
 			</div>
 
 		</div>
 
-	</div>
+	<!-- </div> -->
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

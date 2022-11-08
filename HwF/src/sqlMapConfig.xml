@@ -10,18 +10,15 @@
 	<typeAliases>
 		<typeAlias alias="cartdto" type="com.hwf.model.CartDTO" />
 
-		<typeAlias alias="healthfooddto"
-			type="com.hwf.model.HealthFoodDTO" />
+		<typeAlias alias="healthfooddto" type="com.hwf.model.HealthFoodDTO" />
 
-		<typeAlias alias="healthgoodsdto"
-			type="com.hwf.model.HealthGoodsDTO" />
+		<typeAlias alias="healthgoodsdto" type="com.hwf.model.HealthGoodsDTO" />
 
 		<typeAlias alias="memberdto" type="com.hwf.model.MemberDTO" />
 
 		<typeAlias alias="nutrdto" type="com.hwf.model.NutrientsDTO" />
 
-		<typeAlias alias="purchasedto"
-			type="com.hwf.model.PurchaseDTO" />
+		<typeAlias alias="purchasedto" type="com.hwf.model.PurchaseDTO" />
 
 		<typeAlias alias="inbodydto" type="com.hwf.model.InbodyDTO" />
 
@@ -45,10 +42,10 @@
 
 
 	<mappers>
-	<mapper resource="sqlMapper/admin-mapper.xml" />
+		<mapper resource="sqlMapper/admin-mapper.xml" />
 		<mapper resource="sqlMapper/cartmapper.xml" />
-		<mapper resource="sqlMapper/healthfoodmapper.xml" />
-		<mapper resource="sqlMapper/healthgoodsmapper.xml" />
+		<mapper resource="sqlMapper/healthfood-mapper.xml" />
+		<mapper resource="sqlMapper/healthgoods-mapper.xml" />
 		<mapper resource="sqlMapper/membermapper.xml" />
 		<mapper resource="sqlMapper/nutrientsmapper.xml" />
 		<mapper resource="sqlMapper/purchasemapper.xml" />

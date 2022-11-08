@@ -12,8 +12,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/AdminCss.css">
-<!-- 부트스트랩 css 사용 -->
-<%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrap.css"> --%>
 
 <title>관리자 메인</title>
 </head>
@@ -24,7 +22,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>

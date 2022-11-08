@@ -1,19 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css"
-	href="${path}/views/css/allList.css" />
+
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>allList</title>
+
+<title>헬스용품 전체 페이지</title>
 </head>
+
 <body>
 	<header>
 		<div id="headerFirstDiv">
@@ -31,8 +32,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -116,22 +117,18 @@
 		<table>
 			<tr>
 				<th>이름</th>
-				<th>하루 섭취량</th>
-				<th>한병 수량</th>
-				<th>제조날짜</th>
 				<th>가격</th>
-				<th>사진</th>
+				<th>이미지</th>
+				<th>상세설명</th>
 			</tr>
 
-			<c:forEach var="list" items="${ list }">
-				<tr  id = "${list.nutrientsID}" title="${list.nutrientsName}의 상세 페이지 가기"
-					onclick="location.href='nutrients?cmd=nutrientsDetail${list.nutrientsID}'" >
-					<td>${list.nutrientsName}</td>
-					<td>${list.dailyInTake }</td>
-					<td>${list.numperbottle }</td>
-					<td>${list.nutrientsDOM }</td>
-					<td>${list.nutrientsPrice }</td>
-					<td><img src="${list.nutrientsIMG }" /></td>
+			<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
+				<tr  id = "${healthGoodsList.healthGoodsId}" title="${healthGoodsList.healthGoodsName}의 상세 페이지 가기"
+					onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${healthGoodsList.healthGoodsId}'" >
+					<td>${healthGoodsList.healthGoodsName}</td>
+					<td>${healthGoodsList.healthGoodsPrice }</td>
+					<td><img src="${healthGoodsList.healthGoodsImg }" /></td>
+					<td>${healthGoodsList.healthGoodsDetail }</td>
 				</tr>
 			</c:forEach>
 		</table>
