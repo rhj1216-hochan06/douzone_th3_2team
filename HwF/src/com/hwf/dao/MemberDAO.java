@@ -1,10 +1,6 @@
 package com.hwf.dao;
 
-<<<<<<< HEAD
 import java.util.List;
-
-=======
->>>>>>> origin/HongGeonho
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Component;
@@ -14,7 +10,7 @@ import com.hwf.model.MemberDTO;
 
 @Component
 public class MemberDAO {
-<<<<<<< HEAD
+
 	
 	private SqlSession session = null; //DML쿼리문 다 갖는 SqlSession 인터페이스
 	
@@ -24,7 +20,6 @@ public class MemberDAO {
 	public MemberDAO() {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory(); //openSession() 가능
 	}
-	
 	
 	//DML 관련 - 메소드명을 admin-mapper.xml와 맞춰주기
 	
@@ -42,15 +37,10 @@ public class MemberDAO {
 			if (sqlSession!=null) {sqlSession.close();} 
 		}
 	}
+	
+	
 
-=======
-	private SqlSessionFactory sqlSessionFactory;
-	private SqlSession sqlSession = null;
-
-	public MemberDAO() {
-		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
-	}
-
+	//checkMemberb
 	public boolean checkMemberb(MemberDTO dto) {
 
 		if (dto.getMemberpwd() == sqlSession.selectOne("memberdao.selectpwd", dto.getMemberid()))
@@ -58,7 +48,10 @@ public class MemberDAO {
 		else
 			return false;
 	}
+	
+	
 
+	//checkMember
 	public MemberDTO checkMember(MemberDTO dto) {
 		try {
 			System.out.println(dto.toString());
@@ -102,6 +95,4 @@ public class MemberDAO {
 			}
 		} // try end
 	} // write end
-
->>>>>>> origin/HongGeonho
 }
