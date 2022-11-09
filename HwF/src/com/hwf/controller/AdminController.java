@@ -218,7 +218,8 @@ public class AdminController extends HttpServlet {
 		int healthGoodsId = Integer.parseInt(request.getParameter("healthGoodsId"));
 		String healthGoodsName = request.getParameter("healthGoodsName");
 		int healthGoodsPrice = Integer.parseInt(request.getParameter("healthGoodsPrice"));
-		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
+//		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
+		String healthGoodsCategory = request.getParameter("healthGoodsCategory");
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
 		String link = request.getParameter("link");
@@ -274,7 +275,8 @@ public class AdminController extends HttpServlet {
 	    int hfid = Integer.parseInt(request.getParameter("hfid"));
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+		String hfCategory = request.getParameter("hfCategory");
 		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
 		String hfDoM = request.getParameter("hfDoM"); 
@@ -334,7 +336,8 @@ public class AdminController extends HttpServlet {
 		int nutrientsID = Integer.parseInt(request.getParameter("nutrientsID"));
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
-		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+//		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+		String nutrientsCategory = request.getParameter("nutrientsCategory");
 		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
 		String nutrientsDOM = request.getParameter("nutrientsDOM");
@@ -410,7 +413,8 @@ public class AdminController extends HttpServlet {
 		
 		String healthGoodsName = request.getParameter("healthGoodsName");
 		int healthGoodsPrice = Integer.parseInt(request.getParameter("healthGoodsPrice"));
-		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
+//		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
+		String healthGoodsCategory = request.getParameter("healthGoodsCategory");
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
 		String link = request.getParameter("link");
@@ -435,7 +439,8 @@ public class AdminController extends HttpServlet {
 		
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
+		String hfCategory = request.getParameter("hfCategory");
 		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
 		
@@ -467,7 +472,8 @@ public class AdminController extends HttpServlet {
 		
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
-		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+//		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
+		String nutrientsCategory = request.getParameter("nutrientsCategory");
 		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
 		String nutrientsDOM = request.getParameter("nutrientsDOM");       

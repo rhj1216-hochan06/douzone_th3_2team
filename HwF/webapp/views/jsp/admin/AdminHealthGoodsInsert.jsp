@@ -50,7 +50,7 @@
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>이름</td><td><input type="text" name="healthGoodsName" required="required"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="healthGoodsPrice" required="required"> </td></tr>
-					<tr><td>카테고리</td><td><input type="number" name="healthGoodsCategory" required="required"> </td></tr>
+					<tr><td>카테고리</td><td><input type="text" name="healthGoodsCategory" required="required"> </td></tr>
 					<tr><td>이미지</td><td><input type="text" name="healthGoodsImg"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail"></textArea></td></tr>
 					<tr><td>추천 링크</td><td><input type="text" name="link" required="required"> </td></tr>

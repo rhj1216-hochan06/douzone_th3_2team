@@ -50,7 +50,7 @@
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>이름</td><td><input type="text" name="nutrientsName" required="required"> </td></tr>
 					<tr><td>가격</td><td><input type="number" name="nutrientsPrice" required="required"> </td></tr>
-					<tr><td>카테고리</td><td><input type="number" name="nutrientsCategory" required="required"> </td></tr>
+					<tr><td>카테고리</td><td><input type="text" name="nutrientsCategory" required="required"> </td></tr>
 					<tr><td>이미지</td><td><input type="text" name="nutrientsIMG"> </td></tr>
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="nutrientsDetail"></textArea></td></tr>
 					<tr><td>제조날짜</td><td><input type="date" name="nutrientsDOM"> </td></tr>

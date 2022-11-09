@@ -37,6 +37,7 @@ public class GoodsDAO {
 			return sqlSession.selectList("adminMapper.AdminHealthGoodsSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 
 		} finally {
@@ -54,6 +55,7 @@ public class GoodsDAO {
 			return sqlSession.selectList("adminMapper.AdminHealthFoodSelect"); // admin-mapper.xml에서 namespace.id와 일치시켜주어야 함
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 
 		} finally {
@@ -103,9 +105,7 @@ public class GoodsDAO {
 	// AdminHealthGoodsUpdate (헬스용품 수정)
 	public int AdminHealthGoodsUpdate(HealthGoodsDTO dto) {
 		try {
-			System.out.println("3");
 			sqlSession = sqlSessionFactory.openSession(); //어플리케이션과 DB 통로 역할
-			System.out.println("4");
 			int result = sqlSession.update("adminMapper.AdminHealthGoodsUpdate", dto); //""자리에는 mapper.xml에서의 namespace.id
 			sqlSession.commit();
 			return result;
@@ -124,9 +124,7 @@ public class GoodsDAO {
 	//AdminHealthFoodDetail (헬스식품 상세보기)
 	public HealthFoodDTO AdminHealthFoodDetail(int hfid) {
 		try {
-			System.out.println("1");
 			sqlSession = sqlSessionFactory.openSession();
-			System.out.println("2");
 			HealthFoodDTO dto = sqlSession.selectOne("adminMapper.AdminHealthFoodDetail", hfid); //""자리에는 mapper.xml에서의 namespace.id
 			return dto;
 			

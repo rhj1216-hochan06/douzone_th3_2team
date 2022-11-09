@@ -92,6 +92,7 @@
 				<table>
 					<th colspan="2">이달의 HOT & SALE 메뉴</th>
 					<tr>
+						<!-- <td><a href="javascript:location.href='Main.jsp'"><img src="https://img.danawa.com/prod_img/500000/137/335/img/13335137_1.jpg?shrink=330:330&_v=20220616100237" /></a></td> -->
 						<td><img src="./views/img/logo.png" /></td>
 						<td><img src="./views/img/logo.png" /></td>
 					</tr>
