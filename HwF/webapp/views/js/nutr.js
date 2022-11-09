@@ -97,6 +97,12 @@ window.onload = function() {
 
 	document.getElementById("buy2").style.display = "none";
 
+	/////////////////////////////////////////////////////////
+
+	const nutrientsIDElement = document.getElementById("nutrientsID").innerText;
+
+	$('input[name=hiddenid]').attr('value', nutrientsIDElement);
+
 }
 
 

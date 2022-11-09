@@ -4,23 +4,43 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hwf.config.SqlSessionFactoryService;
+import com.hwf.model.CartDTO;
 import com.hwf.model.NutrientsDTO;
 
 @Component
 public class CartDAO {
-	
-	@Autowired
+
 	private SqlSessionFactory sqlSessionFactory;
 	private SqlSession sqlSession = null;
 
-	public List<NutrientsDTO> selectusename(String s) {
+	public CartDAO() {
+		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
+	}
+
+	public int insertData(CartDTO dto) {
+
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			return sqlSession.selectList("nutrdao.selectusename", s);
+
+			int result = sqlSession.insert("cartdao.insertnutr", dto);
+
+			sqlSession.commit();
+			return result;
+		} catch (Exception e) {
+
+			return 0;
+		}
+	}
+
+	public List<CartDTO> selectcartall(String id) {
+
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+
+			return sqlSession.selectList("cartdao.selectbyid", id);
 
 		} catch (Exception e) {
 			return null;
@@ -29,6 +49,22 @@ public class CartDAO {
 				sqlSession.close();
 			}
 		}
+
 	}
-	
+
+	public int deleteData(int id) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+
+			int result = sqlSession.delete("cartdao.deleteid", id);
+
+			sqlSession.commit();
+			return result;
+		} catch (Exception e) {
+
+			return 0;
+		}
+
+	}
+
 }

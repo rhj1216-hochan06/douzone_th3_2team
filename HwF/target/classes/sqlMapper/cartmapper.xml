@@ -5,12 +5,16 @@
 
 <mapper namespace="cartdao">
 
-	<insert id="insertnutr">
-		insert into cart (memberId,
+	<insert id="insertnutr" parameterType="cartdto">
+		insert into cart
+		(cartid,
+		memberId,
 		productsId, productsName,
-		productsIMG, productsPrice, reservation,
-		purchasetime, Endtime)
+		productsIMG, productsPrice,
+		reservation,
+		purchasetime, endtime)
 		values (
+		cart_id_seq.nextval,
 		#{memberId},
 		#{productsId},
 		#{productsName},
@@ -19,9 +23,20 @@
 		#{reservation},
 		to_date(#{purchasetime}, 'yyyy.mm.dd
 		hh24:mi:SS'),
-		to_date(#{Endtime}, 'yyyy.mm.dd hh24:mi:SS'),
-		);
+		to_date(#{endtime},
+		'yyyy.mm.dd hh24:mi:SS')
+		)
 	</insert>
 
+	<select id="selectbyid" resultType="cartdto"
+		parameterType="String">
+		select * from cart where memberId = #{memberid} ORDER BY
+		ROWNUM desc
+	</select>
+
+	<delete id="deleteid" parameterType="int">
+		delete from cart where
+		CARTID = #{memberid}
+	</delete>
 
 </mapper>

@@ -30,6 +30,7 @@ public class MemberController extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 
 		String cmd = request.getParameter("cmd");
 
@@ -320,6 +321,7 @@ public class MemberController extends HttpServlet {
 			HttpSession session;
 			session = request.getSession();
 			session.setAttribute("membername1", "환영합니다. 고객님");
+			session.setAttribute("memberid", "");
 
 		} catch (Exception e) {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
