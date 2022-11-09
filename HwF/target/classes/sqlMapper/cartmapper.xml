@@ -7,12 +7,14 @@
 
 	<insert id="insertnutr" parameterType="cartdto">
 		insert into cart
-		(memberId,
+		(cartid,
+		memberId,
 		productsId, productsName,
 		productsIMG, productsPrice,
 		reservation,
 		purchasetime, endtime)
 		values (
+		cart_id_seq.nextval,
 		#{memberId},
 		#{productsId},
 		#{productsName},
@@ -26,5 +28,15 @@
 		)
 	</insert>
 
+	<select id="selectbyid" resultType="cartdto"
+		parameterType="String">
+		select * from cart where memberId = #{memberid} ORDER BY
+		ROWNUM desc
+	</select>
+
+	<delete id="deleteid" parameterType="int">
+		delete from cart where
+		CARTID = #{memberid}
+	</delete>
 
 </mapper>

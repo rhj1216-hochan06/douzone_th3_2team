@@ -1,6 +1,7 @@
 package com.hwf.controller;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -29,11 +30,14 @@ public class CartController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 
 		System.out.println("cmd : " + cmd);
-
 		if (cmd.equals("insertCart")) {
 			insertCart(request, response);
-		}else if (cmd.equals("insertbottleCart")) {
+		} else if (cmd.equals("insertbottleCart")) {
 			insertbottleCart(request, response);
+		} else if (cmd.equals("deleteSelete")) {
+			deleteSelete(request, response);
+		} else if (cmd.equals("purchase")) {
+			purchase(request, response);
 		}
 	}
 
@@ -48,6 +52,8 @@ public class CartController extends HttpServlet {
 
 			cusId = session.getAttribute("memberid").toString(); // 고객 id
 
+			System.out.println(cusId);
+
 			if (cusId.equals("")) {
 				throw new Exception();
 			}
@@ -60,12 +66,12 @@ public class CartController extends HttpServlet {
 		String totalCount = request.getParameter("countone"); // 총 수량
 		String getMethod = request.getParameter("getnu"); // 받는 방법
 
-		int n;
+		String n;
 
 		if (getMethod.equals("onetime")) {
-			n = 1;
+			n = "1";
 		} else {
-			n = 2;
+			n = "2";
 		}
 
 		String selectGetDay = request.getParameter("selectgetday"); // 받는 날짜
@@ -75,14 +81,27 @@ public class CartController extends HttpServlet {
 		List<NutrientsDTO> list = nutrdao.selectdetail(Integer.parseInt(productId)); // 영앙제 정보
 
 		CartDAO cartdao = new CartDAO();
+
 		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
 				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
 
-		int count = cartdao.insertData(cartDto);
-		System.out.println(count);
+		cartdao.insertData(cartDto);
 
-		request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
+		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
 
+		for (CartDTO i : cartsearchDto) {
+			if (i.getReservation().equals("1")) {
+				i.setReservation("한번에 받기");
+			} else
+				i.setReservation("나눠서 받기");
+		}
+
+		if (cartsearchDto != null) {
+			request.setAttribute("cartList", cartsearchDto);
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/Main.jsp").forward(request, response);
+		}
 	}
 
 	public void insertbottleCart(HttpServletRequest request, HttpServletResponse response)
@@ -108,12 +127,12 @@ public class CartController extends HttpServlet {
 		String totalCount = request.getParameter("countnum"); // 총 수량
 		String getMethod = request.getParameter("getnuall"); // 받는 방법
 
-		int n;
+		String n;
 
 		if (getMethod.equals("onetime")) {
-			n = 1;
+			n = "1";
 		} else {
-			n = 2;
+			n = "2";
 		}
 
 		String selectGetDay = request.getParameter("selectgetday2"); // 받는 날짜
@@ -126,10 +145,61 @@ public class CartController extends HttpServlet {
 		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
 				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
 
-		int count = cartdao.insertData(cartDto);
-		System.out.println(count);
+		cartdao.insertData(cartDto);
 
-		request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
+		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
+
+		for (CartDTO i : cartsearchDto) {
+			if (i.getReservation().equals("1")) {
+				i.setReservation("한번에 받기");
+			} else
+				i.setReservation("나눠서 받기");
+		}
+
+		if (cartsearchDto != null) {
+			request.setAttribute("cartList", cartsearchDto);
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/Main.jsp").forward(request, response);
+		}
+
+	}
+
+	public void deleteSelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		CartDAO cartdao = new CartDAO();
+
+		String[] arr = request.getParameter("hiddenid").split(",");
+
+		for (int i = 0; i < arr.length; i++) {
+			int deleteNum = cartdao.deleteData(Integer.parseInt(arr[i]));
+		}
+
+		HttpSession session;
+		session = request.getSession();
+
+		String cusId = session.getAttribute("memberid").toString();
+
+		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
+
+		for (CartDTO i : cartsearchDto) {
+			if (i.getReservation().equals("1")) {
+				i.setReservation("한번에 받기");
+			} else
+				i.setReservation("나눠서 받기");
+		}
+
+		if (cartsearchDto != null) {
+			request.setAttribute("cartList", cartsearchDto);
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		}
+	}
+
+	public void purchase(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 	}
 

@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/detailnutrients.css" />
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="${path}/views/js/nutr.js"></script>
 
 
@@ -172,8 +172,8 @@
 					</div>
 
 					<div id="calender1">
-						<input type='radio' name='getnu' value='onetime' />한번에 받기 <input
-							type='radio' name='getnu' value='splittime' />나눠서 받기
+						<input type='radio' name='getnu' value='onetime' checked="checked" />한번에
+						받기 <input type='radio' name='getnu' value='splittime' />나눠서 받기
 						<p />
 						<input type='date' id="selectdate" name="selectgetday"
 							value="2022-11-06" />
@@ -216,8 +216,9 @@
 					</div>
 
 					<div id="calender2">
-						<input type='radio' name='getnuall' value='onetime' />한번에 받기 <input
-							type='radio' name='getnuall' value='splittime' />나눠서 받기
+						<input type='radio' name='getnuall' value='onetime'
+							checked="checked" />한번에 받기 <input type='radio' name='getnuall'
+							value='splittime' />나눠서 받기
 						<p />
 						<input type='date' id="selectdate2" name="selectgetday2"
 							value="2022-11-06" />

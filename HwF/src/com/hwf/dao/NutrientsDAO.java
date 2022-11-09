@@ -21,13 +21,10 @@ public class NutrientsDAO {
 
 	public List<NutrientsDTO> selectAll() {
 		try {
-			System.out.println(1);
 			sqlSession = sqlSessionFactory.openSession();
-			System.out.println(2);
 			return sqlSession.selectList("nutrdao.selectAll");
 
 		} catch (Exception e) {
-			System.out.println(3);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -35,7 +32,7 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
+
 	public List<NutrientsDTO> selectvitamin() {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
@@ -49,7 +46,7 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
+
 	public List<NutrientsDTO> selectprotein() {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
@@ -63,7 +60,7 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
+
 	public List<NutrientsDTO> selectdiet() {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
@@ -77,7 +74,7 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
+
 	public List<NutrientsDTO> selectdetail(int num) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
@@ -91,8 +88,5 @@ public class NutrientsDAO {
 			}
 		}
 	}
-	
-	
-	
-	
+
 }
