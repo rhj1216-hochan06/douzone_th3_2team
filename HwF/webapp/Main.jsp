@@ -27,9 +27,45 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			
+				<form action="search?cmd=searching" method="post">
+				<p>				
+					<input type = "hidden" name = "column">
+					<input type="text" name="keyvalue" value="" placeholder="Search">
+				</p>
+				</form> 
+						
+				<form action="recommend?cmd=surveysearching" method="post">
+				<p>				
+					<input type = "hidden" name = "column">
+					추천 테스트창(임시용)<input type="text" name="keyvalue" value="" placeholder="다이어트 / 둘다 / 증량 / 1">
+				</p>
+				</form> 
+				
+				
+				<form action="recommend?cmd=surveysearching" method="post">
+					<input type = "hidden" name = "column" >
+					<input type = "submit" name = "keyvalue" value = "다이어트" >
+				</form> 
+				
+				<!-- 합치면 column은 inbody / keyvalue = memberid -->
+				<form action="recommend?cmd=inbodysearching" method="post">
+					<input type = "hidden" name = "column" value = "inbody">
+					<input type = "hidden" name = "keyvalue" value = "admin" >
+					<input type="submit" value = "설문결과">
+				</form> 
+				
+				<form action="recommend?cmd=surveysearching" method="post">
+					<input type = "hidden" name = "column" value = "survey">
+					<input type = "hidden" name = "keyvalue" value = "2" >
+					<input type="submit" value = "설문결과">
+				</form> 
+				
+			 
+			 	<form action="recommend?cmd=inbodysearching" method="post">
+					<input type = "hidden" name = "column" value = "inbody">
+					<input type = "submit" name = "keyvalue" value = "증량" >
+				</form>  
 
 			<table>
 				<tr>
@@ -67,9 +103,9 @@
 
 				<table id="healthintro">
 					<th>헬스장 및 운동법 소개</th>
-					<tr>
-						<td><img src="./views/img/logo.png" /></td>
-					</tr>
+					<td><a href="./views/jsp/etc/introduce.jsp"> <img
+								src="./views/img/logo.png" />
+						</a></td>
 				</table>
 			</div>
 		</article>
@@ -103,13 +139,13 @@
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="./views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
+						<h1>전체</h1> <img src="./views/img/IconHealthGoods.png" style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="./views/img/IconSelectFood.png" style="width: 150px; height: 150px"/>
+						<h1>음식</h1> <img src="./views/img/IconSelectFood.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="./views/img/IconSelectCafe.png" style="width: 150px; height: 150px"/>
+						<h1>음료</h1> <img src="./views/img/IconSelectCafe.png" style="width: 200pxx; height: 200px"/>
 					</td>
 				</tr>
 			</table>
@@ -140,6 +176,22 @@
 		
 	</div> <!-- end selectList -->
 	
+		<article class="category" id="s7">
+			<table>
+				<th colspan="2">문의</th>
+				<tr>
+					<td><a href="./views/jsp/qna/FQA.jsp">
+
+							<h1>FQA</h1> <img src="./views/img/vitamin.png" />
+					</a></td>
+					<td><a href="board?cmd=list">
+							<h1>1:1 문의</h1> <img src="./views/img/protein.png" />
+					</a></td>
+				</tr>
+			</table>
+		</article>
+		
+	</div>
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

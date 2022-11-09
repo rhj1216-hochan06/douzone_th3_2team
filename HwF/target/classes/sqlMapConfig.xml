@@ -24,6 +24,11 @@
 
 		<typeAlias alias="surveydto" type="com.hwf.model.SurveyDTO" />
 
+		<typeAlias  alias="qnadto"  type="com.hwf.model.QnaDTO"  />
+		
+		<typeAlias  alias="searchdto"  type="com.hwf.model.SearchDTO"  />
+		
+		<typeAlias  alias="recommend"  type="com.hwf.model.RecommendDTO"  />
 
 	</typeAliases>
 
@@ -51,5 +56,6 @@
 		<mapper resource="sqlMapper/purchasemapper.xml" />
 		<mapper resource="sqlMapper/inbodymapper.xml" />
 		<mapper resource="sqlMapper/surveymapper.xml" />
+		<mapper resource="sqlMapper/board-mapper.xml" />
 	</mappers>
 </configuration>
