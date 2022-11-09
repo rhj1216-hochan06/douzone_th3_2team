@@ -6,8 +6,13 @@
 <mapper namespace="purchasedao">
 
 	<select id="selectAll" resultType="purchasedto">
-		select * from cart
+		select * from purchase
 	</select>
+	<select id="selectmemberid" resultType="purchasedto"
+		parameterType="String">
+		select * from purchase where memberid = #{memberid}
+	</select>
+
 
 
 </mapper>

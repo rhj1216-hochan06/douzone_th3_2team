@@ -41,8 +41,8 @@
 					<td id="2" onclick="change(this.id)">HealthFood</td>
 					<td id="3" onclick="change(this.id)">HealthCafe</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
-					<td id="5" onclick="change(this.id)">Survey</td>
-					<td id="6" onclick="change(this.id)">InbodyTest</td>
+					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
+					<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>

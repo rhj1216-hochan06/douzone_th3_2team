@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+<script type="text/javascript" src="${path}/views/js/Join.js"></script>
 <title>join</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
 					<h2>회원가입</h2>
 					<tr>
 						<td>아이디</td>
-						<td><input name="userid" required></td>
+						<td><input name="userid" value="" required></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -63,11 +64,12 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="회원가입" onclick="location.href='Member?cmd=insertmember'">
+							value="회원가입" onclick="send();">
 						</td>
 					</tr>
 				</table>
 			</form>
+
 </body>
 </html>
 

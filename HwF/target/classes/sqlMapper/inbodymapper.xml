@@ -6,8 +6,7 @@
 <mapper namespace="inbodydao">
 	<select id="serachAll" resultType="inbodydto"
 		parameterType="String">
-		select * from inbody where memberid =
-		#{memberid}
+		select * from inbody where memberid = #{memberid}
 	</select>
 
 	<insert id="insert" parameterType="inbodydto">

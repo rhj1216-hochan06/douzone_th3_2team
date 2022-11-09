@@ -1,10 +1,10 @@
 package com.hwf.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.hwf.dao.InbodyDAO;
 import com.hwf.dao.MemberDAO;
+import com.hwf.dao.PurchaseDAO;
 import com.hwf.dao.RecommendDAO;
 import com.hwf.dao.SurveyDAO;
 import com.hwf.model.HealthFoodDTO;
@@ -23,6 +24,7 @@ import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.InbodyDTO;
 import com.hwf.model.MemberDTO;
 import com.hwf.model.NutrientsDTO;
+import com.hwf.model.PurchaseDTO;
 import com.hwf.model.SurveyDTO;
 
 @WebServlet("/Member")
@@ -54,6 +56,8 @@ public class MemberController extends HttpServlet {
 			insertmember(request, response);
 		} else if (cmd.equals("logout")) {
 			logout(request, response);
+		} else if (cmd.equals("purchaselist")) {
+			purchaselist(request, response);
 		} else if (cmd.equals("survey")) {
 			survey(request, response);
 		} else if (cmd.equals("surveylist")) {
@@ -162,31 +166,85 @@ public class MemberController extends HttpServlet {
 	public void insertmember(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("회원 가입 실행");
 		String memberid = request.getParameter("userid");
 		String memberpwd = request.getParameter("passwd");
 		String membername = request.getParameter("name");
 		String membersex = request.getParameter("sex");
 
-		MemberDTO dto = new MemberDTO(memberid, memberpwd, membername, membersex); // 회원 id와 pwd를 세팅
+		String pattern = "^[\\uac00-\\ud7a3]*$"; // 숫자만 등장하는지
 
-		MemberDAO dao = new MemberDAO();
-		System.out.println(membername);
-		System.out.println(dto.toString());
+		boolean result0 = Pattern.matches(pattern, membername);
+		System.out.println("이름" + result0); // true
 
-		int rowcount = dao.insert(dto);
+		pattern = "^[a-z][a-z0-9_$@#]{4,9}$";
+		boolean result1 = Pattern.matches(pattern, memberid);
+		System.out.println("아이디" + result1); // true
 
-		if (rowcount > 0) {
-			// 성공
-			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
-		} else {
-			System.out.println("회원가입 실패");
-			response.setContentType("text/html; charset=euc-kr");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('인증번호가 틀립니다'); </script>");
-			out.flush();
+		pattern = "^(?=.*[a-z])(?=.*[_!@#$%^&*]|.*[0-9]).{4,9}$";
+		boolean result2 = Pattern.matches(pattern, memberpwd);
+		System.out.println("비번" + result2); // true
+
+		if (result0 == false || result1 == false || result2 == false) {
 			request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
-			
+		} else {
+
+			MemberDTO dto = new MemberDTO(memberid, memberpwd, membername, membersex); // 회원 id와 pwd를 세팅
+
+			MemberDAO dao = new MemberDAO();
+
+			int rowcount = dao.insert(dto);
+
+			if (rowcount > 0) {
+				System.out.println("회원가입 성공");
+
+				// 성공
+				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+			} else {
+				System.out.println("회원가입 실패");
+				// 있는 아이디면 오류
+				request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
+
+			}
 		}
+	}
+
+	public void purchaselist(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		try {
+			HttpSession session;
+			session = request.getSession();
+
+			String name = session.getAttribute("membername1").toString();
+			System.out.println(name);
+			if (name.equalsIgnoreCase("환영합니다. 고객님")) {
+				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+
+			}
+		} catch (Exception e) {
+			// null 이면 에러 발생 = 로그인 기록 없음
+			System.out.println("login error");
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+		HttpSession session;
+		session = request.getSession();
+		String memberid = session.getAttribute("memberid").toString();
+
+		PurchaseDAO dao = new PurchaseDAO();
+
+		System.out.println("구매 목록 : "+ memberid);
+		List<PurchaseDTO> PurchaseSelectMemberid = dao.selectmemberid(memberid);
+		
+		
+		if (PurchaseSelectMemberid != null) {
+			request.setAttribute("PurchaseSelectMemberid", PurchaseSelectMemberid);
+			request.getRequestDispatcher("/views/jsp/member/purchaselist.jsp").forward(request, response);
+		} else {
+			//구매 목록이 없습니다.
+			mypage(request,response);
+		}
+
 	}
 
 	public void survey(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -224,6 +282,21 @@ public class MemberController extends HttpServlet {
 	public void surveylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		try {
+			HttpSession session;
+			session = request.getSession();
+
+			String name = session.getAttribute("membername1").toString();
+			System.out.println(name);
+			if (name.equalsIgnoreCase("환영합니다. 고객님")) {
+				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+
+			}
+		} catch (Exception e) {
+			// null 이면 에러 발생 = 로그인 기록 없음
+			System.out.println("login error");
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
 		HttpSession session;
 		session = request.getSession();
 		String memberid = session.getAttribute("memberid").toString();
@@ -351,7 +424,7 @@ public class MemberController extends HttpServlet {
 		InbodyDAO dao = new InbodyDAO();
 		System.out.println("인바디 삭제");
 		int resultInbodyDelete = dao.InbodyDelete(inbodyid);
-		
+
 		if (resultInbodyDelete > 0) {
 			HttpSession session;
 			session = request.getSession();
@@ -374,6 +447,22 @@ public class MemberController extends HttpServlet {
 	public void inbodylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		try {
+			HttpSession session;
+			session = request.getSession();
+
+			String name = session.getAttribute("membername1").toString();
+			System.out.println(name);
+			if (name.equalsIgnoreCase("환영합니다. 고객님")) {
+				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+
+			}
+		} catch (Exception e) {
+			// null 이면 에러 발생 = 로그인 기록 없음
+			System.out.println("login error");
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+
 		HttpSession session;
 		session = request.getSession();
 		String memberid = session.getAttribute("memberid").toString();
@@ -383,7 +472,6 @@ public class MemberController extends HttpServlet {
 		System.out.println(memberid);
 		List<InbodyDTO> InbodyserachAll = dao.serachAll(memberid);
 
-		
 		if (InbodyserachAll != null) {
 			request.setAttribute("InbodyserachAll", InbodyserachAll);
 
@@ -411,7 +499,6 @@ public class MemberController extends HttpServlet {
 		String link = "";
 		double iresult = Double.parseDouble(memberweight)
 				/ ((Double.parseDouble(memberheight) / 100) * (Double.parseDouble(memberheight) / 100));
-
 
 		inbodyresult = String.format("%.2f", iresult);
 

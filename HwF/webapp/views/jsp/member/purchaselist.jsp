@@ -12,7 +12,8 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>mypage</title>
+
+<title>purchaselist</title>
 </head>
 <body>
 	<header>
@@ -39,52 +40,46 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
 		</nav>
-
-
-
-
-
-
 	</header>
+	<table>
+		<thead>
 
-	<div id="mypage">
-		<table id="mypage">
-			<tr id="id">
-				<td>ID : ${memberid}
+			<tr>
+				<th>구매 아이디</th>
+				<th>구매 갯수</th>
+				<th>구매 가격</th>
+				<th>결제 방식 (카드/계좌이체)</th>
+				<th>수령 방식 (즉시/예약)</th>
+				<th>구매(결제) 날짜</th>
+				<th>수령(픽업) 시작일</th>
+				<th>수령(픽업) 기간</th>
+				<th>헬스용품 id</th>
+				<th>식품 id</th>
+				<th>영양제 id</th>
 			</tr>
-			<tr id="name">
-				<td>Name : ${membername}
-			</tr>
-			<tr id="sex">
-				<td>sex : ${membersex}
-			</tr>
-			<tr id="surveylist">
-				<td>Surveylist<input type="button" value="Surveylist"
-					onclick="location.href='Member?cmd=surveylist'"></td>
-			</tr>
-		
-			<tr id="inbodylist">
-				<td>Inbodylist<input type="button" value="inbodylist"
-					onclick="location.href='Member?cmd=inbodylist'">
-			</tr>
-			<tr id="purchaselist">
-				<td>purchaselist<input type="button" value="purchaselist"
-					onclick="location.href='Member?cmd=purchaselist'">
-			</tr>
-			<tr id="community">
-				<td>Community
-			</tr>
+		</thead>
+		<tbody>
 
-		</table>
+			<c:forEach var="PurchaseSelectMemberid"
+				items="${PurchaseSelectMemberid}">
+				<tr>
+					<td>구매 아이디 : ${PurchaseSelectMemberid.purchaseId}"</td>
+					<td>구매 갯수 : ${PurchaseSelectMemberid.purchaseNum}"</td>
+					<td>구매 가격 : ${PurchaseSelectMemberid.purchasePrice}"</td>
+					<td>결제 방식 (카드/계좌이체) : ${PurchaseSelectMemberid.purchaseMethod}"</td>
+					<td>수령 방식 (즉시/예약) : ${PurchaseSelectMemberid.purchaseReceipt}"</td>
+					<td>구매(결제) 날짜 : ${PurchaseSelectMemberid.purchaseDate}"</td>
+					<td>수령(픽업) 시작일 : ${PurchaseSelectMemberid.receiptStartDate}"</td>
+					<td>수령(픽업) 기간 : ${PurchaseSelectMemberid.receiptPeriod}"</td>
+					<td>헬스용품 id : ${PurchaseSelectMemberid.healthgoodsID}"</td>
+					<td>식품 id : ${PurchaseSelectMemberid.hfid}"</td>
+					<td>영양제 id : ${PurchaseSelectMemberid.nutrientsID}"</td>
+				</tr>
+			</c:forEach>
 
-	</div>
-
-
-
-
-
+		</tbody>
+	</table>
 
 
 	<br>
@@ -101,8 +96,7 @@
 	<br>
 	<br>
 	<br>
-	<input type="button" value="로그아웃"
-		onclick="location.href='Member?cmd=logout'">
+
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>
