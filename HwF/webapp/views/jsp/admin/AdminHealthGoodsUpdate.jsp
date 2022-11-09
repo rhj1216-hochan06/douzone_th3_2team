@@ -47,7 +47,7 @@
 			<br>
 			<h3>헬스용품 수정</h3>
 			
-			<form action="./admin?cmd=AdminHealthGoodsUpdate" method="post" id="formHealthGoodsUpdate">
+			<form action="./admin?cmd=AdminHealthGoodsUpdate" method="post" id="frmHealthGoodsUpdate">
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>번호</td><td><input type="number" name="healthGoodsId" value="${ healthGoodsId }"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="healthGoodsName" value="${ healthGoodsName }"> </td></tr>
@@ -57,7 +57,7 @@
 					<tr><td>상세설명</td><td><textArea rows="5" cols="50" name="healthGoodsDetail">${ healthGoodsDetail }</textArea></td></tr>
 					<tr><td>추천 링크</td><td><input type="text" name="link" value="${ link }"> </td></tr>
 				</table>
-				<input type="submit" value="수정" >
+				<input type="submit" value="수정">
 				<input type="button" value="삭제"  onclick='return alertDelete(this.form);'>
 			</form>
 			

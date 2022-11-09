@@ -1,28 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css"
-	href="${path}/views/css/allList.css" />
+
+<link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="${path}/views/js/healthFoodJS.js"></script>
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>allList</title>
+
+
+<title>헬스식품 상세 페이지</title>
+
 </head>
 <body>
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
+		<!-- 메뉴 버튼 테이블 -->
 		<nav>
 			<p>
 				<input type="text" value="" placeholder="Search" />
@@ -31,8 +36,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -43,6 +48,7 @@
 	</header>
 
 	<div id="selectList">
+	
 		<article class="MonthMenu" id="s1">
 			<img src="${path}/views/img/getMuscle.jpg" />
 			<div>
@@ -66,8 +72,9 @@
 				</table>
 			</div>
 		</article>
-		
-		
+
+
+		<!--헬스용품 카테고리-->
 		<article class="category" id="s2">
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
@@ -89,6 +96,7 @@
 		</article>
 		
 		
+		<!--헬스식품 카테고리-->
 		<article class="category" id="s3">
 			<table>
 				<th colspan="4">헬스식품 카테고리</th>
@@ -104,9 +112,10 @@
 					</td>
 				</tr>
 			</table>
-		</article>	
-		
+		</article>
 
+
+		<!--영양제 카테고리-->
 		<article class="category" id="s4">
 			<table>
 				<th colspan="4">영양제 카테고리</th>
@@ -127,32 +136,73 @@
 				</tr>
 			</table>
 		</article>
+		
 	</div>
 
+
+	<!-- 선택한 상품 보여주기 -->
 	<div id="nutrientsListDiv">
-		<table>
-			<tr>
-				<th>이름</th>
-				<th>하루 섭취량</th>
-				<th>한병 수량</th>
-				<th>제조날짜</th>
-				<th>가격</th>
-				<th>사진</th>
-			</tr>
 
-			<c:forEach var="list" items="${ list }">
-				<tr  id = "${list.nutrientsID}" title="${list.nutrientsName}의 상세 페이지 가기"
-					onclick="location.href='nutrients?cmd=nutrientsDetail${list.nutrientsID}'" >
-					<td>${list.nutrientsName}</td>
-					<td>${list.dailyInTake }</td>
-					<td>${list.numperbottle }</td>
-					<td>${list.nutrientsDOM }</td>
-					<td>${list.nutrientsPrice }</td>
-					<td><img src="${list.nutrientsIMG }" /></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
+		<c:forEach var="healthFoodList" items="${ healthFoodList }">
+
+			<div>
+				<img id="hfIMG" alt="사진" src="${ healthFoodList.hfIMG }">
+
+			</div>
+
+			<div id="nutrdiscription">
+
+				<div>
+					<h3>${ healthFoodList.hfName }</h3>
+				</div>
+				<br />
+
+				<div>${ healthFoodList.hfDetail }</div>
+
+
+				<div>
+					<br />
+					<div>
+						제조날짜 : ${ healthFoodList.hfDoM }
+					</div>
+					
+					<br />
+					<div>
+						가격 : <a id="result">${ healthFoodList.hfPrice }</a>원
+					</div>
+				</div>
+
+
+			</div>
+		</c:forEach>
+
+
+
+		<div id="selectbuymethod">
+
+			<div id="buy1">
+				<form name="buyday" action="" method="post">
+					<h1>총 가격</h1>
+
+					<input id="onetotal" name="onetotal" value="0" readonly /> <p />
+					<a>수량 결정</a> <p />
+					<input id="countone" name="countone" value="0" readonly />
+
+					<div id="calculationdiv">
+						<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
+						<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
+					</div>
+					
+					<div>
+						<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
+					</div>
+
+				</form>
+			</div> <!-- end buy1 -->
+
+		</div> <!-- end selectbuymethod -->
+
+	</div> <!-- end nutrientsListDiv -->
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

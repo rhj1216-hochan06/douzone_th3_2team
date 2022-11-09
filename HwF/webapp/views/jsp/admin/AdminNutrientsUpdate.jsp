@@ -47,7 +47,7 @@
 			<br>
 			<h3>영양제 수정</h3>
 			
-			<form action="./admin?cmd=AdminNutrientsUpdate" method="post" id="formNutrientsUpdate">
+			<form action="./admin?cmd=AdminNutrientsUpdate" method="post" id="frmNutrientsUpdate">
 				<table style="margin-left: auto; margin-right:auto;">
 					<tr><td>번호</td><td><input type="number" name="nutrientsID" value="${ nutrientsID }"> </td></tr>
 					<tr><td>이름</td><td><input type="text" name="nutrientsName" value="${ nutrientsName }"> </td></tr>

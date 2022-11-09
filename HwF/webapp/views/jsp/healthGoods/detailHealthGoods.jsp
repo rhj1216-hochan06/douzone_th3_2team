@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="${path}/views/js/healthGoodsJS.js"></script>
+<script type="text/javascript" src="${path}/views/js/all.js"></script>
 
 
 <title>헬스용품 상세 페이지</title>
@@ -47,6 +48,7 @@
 	</header>
 
 	<div id="selectList">
+	
 		<article class="MonthMenu" id="s1">
 			<img src="${path}/views/img/getMuscle.jpg" />
 			<div>
@@ -71,6 +73,8 @@
 			</div>
 		</article>
 
+
+		<!--헬스용품 카테고리-->
 		<article class="category" id="s2">
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
@@ -90,7 +94,28 @@
 				</tr>
 			</table>
 		</article>
+		
+		
+		<!--헬스식품 카테고리-->
+		<article class="category" id="s3">
+			<table>
+				<th colspan="4">헬스식품 카테고리</th>
+				<tr>
+					<td onclick="location.href='healthfood?cmd=healthFoodList'">
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectFood'">
+						<h1>음식</h1> <img src="${path}/views/img/IconSelectFood.png" style="width: 150px; height: 150px"/>
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectCafe'">
+						<h1>음료</h1> <img src="${path}/views/img/IconSelectCafe.png" style="width: 150px; height: 150px"/>
+					</td>
+				</tr>
+			</table>
+		</article>
 
+
+		<!--영양제 카테고리-->
 		<article class="category" id="s4">
 			<table>
 				<th colspan="4">영양제 카테고리</th>
@@ -111,11 +136,13 @@
 				</tr>
 			</table>
 		</article>
+		
 	</div>
 
+
+	<!-- 선택한 상품 보여주기 -->
 	<div id="nutrientsListDiv">
 
-		<!-- 선택한 상품 보여주기 -->
 		<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
 
 			<div>
@@ -149,8 +176,6 @@
 
 		<div id="selectbuymethod">
 
-		<!-- 일 수 구매 -->
-
 			<div id="buy1">
 				<form name="buyday" action="" method="post">
 					<h1>총 가격</h1>
@@ -169,11 +194,11 @@
 					</div>
 
 				</form>
-			</div>
+			</div> <!-- end buy1 -->
 
-			</div>
+		</div> <!-- end selectbuymethod -->
 
-		</div>
+	</div> <!-- end nutrientsListDiv -->
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

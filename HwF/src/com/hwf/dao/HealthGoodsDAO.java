@@ -27,7 +27,7 @@ public class HealthGoodsDAO {
 	
 	/*************** 헬스용품 ***************/
 
-	//healthgoodsList (헬스용품 전체 조회)
+	//healthGoodsList (헬스용품 전체 조회)
 	public List<HealthGoodsDTO> healthGoodsList() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할

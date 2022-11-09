@@ -72,7 +72,7 @@ public class HealthGoodsController extends HttpServlet {
 
 
 	
-	//healthgoodsList (헬스용품 전체 조회)
+	//healthGoodsList (헬스용품 전체 조회)
 	public void healthGoodsList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HealthGoodsDAO dao = new HealthGoodsDAO();
 		List<HealthGoodsDTO> healthGoodsList = dao.healthGoodsList();

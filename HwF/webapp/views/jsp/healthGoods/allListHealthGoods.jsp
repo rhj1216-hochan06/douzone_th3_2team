@@ -44,6 +44,7 @@
 	</header>
 
 	<div id="selectList">
+	
 		<article class="MonthMenu" id="s1">
 			<img src="${path}/views/img/getMuscle.jpg" />
 			<div>
@@ -69,6 +70,7 @@
 		</article>
 		
 		
+		<!--헬스용품 카테고리-->
 		<article class="category" id="s2">
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
@@ -90,7 +92,26 @@
 		</article>
 		
 		
-
+		<!--헬스식품 카테고리-->
+		<article class="category" id="s3">
+			<table>
+				<th colspan="4">헬스식품 카테고리</th>
+				<tr>
+					<td onclick="location.href='healthfood?cmd=healthFoodList'">
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectFood'">
+						<h1>음식</h1> <img src="${path}/views/img/IconSelectFood.png" style="width: 150px; height: 150px"/>
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectCafe'">
+						<h1>음료</h1> <img src="${path}/views/img/IconSelectCafe.png" style="width: 150px; height: 150px"/>
+					</td>
+				</tr>
+			</table>
+		</article>		
+		
+		
+		<!--영양제 카테고리-->
 		<article class="category" id="s4">
 			<table>
 				<th colspan="4">영양제 카테고리</th>
@@ -114,6 +135,7 @@
 	</div>
 
 	<div id="nutrientsListDiv">
+	
 		<table>
 			<tr>
 				<th>이름</th>
@@ -123,7 +145,7 @@
 			</tr>
 
 			<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
-				<tr  id = "${healthGoodsList.healthGoodsId}" title="${healthGoodsList.healthGoodsName}의 상세 페이지 가기"
+				<tr id="${healthGoodsList.healthGoodsId}" title="${healthGoodsList.healthGoodsName}의 상세 페이지 가기"
 					onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${healthGoodsList.healthGoodsId}'" >
 					<td>${healthGoodsList.healthGoodsName}</td>
 					<td>${healthGoodsList.healthGoodsPrice }</td>
@@ -132,7 +154,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
+		
+	</div> <!-- end nutrientsListDiv -->
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

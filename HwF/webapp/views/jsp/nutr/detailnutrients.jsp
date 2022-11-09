@@ -92,6 +92,23 @@
 				</tr>
 			</table>
 		</article>
+		
+		<article class="category" id="s3">
+			<table>
+				<th colspan="4">헬스식품 카테고리</th>
+				<tr>
+					<td onclick="location.href='healthfood?cmd=healthFoodList'">
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectFood'">
+						<h1>음식</h1> <img src="${path}/views/img/IconSelectFood.png" style="width: 150px; height: 150px"/>
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectCafe'">
+						<h1>음료</h1> <img src="${path}/views/img/IconSelectCafe.png" style="width: 150px; height: 150px"/>
+					</td>
+				</tr>
+			</table>
+		</article>	
 
 		<article class="category" id="s4">
 			<table>
