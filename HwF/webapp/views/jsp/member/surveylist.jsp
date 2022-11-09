@@ -60,7 +60,7 @@
 		<tbody>
 
 			<c:forEach var="SurveyserachAll" items="${ SurveyserachAll}">
-				<form action="location.href='Member?cmd=surveyDelete" method="post">
+				<form action="location.href='Member?cmd=surveyDelete" method="post" id="formsurveyDelete" >
 				<tr>
 					<td>설문 아이디 :<input name = "surveyid" value="${SurveyserachAll.surveyid }" readonly>  </td>
 					<td>목표 : ${ SurveyserachAll.goal }</td>

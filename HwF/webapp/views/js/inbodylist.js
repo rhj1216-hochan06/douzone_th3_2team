@@ -9,7 +9,7 @@ function submitDelete(frm) {
    } 
    else { 
         alert("삭제가 완료되었습니다.");
-        frm.action="./Member?cmd=surveyDelete"
+        frm.action="./Member?cmd=inbodyDelete"
         frm.submit(); 
         return true;
    }

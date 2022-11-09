@@ -24,6 +24,9 @@
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
+		<div id="loginimg" onclick="location.href='Member?cmd=login'">
+			<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
+		</div>
 
 
 		<nav>
@@ -56,13 +59,13 @@
 		<div id="inbodyresult">
 			${membername} 님의 설문조사 결과<br> 키 : ${memberheight}<br> 몸무게 :
 			${memberweight}<br> 근육량 : ${bodymuscle}<br> 체지방량 :
-			${bodyfat}<br> 인바디결과 :${inbodyresult}<br> 
+			${bodyfat}<br> 인바디결과 :${inbodyresult}<br>
 
 
 
 		</div>
-	<p></p>
-	<p></p>
+		<p></p>
+		<p></p>
 		<h2>추천 상품리스트</h2>
 	</article>
 

@@ -1,6 +1,7 @@
 package com.hwf.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,11 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hwf.dao.GoodsDAO;
 import com.hwf.dao.InbodyDAO;
 import com.hwf.dao.MemberDAO;
 import com.hwf.dao.RecommendDAO;
-import com.hwf.dao.SearchDAO;
 import com.hwf.dao.SurveyDAO;
 import com.hwf.model.HealthFoodDTO;
 import com.hwf.model.HealthGoodsDTO;
@@ -65,6 +64,10 @@ public class MemberController extends HttpServlet {
 			surveyDelete(request, response);
 		} else if (cmd.equals("inbody")) {
 			inbody(request, response);
+		} else if (cmd.equals("inbodylist")) {
+			inbodylist(request, response);
+		} else if (cmd.equals("inbodyDelete")) {
+			inbodyDelete(request, response);
 		} else if (cmd.equals("inbodyresult")) {
 			inbodyresult(request, response);
 		} else
@@ -177,7 +180,12 @@ public class MemberController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} else {
 			System.out.println("회원가입 실패");
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('인증번호가 틀립니다'); </script>");
+			out.flush();
 			request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
+			
 		}
 	}
 
@@ -196,7 +204,7 @@ public class MemberController extends HttpServlet {
 		if (resultSurveyDelete > 0) {
 			HttpSession session;
 			session = request.getSession();
-			
+
 			String memberid = session.getAttribute("memberid").toString();
 			System.out.println(memberid);
 			List<SurveyDTO> SurveyserachAll = dao.serachAll(memberid);
@@ -336,6 +344,57 @@ public class MemberController extends HttpServlet {
 
 	}
 
+	public void inbodyDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		int inbodyid = Integer.parseInt(request.getParameter("inbodyid"));
+		InbodyDAO dao = new InbodyDAO();
+		System.out.println("인바디 삭제");
+		int resultInbodyDelete = dao.InbodyDelete(inbodyid);
+		
+		if (resultInbodyDelete > 0) {
+			HttpSession session;
+			session = request.getSession();
+
+			String memberid = session.getAttribute("memberid").toString();
+			System.out.println(memberid);
+			List<InbodyDTO> InbodyserachAll = dao.serachAll(memberid);
+
+			if (InbodyserachAll != null) {
+				request.setAttribute("InbodyserachAll", InbodyserachAll);
+
+				request.getRequestDispatcher("/views/jsp/member/inbodylist.jsp").forward(request, response);
+			} else {
+
+				response.sendRedirect("views/error.jsp");
+			}
+		}
+	}
+
+	public void inbodylist(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session;
+		session = request.getSession();
+		String memberid = session.getAttribute("memberid").toString();
+
+		InbodyDAO dao = new InbodyDAO();
+
+		System.out.println(memberid);
+		List<InbodyDTO> InbodyserachAll = dao.serachAll(memberid);
+
+		
+		if (InbodyserachAll != null) {
+			request.setAttribute("InbodyserachAll", InbodyserachAll);
+
+			request.getRequestDispatcher("/views/jsp/member/inbodylist.jsp").forward(request, response);
+		} else {
+
+			response.sendRedirect("views/error.jsp");
+		}
+
+	}
+
 	public void inbodyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -353,7 +412,7 @@ public class MemberController extends HttpServlet {
 		double iresult = Double.parseDouble(memberweight)
 				/ ((Double.parseDouble(memberheight) / 100) * (Double.parseDouble(memberheight) / 100));
 
-		System.out.println("iresult" + iresult);
+
 		inbodyresult = String.format("%.2f", iresult);
 
 		int ir = (int) (iresult * 10);

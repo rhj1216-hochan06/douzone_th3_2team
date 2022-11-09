@@ -24,7 +24,9 @@
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
-
+		<div id="loginimg" onclick="location.href='Member?cmd=login'">
+			<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
+		</div>
 
 		<nav>
 			<form action="search?cmd=surveysearching" method="post">
@@ -54,11 +56,9 @@
 
 	<article class="introduce">
 		<div id="surveyresult">
-			${membername} 님의 설문조사 결과<br>
-			목표 : ${goal}<br> 
-			현재 상태 : ${currentstate}<br> 
-			현재 섭취량 : ${currentintke}<br>
-			
+			${membername} 님의 설문조사 결과<br> 목표 : ${goal}<br> 현재 상태 :
+			${currentstate}<br> 현재 섭취량 : ${currentintke}<br>
+
 		</div>
 		<h2>추천 상품리스트</h2>
 	</article>

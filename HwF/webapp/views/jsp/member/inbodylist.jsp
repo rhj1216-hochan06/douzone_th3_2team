@@ -12,7 +12,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<title>mypage</title>
+<script type="text/javascript" defer src="${path}/views/js/inbodylist.js"></script>
+
+<title>inbodylist</title>
 </head>
 <body>
 	<header>
@@ -39,49 +41,40 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
 		</nav>
-
-
-
-
-
-
 	</header>
-
-	<div id="mypage">
-		<table id="mypage">
-			<tr id="id">
-				<td>ID : ${memberid}
-			</tr>
-			<tr id="name">
-				<td>Name : ${membername}
-			</tr>
-			<tr id="sex">
-				<td>sex : ${membersex}
-			</tr>
-			<tr id="surveylist">
-				<td>Surveylist<input type="button" value="Surveylist"
-					onclick="location.href='Member?cmd=surveylist'"></td>
-			</tr>
+	<table>
+				<tr id="inbody">
+				<td>InbodyTest<input type="button" value="inbody"
+					onclick="location.href='Member?cmd=inbody'">
+			</tr><thead>
 		
-			<tr id="inbodylist">
-				<td>Inbodylist<input type="button" value="inbodylist"
-					onclick="location.href='Member?cmd=inbodylist'">
+			<tr>
+				<th>설문 아이디</th>
+				<th>목표</th>
+				<th>현재 상태</th>
+				<th>섭취 상태</th>
+				<th> </th>
 			</tr>
+		</thead>
+		<tbody>
 
-			<tr id="community">
-				<td>Community
-			</tr>
+			<c:forEach var="InbodyserachAll" items="${ InbodyserachAll}">
+				<form action="location.href='Member?cmd=inbodyDelete" method="post" id="forminbodyDelete" >
+				<tr>
+					<td>인바디 아이디 :<input name = "inbodyid" value="${InbodyserachAll.inbodyid }" readonly>  </td>
+					<td>현재 키 : ${ InbodyserachAll.memberheight }</td>
+					<td>현재 몸무게 : ${ InbodyserachAll.memberweight }</td>
+					<td>근육량 : ${InbodyserachAll.bodymuscle}</td>
+					<td>체지방량 : ${InbodyserachAll.bodyfat}</td>
+					<td>결과 bmi : ${InbodyserachAll.inbodyresult}</td>
+					<td><input type="submit" value="삭제"  onclick='return submitDelete(this.form);'> </td>
+				</tr>
+				</form>
+			</c:forEach>
 
-		</table>
-
-	</div>
-
-
-
-
-
+		</tbody>
+	</table>
 
 
 	<br>
@@ -98,8 +91,7 @@
 	<br>
 	<br>
 	<br>
-	<input type="button" value="로그아웃"
-		onclick="location.href='Member?cmd=logout'">
+
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

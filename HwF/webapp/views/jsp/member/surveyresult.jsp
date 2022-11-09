@@ -41,6 +41,8 @@
 			</table>
 		</nav>
 	</header>
+	
+	
 	<div id="surveyresult">
 		${membername} 님의 설문조사 결과<br> 목표 : ${goal}<br> 현재 상태 :
 		${currentstate}<br> 현재 섭취량 : ${currentintke}<br> 링크 :
