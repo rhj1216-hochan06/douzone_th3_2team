@@ -102,13 +102,13 @@
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 200px; height: 200px"/>
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="${path}/views/img/IconSelectFood.png" style="width: 200px; height: 200px"/>
+						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="${path}/views/img/IconSelectCafe.png" style="width: 200px; height: 200px"/>
+						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png" style="width: 200px; height: 200px"/>
 					</td>
 				</tr>
 			</table>

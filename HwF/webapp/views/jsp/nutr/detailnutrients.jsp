@@ -23,7 +23,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -37,8 +37,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -98,13 +98,13 @@
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 200px; height: 200px"/>
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="${path}/views/img/IconSelectFood.png" style="width: 200px; height: 200px"/>
+						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="${path}/views/img/IconSelectCafe.png" style="width: 200px; height: 200px"/>
+						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png" style="width: 200px; height: 200px"/>
 					</td>
 				</tr>
 			</table>

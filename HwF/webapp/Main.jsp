@@ -15,7 +15,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="./views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="./views/img/logo.png" /></a>
 			</div>
 			<div id="logindata">${membername1}</div>
 
@@ -139,13 +139,13 @@
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="./views/img/IconHealthGoods.png" style="width: 200px; height: 200px" />
+						<h1>전체</h1> <img src="./views/img/IconHealthFoodAll.png" style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="./views/img/IconSelectFood.png" style="width: 200px; height: 200px"/>
+						<h1>음식</h1> <img src="./views/img/IconHealthFoodSalad.png" style="width: 200px; height: 200px"/>
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="./views/img/IconSelectCafe.png" style="width: 200pxx; height: 200px"/>
+						<h1>음료</h1> <img src="./views/img/IconHealthFoodCafe.png" style="width: 200pxx; height: 200px"/>
 					</td>
 				</tr>
 			</table>
