@@ -10,9 +10,17 @@
 	</select>
 	<select id="selectmemberid" resultType="purchasedto"
 		parameterType="String">
-		select * from purchase where memberid = #{memberid}
+		select purchaseId, memberId, purchaseNum, purchasePrice,
+		purchaseMethod,
+		decode(purchaseReceipt, 1,'즉시', 2,'예약') as purchaseReceipt,
+		to_char(purchaseDate,'yy-mm-dd') as purchaseDate,
+		to_char(receiptStartDate,'yy-mm-dd') as receiptStartDate,
+		receiptPeriod,
+		NVL(to_char(healthgoodsId),'-') as healthgoodsId, NVL(to_char(hfid),'-') as hfid,
+		NVL(to_char(nutrientsID),'-') as nutrientsID
+		from purchase
+		where memberid = #{memberid}
+		order by purchaseId
 	</select>
-
-
 
 </mapper>

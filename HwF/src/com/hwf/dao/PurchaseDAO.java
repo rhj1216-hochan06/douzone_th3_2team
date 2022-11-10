@@ -19,6 +19,9 @@ public class PurchaseDAO {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
 
+	
+	
+	
 	public List<PurchaseDTO> selectmemberid(String memberid) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
