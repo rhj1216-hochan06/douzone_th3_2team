@@ -52,6 +52,21 @@ public class CartDAO {
 
 	}
 
+	public List<CartDTO> selectPrice(int id) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+
+			return sqlSession.selectList("cartdao.selectPrice", id);
+
+		} catch (Exception e) {
+			return null;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+
 	public int deleteData(int id) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();

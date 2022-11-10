@@ -92,6 +92,7 @@
 			</table>
 		</article>
 	</div>
+
 	<div id="nutrientsListDiv">
 		<form action="${path}/cart?cmd=deleteSelete" method="post">
 			<table>
@@ -105,24 +106,32 @@
 					<th>삭제</th>
 				</tr>
 				<c:forEach var="cartdto" items="${cartList }">
+
 					<tr id="${cartdto.memberId}">
 						<td>${cartdto.productsName}</td>
-						<td>${cartdto.productsPrice }</td>
+						<td class="purchasePrice">${cartdto.productsPrice }</td>
 						<td id="purchasemethod">${cartdto.reservation }</td>
 						<td>${cartdto.purchasetime }</td>
 						<td>${cartdto.endtime }</td>
 						<td><img src="${cartdto.productsIMG }" /></td>
 						<td><input type="checkbox" name="whatcheck"
 							value="${cartdto.cartId}" onclick="check_checkbox(event)" /></td>
+					</tr>
 				</c:forEach>
-				</tr>
+
 				<tr class="lasttr">
-					<td colspan="7"><input type="text" id="hiddenid"
+					<td colspan="6"><input type="text" id="hiddenid"
 						name="hiddenid" value="0" />
-						<input type="button"
-						id="cartchecked" value="구매" onclick="location.href='cart?cmd=purchase'"/>
-						<input
-						type="submit" id="cartchecked" name="deletecheck" value="삭제" /></td>
+						<p /> 총가격 : <a id="purchasetotalprice">0</a>원
+
+						<p /> 
+						<input type="button" id="cartchecked" value="신용카드 구매"
+						onclick="callcreditpurchase()" />
+						<input type="button" id="cartchecked" value="카카오페이 구매"
+						onclick="callpurchase()" /></td>
+
+					<td><input type="submit" id="cartchecked" name="deletecheck"
+						value="삭제" /></td>
 				</tr>
 			</table>
 
