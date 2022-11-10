@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+
 <title>login</title>
 </head>
 <body>
@@ -27,7 +28,6 @@
 			<p>
 				<input type="text" value="" placeholder="Search" />
 			</p>
-
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
@@ -52,15 +52,19 @@
 						<td><input type="password" name="memberpwd" required>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="로그인"> <input type="button" value="회원가입"
-							onclick="location.href='Member?cmd=join'"></td>
+						<td colspan="2" align="center">
+						<input type="submit"value="로그인"> 
+							<input type="button" value="회원가입"
+							onclick="location.href='Member?cmd=self'"></td>
 					</tr>
 				</table>
 
 			</form>
 
-
+       <c:if test="${logincheck == false}">
+         <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+      </c:if>
+      
 		</nav>
 	</header>
 

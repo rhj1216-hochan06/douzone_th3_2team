@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.hwf.dao.InbodyDAO;
 import com.hwf.dao.MemberDAO;
 import com.hwf.dao.PurchaseDAO;
@@ -50,6 +52,8 @@ public class MemberController extends HttpServlet {
 			logincheck(request, response);
 		} else if (cmd.equals("join")) {
 			join(request, response);
+		}else if (cmd.equals("self")) {
+			self(request, response);
 		} else if (cmd.equals("mypage")) {
 			mypage(request, response);
 		} else if (cmd.equals("insertmember")) {
@@ -83,8 +87,10 @@ public class MemberController extends HttpServlet {
 	////////////////////////////////////////////////////////////////////
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			System.out.println("로그인 오나요?");
 			HttpSession session;
 			session = request.getSession();
+			session.setAttribute("logincheck", true);
 
 			String name = session.getAttribute("membername1").toString();
 			System.out.println(name);
@@ -92,7 +98,7 @@ public class MemberController extends HttpServlet {
 				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} catch (Exception e) {
 			// null 이면 에러 발생 = 로그인 기록 없음
-			System.out.println("login error");
+			System.out.println("login 기록 없음");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 		request.getRequestDispatcher("/views/jsp/member/mypage.jsp").forward(request, response);
@@ -100,17 +106,28 @@ public class MemberController extends HttpServlet {
 
 	public void logincheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session;
+		session = request.getSession();
 		String memberid = request.getParameter("memberid");
 		String memberpwd = request.getParameter("memberpwd");
 
 		MemberDTO dto = new MemberDTO(memberid, memberpwd); // 회원 id와 pwd를 세팅
-
 		MemberDAO dao = new MemberDAO();
 
 		// boolean check = dao.checkMemberb(dto);
 		// List<MemberDTO> list = dao.checkMember(dto);
+		try {
+			MemberDTO dto2 = dao.checkMember(dto);
 
+			System.out.println("로그인 정보 불러오기 ");
+			System.out.println(dto2.getMemberid().toString());
+
+		} catch (Exception e) {
+			session.setAttribute("logincheck", false);
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
 		MemberDTO dto2 = dao.checkMember(dto);
+
 		System.out.println("로그인 정보 불러오기 ");
 		System.out.println(dto2.getMemberid().toString());
 
@@ -119,8 +136,7 @@ public class MemberController extends HttpServlet {
 			request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
 		}
 
-		HttpSession session;
-		session = request.getSession();
+		
 
 		if (memberpwd.equals(dto2.getMemberpwd()))// 로그인 성공
 		{
@@ -141,7 +157,7 @@ public class MemberController extends HttpServlet {
 			session.setAttribute("membername", dto2.getMembername());
 			session.setAttribute("membername1", dto2.getMembername() + "님 환영합니다.");
 			session.setAttribute("membersex", membersex);
-
+			session.setAttribute("logincheck", true);
 			System.out.println("memberid 확인: " + session.getAttribute("memberid").toString());
 			System.out.println("membername: " + session.getAttribute("membername").toString());
 			System.out.println("membersex: " + session.getAttribute("membersex").toString());
@@ -151,21 +167,33 @@ public class MemberController extends HttpServlet {
 
 			request.getRequestDispatcher("/Main.jsp").forward(request, response);
 		} else {
+			session.setAttribute("logincheck", false);
+			session.setMaxInactiveInterval(20 * 60);
 			System.out.println("비밀번호가 틀렸습니다.");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
-
 	}
 
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session;
+		session = request.getSession();
+		session.setAttribute("joincheck", true);
 		request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
+
+	}
+	public void self(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session;
+		session = request.getSession();
+		session.setAttribute("joincheck", true);
+		request.getRequestDispatcher("/views/jsp/member/self.jsp").forward(request, response);
 
 	}
 
 	public void insertmember(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session;
+		session = request.getSession();
+		
 		System.out.println("회원 가입 실행");
 		String memberid = request.getParameter("userid");
 		String memberpwd = request.getParameter("passwd");
@@ -197,12 +225,13 @@ public class MemberController extends HttpServlet {
 
 			if (rowcount > 0) {
 				System.out.println("회원가입 성공");
-
+				session.setAttribute("joincheck", true);
 				// 성공
 				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 			} else {
 				System.out.println("회원가입 실패");
 				// 있는 아이디면 오류
+				session.setAttribute("joincheck", false);
 				request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
 
 			}
@@ -233,16 +262,15 @@ public class MemberController extends HttpServlet {
 
 		PurchaseDAO dao = new PurchaseDAO();
 
-		System.out.println("구매 목록 : "+ memberid);
+		System.out.println("구매 목록 : " + memberid);
 		List<PurchaseDTO> PurchaseSelectMemberid = dao.selectmemberid(memberid);
-		
-		
+
 		if (PurchaseSelectMemberid != null) {
 			request.setAttribute("PurchaseSelectMemberid", PurchaseSelectMemberid);
 			request.getRequestDispatcher("/views/jsp/member/purchaselist.jsp").forward(request, response);
 		} else {
-			//구매 목록이 없습니다.
-			mypage(request,response);
+			// 구매 목록이 없습니다.
+			mypage(request, response);
 		}
 
 	}
@@ -573,6 +601,10 @@ public class MemberController extends HttpServlet {
 			HttpSession session;
 			session = request.getSession();
 			session.setAttribute("membername1", "환영합니다. 고객님");
+			session.setAttribute("membername", "");
+			session.setAttribute("memberid", "");
+			session.setAttribute("membersex", "");
+			session.setAttribute("logincheck", true);
 
 		} catch (Exception e) {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);

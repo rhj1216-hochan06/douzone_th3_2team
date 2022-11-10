@@ -33,8 +33,6 @@ function send(){
 	}	
 	
 	if (check === 0){
-	alert("회원가입 완료.");
-
 	return true; 
 	}
 	else{

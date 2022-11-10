@@ -69,8 +69,15 @@
 					</tr>
 				</table>
 			</form>
-
-</body>
+			
+			
+			<c:if test="${joincheck == false}">
+         <p style="color: red;">회원가입 실패! 이미 있는 아이디입니다</p>
+      </c:if>
+			
+			
+	<footer>회사 이름, 대표 이름 등등</footer>
+</body>   
 </html>
 
 

@@ -64,17 +64,17 @@
 			<c:forEach var="PurchaseSelectMemberid"
 				items="${PurchaseSelectMemberid}">
 				<tr>
-					<td>구매 아이디 : ${PurchaseSelectMemberid.purchaseId}"</td>
-					<td>구매 갯수 : ${PurchaseSelectMemberid.purchaseNum}"</td>
-					<td>구매 가격 : ${PurchaseSelectMemberid.purchasePrice}"</td>
-					<td>결제 방식 (카드/계좌이체) : ${PurchaseSelectMemberid.purchaseMethod}"</td>
-					<td>수령 방식 (즉시/예약) : ${PurchaseSelectMemberid.purchaseReceipt}"</td>
-					<td>구매(결제) 날짜 : ${PurchaseSelectMemberid.purchaseDate}"</td>
-					<td>수령(픽업) 시작일 : ${PurchaseSelectMemberid.receiptStartDate}"</td>
-					<td>수령(픽업) 기간 : ${PurchaseSelectMemberid.receiptPeriod}"</td>
-					<td>헬스용품 id : ${PurchaseSelectMemberid.healthgoodsID}"</td>
-					<td>식품 id : ${PurchaseSelectMemberid.hfid}"</td>
-					<td>영양제 id : ${PurchaseSelectMemberid.nutrientsID}"</td>
+					<td>구매 아이디 : ${PurchaseSelectMemberid.purchaseId}</td>
+					<td>구매 갯수 : ${PurchaseSelectMemberid.purchaseNum}</td>
+					<td>구매 가격 : ${PurchaseSelectMemberid.purchasePrice}</td>
+					<td>결제 방식 (카드/계좌이체) : ${PurchaseSelectMemberid.purchaseMethod}</td>
+					<td>수령 방식 (즉시/예약) : ${PurchaseSelectMemberid.purchaseReceipt}</td>
+					<td>구매(결제) 날짜 : ${PurchaseSelectMemberid.purchaseDate}</td>
+					<td>수령(픽업) 시작일 : ${PurchaseSelectMemberid.receiptStartDate}</td>
+					<td>수령(픽업) 기간 : ${PurchaseSelectMemberid.receiptPeriod}</td>
+					<td>헬스용품 id : ${PurchaseSelectMemberid.healthgoodsID}</td>
+					<td>식품 id : ${PurchaseSelectMemberid.hfid}</td>
+					<td>영양제 id : ${PurchaseSelectMemberid.nutrientsID}</td>
 				</tr>
 			</c:forEach>
 
