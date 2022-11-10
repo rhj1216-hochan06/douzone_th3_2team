@@ -34,8 +34,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -114,8 +114,9 @@
 						<td><img src="${cartdto.productsIMG }" /></td>
 						<td><input type="checkbox" name="whatcheck"
 							value="${cartdto.cartId}" onclick="check_checkbox(event)" /></td>
+							</tr>
 				</c:forEach>
-				</tr>
+				<!-- </tr> -->
 				<tr class="lasttr">
 					<td colspan="7"><input type="text" id="hiddenid"
 						name="hiddenid" value="0" />

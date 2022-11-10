@@ -141,64 +141,72 @@
 
 
 	<!-- 선택한 상품 보여주기 -->
-	<div id="nutrientsListDiv">
-
-		<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
-
-			<div>
-				<img id="healthGoodsImg" alt="사진" src="${ healthGoodsList.healthGoodsImg }">
-
-			</div>
-
-			<div id="nutrdiscription">
-
+	
+	<form name="buybottle" action="${path}/cart?cmd=healthGoodsInsertCart" method="post">
+	
+		<div id="nutrientsListDiv">
+	
+			<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
+	
 				<div>
-					<h3>${ healthGoodsList.healthGoodsName }</h3>
+					<img name="healthGoodsImg" alt="사진" src="${ healthGoodsList.healthGoodsImg }">
 				</div>
-				<br />
-
-				<div>${ healthGoodsList.healthGoodsDetail }</div>
-
-
-				<div>
-					<br />
-					
+	
+				<div id="nutrdiscription">
+	
 					<div>
-						가격 : <a id="result">${ healthGoodsList.healthGoodsPrice }</a>원
-					</div>
-				</div>
-
-
-			</div>
-		</c:forEach>
-
-
-
-		<div id="selectbuymethod">
-
-			<div id="buy1">
-				<form name="buyday" action="" method="post">
-					<h1>총 가격</h1>
-
-					<input id="onetotal" name="onetotal" value="0" readonly /> <p />
-					<a>수량 결정</a> <p />
-					<input id="countone" name="countone" value="0" readonly />
-
-					<div id="calculationdiv">
-						<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
-						<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
-					</div>
+						<%-- <input type="text" id="hiddenid" name="hiddenid" value="${ healthGoodsList.healthGoodsId }"/> --%>
+						<input type="text" id="healthGoodsId" name="healthGoodsId" value="${ healthGoodsList.healthGoodsId }"/>
+						<%--  <a id="healthGoodsId" name="healthGoodsId">${ healthGoodsList.healthGoodsId }</a> --%>
+						<%-- <a id="healthGoodsId">${healthGoodsList.healthGoodsId }</a> --%>
+						<h3>${ healthGoodsList.healthGoodsName }</h3>
+					</div> <br />
 					
-					<div>
-						<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
+					<div>${ healthGoodsList.healthGoodsDetail }</div>
+	
+					<div> <br />
+						<div>
+							가격 : <a id="result">${ healthGoodsList.healthGoodsPrice }</a>원
+						</div>
 					</div>
-
-				</form>
-			</div> <!-- end buy1 -->
-
-		</div> <!-- end selectbuymethod -->
-
-	</div> <!-- end nutrientsListDiv -->
+	
+				</div> <!-- end nutrdiscription -->
+				
+			</c:forEach>
+			
+			
+	
+			<div id="selectbuymethod">
+	
+				<div id="buy1">
+					<%-- <form name="buybottle" action="${path}/healthgoods?cmd=healthGoodsInsertCart" method="post"> --%>
+					<%-- <form name="buybottle" action="${path}/cart?cmd=healthGoodsInsertCart" method="post"> --%>
+						
+						 <!-- <input type="text" id="hiddenid" name="hiddenid" value="0" /> <!-- 제품 번호 -->
+						<h1>총 가격</h1>
+	
+						<input id="onetotal" name="onetotal" value="0" readonly /> <p /> <!-- 총 가격 -->
+						<a>수량 결정</a> <p />
+						<input id="countone" name="countone" value="0" readonly /> <!-- 총 수량 -->
+	
+						<div id="calculationdiv">
+							<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
+							<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
+						</div>
+						
+						<div>
+							<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
+						</div>
+	
+					<!-- </form> -->
+				</div> <!-- end buy1 -->
+	
+			</div> <!-- end selectbuymethod -->
+	
+	
+		</div> <!-- end nutrientsListDiv -->
+		
+	</form>
 
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>

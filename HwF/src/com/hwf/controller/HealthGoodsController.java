@@ -25,24 +25,6 @@ public class HealthGoodsController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		System.out.println("cmd : " + cmd); //Console창 출력테스트
 
-//		String choiceHealthGoods = "";
-//
-//		if (cmd.contains("1")) {
-//			String[] arr = cmd.split("");
-//			cmd = "";
-//
-//			for (int i = 15; i < 20; i++) {
-//				choiceHealthGoods += arr[i];
-//			}
-//
-//			for (int i = 0; i < 15; i++) {
-//				cmd += arr[i];
-//			}
-//			
-//			System.out.println( "choiceHealthGoods : " + choiceHealthGoods);
-//
-//		}
-
 		//헬스용품 - 전체 조회
 		if (cmd.equals("healthGoodsList")) {
 			healthGoodsList(request, response);
@@ -111,6 +93,7 @@ public class HealthGoodsController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/healthGoods/allListHealthGoods.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/jsp/error.jsp");
+			
 		}
 	}
 
