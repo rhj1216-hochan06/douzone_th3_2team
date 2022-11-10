@@ -46,15 +46,15 @@
 			
 			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
 				<tr class="tableTitle">
-					<th>구매번호</th>
-					<th>회원번호</th>
+					<th>주문번호</th>
+					<th>회원id</th>
 					<th>구매갯수</th>
 					<th>구매가격</th>
 					<th>결제방식</th>
 					<th>수령방식</th>
 					<th>결제날짜</th>
 					<th>수령시작일</th>
-					<th>수령기간</th>
+					<th>복용기간</th>
 					<th>헬스용품id</th>
 					<th>헬스식품id</th>
 					<th>영양제id</th>

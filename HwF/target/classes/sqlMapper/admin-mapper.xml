@@ -30,7 +30,7 @@
  	<!-- 관리자) 헬스식품 전체 조회 -->
  	<select id="AdminHealthFoodSelect" resultType="com.hwf.model.HealthFoodDTO">
  		<!-- select * from healthfood order by hfId -->
- 		select hfId, hfName, hfPrice, decode(hfCategory,1,'음식', 2,'음료') as hfCategory, hfImg, hfDetail, hfDom, link 
+ 		select hfId, hfName, hfPrice, decode(hfCategory,1,'음식', 2,'음료') as hfCategory, hfImg, hfDetail, to_char(hfDom,'yy-mm-dd') as hfDom, link 
  		from healthfood 
  		order by hfId  
  	</select>
@@ -38,7 +38,7 @@
  	<!-- 관리자) 영양제 전체 조회 -->
  	<select id="AdminNutrientsSelect" resultType="com.hwf.model.NutrientsDTO">
  		<!-- select * from nutrients order by nutrientsId -->
- 		select nutrientsId, nutrientsName, nutrientsPrice, decode(nutrientsCategory,1,'비타민', 2,'헬스 보충제', 3,'다이어트 보조제') as nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link 
+ 		select nutrientsId, nutrientsName, nutrientsPrice, decode(nutrientsCategory,1,'비타민', 2,'헬스 보충제', 3,'다이어트 보조제') as nutrientsCategory, nutrientsImg, nutrientsDetail, to_char(nutrientsDom,'yy-mm-dd') as nutrientsDom, dailyIntake, numPerBottle, remainingNum, link 
  		from nutrients 
  		order by nutrientsId
  	</select>
