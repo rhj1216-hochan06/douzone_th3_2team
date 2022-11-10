@@ -325,7 +325,7 @@ public class CartController extends HttpServlet {
 				Period period = Period.between(selectGetDate, finishDay);
 				int difference = period.getDays(); // 수령 기간
 
-				int nutrid = Integer.parseInt(searchPriceDto.get(0).getProductsId());
+				String nutrid = searchPriceDto.get(0).getProductsId();
 
 				purchasedto = new PurchaseDTO(price, getMethod, selectGetDay, difference, nutrid, memberid);
 				purchasedao.purchaseNutr(purchasedto);
@@ -338,7 +338,7 @@ public class CartController extends HttpServlet {
 				int thisprice = price / healthfooddto.get(0).getHfPrice(); // --> 갯수
 
 				// 식품 아이디
-				int foodid = Integer.parseInt(searchPriceDto.get(0).getProductsId());
+				String foodid = searchPriceDto.get(0).getProductsId();
 
 				purchasedto = new PurchaseDTO(thisprice, price, foodid, memberid);
 				purchasedao.purchaseHealthFood(purchasedto);
@@ -350,7 +350,7 @@ public class CartController extends HttpServlet {
 				int subprice = price / healthgoodsdto.get(0).getHealthGoodsPrice(); // --> 갯수
 
 				// 용품 아이디
-				int goodsid = Integer.parseInt(searchPriceDto.get(0).getProductsId());
+				String goodsid = searchPriceDto.get(0).getProductsId();
 
 				String diff = null;
 
