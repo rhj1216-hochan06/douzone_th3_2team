@@ -31,10 +31,8 @@ import com.hwf.model.SurveyDTO;
 
 @WebServlet("/Member")
 public class MemberController extends HttpServlet {
-
 	@Inject
 	MemberDAO MemberDao;
-
 	public MemberController() {
 	}
 
@@ -82,16 +80,13 @@ public class MemberController extends HttpServlet {
 			System.out.println("service code error");
 	}
 
-	////////////////////////////////////////////////////////////////////
-	// 전체조회
-	////////////////////////////////////////////////////////////////////
+//로그인이전에 했는지 안했는 지 확인
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			System.out.println("로그인 오나요?");
 			HttpSession session;
 			session = request.getSession();
 			session.setAttribute("logincheck", true);
-
 			String name = session.getAttribute("membername1").toString();
 			System.out.println(name);
 			if (name.equalsIgnoreCase("환영합니다. 고객님"))
@@ -103,7 +98,7 @@ public class MemberController extends HttpServlet {
 		}
 		request.getRequestDispatcher("/views/jsp/member/mypage.jsp").forward(request, response);
 	}
-
+//로그인 정보 확인
 	public void logincheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session;
@@ -173,7 +168,7 @@ public class MemberController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 	}
-
+//회원 가입 인증으로 이동
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -181,6 +176,7 @@ public class MemberController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/member/join.jsp").forward(request, response);
 
 	}
+	//회원 가입 가기전 본인인증
 	public void self(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -188,7 +184,7 @@ public class MemberController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/member/self.jsp").forward(request, response);
 
 	}
-
+//회원 가입 + 정규 표현식
 	public void insertmember(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session;
@@ -237,7 +233,7 @@ public class MemberController extends HttpServlet {
 			}
 		}
 	}
-
+//구매 목록 가기
 	public void purchaselist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -274,13 +270,13 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
-
+//설문조사 페이지로 이동
 	public void survey(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/survey.jsp").forward(request, response);
 
 	}
-
+//설문조사 결과 삭제
 	public void surveyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -306,7 +302,7 @@ public class MemberController extends HttpServlet {
 			}
 		}
 	}
-
+//설문조사 리스트
 	public void surveylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -345,7 +341,7 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
-
+//설문조사 결과조회
 	public void surveyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -438,13 +434,13 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
-
+//인바디 페이지로 이동
 	public void inbody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/inbody.jsp").forward(request, response);
 
 	}
-
+//인바디 결과 삭제
 	public void inbodyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -471,7 +467,7 @@ public class MemberController extends HttpServlet {
 			}
 		}
 	}
-
+//인바디 결과 조회
 	public void inbodylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -510,7 +506,7 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
-
+	//인바디 시 제품 추천
 	public void inbodyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -612,7 +608,5 @@ public class MemberController extends HttpServlet {
 
 		request.getRequestDispatcher("/Main.jsp").forward(request, response);
 	}
-	////////////////////////////////////////////////////////////////////
-	// 전체조회 끝
-	////////////////////////////////////////////////////////////////////
+
 }
