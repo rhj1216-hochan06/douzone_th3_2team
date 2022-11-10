@@ -141,107 +141,73 @@
 
 
 	<!-- 선택한 상품 보여주기 -->
-	<div id="nutrientsListDiv">
-
-		<c:forEach var="healthFoodList" items="${ healthFoodList }">
-
-			<div>
-				<img id="hfIMG" alt="사진" src="${ healthFoodList.hfIMG }">
-
-			</div>
-
-			<div id="nutrdiscription">
-
+	
+	<form name="buybottle" action="${path}/cart?cmd=healthFoodInsertCart" method="post">
+	
+		<div id="nutrientsListDiv">
+	
+			<c:forEach var="healthFoodList" items="${ healthFoodList }">
+	
 				<div>
-					<h3>${ healthFoodList.hfName }</h3>
+					<img id="hfIMG" alt="사진" src="${ healthFoodList.hfIMG }">
+	
 				</div>
-				<br />
-
-				<div>${ healthFoodList.hfDetail }</div>
-
-
-				<div>
-					<br />
+	
+				<div id="nutrdiscription">
+	
 					<div>
-						제조날짜 : ${ healthFoodList.hfDoM }
-					</div>
-					
-					<br />
-					<div>
-						가격 : <a id="result">${ healthFoodList.hfPrice }</a>원
-					</div>
-				</div>
-
-
-			</div>
-		</c:forEach>
-
-
-
-		<div id="selectbuymethod">
-
-			<!-- 일 수 구매 -->
-			<div id="buy1">
-				<form name="buyday" action="${path}/cart?cmd=insertCart" method="post">
-					<h1>총 가격</h1>
-
-					<input id="onetotal" name="onetotal" value="0" readonly /> <p />
-					<a>수량 결정</a> <p />
-					<input id="countone" name="countone" value="0" readonly />
-
-					<div id="calculationdiv">
-						<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
-						<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
-					</div>
-					
-					<div>
-						<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
-					</div>
-
-				</form>
-			</div> <!-- end buy1 -->
-			
-			<!-- 일 수 구매 -->
-			<%-- <div id="buy1">
-				<form name="buyday" action="${path}/cart?cmd=insertCart" method="post">
-					<input type="text" id="hiddenid" name="hiddenid" value="0" />
-					<h1>총 가격</h1>
-
-					<input id="onetotal" name="onetotal" value="0" readonly /> <p />
-					<a>수량 결정</a> <p />
-					<input id="countone" name="countone" value="0" readonly />
-
-					<div id="calculationdiv">
-
-						<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
-						<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
-					</div>
-
-					<div id="calender1">
-						<input type='radio' name='getnu' value='onetime' checked="checked" />한번에 받기 
-						<input type='radio' name='getnu' value='splittime' />나눠서 받기
-						<p />
-						<input type='date' id="selectdate" name="selectgetday" value="2022-11-06" />
-
+						<input type="text" id="hfid" name="hfid" value="${ healthFoodList.hfid }"/>
+						<h3>${ healthFoodList.hfName }</h3>
+					</div> <br />
+	
+					<div>${ healthFoodList.hfDetail }</div>
+	
+					<div> <br />
 						<div>
-							끝나는 날 : <input id="finishnutr" name="finishnutr" value="0"
-								readonly />
-						</div>
-						<p />
+							제조날짜 : ${ healthFoodList.hfDoM }
+						</div> <br />
 						
-						<p />
-						<input type="submit" id="bottlebasket" class="calculation" value="장바구니"> 
-						<input type='button'onclick="selectnudate()" class="calculation" value='날짜 선택' />
+						<div>
+							가격 : <a id="result">${ healthFoodList.hfPrice }</a>원
+						</div>
+					</div>
+	
+				</div> <!-- end nutrdiscription -->
+				
+			</c:forEach>
+	
+	
+	
+			<div id="selectbuymethod">
+	
+				<div id="buy1">
+					<%-- <form name="buyday" action="${path}/cart?cmd=insertCart" method="post"> --%>
+					
+						<!-- <input type="text" id="hiddenid" name="hiddenid" value="0" /> <!-- 제품 번호 -->
+						<h1>총 가격</h1>
+	
+						<input id="onetotal" name="onetotal" value="0" readonly /> <p /> <!-- 총 가격 -->
+						<a>수량 결정</a> <p />
+						<input id="countone" name="countone" value="0" readonly /> <!-- 총 수량 -->
+	
+						<div id="calculationdiv">
+							<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
+							<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
+						</div>
+						
+						<div>
+							<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
+						</div>
+	
+					<!-- </form> -->
+				</div> <!-- end buy1 -->
+	
+			</div> <!-- end selectbuymethod -->
+	
+		</div> <!-- end nutrientsListDiv -->
 
-					</div> --%>
-
-				</form>
-			</div>
-
-		</div> <!-- end selectbuymethod -->
-
-	</div> <!-- end nutrientsListDiv -->
-
+	</form>
+	
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

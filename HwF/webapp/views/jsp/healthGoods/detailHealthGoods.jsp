@@ -157,8 +157,7 @@
 					<div>
 						<%-- <input type="text" id="hiddenid" name="hiddenid" value="${ healthGoodsList.healthGoodsId }"/> --%>
 						<input type="text" id="healthGoodsId" name="healthGoodsId" value="${ healthGoodsList.healthGoodsId }"/>
-						<%--  <a id="healthGoodsId" name="healthGoodsId">${ healthGoodsList.healthGoodsId }</a> --%>
-						<%-- <a id="healthGoodsId">${healthGoodsList.healthGoodsId }</a> --%>
+						<%-- <a id="healthGoodsId" name="healthGoodsId">${ healthGoodsList.healthGoodsId }</a> --%>
 						<h3>${ healthGoodsList.healthGoodsName }</h3>
 					</div> <br />
 					
@@ -202,7 +201,6 @@
 				</div> <!-- end buy1 -->
 	
 			</div> <!-- end selectbuymethod -->
-	
 	
 		</div> <!-- end nutrientsListDiv -->
 		

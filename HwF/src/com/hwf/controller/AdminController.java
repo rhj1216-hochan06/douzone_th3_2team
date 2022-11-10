@@ -377,11 +377,8 @@ public class AdminController extends HttpServlet {
 	
 	// 관리자) 헬스식품 삭제
 	public void AdminHealthFoodDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("1");
 		int hfid = Integer.parseInt(request.getParameter("hfid")); 
-		System.out.println("2");
 		GoodsDAO dao = new GoodsDAO();
-		System.out.println("3");
 			
 		int resultHealthFoodDelete = dao.AdminHealthFoodDelete(hfid);
 		if (resultHealthFoodDelete > 0) {
