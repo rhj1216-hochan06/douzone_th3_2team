@@ -64,8 +64,7 @@
 					</tr>
 				</table>
 
-				<table id="
-        healthintro">
+				<table id="healthintro">
 					<th>헬스장 및 운동법 소개</th>
 					<tr>
 						<td><img src="${path}/views/img/logo.png" /></td>
@@ -79,8 +78,7 @@
 				<th colspan="4">영양제 카테고리</th>
 				<tr>
 					<td onclick="location.href='nutrients?cmd=list'">
-						<h1>모든 영양제</h1> <img id="allnutrientsImg"
-						src="${path}/views/img/allList.png" />
+						<h1>모든 영양제</h1> <img id="allnutrientsImg" src="${path}/views/img/allList.png" />
 					</td>
 					<td onclick="location.href='nutrients?cmd=vitaminList'">
 						<h1>비타민</h1> <img src="${path}/views/img/vitamin.png" />

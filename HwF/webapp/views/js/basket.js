@@ -13,6 +13,8 @@ const change = (choice) => {
 	}
 };
 
+// 선택 아이디 전달
+
 let serve = '';
 function check_checkbox(event) {
 	if (event.target.checked) {
@@ -23,4 +25,41 @@ function check_checkbox(event) {
 	$('input[name=hiddenid]').attr('value', serve);
 
 	console.log(serve);
+}
+
+// 총 가격 출력
+window.onload = function() {
+	var price = document.getElementsByClassName("purchasePrice");
+	let total = 0;
+	for (var i = 0; i < price.length; i++) {
+		total = parseInt(price[i].innerText) + total;
+	}
+
+	const purchaseElement = document.getElementById("purchasetotalprice");
+	purchaseElement.innerText = total;
+}
+
+//구매시 호출 되는 함수 
+
+function callpurchase() {
+	serve = '';
+	var value = document.getElementsByName("whatcheck");
+
+	for (var i = 0; i < value.length; i++) {
+		serve = serve + value[i].value + ',';
+	}
+
+	location.href = 'cart?cmd=purchase&id=' + serve;
+}
+
+function callcreditpurchase() {
+	console.log('123');
+	serve = '';
+	var value = document.getElementsByName("whatcheck");
+
+	for (var i = 0; i < value.length; i++) {
+		serve = serve + value[i].value + ',';
+	}
+
+	location.href = 'cart?cmd=creditpurchase&id=' + serve;
 }

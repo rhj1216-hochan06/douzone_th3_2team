@@ -27,7 +27,6 @@
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
-		<!-- 메뉴 버튼 테이블 -->
 		<nav>
 			<p>
 				<input type="text" value="" placeholder="Search" />

@@ -19,9 +19,9 @@ public class HealthGoodsDTO { // model
 	private String healthGoodsImg;		//헬스용품 이미지
 	private String healthGoodsDetail;	//헬스용품 상세설명
 	private String link; 				//인바디,설문 연결값
-	
-	
-	//AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
+
+
+	// AdminController - AdminHealthGoodsInsert()에서 필요한 생성자
 	public HealthGoodsDTO(String healthGoodsName, int healthGoodsPrice, String healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String link) {
 		super();
 		this.healthGoodsName = healthGoodsName;

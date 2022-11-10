@@ -66,7 +66,7 @@ public class MemberController extends HttpServlet {
 		try {
 			HttpSession session;
 			session = request.getSession();
-			
+
 			String name = session.getAttribute("membername1").toString();
 			System.out.println(name);
 			if (name.equalsIgnoreCase("환영합니다. 고객님"))
@@ -95,14 +95,11 @@ public class MemberController extends HttpServlet {
 		System.out.println("로그인 정보 불러오기 ");
 		System.out.println(dto2.getMemberid().toString());
 
-		
-		//관리자 로그인
+		// 관리자 로그인
 		if (dto2.getMemberid().equals("admin")) {
 			request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
 		}
-		
-		
-		
+
 		HttpSession session;
 		session = request.getSession();
 

@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class QnaDTO {   // model
+public class QnaDTO { // model
 
 	private int qnaid;
 	private String qnadate;
 	private String qnatitle, qnacontent, qnaanswer, memberid;
-	
+
 	public QnaDTO(String qnatitle, String qnacontent, String memberid) {
 		super();
 		this.qnatitle = qnatitle;
@@ -26,5 +26,5 @@ public class QnaDTO {   // model
 		this.qnacontent = qnacontent;
 
 	}
-	
+
 }

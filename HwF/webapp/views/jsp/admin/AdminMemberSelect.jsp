@@ -15,15 +15,13 @@
 <title>회원 조회</title>
 </head>
 
-<!-- 해당 페이지만 단일 실행시 주소경로 : http://localhost:8080/HwF/views/jsp/AdminMemberSelect.jsp -->
-
 <body>
 
 	<!-- header -->
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
+				<img src="${path}/views/img/logo.png" /> 
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>

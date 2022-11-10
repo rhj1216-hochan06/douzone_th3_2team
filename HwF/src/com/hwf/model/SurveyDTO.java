@@ -11,20 +11,19 @@ import lombok.NoArgsConstructor;
 public class SurveyDTO {
 
 	private String surveyid;
-	private String goal ; 
-	private String currentstate; 
-	private String currentintke; 
-	private String link; 
-	private String memberid; 
+	private String goal;
+	private String currentstate;
+	private String currentintke;
+	private String link;
+	private String memberid;
 
+	public SurveyDTO(String goal, String currentstate, String currentintke, String link, String memberid) {
+		this.goal = goal;
+		this.currentstate = currentstate;
+		this.currentintke = currentintke;
+		this.link = link;
+		this.memberid = memberid;
 
-	public SurveyDTO(String goal,String currentstate,String currentintke,String link,String memberid) {
-		this.goal= goal;
-		this.currentstate=currentstate;
-		this.currentintke= currentintke;
-		this.link= link;
-		this.memberid= memberid;
-		
 	}
 
 }

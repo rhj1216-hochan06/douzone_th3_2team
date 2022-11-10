@@ -33,7 +33,6 @@ public class HealthFoodController extends HttpServlet {
 		//헬스식품 - 카테고리 '음식' 조회
 		else if (cmd.equals("selectFood")) {
 			selectFood(request, response);
-
 		} 
 		
 		//헬스식품 - 카테고리 '음료' 조회

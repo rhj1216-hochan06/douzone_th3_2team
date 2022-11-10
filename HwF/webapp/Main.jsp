@@ -193,6 +193,6 @@
 		</article>
 		
 	</div>
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>회사 이름, 대표 이름 등등 </footer>
 </body>
 </html>

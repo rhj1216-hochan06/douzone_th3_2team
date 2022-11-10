@@ -24,8 +24,6 @@ public class GoodsDAO {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory(); // openSession() 가능
 	}
 
-	// DML 관련 - 메소드명을 admin-mapper.xml와 맞춰주기
-
 	
 	
 	/*************** 상품 전체 조회 ***************/
@@ -199,7 +197,7 @@ public class GoodsDAO {
 		try {
 			int resultHealthGoodsDelete = sqlSession.delete("adminMapper.AdminHealthGoodsDelete", healthGoodsId); //""자리에는 mapper.xml에서의 namespace.id
 			sqlSession.commit();
-			return resultHealthGoodsDelete; //AdminController-AdminHealthGoodsDelete()에서 resultHealthGoodsDelete로 받기때문에 resultHealthGoodsDelete 리턴
+			return resultHealthGoodsDelete;
 		
 		} catch (Exception e) {
 			return 0;
@@ -256,7 +254,7 @@ public class GoodsDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			sqlSession.rollback(); // 단일 쿼리 실행시 의미 없음
+			sqlSession.rollback();
 			return 0;
 
 		} finally {
@@ -277,7 +275,7 @@ public class GoodsDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			sqlSession.rollback(); // 단일 쿼리 실행시 의미 없음
+			sqlSession.rollback(); 
 			return 0;
 
 		} finally {
@@ -298,7 +296,7 @@ public class GoodsDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			sqlSession.rollback(); // 단일 쿼리 실행시 의미 없음
+			sqlSession.rollback();
 			return 0;
 
 		} finally {

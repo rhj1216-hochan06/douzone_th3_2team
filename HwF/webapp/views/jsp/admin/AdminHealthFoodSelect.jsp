@@ -21,7 +21,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> <!-- <img src="../img/logo.png" /> -->
+				<img src="${path}/views/img/logo.png" />
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>

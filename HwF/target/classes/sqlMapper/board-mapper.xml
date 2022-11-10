@@ -97,64 +97,64 @@
 
 	<!-- 추천 / 설문, 인바디 -->
 
-	<select id="suverysearchingHealthGoods"
-		parameterType="hashMap" resultType="recommend">
-	
+	<select id="suverysearchingHealthGoods" parameterType="hashMap"
+		resultType="recommend">
+
 		<if test="column != null">
 
-		select * from HealthGoods where link = #{keyvalue}
+			select * from HealthGoods where link = #{keyvalue}
 			<!-- 합치면 column은 suvery / keyvalue = memberid -->
 			<!-- select * from HealthGoods where link = (select link from #{column} 
 				where memberid = ${keyvalue}) -->
 		</if>
 	</select>
 
-	<select id="inbodysearchingHealthGoods"
-		parameterType="hashMap" resultType="recommend">
-		
+	<select id="inbodysearchingHealthGoods" parameterType="hashMap"
+		resultType="recommend">
+
 		<if test="column != null">
-			 select * from HealthGoods where link = #{keyvalue}
+			select * from HealthGoods where link = #{keyvalue}
 
 			<!-- 합치면 column은 inbody / keyvalue = memberid -->
 
-<!-- 			select * from HealthGoods where link = (select link from #{column}
-			where memberid = ${keyvalue}) -->
+			<!-- select * from HealthGoods where link = (select link from #{column} 
+				where memberid = ${keyvalue}) -->
 
 		</if>
 	</select>
 
-	<select id="suverysearchingHealthFood"
-		parameterType="hashMap" resultType="recommend">
-		
-		
+	<select id="suverysearchingHealthFood" parameterType="hashMap"
+		resultType="recommend">
+
+
 		<if test="column != null">
-		select * from healthfood where link = #{keyvalue}
+			select * from healthfood where link = #{keyvalue}
 			<!-- 합치면 column은 suvery / keyvalue = memberid -->
-<!-- 			select * from healthfood where link = (select link from #{column}
-			where memberid = ${keyvalue}) -->
+			<!-- select * from healthfood where link = (select link from #{column} 
+				where memberid = ${keyvalue}) -->
 		</if>
 	</select>
 
-	<select id="inbodysearchingHealthFood"
-		parameterType="hashMap" resultType="recommend">
+	<select id="inbodysearchingHealthFood" parameterType="hashMap"
+		resultType="recommend">
 		<if test="column != null">
 
-			 select * from healthfood where link = #{keyvalue}
+			select * from healthfood where link = #{keyvalue}
 
 			<!-- 합치면 column은 inbody / keyvalue = memberid -->
 
-<!-- 			select * from healthfood where link = (select link from #{column}
-			where memberid = ${keyvalue}) -->
+			<!-- select * from healthfood where link = (select link from #{column} 
+				where memberid = ${keyvalue}) -->
 
 		</if>
 	</select>
 
-	<select id="suverysearchingNutrients"
-		parameterType="hashMap" resultType="recommend">
-		
-		
+	<select id="suverysearchingNutrients" parameterType="hashMap"
+		resultType="recommend">
+
+
 		<if test="column != null">
-		select * from Nutrients where link = #{keyvalue}	
+			select * from Nutrients where link = #{keyvalue}
 
 			<!-- 합치면 column은 suvery / keyvalue = memberid -->
 			<!-- select * from Nutrients where link = (select link from #{column} 
@@ -162,22 +162,20 @@
 		</if>
 	</select>
 
-	<select id="inbodysearchingNutrients"
-		parameterType="hashMap" resultType="recommend">
+	<select id="inbodysearchingNutrients" parameterType="hashMap"
+		resultType="recommend">
 
 		<if test="column != null">
 			select * from Nutrients where link = #{keyvalue}
 
-			
-			<!-- 합치면 column은 inbody / keyvalue = memberid -->
-			<!-- select * from Nutrients where link =
-			(select link from #{column} where
-			memberid = ${keyvalue}) -->
-			
 
-<!-- 			select * from Nutrients where link =
-			(select link from #{column} where
-			memberid = ${keyvalue}) -->
+			<!-- 합치면 column은 inbody / keyvalue = memberid -->
+			<!-- select * from Nutrients where link = (select link from #{column} 
+				where memberid = ${keyvalue}) -->
+
+
+			<!-- select * from Nutrients where link = (select link from #{column} 
+				where memberid = ${keyvalue}) -->
 		</if>
 	</select>
 
@@ -185,7 +183,8 @@
 
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="int">
-		DELETE FROM QnA WHERE qnaid = #{qnaid}
+		DELETE FROM QnA WHERE qnaid =
+		#{qnaid}
 	</delete>
 
 	<!-- 세부사항 -->
@@ -196,7 +195,8 @@
 	<!-- 수정 -->
 	<update id="update" parameterType="qnadto">
 		UPDATE QnA
-		SET qnatitle=#{qnatitle} , qnacontent=#{qnacontent}
+		SET
+		qnatitle=#{qnatitle} , qnacontent=#{qnacontent}
 		WHERE qnaid = #{qnaid}
 	</update>
 

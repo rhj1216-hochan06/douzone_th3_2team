@@ -120,13 +120,13 @@ public class AdminController extends HttpServlet {
 	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		MemberDAO dao = new MemberDAO();
-		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect(); // MemberDAO의 AdminMemberSelect()메소드의 return값을 MemberDTO형태의 AdminMemberSelect변수에 담음
+		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect();
 
 		if (AdminMemberSelect != null) {
-			request.setAttribute("AdminMemberSelect", AdminMemberSelect); // data save
+			request.setAttribute("AdminMemberSelect", AdminMemberSelect);
 			request.getRequestDispatcher("/views/jsp/admin/AdminMemberSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/jsp/error.jsp");
 		}
 	}
 

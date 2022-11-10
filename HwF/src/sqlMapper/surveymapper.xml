@@ -5,13 +5,10 @@
 
 <mapper namespace="surveydao">
 
-
 	<insert id="insert" parameterType="surveydto">
 		insert into survey
 		values(Survey_ID_SEQ.nextval,#{goal},#{currentstate},
 		#{currentintke},#{link},#{memberid})
 	</insert>
-
-
-
+	
 </mapper>

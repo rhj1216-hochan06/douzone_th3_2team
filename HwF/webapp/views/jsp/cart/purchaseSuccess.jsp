@@ -10,11 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css"
-	href="${path}/views/css/basketList.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="${path}/views/js/basket.js"></script>
-
-
+	href="${path}/views/css/thankyou.css" />
+<script type="text/javascript" src="${path}/views/js/all.js"></script>
 <title>allList</title>
 </head>
 <body>
@@ -92,47 +89,7 @@
 	</div>
 
 	<div id="nutrientsListDiv">
-		<form action="${path}/cart?cmd=deleteSelete" method="post">
-			<table>
-				<tr>
-					<th>물품 이름</th>
-					<th>가격</th>
-					<th>받는 방식</th>
-					<th>받을 날짜</th>
-					<th>수령이 끝나는 날짜</th>
-					<th>사진</th>
-					<th>삭제</th>
-				</tr>
-				<c:forEach var="cartdto" items="${cartList }">
-
-					<tr id="${cartdto.memberId}">
-						<td>${cartdto.productsName}</td>
-						<td class="purchasePrice">${cartdto.productsPrice }</td>
-						<td id="purchasemethod">${cartdto.reservation }</td>
-						<td>${cartdto.purchasetime }</td>
-						<td>${cartdto.endtime }</td>
-						<td><img src="${cartdto.productsIMG }" /></td>
-						<td><input type="checkbox" name="whatcheck"
-							value="${cartdto.cartId}" onclick="check_checkbox(event)" /></td>
-
-					</tr>
-				</c:forEach>
-
-				<tr class="lasttr">
-					<td colspan="6"><input type="text" id="hiddenid"
-						name="hiddenid" value="0" />
-						<p /> 총가격 : <a id="purchasetotalprice">0</a>원
-
-						<p /> <input type="button" id="cartchecked" value="신용카드 구매"
-						onclick="callcreditpurchase()" /> <input type="button"
-						id="cartchecked" value="카카오페이 구매" onclick="callpurchase()" /></td>
-
-					<td><input type="submit" id="cartchecked" name="deletecheck"
-						value="삭제" /></td>
-				</tr>
-			</table>
-
-		</form>
+		<div>결제 해 주셔서 감사합니다</div>
 	</div>
 
 	<footer>회사 이름, 대표 이름 등등</footer>

@@ -11,23 +11,19 @@ import com.hwf.model.InbodyDTO;
 public class InbodyDAO {
 	private SqlSessionFactory sqlSessionFactory;
 	private SqlSession sqlSession = null;
-	
 
 	public InbodyDAO() {
-		
+
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
-	
-	
-	
+
 	// insert
 	public int insert(InbodyDTO dto) {
-		
+
 		System.out.println(dto.toString());
-		
-		
+
 		try {
-			
+
 			System.out.println("1");
 			sqlSession = sqlSessionFactory.openSession();
 			System.out.println("2");

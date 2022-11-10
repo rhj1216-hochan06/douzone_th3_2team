@@ -11,23 +11,19 @@ import com.hwf.model.SurveyDTO;
 public class SurveyDAO {
 	private SqlSessionFactory sqlSessionFactory;
 	private SqlSession sqlSession = null;
-	
 
 	public SurveyDAO() {
-		
+
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
-	
-	
-	
+
 	// insert
 	public int insert(SurveyDTO dto) {
-		
+
 		System.out.println(dto.toString());
-		
-		
+
 		try {
-			
+
 			System.out.println("1");
 			sqlSession = sqlSessionFactory.openSession();
 			System.out.println("2");

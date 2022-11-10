@@ -18,15 +18,16 @@ public class NutrientsDAO {
 	public NutrientsDAO() {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory();
 	}
-	
-	
-	
+
 	public List<NutrientsDTO> selectAll() {
 		try {
+			System.out.println("3");
 			sqlSession = sqlSessionFactory.openSession();
+			System.out.println("4");
 			return sqlSession.selectList("nutrdao.selectAll");
 
 		} catch (Exception e) {
+			System.out.println("5");
 			return null;
 		} finally {
 			if (sqlSession != null) {

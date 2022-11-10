@@ -22,7 +22,7 @@ public class NutrientsDTO {
 	private String dailyInTake;			//1일 섭취 갯수
 	private int numperbottle;			//1통 당 갯수
 	private int remainingNum; 			//현재 잔여 갯수
-	private String link; 				//인바디,설문 연결값 (Link -> nutrientsLink로 변경)
+	private String link; 				//인바디,설문 연결값
 	
 	
 	//AdminController - AdminNutrientsInsert()에서 필요한 생성자

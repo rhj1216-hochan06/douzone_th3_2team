@@ -145,7 +145,7 @@
  	
  	<!-- 관리자) 영양제 등록 -->
  	<insert id="AdminNutrientsInsert" parameterType="com.hwf.model.NutrientsDTO">
-		insert into nutrients(nutrientsId, nutrient	sName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link)
+		insert into nutrients(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link)
  		values(nutrients_id_seq.nextval, #{nutrientsName}, #{nutrientsPrice}, #{nutrientsCategory}, #{nutrientsIMG}, #{nutrientsDetail}, to_date(#{nutrientsDOM},'yyyy-mm-dd'), #{dailyInTake}, #{numperbottle}, #{remainingNum}, #{link})
  	</insert>
  	
@@ -161,10 +161,7 @@
 		receiptPeriod,
 		NVL(to_char(healthgoodsId),'-') as healthgoodsId, NVL(to_char(hfid),'-') as hfid, NVL(to_char(nutrientsID),'-') as nutrientsID
  		from purchase 
- 		order by purchaseId
- 		
- 		<!-- healthgoodsId, hfid, nutrientsID -->
- 		<!-- NVL(healthgoodsId,'') as healthgoodsId, NVL(hfid,'') as hfid, NVL(nutrientsID,'') as nutrientsID -->  
+ 		order by purchaseId 
 	</select>	
 
  	

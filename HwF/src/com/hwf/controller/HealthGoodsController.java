@@ -33,7 +33,6 @@ public class HealthGoodsController extends HttpServlet {
 		//헬스용품 - 카테고리 '운동용품' 조회
 		else if (cmd.equals("selectDumbbell")) {
 			selectDumbbell(request, response);
-
 		} 
 		
 		//헬스용품 - 카테고리 '벨트' 조회
