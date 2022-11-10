@@ -75,7 +75,7 @@ public class HealthFoodDAO {
 		}
 	}	
 	
-	//헬스식품 - 상세보기
+	//healthFoodDetail (헬스식품 - 상세보기)
 	public List<HealthFoodDTO> healthFoodDetail(int hfid) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();

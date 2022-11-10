@@ -42,13 +42,12 @@
 		<div class="contentBottom">
 			<br>
 			<a href="javascript:location.href='admin?cmd=AdminMemberSelect'"><img src="${path}/views/img/IconMemberSelect.png" alt="회원 조회" style="width: 150px; height: 150px"><span>회원 조회</span></a>
-			
+
 			<a href="javascript:location.href='views/jsp/admin/AdminGoodsSelect.jsp'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 관리" style="width: 150px; height: 150px"><span>상품 관리</span></a>
 			
 			<a href="javascript:location.href='views/jsp/admin/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			
 			<%-- <a href="javascript:location.href='views/jsp/admin/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> 
-			
 			<a href="javascript:location.href='views/jsp/admin/AdminGoodsDelete.jsp'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>  --%>
 			
 			<br><br><br>

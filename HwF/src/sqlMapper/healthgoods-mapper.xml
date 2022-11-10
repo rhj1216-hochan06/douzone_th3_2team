@@ -30,8 +30,4 @@
 		select * from healthgoods where healthGoodsId = #{healthGoodsId}
 	</select>
 	
-<!-- 	<select id="selectusename" resultType="nutrdto" parameterType="String">
-		select * from NUTRIENTS where NUTRIENTSNAME = #{nutrientsname}
-	</select> -->
-	
 </mapper>

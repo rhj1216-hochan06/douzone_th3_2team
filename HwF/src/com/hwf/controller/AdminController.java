@@ -17,11 +17,13 @@ import javax.servlet.http.HttpSession;
 //import com.hwf.*;
 import com.hwf.dao.GoodsDAO;
 import com.hwf.dao.MemberDAO;
+import com.hwf.dao.PurchaseDAO;
 import com.hwf.model.HealthFoodDTO;
 //import com.hwf.model.GoodsDTO;
 import com.hwf.model.HealthGoodsDTO;
 import com.hwf.model.MemberDTO;
 import com.hwf.model.NutrientsDTO;
+import com.hwf.model.PurchaseDTO;
 
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
@@ -37,14 +39,15 @@ public class AdminController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		System.out.println("cmd : " + cmd); //Console창 출력테스트
 
-		//회원 전체 조회
+		
+		//회원 조회
 		if (cmd.equals("AdminMemberSelect")) { //관리자) 회원 조회
 			AdminMemberSelect(request, response);
 		}
 		
 		
 		// 상품 전체 조회
-		else if (cmd.equals("GoodsSelect")) { //관리자+회원) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
+		else if (cmd.equals("GoodsSelect")) { //관리자) 상품(헬스용품 + 헬스식품 + 영양제) 전체 조회 
 			GoodsSelect(request, response);
 		} 
 		else if (cmd.equals("AdminHealthGoodsSelect")) { //관리자) 헬스용품 전체 조회
@@ -100,6 +103,30 @@ public class AdminController extends HttpServlet {
 		}
 		else if (cmd.equals("AdminNutrientsInsert")) {  //관리자) 영양제 등록
 			AdminNutrientsInsert(request, response);
+		}
+		
+		
+		// 주문 조회
+		else if (cmd.equals("AdminOrderSelect")) { //관리자) 주문 조회
+			AdminOrderSelect(request, response);
+		} 
+	}
+	
+	
+	
+	/*************** 회원 조회 ***************/
+	
+	// 관리자) 회원 조회
+	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		MemberDAO dao = new MemberDAO();
+		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect(); // MemberDAO의 AdminMemberSelect()메소드의 return값을 MemberDTO형태의 AdminMemberSelect변수에 담음
+
+		if (AdminMemberSelect != null) {
+			request.setAttribute("AdminMemberSelect", AdminMemberSelect); // data save
+			request.getRequestDispatcher("/views/jsp/admin/AdminMemberSelect.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
 		}
 	}
 
@@ -377,11 +404,8 @@ public class AdminController extends HttpServlet {
 	
 	// 관리자) 헬스식품 삭제
 	public void AdminHealthFoodDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("1");
 		int hfid = Integer.parseInt(request.getParameter("hfid")); 
-		System.out.println("2");
 		GoodsDAO dao = new GoodsDAO();
-		System.out.println("3");
 			
 		int resultHealthFoodDelete = dao.AdminHealthFoodDelete(hfid);
 		if (resultHealthFoodDelete > 0) {
@@ -497,20 +521,20 @@ public class AdminController extends HttpServlet {
 
 	
 	
-	/*************** 회원 조회 ***************/
+	/*************** 주문 조회 ***************/
 	
-	// 관리자) 회원 조회
-	public void AdminMemberSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// 관리자) 주문 조회
+	public void AdminOrderSelect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		MemberDAO dao = new MemberDAO();
-		List<MemberDTO> AdminMemberSelect = dao.AdminMemberSelect(); // MemberDAO의 AdminMemberSelect()메소드의 return값을 MemberDTO형태의 AdminMemberSelect변수에 담음
+		PurchaseDAO dao = new PurchaseDAO();
+		List<PurchaseDTO> AdminOrderSelect = dao.AdminOrderSelect();
 
-		if (AdminMemberSelect != null) {
-			request.setAttribute("AdminMemberSelect", AdminMemberSelect); // data save
-			request.getRequestDispatcher("/views/jsp/admin/AdminMemberSelect.jsp").forward(request, response);
+		if (AdminOrderSelect != null) {
+			request.setAttribute("AdminOrderSelect", AdminOrderSelect);
+			request.getRequestDispatcher("/views/jsp/admin/AdminOrderSelect.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("/views/jsp/error.jsp"); // 추후에 error페이지 만든 후 error 처리
+			response.sendRedirect("/views/jsp/error.jsp");
 		}
-	}
+	}	
 
 }

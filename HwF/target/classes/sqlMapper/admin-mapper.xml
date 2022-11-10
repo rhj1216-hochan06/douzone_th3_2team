@@ -7,27 +7,40 @@
  
  <mapper namespace="adminMapper">
  
+  	<!-- ***** 관리자) 회원 조회 ***** -->
+ 	<select id="AdminMemberSelect" resultType="com.hwf.model.MemberDTO">
+ 		<!-- select * from member order by memberId -->
+ 		select memberId, memberName, decode(memberSex,1,'남', 2,'여')  as memberSex 
+ 		from member 
+ 		order by memberId
+ 	</select>
+ 
+ 
+ 
 	<!-- ***** 관리자) 상품 전체 조회 ***** -->
  
  	<!-- 관리자) 헬스용품 전체 조회 -->
  	<select id="AdminHealthGoodsSelect" resultType="com.hwf.model.HealthGoodsDTO">
-		select healthGoodsId, healthGoodsName, healthGoodsPrice, decode(healthGoodsCategory,1,'운동용품', 2,'벨트', 3,'장갑') as healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link 
- 		from healthgoods order by healthGoodsId
  		<!-- select * from healthgoods order by healthgoodsId -->
+ 		select healthGoodsId, healthGoodsName, healthGoodsPrice, decode(healthGoodsCategory,1,'운동용품', 2,'벨트', 3,'장갑') as healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link 
+ 		from healthgoods 
+ 		order by healthGoodsId
  	</select>
  	
  	<!-- 관리자) 헬스식품 전체 조회 -->
  	<select id="AdminHealthFoodSelect" resultType="com.hwf.model.HealthFoodDTO">
- 		select hfId, hfName, hfPrice, decode(hfCategory,1,'음식', 2,'음료') as hfCategory, hfImg, hfDetail, hfDom, link 
- 		from healthfood order by hfId  
  		<!-- select * from healthfood order by hfId -->
+ 		select hfId, hfName, hfPrice, decode(hfCategory,1,'음식', 2,'음료') as hfCategory, hfImg, hfDetail, hfDom, link 
+ 		from healthfood 
+ 		order by hfId  
  	</select>
  	
  	<!-- 관리자) 영양제 전체 조회 -->
  	<select id="AdminNutrientsSelect" resultType="com.hwf.model.NutrientsDTO">
- 		select nutrientsId, nutrientsName, nutrientsPrice, decode(nutrientsCategory,1,'비타민', 2,'헬스 보충제', 3,'다이어트 보조제') as nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link 
- 		from nutrients order by nutrientsId
  		<!-- select * from nutrients order by nutrientsId -->
+ 		select nutrientsId, nutrientsName, nutrientsPrice, decode(nutrientsCategory,1,'비타민', 2,'헬스 보충제', 3,'다이어트 보조제') as nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link 
+ 		from nutrients 
+ 		order by nutrientsId
  	</select>
  	
  	
@@ -132,18 +145,27 @@
  	
  	<!-- 관리자) 영양제 등록 -->
  	<insert id="AdminNutrientsInsert" parameterType="com.hwf.model.NutrientsDTO">
-		insert into nutrients(nutrientsId, nutrientsName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link)
+		insert into nutrients(nutrientsId, nutrient	sName, nutrientsPrice, nutrientsCategory, nutrientsImg, nutrientsDetail, nutrientsDom, dailyIntake, numPerBottle, remainingNum, link)
  		values(nutrients_id_seq.nextval, #{nutrientsName}, #{nutrientsPrice}, #{nutrientsCategory}, #{nutrientsIMG}, #{nutrientsDetail}, to_date(#{nutrientsDOM},'yyyy-mm-dd'), #{dailyInTake}, #{numperbottle}, #{remainingNum}, #{link})
  	</insert>
  	
  	
  	
- 	<!-- ***** 관리자) 회원 조회 ***** -->
- 	
- 	<select id="AdminMemberSelect" resultType="com.hwf.model.MemberDTO">
- 		<!-- select * from member order by memberId -->
- 		select memberId, memberName, decode(memberSex,1,'남', 2,'여')  as memberSex from member order by memberId
- 		<!-- select memberId, memberName, decode(memberSex,1,'남', 2,'여') as memberSex from member -->
- 	</select>
+ 	 <!-- ***** 관리자) 주문 조회 ***** -->
+	<select id="AdminOrderSelect" resultType="purchasedto" >
+		<!-- select * from purchase -->
+		select purchaseId, memberId, purchaseNum, purchasePrice, purchaseMethod, 
+		decode(purchaseReceipt, 1,'즉시', 2,'예약') as purchaseReceipt, 
+		to_char(purchaseDate,'yy-mm-dd') as purchaseDate,
+		to_char(receiptStartDate,'yy-mm-dd') as receiptStartDate,
+		receiptPeriod,
+		NVL(to_char(healthgoodsId),'-') as healthgoodsId, NVL(to_char(hfid),'-') as hfid, NVL(to_char(nutrientsID),'-') as nutrientsID
+ 		from purchase 
+ 		order by purchaseId
+ 		
+ 		<!-- healthgoodsId, hfid, nutrientsID -->
+ 		<!-- NVL(healthgoodsId,'') as healthgoodsId, NVL(hfid,'') as hfid, NVL(nutrientsID,'') as nutrientsID -->  
+	</select>	
+
  	
  </mapper>

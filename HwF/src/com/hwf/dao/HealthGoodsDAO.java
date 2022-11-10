@@ -91,7 +91,7 @@ public class HealthGoodsDAO {
 		}
 	}	
 	
-	//헬스용품 - 상세보기
+	//healthGoodsDetail (헬스용품 - 상세보기)
 	public List<HealthGoodsDTO> healthGoodsDetail(int healthGoodsId) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
