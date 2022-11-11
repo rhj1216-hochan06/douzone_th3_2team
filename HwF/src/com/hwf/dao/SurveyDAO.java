@@ -1,10 +1,13 @@
 package com.hwf.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Component;
 
 import com.hwf.config.SqlSessionFactoryService;
+import com.hwf.model.SearchDTO;
 import com.hwf.model.SurveyDTO;
 
 @Component
@@ -20,21 +23,26 @@ public class SurveyDAO {
 	
 	
 	
+	public List<SurveyDTO>  serachAll(String memberid) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();   // app과 db를 연결(통로)
+			return sqlSession.selectList("surveydao.serachAll",memberid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if( sqlSession != null ) { sqlSession.close(); }
+		}  // try end
+	}
+
+	
 	// insert
 	public int insert(SurveyDTO dto) {
-		
 		System.out.println(dto.toString());
-		
-		
 		try {
-			
-			System.out.println("1");
 			sqlSession = sqlSessionFactory.openSession();
-			System.out.println("2");
 			int result = sqlSession.insert("surveydao.insert", dto);
-			System.out.println("3");
 			sqlSession.commit();
-			System.out.println("4");
 			return result;
 
 		} catch (Exception e) {
@@ -46,4 +54,22 @@ public class SurveyDAO {
 		} // try end
 	} // write end
 
+	
+	// 삭제
+	public int SurveyDelete(int surveyid) {
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			int resultSurveyDelete = sqlSession.delete("surveydao.delete", surveyid); //""자리에는 mapper.xml에서의 namespace.id
+			sqlSession.commit();
+			return resultSurveyDelete;
+		
+		} catch (Exception e) {
+			return 0;
+			
+		} finally {
+			if (sqlSession != null) {sqlSession.close();}
+		}
+	}
+	
+	
 }

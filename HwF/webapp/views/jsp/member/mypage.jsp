@@ -5,6 +5,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,6 +15,7 @@
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <title>mypage</title>
 </head>
+
 <body>
 	<header>
 		<div id="headerFirstDiv">
@@ -31,8 +33,8 @@
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -60,15 +62,19 @@
 			<tr id="sex">
 				<td>sex : ${membersex}
 			</tr>
-			<tr id="survey">
-				<td>Survey<input type="button" value="Survey"
-					onclick="location.href='Member?cmd=survey'"></td>
+			<tr id="surveylist">
+				<td>Surveylist<input type="button" value="Surveylist"
+					onclick="location.href='Member?cmd=surveylist'"></td>
 			</tr>
-			<tr id="inbody">
-				<td>InbodyTest<input type="button" value="inbody"
-					onclick="location.href='Member?cmd=inbody'">
+		
+			<tr id="inbodylist">
+				<td>Inbodylist<input type="button" value="inbodylist"
+					onclick="location.href='Member?cmd=inbodylist'">
 			</tr>
-
+			<tr id="purchaselist">
+				<td>purchaselist<input type="button" value="purchaselist"
+					onclick="location.href='Member?cmd=purchaselist'">
+			</tr>
 			<tr id="community">
 				<td>Community
 			</tr>

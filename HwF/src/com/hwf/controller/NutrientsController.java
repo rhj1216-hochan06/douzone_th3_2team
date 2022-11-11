@@ -37,8 +37,8 @@ public class NutrientsController extends HttpServlet {
 			for (int i = 0; i < 15; i++) {
 				cmd += arr[i];
 			}
-			
-			System.out.println( "choicenutr : " + choicenutr);
+
+			System.out.println("choicenutr : " + choicenutr);
 
 		}
 
@@ -64,8 +64,8 @@ public class NutrientsController extends HttpServlet {
 	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		NutrientsDAO dao = new NutrientsDAO();
-		List<NutrientsDTO> list = dao.selectAll();
 
+		List<NutrientsDTO> list = dao.selectAll();
 		if (list != null) {
 			request.setAttribute("list", list); // data save
 			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
@@ -118,12 +118,12 @@ public class NutrientsController extends HttpServlet {
 
 	public void nutrientsDetail(HttpServletRequest request, HttpServletResponse response, String choicenutr)
 			throws ServletException, IOException {
-		
+
 		int num = Integer.parseInt(choicenutr);
-		
+
 		NutrientsDAO dao = new NutrientsDAO();
 		List<NutrientsDTO> list = dao.selectdetail(num);
-		
+
 		if (list != null) {
 			request.setAttribute("list", list); // data save
 			request.getRequestDispatcher("/views/jsp/nutr/detailnutrients.jsp").forward(request, response);

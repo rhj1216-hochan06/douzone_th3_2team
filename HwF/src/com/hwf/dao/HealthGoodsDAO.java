@@ -21,7 +21,7 @@ public class HealthGoodsDAO {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory(); // openSession() 가능
 	}
 
-	// DML 관련 - 메소드명을 healthgoods-mapper.xml와 맞춰주기
+
 
 	/*************** 헬스용품 ***************/
 
@@ -29,8 +29,7 @@ public class HealthGoodsDAO {
 	public List<HealthGoodsDTO> healthGoodsList() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
-			return sqlSession.selectList("healthgoodsMapper.healthGoodsList"); // healthgoods-mapper.xml에서 namespace.id와
-																				// 일치시켜주어야 함
+			return sqlSession.selectList("healthgoodsMapper.healthGoodsList"); 
 
 		} catch (Exception e) {
 			return null;
@@ -90,7 +89,7 @@ public class HealthGoodsDAO {
 		}
 	}
 
-	// 헬스용품 - 상세보기
+	// healthGoodsDetail (헬스용품 - 상세보기)
 	public List<HealthGoodsDTO> healthGoodsDetail(int healthGoodsId) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();

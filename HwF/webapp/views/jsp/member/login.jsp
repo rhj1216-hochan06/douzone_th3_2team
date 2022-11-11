@@ -5,20 +5,22 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css"
-	href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+
 <title>login</title>
 </head>
+
 <body>
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -27,12 +29,11 @@
 			<p>
 				<input type="text" value="" placeholder="Search" />
 			</p>
-
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="2" onclick="change(this.id)">HealthGoods</td>
+					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="change(this.id)">Survey</td>
 					<td id="6" onclick="change(this.id)">InbodyTest</td>
@@ -52,15 +53,19 @@
 						<td><input type="password" name="memberpwd" required>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="로그인"> <input type="button" value="회원가입"
-							onclick="location.href='Member?cmd=join'"></td>
+						<td colspan="2" align="center">
+						<input type="submit"value="로그인"> 
+							<input type="button" value="회원가입"
+							onclick="location.href='Member?cmd=self'"></td>
 					</tr>
 				</table>
 
 			</form>
 
-
+       <c:if test="${logincheck == false}">
+         <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+      </c:if>
+      
 		</nav>
 	</header>
 

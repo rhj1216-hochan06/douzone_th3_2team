@@ -5,17 +5,42 @@
 
 <mapper namespace="cartdao">
 
-
 	<!-- insert -->
+	
+	<insert id="insertDataExcept" parameterType="cartdto">
+		insert into cart (
+		cartid,
+		memberId,
+		productsId,
+		productsName,
+		productsIMG,
+		productsPrice
+		)
+		values
+		(
+		cart_id_seq.nextval,
+		#{memberId},
+		#{productsId},
+		#{productsName},
+		#{productsIMG},
+		#{productsPrice}
+		)
+	</insert>
+
 	<insert id="insertnutr" parameterType="cartdto">
 		insert into cart
 		(cartid,
 		memberId,
-		productsId, productsName,
-		productsIMG, productsPrice,
+		productsId,
+		productsName,
+		productsIMG,
+		productsPrice,
 		reservation,
-		purchasetime, endtime)
-		values (
+		purchasetime,
+		endtime
+		)
+		values 
+		(
 		cart_id_seq.nextval,
 		#{memberId},
 		#{productsId},
@@ -23,15 +48,16 @@
 		#{productsIMG},
 		#{productsPrice},
 		#{reservation},
-		to_date(#{purchasetime}, 'yyyy.mm.dd
-		hh24:mi:SS'),
+		to_date(#{purchasetime}, 'yyyy.mm.dd hh24:mi:SS'),
 		to_date(#{endtime},
 		'yyyy.mm.dd hh24:mi:SS')
 		)
 	</insert>
 
 
+
 	<!-- select -->
+	
 	<!-- 고객id로 조회 -->
 	<select id="selectbyid" resultType="cartdto"
 		parameterType="String">
@@ -46,10 +72,10 @@
 	</select>
 
 
+
 	<!-- delete -->
 	<delete id="deleteid" parameterType="int">
-		delete from cart where
-		CARTID = #{memberid}
+		delete from cart where CARTID = #{memberid}
 	</delete>
 
 </mapper>

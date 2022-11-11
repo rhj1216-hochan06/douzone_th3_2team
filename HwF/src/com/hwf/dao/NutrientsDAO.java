@@ -21,10 +21,13 @@ public class NutrientsDAO {
 
 	public List<NutrientsDTO> selectAll() {
 		try {
+			System.out.println("3");
 			sqlSession = sqlSessionFactory.openSession();
+			System.out.println("4");
 			return sqlSession.selectList("nutrdao.selectAll");
 
 		} catch (Exception e) {
+			System.out.println("5");
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -88,5 +91,4 @@ public class NutrientsDAO {
 			}
 		}
 	}
-
 }

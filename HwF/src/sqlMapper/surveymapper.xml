@@ -5,6 +5,11 @@
 
 <mapper namespace="surveydao">
 
+	<select id="serachAll" resultType="surveydto"
+		parameterType="String">
+		select * from survey where memberid =
+		#{memberid}
+	</select>
 
 	<insert id="insert" parameterType="surveydto">
 		insert into survey
@@ -12,6 +17,9 @@
 		#{currentintke},#{link},#{memberid})
 	</insert>
 
-
-
+	<delete id="delete" parameterType="int">
+		delete from Survey
+		where SurveyId = #{surveyid}
+	</delete>
+	
 </mapper>

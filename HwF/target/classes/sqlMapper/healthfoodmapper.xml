@@ -28,4 +28,12 @@
 		select * from healthfood where hfId = #{hfid}
 	</select>
 
+
+
+	<!-- <mapper namespace="healthfooddao"> -->
+
+	<select id="selectAll" resultType="healthfooddto">
+		select * from cart
+	</select>
+
 </mapper>

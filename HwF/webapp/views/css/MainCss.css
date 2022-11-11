@@ -46,7 +46,11 @@ header div img {
 	right: 10%;
 }
 
-#loginimg img {
+#loginimg a:nth-child(1) img {
+	cursor: pointer;
+}
+
+#loginimg a:nth-child(2) img {
 	width: 5rem;
 	cursor: pointer;
 }

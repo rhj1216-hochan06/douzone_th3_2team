@@ -35,25 +35,32 @@ public class CartController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String cmd = request.getParameter("cmd");
-
 		System.out.println("cmd : " + cmd);
-		if (cmd.equals("insertCart")) {
+
+		if (cmd.equals("insertCart")) { // 영양제 장바구니에 담기
 			insertCart(request, response);
-		} else if (cmd.equals("insertbottleCart")) {
+		} else if (cmd.equals("insertbottleCart")) { // 영양제 장바구니에 담기
 			insertbottleCart(request, response);
-		} else if (cmd.equals("deleteSelete")) {
+		} else if (cmd.equals("healthGoodsInsertCart")) { // 헬스용품 장바구니에 담기
+			healthGoodsInsertCart(request, response);
+		} else if (cmd.equals("healthFoodInsertCart")) { // 헬스식품 장바구니에 담기
+			healthFoodInsertCart(request, response);
+		} else if (cmd.equals("deleteSelete")) { // 장바구니에서 '삭제' 버튼 클릭시
 			deleteSelete(request, response);
-		} else if (cmd.equals("purchase")) {
+		} else if (cmd.equals("purchase")) { // 장바구니에서 '카카오페이 구매' 버튼 클릭시
 			purchase(request, response);
-		} else if (cmd.equals("creditpurchase")) {
+		} else if (cmd.equals("creditpurchase")) { // 장바구니에서 '신용카드 구매' 버튼 클릭시
 			creditpurchase(request, response);
-		} else if (cmd.equals("success")) {
+		} else if (cmd.equals("success")) { // 결제 성공시
 			success(request, response);
-		} else if (cmd.equals("fail")) {
+		} else if (cmd.equals("fail")) { // 결제 실패시
 			fail(request, response);
+		}else if (cmd.equals("gobasket")) { // 장바구니 바로가기
+			gobasket(request, response);
 		}
 	}
 
+	// 영양제 장바구니에 담기
 	public void insertCart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -111,7 +118,7 @@ public class CartController extends HttpServlet {
 			} else {
 				continue;
 			}
-		}
+		} // end for
 
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
@@ -121,6 +128,7 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	// 영양제 장바구니에 담기
 	public void insertbottleCart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -172,10 +180,11 @@ public class CartController extends HttpServlet {
 					i.setReservation("한번에 받기");
 				} else
 					i.setReservation("나눠서 받기");
+
 			} else {
 				continue;
 			}
-		}
+		} // end for
 
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
@@ -186,6 +195,97 @@ public class CartController extends HttpServlet {
 
 	}
 
+	// 헬스용품 장바구니에 담기
+	public void healthGoodsInsertCart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String cusId = "";
+
+		try {
+			HttpSession session;
+			session = request.getSession();
+			cusId = session.getAttribute("memberid").toString(); // 고객 id
+
+			System.out.println("고객 id : " + cusId);
+
+			if (cusId.equals("")) {
+				throw new Exception();
+			}
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+
+//		String productsId = request.getParameter("hiddenid"); //제품번호
+		String productsId = request.getParameter("healthGoodsId"); // 제품번호
+		System.out.println(productsId);
+		String productsPrice = request.getParameter("onetotal"); // 총 가격
+
+		HealthGoodsDAO dao = new HealthGoodsDAO();
+		List<HealthGoodsDTO> list = dao.healthGoodsDetail(Integer.parseInt(productsId));
+//		System.out.println(list); //[] 출력
+
+		CartDAO cartdao = new CartDAO();
+		CartDTO cartDto = new CartDTO(cusId, productsId, list.get(0).getHealthGoodsName(),
+				list.get(0).getHealthGoodsImg(), Integer.parseInt(productsPrice));
+		cartdao.insertDataExcept(cartDto);
+
+		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
+
+		if (cartsearchDto != null) {
+			request.setAttribute("cartList", cartsearchDto);
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/Main.jsp").forward(request, response);
+		}
+	}
+
+	// 헬스식품 장바구니에 담기
+	public void healthFoodInsertCart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String cusId = "";
+
+		try {
+			HttpSession session;
+			session = request.getSession();
+			cusId = session.getAttribute("memberid").toString(); // 고객 id
+
+			System.out.println("고객 id : " + cusId);
+
+			if (cusId.equals("")) {
+				throw new Exception();
+			}
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		}
+
+//		String productsId = request.getParameter("hiddenid"); //제품번호
+		String productsId = request.getParameter("hfid"); // 제품번호
+		System.out.println(productsId);
+		String productsPrice = request.getParameter("onetotal"); // 총 가격
+
+		HealthFoodDAO dao = new HealthFoodDAO();
+		List<HealthFoodDTO> list = dao.healthFoodDetail(Integer.parseInt(productsId));
+//		System.out.println(list); //[] 출력
+
+		CartDAO cartdao = new CartDAO();
+		CartDTO cartDto = new CartDTO(cusId, productsId, list.get(0).getHfName(), list.get(0).getHfIMG(),
+				Integer.parseInt(productsPrice));
+		cartdao.insertDataExcept(cartDto);
+
+		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
+
+		if (cartsearchDto != null) {
+			request.setAttribute("cartList", cartsearchDto);
+			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("/Main.jsp").forward(request, response);
+		}
+	}
+
+	// 장바구니에서 '삭제' 버튼 클릭시
 	public void deleteSelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -213,7 +313,8 @@ public class CartController extends HttpServlet {
 			} else {
 				continue;
 			}
-		}
+		} // end for
+
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
@@ -222,6 +323,7 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	// 장바구니에서 '카카오페이 구매' 버튼 클릭시
 	public void purchase(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -251,7 +353,8 @@ public class CartController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/cart/kakaopay.jsp").forward(request, response);
 
 	}
-	
+
+	// 장바구니에서 '신용카드 구매' 버튼 클릭시
 	public void creditpurchase(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -282,6 +385,7 @@ public class CartController extends HttpServlet {
 
 	}
 
+	// 결제 성공시
 	public void success(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session;
@@ -341,9 +445,11 @@ public class CartController extends HttpServlet {
 				String foodid = searchPriceDto.get(0).getProductsId();
 
 				purchasedto = new PurchaseDTO(thisprice, price, foodid, memberid);
+
 				purchasedao.purchaseHealthFood(purchasedto);
 
 				break;
+
 			case 1: // 용품
 
 				List<HealthGoodsDTO> healthgoodsdto = healthgoodsdao.healthGoodsDetail(Integer.parseInt(number));
@@ -352,10 +458,13 @@ public class CartController extends HttpServlet {
 				// 용품 아이디
 				String goodsid = searchPriceDto.get(0).getProductsId();
 
+//				String reservation = searchPriceDto.get(0).getReservation();
 				String diff = null;
-
+//				purchasedto = new PurchaseDTO(subprice, price, reservation, goodsid, memberid);
+//				purchasedto = new PurchaseDTO(subprice, price, " ", goodsid, memberid);
 				purchasedto = new PurchaseDTO(subprice, price, diff, goodsid, memberid);
-				purchasedao.purchaseHealthFood(purchasedto);
+				System.out.println(purchasedto.toString());
+				purchasedao.purchaseGoods(purchasedto);
 
 				break;
 
@@ -368,6 +477,7 @@ public class CartController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/cart/purchaseSuccess.jsp").forward(request, response);
 	}
 
+	// 결제 실패시
 	public void fail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CartDAO cartdao = new CartDAO();
 
@@ -392,4 +502,40 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
 		}
 	}
+	
+	// 장바구니 바로 가기
+	public void gobasket(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		try {
+			CartDAO cartdao = new CartDAO();
+
+			HttpSession session;
+			session = request.getSession();
+			// 고객 id
+			String cusId = session.getAttribute("memberid").toString();
+
+			List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
+
+			for (CartDTO i : cartsearchDto) {
+				if (i.getReservation().equals("1")) {
+					i.setReservation("한번에 받기");
+				} else
+					i.setReservation("나눠서 받기");
+			}
+
+			if (cartsearchDto != null) {
+				request.setAttribute("cartList", cartsearchDto);
+				request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
+			}
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+
+		}
+
+	}
+
 }

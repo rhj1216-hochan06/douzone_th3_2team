@@ -21,16 +21,15 @@ public class HealthFoodDAO {
 		sqlSessionFactory = SqlSessionFactoryService.getSqlSessionFactory(); // openSession() 가능
 	}
 
-	// DML 관련 - 메소드명을 healthfood-mapper.xml와 맞춰주기
-
+	
+	
 	/*************** 헬스식품 ***************/
 
 	// healthFoodList (헬스식품 전체 조회)
 	public List<HealthFoodDTO> healthFoodList() { // null처리도 해주기 위해서 위의 주석문장을 try~catch로 감싸줌
 		try {
 			sqlSession = sqlSessionFactory.openSession(); // 어플리케이션과 DB 통로 역할
-			return sqlSession.selectList("healthfoodMapper.healthFoodList"); // healthfood-mapper.xml에서 namespace.id와
-																				// 일치시켜주어야 함
+			return sqlSession.selectList("healthfoodMapper.healthFoodList"); 
 
 		} catch (Exception e) {
 			return null;
@@ -50,7 +49,6 @@ public class HealthFoodDAO {
 
 		} catch (Exception e) {
 			return null;
-
 		} finally {
 			if (sqlSession != null) {
 				sqlSession.close();
@@ -66,7 +64,6 @@ public class HealthFoodDAO {
 
 		} catch (Exception e) {
 			return null;
-
 		} finally {
 			if (sqlSession != null) {
 				sqlSession.close();
@@ -74,7 +71,7 @@ public class HealthFoodDAO {
 		}
 	}
 
-	// 헬스식품 - 상세보기
+	// healthFoodDetail (헬스식품 - 상세보기)
 	public List<HealthFoodDTO> healthFoodDetail(int hfid) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
@@ -87,5 +84,6 @@ public class HealthFoodDAO {
 				sqlSession.close();
 			}
 		}
+
 	}
 }
