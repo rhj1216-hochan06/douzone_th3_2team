@@ -174,7 +174,7 @@
 				</tr>
 			</table>
 		</article>
-		
+
 		
 		<!--커뮤니티 카테고리-->
 		<article class="category" id="s7">
