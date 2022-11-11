@@ -12,12 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-
 import com.hwf.dao.QnaDAO;
 import com.hwf.model.QnaDTO;
 
-//@WebServlet("/views/board")
 @WebServlet("/board")
 public class QnaController extends HttpServlet {
 
@@ -31,7 +28,6 @@ public class QnaController extends HttpServlet {
 
 		String cmd = request.getParameter("cmd"); // ~~?cmd=list
 		System.out.println("cmd : " + cmd);
-		System.out.println("알려주세요 :" + request);
 		if (cmd.equals("list")) {
 			list(request, response);
 		} else if (cmd.equals("update")) {
@@ -59,10 +55,7 @@ public class QnaController extends HttpServlet {
 
 		if (list != null) {
 			request.setAttribute("list", list); // data save
-
-//				request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
 			request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
-//				request.getRequestDispatcher("/views/list.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -76,8 +69,6 @@ public class QnaController extends HttpServlet {
 		String qnacontent = request.getParameter("qnacontent");
 		String qnatitle = request.getParameter("qnatitle");
 
-		System.out.println(qnatitle + ",\t" + qnacontent + ",\t" + memberid);
-
 		QnaDAO dao = new QnaDAO();
 		QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
 		System.out.println(dto);
@@ -86,8 +77,6 @@ public class QnaController extends HttpServlet {
 
 		if (rowcount > 0) {
 			response.sendRedirect("board?cmd=list");
-//					response.sendRedirect("/HwF/views/jsp/list.jsp");
-//					response.sendRedirect("/HwF/views/list.jsp");
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
@@ -101,8 +90,8 @@ public class QnaController extends HttpServlet {
 		System.out.println(column + " / " + keyvalue);
 
 		Map<String, String> map = new HashMap<>(); // collection
-		map.put("column", column); // column : title or writer or contnet
-		map.put("keyvalue", keyvalue); // keyvalue : 김연아
+		map.put("column", column); 
+		map.put("keyvalue", keyvalue); 
 
 		QnaDAO dao = new QnaDAO();
 
@@ -157,13 +146,7 @@ public class QnaController extends HttpServlet {
 		if (dto != null) {
 			request.setAttribute("dto", dto);
 			System.out.println("controller dto : " + dto);
-			// 망작
-			// request.getRequestDispatcher("board?cmd=detail&qnaid="+qnaid).forward(request,
-			// response);
-
 			request.getRequestDispatcher("/views/jsp/qna/update.jsp").forward(request, response);
-			// 원본 request.getRequestDispatcher("/views/jsp/detail.jsp").forward(request,
-			// response);
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}

@@ -29,19 +29,22 @@
 
 		<!-- 메뉴 버튼 테이블 -->
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+		<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
-					<td id="1" onclick="change(this.id)">Home</td>
+					<td id="1" onclick="location.href='./Main.jsp'">Home</td>
 					<td id="2" onclick="change(this.id)">HealthGoods</td>
 					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
               		<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
-					<td id="7" onclick="change(this.id)">Community</td>
+					<td id="7" onclick="location.href='Member?cmd=membersearch'">Community</td>
 				</tr>
 			</table>
 		</nav>

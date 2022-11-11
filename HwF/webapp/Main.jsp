@@ -7,6 +7,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
 <script type="text/javascript" src="./views/js/MainJS.js"></script>
 <title>Main</title>
@@ -21,15 +22,21 @@
 			<div id="logindata">${membername1}</div>
 
 			<div>홈페이지 제목 (팀명)</div>
-			<div id="loginimg">
-				<a onclick="location.href='cart?cmd=gobasket'">
-				<img src="./views/img/basketIcon.png" title="장바구니" /></a>
-					<a onclick="location.href='Member?cmd=login'">
-					<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" /></a>
+
+			<div id="loginimg" onclick="location.href='Member?cmd=login'">
+				<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
 			</div>
 		</div>
 
 		<nav>
+
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
+
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
@@ -55,21 +62,55 @@
 				<table>
 					<th colspan="2">이달의 HOT & SALE 메뉴</th>
 					<tr>
-						<!-- <td><a href="javascript:location.href='Main.jsp'"><img src="https://img.danawa.com/prod_img/500000/137/335/img/13335137_1.jpg?shrink=330:330&_v=20220616100237" /></a></td> -->
-						<td><img src="./views/img/logo.png" /></td>
-						<td><img src="./views/img/logo.png" /></td>
+						<!-- <td onclick="location.href='nutrients?cmd=list'"> -->
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30001'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/426/012/img/2012426_1.jpg?shrink=330:330&_v=20210817132717"
+							width="200" , height="200" />
+							<h4>고려은단 비타민C 1000 600정</h4>
+						</td>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30002'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/444/243/img/6243444_1.jpg?shrink=330:330&_v=20200626121658"
+							width="200" , height="200" />
+							<h4>코스트코 커클랜드 슈퍼 B-컴플렉스 500정</h4>
+						</td>
 					</tr>
 					<tr>
-						<td><img src="./views/img/logo.png" /></td>
-						<td><img src="./views/img/logo.png" /></td>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30003'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/178/261/img/5261178_1.jpg?shrink=330:330&_v=20200618170729"
+							width="200" , height="200" />
+							<h4>BSN 신타6 초콜렛 밀크쉐이크 2.27kg</h4>
+						</td>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30007'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/566/871/img/17871566_2.jpg?shrink=500:500&_v=20220920155658"
+							width="200" , height="200" />
+							<h4>비상썬라이즈 경성건강원 수국잎 열수 추출물 분말 110g</h4>
+						</td>
 					</tr>
 				</table>
 
 				<table id="healthintro">
-					<th>헬스장 및 운동법 소개</th>
-					<td><a href="./views/jsp/etc/introduce.jsp"> <img
-							src="./views/img/logo.png" />
-					</a></td>
+					<th colspan="2">헬스장 소개</th>
+					<!-- <th>헬스장 및 운동법 소개</th> -->
+					<tr>
+						<td onclick="location.href='./views/jsp/etc/introduce.jsp'">
+							<img
+							src="https://contents.hiltonhotels.jp/ko/h/selhi/hotel_service_20191209111241_main_sp.jpg"
+							width="640" , height="200">
+						</td>
+					</tr>
+
+					<th>운동법 소개</th>
+					<tr>
+						<td><iframe width="640" height="300"
+								src="https://www.youtube.com/embed/TY0HF4SMzhU?autoplay=1&mute=1"
+								title="YouTube video player" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe></td>
+					</tr>
 				</table>
 			</div>
 		</article>
@@ -151,23 +192,79 @@
 			<table>
 				<th colspan="2">문의</th>
 				<tr>
-					<td><a href="./views/jsp/qna/FQA.jsp">
 
-							<h1>FQA</h1> <img src="./views/img/IconFQA.png"
-							style="width: 200px; height: 200px" />
-					</a></td>
-					<td><a href="board?cmd=list">
-							<h1>1:1 문의</h1> <img src="./views/img/IconOneToOne.png "
-							style="width: 200px; height: 200px" />
-					</a></td>
+					<td id="memberboard"
+						onclick="location.href='./views/jsp/qna/FQA.jsp'">
+						<h1>FQA</h1> <img src="./views/img/vitamin.png" />
+					</td>
+
+					<td id="memberboard"
+						onclick="location.href='Member?cmd=membersearch'">
+						<h1>1:1 문의</h1> <img src="./views/img/protein.png" />
+					</td>
 				</tr>
 			</table>
 		</article>
 
 	</div>
-	<!-- end selectList -->
 
-	</div>
-	<footer>회사 이름, 대표 이름 등등 </footer>
+	<footer>
+		<div id="footer">
+			<div
+				class="xans-element- xans-layout xans-layout-footer footer_start ">
+
+				<div class="cs">
+					<div class="cs-down">
+						<div class="cs_left">
+							<ul>
+								<li class="title">C/S<span></span>
+								</li>
+							</ul>
+							<ul class="cs_info">
+								<li class="tel">02-548-3339</li>
+								<li class="tel_time">AM 9:00 - PM 6:00 <span>(주말 및
+										공휴일 휴무)</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="company_pg">
+							<ul>
+								<li class="title">COMPANY</li>
+							</ul>
+							<div class="inner2">
+								<li class="info"><span>상호 <span>(주)레스트롱</span></span> <span>대표
+										<span class="han">000</span>
+								</span> <span>사업자등록번호 <span>123-98-05123</span></span> <br> <span>통신판매업
+										신고 <span>2022-서울종로-0500</span>
+								</span><span> <br> <span>전화 <span>02-517-1470</span></span>
+										<span>주소 <span> 서울 종로구 창경궁로 254 7층</span></span> <br> <br></li>
+							</div>
+						</div>
+
+						<div class="cs_right">
+							<ul>
+								<li class="title">BANK</li>
+							</ul>
+							<li class="info"><span class="han">국민은행</span> <span
+								class="num">98760212341562</span><br> <span class="name">예금주
+									<strong> (주)000</strong>
+							</span></li>
+						</div>
+					</div>
+
+
+					<div class="company_i">
+						<li class="utilMenu"><a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>&nbsp;&nbsp;
+								<a href="/member/privacy.html">개인정보취급방침</a> &nbsp;&nbsp; <a
+								href="/shopinfo/guide.html">이용안내</a></li>
+						<p></p>
+					</div>
+
+
+
+				</div>
+			</div>
+	</footer>
 </body>
 </html>

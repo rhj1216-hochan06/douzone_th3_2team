@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import com.hwf.dao.InbodyDAO;
 import com.hwf.dao.MemberDAO;
 import com.hwf.dao.PurchaseDAO;
+import com.hwf.dao.QnaDAO;
 import com.hwf.dao.RecommendDAO;
 import com.hwf.dao.SurveyDAO;
 import com.hwf.model.HealthFoodDTO;
@@ -25,6 +26,7 @@ import com.hwf.model.InbodyDTO;
 import com.hwf.model.MemberDTO;
 import com.hwf.model.NutrientsDTO;
 import com.hwf.model.PurchaseDTO;
+import com.hwf.model.QnaDTO;
 import com.hwf.model.SurveyDTO;
 
 @WebServlet("/Member")
@@ -75,6 +77,12 @@ public class MemberController extends HttpServlet {
 			inbodyDelete(request, response);
 		} else if (cmd.equals("inbodyresult")) {
 			inbodyresult(request, response);
+		} else if (cmd.equals("membersearch")) { // 고객 게시글 조회
+			membersearch(request, response);
+		} else if (cmd.equals("membersearchboard")) { // 고객 게시글 내용 검색
+			membersearchboard(request, response);
+		} else if (cmd.equals("memberwriteboard")) { // 고객 게시글 작성
+			memberwriteboard(request, response);
 		} else
 			System.out.println("service code error");
 	}
@@ -621,5 +629,105 @@ public class MemberController extends HttpServlet {
 
 		request.getRequestDispatcher("/Main.jsp").forward(request, response);
 	}
+
+	// membersearch - 고객 1:1 문의 게시글
+	public void membersearch(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 컬럼명
+
+		HttpSession session;
+		session = request.getSession();
+
+		session.setMaxInactiveInterval(20 * 60);
+		String memberid = session.getAttribute("memberid").toString();
+
+		String column = "memberid";
+		String keyvalue = memberid;
+		System.out.println("column : " + column);
+		System.out.println("keyvalue : " + memberid);
+		System.out.println(column + " / " + keyvalue);
+
+		Map<String, String> map = new HashMap<>();
+		map.put("column", column);
+		map.put("keyvalue", keyvalue);
+
+		QnaDAO dao = new QnaDAO();
+
+		List<QnaDTO> list = dao.getSearchList(map);
+		if (list != null) {
+			request.setAttribute("list", list);
+
+			System.out.println("list : " + list);
+			request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("views/error.jsp");
+
+		}
+	}
+
+	// 고객 게시글 부분 조회(본인이 작성한 게시물 중 특정 단어 검색)
+	public void membersearchboard(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 컬럼명
+
+		HttpSession session;
+		session = request.getSession();
+
+		session.setMaxInactiveInterval(20 * 60);
+		String memberid = session.getAttribute("memberid").toString();
+
+		String column = request.getParameter("column");
+		String keyvalue = request.getParameter("keyvalue");
+
+		System.out.println("column : " + column);
+		System.out.println("keyvalue : " + keyvalue);
+		System.out.println("memberid : " + memberid);
+		System.out.println(column + " / " + keyvalue + " / " + memberid);
+
+		Map<String, String> map = new HashMap<>();
+		map.put("column", column);
+		map.put("keyvalue", keyvalue);
+		map.put("memberid", memberid);
+
+		QnaDAO dao = new QnaDAO();
+
+		List<QnaDTO> list = dao.getMemberSearchList(map);
+		if (list != null) {
+			request.setAttribute("list", list);
+
+			System.out.println("list : " + list);
+			request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("views/error.jsp");
+		}
+	}
+
+	// 고객 게시판에 글 작성
+	public void memberwriteboard(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+
+		HttpSession session;
+		session = request.getSession();
+
+		session.setMaxInactiveInterval(20 * 60);
+		String memberid = session.getAttribute("memberid").toString();
+
+		String qnatitle = request.getParameter("qnatitle");
+		String qnacontent = request.getParameter("qnacontent");
+
+		QnaDAO dao = new QnaDAO();
+		QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
+		System.out.println(dto);
+		int rowcount = dao.insert(dto);
+		System.out.println(dao);
+
+		if (rowcount > 0) {
+			response.sendRedirect("Member?cmd=membersearch");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+	} // write end
 
 }

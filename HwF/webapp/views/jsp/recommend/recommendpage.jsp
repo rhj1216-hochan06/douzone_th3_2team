@@ -39,7 +39,7 @@
 
 			<table>
 				<tr>
-					<td id="1" onclick="location.href='/HwF_park/views/Main.jsp'">Home</td>
+					<td id="1" onclick="location.href='/HwF/Main.jsp'">Home</td>
 					<td id="2" onclick="change(this.id)">HealthFood</td>
 					<td id="3" onclick="change(this.id)">HealthCafe</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
@@ -77,13 +77,14 @@
 			</tr>
 		</thead>
 		<tbody>
-
 			<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-				<tr>
-					<td><img alt="사진" src="${HealthGoodsSelect.healthgoodsIMG } "></td>
-					<td>${ HealthGoodsSelect.healthgoodsName }</td>
-					<td>${ HealthGoodsSelect.healthgoodsPrice }</td>
-					<td>${ HealthGoodsSelect.healthgoodsDetail}</td>
+				<tr id="${HealthGoodsSelect.healthGoodsId}"
+					title="${HealthGoodsSelect.healthGoodsName}의 상세 페이지 가기"
+					onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${HealthGoodsSelect.healthGoodsId}'">
+					<td><img alt="사진" src="${HealthGoodsSelect.healthGoodsImg } "></td>
+					<td>${ HealthGoodsSelect.healthGoodsName }</td>
+					<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+					<td>${ HealthGoodsSelect.healthGoodsDetail}</td>
 				</tr>
 			</c:forEach>
 
@@ -103,7 +104,9 @@
 
 		<tbody>
 			<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
-				<tr>
+				<tr id="${HealthFoodSelect.hfid}"
+					title="${HealthFoodSelect.hfname}의 상세 페이지 가기"
+					onclick="location.href='healthfood?cmd=healthFoodDetail&hfid=${HealthFoodSelect.hfid}'">
 					<td><img alt="사진" src="${HealthFoodSelect.hfimg } "></td>
 					<td>${ HealthFoodSelect.hfname }</td>
 					<td>${ HealthFoodSelect.hfprice }</td>
@@ -127,13 +130,16 @@
 		</thead>
 		<tbody>
 			<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
-				<tr>
+				<tr id="${NutrientsSelect.nutrientsID}"
+					title="${NutrientsSelect.nutrientsName}의 상세 페이지 가기"
+					onclick="location.href='nutrients?cmd=nutrientsDetail${NutrientsSelect.nutrientsID}'">
 					<td><img alt="사진" src="${NutrientsSelect.nutrientsIMG } "></td>
 					<td>${ NutrientsSelect.nutrientsName }</td>
 					<td>${ NutrientsSelect.nutrientsPrice }</td>
 					<td>${ NutrientsSelect.nutrientsDetail}</td>
 				</tr>
 			</c:forEach>
+
 
 		</tbody>
 	</table>

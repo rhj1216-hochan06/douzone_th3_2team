@@ -24,9 +24,12 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+				<form action="search?cmd=searching" method="post">
+				<p>				
+					<input type = "hidden" name = "column">
+					<input type="text" name="keyvalue" value="" placeholder="Search">
+				</p>
+				</form> 
 
 			<table>
 				<tr>

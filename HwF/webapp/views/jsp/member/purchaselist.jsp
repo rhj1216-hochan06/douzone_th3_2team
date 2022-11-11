@@ -24,9 +24,12 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -41,39 +44,41 @@
 			</table>
 		</nav>
 	</header>
-	 <table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-            <tr class="tableTitle">
-               <th>구매번호</th>
-               <th>회원번호</th>
-               <th>구매갯수</th>
-               <th>구매가격</th>
-               <th>결제방식</th>
-               <th>수령방식</th>
-               <th>결제날짜</th>
-               <th>수령시작일</th>
-               <th>수령기간</th>
-               <th>헬스용품id</th>
-               <th>헬스식품id</th>
-               <th>영양제id</th>
-            </tr>
-      
-            <c:forEach var="PurchaseSelectMemberid" items="${PurchaseSelectMemberid}">
-               <tr>
-                  <td>${ PurchaseSelectMemberid.purchaseId  }</td>
-                  <td>${ PurchaseSelectMemberid.memberID }</td>
-                  <td>${ PurchaseSelectMemberid.purchaseNum }개</td>
-                  <td>${ PurchaseSelectMemberid.purchasePrice }원</td>
-                  <td>${ PurchaseSelectMemberid.purchaseMethod }</td>
-                  <td>${ PurchaseSelectMemberid.purchaseReceipt }</td>
-                  <td>${ PurchaseSelectMemberid.purchaseDate }</td>
-                  <td>${ PurchaseSelectMemberid.receiptStartDate }</td>
-                  <td>${ PurchaseSelectMemberid.receiptPeriod }일</td>
-                  <td>${ PurchaseSelectMemberid.healthgoodsID }</td>
-                  <td>${ PurchaseSelectMemberid.hfid }</td>
-                  <td>${ PurchaseSelectMemberid.nutrientsID }</td>
-               </tr>
-            </c:forEach>
-         </table>
+	<table border="1" width="900"
+		style="margin-left: auto; margin-right: auto;">
+		<tr class="tableTitle">
+			<th>구매번호</th>
+			<th>회원번호</th>
+			<th>구매갯수</th>
+			<th>구매가격</th>
+			<th>결제방식</th>
+			<th>수령방식</th>
+			<th>결제날짜</th>
+			<th>수령시작일</th>
+			<th>수령기간</th>
+			<th>헬스용품id</th>
+			<th>헬스식품id</th>
+			<th>영양제id</th>
+		</tr>
+
+		<c:forEach var="PurchaseSelectMemberid"
+			items="${PurchaseSelectMemberid}">
+			<tr>
+				<td>${ PurchaseSelectMemberid.purchaseId  }</td>
+				<td>${ PurchaseSelectMemberid.memberID }</td>
+				<td>${ PurchaseSelectMemberid.purchaseNum }개</td>
+				<td>${ PurchaseSelectMemberid.purchasePrice }원</td>
+				<td>${ PurchaseSelectMemberid.purchaseMethod }</td>
+				<td>${ PurchaseSelectMemberid.purchaseReceipt }</td>
+				<td>${ PurchaseSelectMemberid.purchaseDate }</td>
+				<td>${ PurchaseSelectMemberid.receiptStartDate }</td>
+				<td>${ PurchaseSelectMemberid.receiptPeriod }일</td>
+				<td>${ PurchaseSelectMemberid.healthgoodsID }</td>
+				<td>${ PurchaseSelectMemberid.hfid }</td>
+				<td>${ PurchaseSelectMemberid.nutrientsID }</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 
 	<br>

@@ -32,24 +32,28 @@ th {
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="../../../search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
-					<td>Home</td>
-					<td>MyPage</td>
-					<td>HealthFood</td>
-					<td>HealthCafe</td>
-					<td>HealthNutrients</td>
-					<td>Survey</td>
-					<td>InbodyTest</td>
-					<td>Community</td>
+					<!-- <td id="1" onclick="location.href='./views/main.jsp">Home</td> -->
+					<td id="1" onclick="location.href='../../../Main.jsp'">Home</td>
+					<td id="2" onclick="change(this.id)">HealthFood</td>
+					<td id="3" onclick="change(this.id)">HealthCafe</td>
+					<td id="4" onclick="location.href='../../../nutrients?cmd=list'">HealthNutrients</td>
+					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
+               		<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
+					<td id="7" onclick="location.href='../../../Member?cmd=membersearch'">Community</td>
 				</tr>
 			</table>
 		</nav>
 	</header>
+
 	<p></p>
 	<p></p>
 	<div class="container">
@@ -57,8 +61,7 @@ th {
 		<div class="side">side bar</div>
 		<div class="main">
 
-			<form action="../../../board?cmd=write" method="post">
-				아이디 : <input type="text" name="memberid" required> <br>
+			<form action="../../../Member?cmd=memberwriteboard" method="post">
 				제목 : <input type="text" name="qnatitle" required= required> <br>
 				내용 :
 				<textarea rows="5" cols="50" required="required" name="qnacontent" placeholder="내용기재요망"></textarea>
@@ -66,6 +69,18 @@ th {
 				<input type="submit" value="게시글 등록">
 			</form>
 		</div>
+		
+<!-- 		<div class="main">
+
+		<form action="../../../board?cmd=write" method="post">
+				아이디 : <input type="text" name="memberid" required> <br>
+				제목 : <input type="text" name="qnatitle" required= required> <br>
+				내용 :
+				<textarea rows="5" cols="50" required="required" name="qnacontent" placeholder="내용기재요망"></textarea>
+				<br>
+				<input type="submit" value="게시글 등록">
+			</form>
+		</div> -->
 
 		<div class="footer">footer</div>
 	</div>

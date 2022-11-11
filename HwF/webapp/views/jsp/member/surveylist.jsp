@@ -10,7 +10,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <script type="text/javascript" defer src="${path}/views/js/suveylist.js"></script>
 
@@ -27,9 +28,12 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -45,30 +49,35 @@
 		</nav>
 	</header>
 	<table>
-			<tr id="survey">
-				<td>Survey<input type="button" value="Survey"
-					onclick="location.href='Member?cmd=survey'"></td>
-			</tr><thead>
-		
+		<tr id="survey">
+			<td>Survey<input type="button" value="Survey"
+				onclick="location.href='Member?cmd=survey'"></td>
+		</tr>
+		<thead>
+
 			<tr>
 				<th>설문 아이디</th>
 				<th>목표</th>
 				<th>현재 상태</th>
 				<th>섭취 상태</th>
-				<th> </th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<c:forEach var="SurveyserachAll" items="${ SurveyserachAll}">
-				<form action="location.href='Member?cmd=surveyDelete" method="post" id="formsurveyDelete" >
-				<tr>
-					<td>설문 아이디 :<input name = "surveyid" value="${SurveyserachAll.surveyid }" readonly>  </td>
-					<td>목표 : ${ SurveyserachAll.goal }</td>
-					<td>현재 상태 : ${ SurveyserachAll.currentstate }</td>
-					<td>섭취 상태: ${SurveyserachAll.currentintke}</td>
-					<td><input type="submit" value="삭제"  onclick='return submitDelete(this.form);'> </td>
-				</tr>
+				<form action="location.href='Member?cmd=surveyDelete" method="post"
+					id="formsurveyDelete">
+					<tr>
+						<td>설문 아이디 :<input name="surveyid"
+							value="${SurveyserachAll.surveyid }" readonly>
+						</td>
+						<td>목표 : ${ SurveyserachAll.goal }</td>
+						<td>현재 상태 : ${ SurveyserachAll.currentstate }</td>
+						<td>섭취 상태: ${SurveyserachAll.currentintke}</td>
+						<td><input type="submit" value="삭제"
+							onclick='return submitDelete(this.form);'></td>
+					</tr>
 				</form>
 			</c:forEach>
 
