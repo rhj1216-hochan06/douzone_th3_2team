@@ -26,5 +26,4 @@ public class QnaDTO { // model
 		this.qnacontent = qnacontent;
 
 	}
-
 }

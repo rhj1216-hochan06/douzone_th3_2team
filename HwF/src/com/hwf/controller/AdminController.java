@@ -39,8 +39,7 @@ public class AdminController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		System.out.println("cmd : " + cmd); //Console창 출력테스트
 
-		
-		//회원 조회
+		//회원 전체 조회
 		if (cmd.equals("AdminMemberSelect")) { //관리자) 회원 조회
 			AdminMemberSelect(request, response);
 		}
@@ -245,7 +244,6 @@ public class AdminController extends HttpServlet {
 		int healthGoodsId = Integer.parseInt(request.getParameter("healthGoodsId"));
 		String healthGoodsName = request.getParameter("healthGoodsName");
 		int healthGoodsPrice = Integer.parseInt(request.getParameter("healthGoodsPrice"));
-//		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
 		String healthGoodsCategory = request.getParameter("healthGoodsCategory");
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
@@ -302,7 +300,6 @@ public class AdminController extends HttpServlet {
 	    int hfid = Integer.parseInt(request.getParameter("hfid"));
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
 		String hfCategory = request.getParameter("hfCategory");
 		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
@@ -363,7 +360,6 @@ public class AdminController extends HttpServlet {
 		int nutrientsID = Integer.parseInt(request.getParameter("nutrientsID"));
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
-//		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
 		String nutrientsCategory = request.getParameter("nutrientsCategory");
 		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
@@ -437,7 +433,6 @@ public class AdminController extends HttpServlet {
 		
 		String healthGoodsName = request.getParameter("healthGoodsName");
 		int healthGoodsPrice = Integer.parseInt(request.getParameter("healthGoodsPrice"));
-//		int healthGoodsCategory = Integer.parseInt(request.getParameter("healthGoodsCategory"));
 		String healthGoodsCategory = request.getParameter("healthGoodsCategory");
 		String healthGoodsImg = request.getParameter("healthGoodsImg");
 		String healthGoodsDetail = request.getParameter("healthGoodsDetail");
@@ -463,7 +458,6 @@ public class AdminController extends HttpServlet {
 		
 		String hfName = request.getParameter("hfName");
 		int hfPrice = Integer.parseInt(request.getParameter("hfPrice"));
-//		int hfCategory = Integer.parseInt(request.getParameter("hfCategory"));
 		String hfCategory = request.getParameter("hfCategory");
 		String hfIMG = request.getParameter("hfIMG");
 		String hfDetail = request.getParameter("hfDetail");
@@ -496,7 +490,6 @@ public class AdminController extends HttpServlet {
 		
 		String nutrientsName = request.getParameter("nutrientsName");
 		int nutrientsPrice = Integer.parseInt(request.getParameter("nutrientsPrice"));
-//		int nutrientsCategory = Integer.parseInt(request.getParameter("nutrientsCategory"));
 		String nutrientsCategory = request.getParameter("nutrientsCategory");
 		String nutrientsIMG = request.getParameter("nutrientsIMG");
 		String nutrientsDetail = request.getParameter("nutrientsDetail");
@@ -521,6 +514,7 @@ public class AdminController extends HttpServlet {
 
 	
 	
+
 	/*************** 주문 조회 ***************/
 	
 	// 관리자) 주문 조회
@@ -536,5 +530,6 @@ public class AdminController extends HttpServlet {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
 	}	
+
 
 }

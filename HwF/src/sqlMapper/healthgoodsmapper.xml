@@ -29,8 +29,17 @@
 	</select>
 
 	<!-- 헬스용품 - 상세보기 -->
-	<select id="healthGoodsDetail" resultType="healthgoodsdto" parameterType="int">
+	<select id="healthGoodsDetail" resultType="healthgoodsdto"
+		parameterType="int">
 		select * from healthgoods where healthGoodsId = #{healthGoodsId}
+	</select>
+
+
+
+	<!-- <mapper namespace="healthgoodsdao"> -->
+
+	<select id="selectAll" resultType="healthgoodsdto">
+		select * from cart
 	</select>
 
 </mapper>

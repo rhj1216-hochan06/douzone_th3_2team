@@ -5,11 +5,19 @@
 
 <mapper namespace="inbodydao">
 
+	<select id="serachAll" resultType="inbodydto"
+		parameterType="String">
+		select * from inbody where memberid = #{memberid}
+	</select>
 
 	<insert id="insert" parameterType="inbodydto">
 		insert into inbody
 		values(inbody_ID_SEQ.nextval,#{memberheight},#{memberweight},#{bodymuscle},#{bodyfat},#{inbodyresult},#{link},#{memberid})
 	</insert>
 
+	<delete id="delete" parameterType="int">
+		delete from inbody
+		where inbodyId = #{inbodyid}
+	</delete>
 
 </mapper>

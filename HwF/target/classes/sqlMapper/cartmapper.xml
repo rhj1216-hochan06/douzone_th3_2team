@@ -37,8 +37,10 @@
 		productsPrice,
 		reservation,
 		purchasetime,
-		endtime)
-		values (
+		endtime
+		)
+		values 
+		(
 		cart_id_seq.nextval,
 		#{memberId},
 		#{productsId},
@@ -46,8 +48,7 @@
 		#{productsIMG},
 		#{productsPrice},
 		#{reservation},
-		to_date(#{purchasetime}, 'yyyy.mm.dd
-		hh24:mi:SS'),
+		to_date(#{purchasetime}, 'yyyy.mm.dd hh24:mi:SS'),
 		to_date(#{endtime},
 		'yyyy.mm.dd hh24:mi:SS')
 		)

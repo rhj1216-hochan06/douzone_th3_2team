@@ -64,10 +64,8 @@ public class NutrientsController extends HttpServlet {
 	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		NutrientsDAO dao = new NutrientsDAO();
-		System.out.println("1");
-		List<NutrientsDTO> list = dao.selectAll();
-		System.out.println("2");
 
+		List<NutrientsDTO> list = dao.selectAll();
 		if (list != null) {
 			request.setAttribute("list", list); // data save
 			request.getRequestDispatcher("/views/jsp/nutr/allList.jsp").forward(request, response);
@@ -114,7 +112,6 @@ public class NutrientsController extends HttpServlet {
 			response.sendRedirect("views/error.jsp");
 		}
 	}
-	
 	////////////////////////////////////////////////////////////////////
 	// 전체조회 끝
 	////////////////////////////////////////////////////////////////////

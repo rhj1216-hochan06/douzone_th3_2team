@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+<script type="text/javascript" src="${path}/views/js/Join.js"></script>
 <title>join</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
 					<h2>회원가입</h2>
 					<tr>
 						<td>아이디</td>
-						<td><input name="userid" required></td>
+						<td><input name="userid" value="" required></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -63,12 +64,20 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="회원가입" onclick="location.href='Member?cmd=insertmember'">
+							value="회원가입" onclick="send();">
 						</td>
 					</tr>
 				</table>
 			</form>
-</body>
+			
+			
+			<c:if test="${joincheck == false}">
+         <p style="color: red;">회원가입 실패! 이미 있는 아이디입니다</p>
+      </c:if>
+			
+			
+	<footer>회사 이름, 대표 이름 등등</footer>
+</body>   
 </html>
 
 

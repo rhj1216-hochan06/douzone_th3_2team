@@ -17,9 +17,6 @@ public class PurchaseDTO {
 	private String purchaseDate; 	 // 구매(결제) 날짜
 	private String receiptStartDate; // 수령(픽업) 시작일
 	private int receiptPeriod;		 // 수령(픽업) 기간
-//	private int healthgoodsID; 		 // 헬스용품 id (외래키)
-//	private int hfid; 				 // 식품 id (외래키)
-//	private int nutrientsID;		 // 영양제 id (외래키)
 	private String healthgoodsID; 	 // 헬스용품 id (외래키)
 	private String hfid; 			 // 식품 id (외래키)
 	private String nutrientsID;		 // 영양제 id (외래키)

@@ -9,16 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class InbodyDTO {
-	private int inbodyid; //ÀÎ¹Ùµğ id
-	private int memberheight ; // Å°
-	private int memberweight; //¸ö¹«°Ô
-	private String bodymuscle; //±ÙÀ°·®
-	private String bodyfat; //Ã¼Áö¹æ·®
-	private String inbodyresult;//»óÅÂ °á°ú bmi
-	private String link; // °á°ú Á¦Ç° ÃßÃµ¿ë
-	private String memberid;//È¸¿øid (¿Ü·¡Å°)
+	private int inbodyid;	     //ì¸ë°”ë”” id
+	private int memberheight ;   //í‚¤
+	private int memberweight;    //ëª¸ë¬´ê²Œ
+	private String bodymuscle;   //ê·¼ìœ¡ëŸ‰
+	private String bodyfat;	     //ì²´ì§€ë°©ëŸ‰
+	private String inbodyresult; //ìƒíƒœ ê²°ê³¼ bmi
+	private String link;		 //ê²°ê³¼ ì œí’ˆ ì¶”ì²œìš©
+	private String memberid;	 //íšŒì›id (ì™¸ë˜í‚¤)
 
-	
 	public InbodyDTO(int memberheight,int memberweight,String bodymuscle,String bodyfat,String inbodyresult,String link,String memberid) {
 		this.memberheight=memberheight;
 		this.memberweight=memberweight;

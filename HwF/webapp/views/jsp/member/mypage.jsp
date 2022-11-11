@@ -60,15 +60,19 @@
 			<tr id="sex">
 				<td>sex : ${membersex}
 			</tr>
-			<tr id="survey">
-				<td>Survey<input type="button" value="Survey"
-					onclick="location.href='Member?cmd=survey'"></td>
+			<tr id="surveylist">
+				<td>Surveylist<input type="button" value="Surveylist"
+					onclick="location.href='Member?cmd=surveylist'"></td>
 			</tr>
-			<tr id="inbody">
-				<td>InbodyTest<input type="button" value="inbody"
-					onclick="location.href='Member?cmd=inbody'">
+		
+			<tr id="inbodylist">
+				<td>Inbodylist<input type="button" value="inbodylist"
+					onclick="location.href='Member?cmd=inbodylist'">
 			</tr>
-
+			<tr id="purchaselist">
+				<td>purchaselist<input type="button" value="purchaselist"
+					onclick="location.href='Member?cmd=purchaselist'">
+			</tr>
 			<tr id="community">
 				<td>Community
 			</tr>

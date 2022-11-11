@@ -13,7 +13,7 @@
 	href="${path}/views/css/MainCss.css" />
 <link rel="stylesheet" type="text/css"
 	href="${path}/views/css/search.css" />
-<title>searchpage</title>
+<title>survayrecommend.jsp</title>
 </head>
 <body>
 
@@ -25,13 +25,15 @@
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
+		<div id="loginimg" onclick="location.href='Member?cmd=login'">
+			<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
+		</div>
 
 		<nav>
 			<form action="search?cmd=surveysearching" method="post">
 				<p>
-					<input type="hidden" name="column"> 
-					<input type="text" name="keyvalue" value="" placeholder="Search">
-					
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
 				</p>
 			</form>
 
@@ -51,20 +53,20 @@
 
 	<p></p>
 	<p></p>
-	
-	<article class = "introduce">
-	
-		<div class = "intro"> 추천 페이지입니다.(임시)</div>
-		<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-		<div> 설 문 결과 '${memberid}' 님의 현재 상태는 : ${ HealthGoodsSelect.link }</div>
-		<div> 인바디 결과 '${memberid}' 님의 현재 상태는 : ${ HealthGoodsSelect.link }</div>
-		</c:forEach>
+
+	<article class="introduce">
+		<div id="surveyresult">
+			${membername} 님의 설문조사 결과<br> 목표 : ${goal}<br> 현재 상태 :
+			${currentstate}<br> 현재 섭취량 : ${currentintke}<br>
+
+		</div>
+		<h2>추천 상품리스트</h2>
 	</article>
-	
+
 	<p></p>
 	<p></p>
 
-	 <table>
+	<table>
 		<thead>
 			<tr>
 				<th>이미지</th>
