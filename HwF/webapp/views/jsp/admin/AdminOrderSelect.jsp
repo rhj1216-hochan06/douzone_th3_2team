@@ -55,9 +55,9 @@
 					<th>결제날짜</th>
 					<th>수령시작일</th>
 					<th>복용기간</th>
+					<th>영양제id</th>
 					<th>헬스용품id</th>
 					<th>헬스식품id</th>
-					<th>영양제id</th>
 				</tr>
 		
 				<c:forEach var="AdminOrderSelect" items="${ AdminOrderSelect }">
@@ -70,10 +70,10 @@
 						<td>${ AdminOrderSelect.purchaseReceipt }</td>
 						<td>${ AdminOrderSelect.purchaseDate }</td>
 						<td>${ AdminOrderSelect.receiptStartDate }</td>
-						<td>${ AdminOrderSelect.receiptPeriod }일</td>
+						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>
+						<td>${ AdminOrderSelect.nutrientsID }</td>						
 						<td>${ AdminOrderSelect.healthgoodsID }</td>
 						<td>${ AdminOrderSelect.hfid }</td>
-						<td>${ AdminOrderSelect.nutrientsID }</td>
 					</tr>
 				</c:forEach>
 			</table>

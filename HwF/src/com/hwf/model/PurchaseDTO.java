@@ -25,6 +25,7 @@ public class PurchaseDTO {
 	private String nutrientsID;		 // 영양제 id (외래키)
 	private String memberID; 		 // 회원id (외래키)
 
+	//영양제 구매
 	public PurchaseDTO(int purchasePrice, String purchaseReceipt, String receiptStartDate, int receiptPeriod, String nutrientsID, String memberID) {
 		super();
 		this.purchasePrice = purchasePrice;
@@ -35,6 +36,7 @@ public class PurchaseDTO {
 		this.memberID = memberID;
 	}
 
+	//헬스식품 구매
 	public PurchaseDTO(int purchaseNum, int purchasePrice, String hfid, String memberID) {
 		super();
 		this.purchaseNum = purchaseNum;
@@ -43,6 +45,7 @@ public class PurchaseDTO {
 		this.memberID = memberID;
 	}
 
+	//헬스용품 구매
 	public PurchaseDTO(int purchaseNum, int purchasePrice, String purchaseReceipt, String healthgoodsID, String memberID) {
 		super();
 		this.purchaseNum = purchaseNum;

@@ -451,9 +451,11 @@ public class CartController extends HttpServlet {
 				String foodid = searchPriceDto.get(0).getProductsId();
 
 				purchasedto = new PurchaseDTO(thisprice, price, foodid, memberid);
+
 				purchasedao.purchaseHealthFood(purchasedto);
 
 				break;
+				
 			case 1: // 용품
 
 				List<HealthGoodsDTO> healthgoodsdto = healthgoodsdao.healthGoodsDetail(Integer.parseInt(number));
@@ -461,12 +463,15 @@ public class CartController extends HttpServlet {
 
 				// 용품 아이디
 				String goodsid = searchPriceDto.get(0).getProductsId();
-
+				
+//				String reservation = searchPriceDto.get(0).getReservation();
 				String diff = null;
-
+//				purchasedto = new PurchaseDTO(subprice, price, reservation, goodsid, memberid);
+//				purchasedto = new PurchaseDTO(subprice, price, " ", goodsid, memberid);
 				purchasedto = new PurchaseDTO(subprice, price, diff, goodsid, memberid);
-				purchasedao.purchaseHealthFood(purchasedto);
-
+				System.out.println(purchasedto.toString());
+				purchasedao.purchaseGoods(purchasedto);
+				
 				break;
 
 			}
