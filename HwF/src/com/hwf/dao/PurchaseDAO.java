@@ -57,10 +57,10 @@ public class PurchaseDAO {
 	public int purchaseGoods(PurchaseDTO dto) {
 
 		try {
+			
+			System.out.println(dto.toString());
 			sqlSession = sqlSessionFactory.openSession();
-
 			int result = sqlSession.insert("purchasedao.insertgoods", dto);
-
 			sqlSession.commit();
 			return result;
 		} catch (Exception e) {
@@ -100,8 +100,24 @@ public class PurchaseDAO {
 			return 0;
 		}
 	}
+	
+//	//영양제 구매2
+//	public int purchaseNutrCredit(PurchaseDTO dto) {
+//
+//		try {
+//			sqlSession = sqlSessionFactory.openSession();
+//
+//			int result = sqlSession.insert("purchasedao.insertnutrCredit", dto);
+//
+//			sqlSession.commit();
+//			return result;
+//		} catch (Exception e) {
+//
+//			return 0;
+//		}
+//	}
 
-	//삭제
+	//구매 성공 후 장바구니에서 삭제
 	public int deleteData(String id) {
 		try {
 			sqlSession = sqlSessionFactory.openSession();

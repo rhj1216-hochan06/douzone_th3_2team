@@ -17,82 +17,101 @@
 	<!-- 영양제 구매 성공시 데이터 삽입 -->
 	<insert id="insertnutr" parameterType="purchasedto">
 
-		insert into
-		PURCHASE(purchaseid, purchasenum, purchaseprice,
-		purchasemethod,
-		purchasereceipt, purchasedate, receiptstartdate,
+		insert into PURCHASE
+		(
+		purchaseid, 
+		purchasenum, purchaseprice,
+		purchasemethod, purchasereceipt, 
+		purchasedate, receiptstartdate,
 		receiptperiod,
-		healthgoodsid, hfid, nutrientsid, memberid)
-		values (
+		healthgoodsid, hfid, nutrientsid, memberid
+		)
+		values 
+		(
 		PURCHASE_ID_SEQ.nextval,
-		null,
-		#{purchasePrice},
-		'카드',
-		#{purchaseReceipt},
-		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'),
-		to_date(#{receiptStartDate}, 'yyyy.mm.dd hh24:mi:SS'),
+		null, #{purchasePrice},
+		'카드', #{purchaseReceipt},
+		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'), to_date(#{receiptStartDate}, 'yyyy.mm.dd hh24:mi:SS'),
 		#{receiptPeriod},
-		null,
-		null,
-		#{nutrientsID},
-		#{memberID}
+		null, null, #{nutrientsID}, #{memberID}
 		)
 
 	</insert>
+	
+	
+<!-- 	<insert id="insertnutrCredit" parameterType="purchasedto">
 
-	<!-- 식품 구매 성공시 데이터 삽입 -->
+		insert into PURCHASE
+		(
+		purchaseid, 
+		purchasenum, purchaseprice,
+		purchasemethod, purchasereceipt, 
+		purchasedate, receiptstartdate,
+		receiptperiod,
+		healthgoodsid, hfid, nutrientsid, memberid
+		)
+		values 
+		(
+		PURCHASE_ID_SEQ.nextval,
+		null, #{purchasePrice},
+		'신용카드', #{purchaseReceipt},
+		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'), to_date(#{receiptStartDate}, 'yyyy.mm.dd hh24:mi:SS'),
+		#{receiptPeriod},
+		null, null, #{nutrientsID}, #{memberID}
+		)
+
+	</insert> -->
+	
+
+	<!-- 헬스식품 구매 성공시 데이터 삽입 -->
 	<insert id="insertfood" parameterType="purchasedto">
 
-		insert into
-		PURCHASE(purchaseid, purchasenum, purchaseprice,
-		purchasemethod,
-		purchasereceipt, purchasedate, receiptstartdate,
+		insert into PURCHASE
+		(
+		purchaseid, 
+		purchasenum, purchaseprice,
+		purchasemethod, purchasereceipt, 
+		purchasedate, receiptstartdate,
 		receiptperiod,
-		healthgoodsid, hfid, nutrientsid, memberid)
-		values (
+		healthgoodsid, hfid, nutrientsid, memberid
+		)
+		values 
+		(
 		PURCHASE_ID_SEQ.nextval,
-		#{purchaseNum},
-		#{purchasePrice},
-		'카드',
+		#{purchaseNum}, #{purchasePrice},
+		'카드', null,
+		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'), null,
 		null,
-		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'),
-		null,
-		null,
-		null,
-		#{hfid},
-		null,
-		#{memberID}
+		null, #{hfid}, null, #{memberID}
 		)
 
 	</insert>
 
-	<!-- 용품 구매 성공시 데이터 삽입 -->
+	<!-- 헬스용품 구매 성공시 데이터 삽입 -->
 	<insert id="insertgoods" parameterType="purchasedto">
 
-		insert into
-		PURCHASE(purchaseid, purchasenum, purchaseprice,
-		purchasemethod,
-		purchasereceipt, purchasedate, receiptstartdate,
+		insert into PURCHASE
+		(
+		purchaseid, 
+		purchasenum, purchaseprice,
+		purchasemethod, purchasereceipt, 
+		purchasedate, receiptstartdate,
 		receiptperiod,
-		healthgoodsid, hfid, nutrientsid, memberid)
-		values (
-		PURCHASE_ID_SEQ.nextval,
-		#{purchaseNum},
-		#{purchasePrice},
-		'카드',
+		healthgoodsid, hfid, nutrientsid, memberid
+		)
+		values 
+		(
+		PURCHASE_ID_SEQ.nextval, 
+		#{purchaseNum}, #{purchasePrice},
+		'카드', null,
+		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'), null,
 		null,
-		to_date(sysdate, 'yyyy.mm.dd hh24:mi:SS'),
-		null,
-		null,
-		#{healthgoodsID},
-		null,
-		null,
-		#{memberID}
+		#{healthgoodsID}, null, null, #{memberID}
 		)
 
 	</insert>
 
-	<!-- 용품 구매 성공 후 장바구니에서 삭제 -->
+	<!-- 구매 성공 후 장바구니에서 삭제 -->
 	<delete id="deleteDataByMemberId" parameterType="String">
 
 		delete from cart

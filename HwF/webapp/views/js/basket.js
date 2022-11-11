@@ -53,7 +53,6 @@ function callpurchase() {
 }
 
 function callcreditpurchase() {
-	console.log('123');
 	serve = '';
 	var value = document.getElementsByName("whatcheck");
 
