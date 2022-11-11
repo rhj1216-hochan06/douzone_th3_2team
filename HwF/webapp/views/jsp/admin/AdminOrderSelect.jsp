@@ -48,32 +48,36 @@
 				<tr class="tableTitle">
 					<th>주문번호</th>
 					<th>회원id</th>
-					<th>구매갯수</th>
 					<th>구매가격</th>
 					<th>결제방식</th>
-					<th>수령방식</th>
 					<th>결제날짜</th>
-					<th>수령시작일</th>
-					<th>복용기간</th>
-					<th>영양제id</th>
+					<th>구매갯수</th>
+					
 					<th>헬스용품id</th>
-					<th>헬스식품id</th>
+					<th>헬스식품id</th>	
+					<th>영양제id</th>	
+					<th>복용기간</th>
+													
+					<th>수령방식</th>
+					<th>수령시작일</th>
 				</tr>
 		
 				<c:forEach var="AdminOrderSelect" items="${ AdminOrderSelect }">
 					<tr>
 						<td>${ AdminOrderSelect.purchaseId  }</td>
 						<td>${ AdminOrderSelect.memberID }</td>
-						<td class="purchaseNum">${ AdminOrderSelect.purchaseNum }</td>
 						<td>${ AdminOrderSelect.purchasePrice }원</td>
 						<td>${ AdminOrderSelect.purchaseMethod }</td>
-						<td>${ AdminOrderSelect.purchaseReceipt }</td>
 						<td>${ AdminOrderSelect.purchaseDate }</td>
-						<td>${ AdminOrderSelect.receiptStartDate }</td>
-						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>
-						<td>${ AdminOrderSelect.nutrientsID }</td>						
+						<td class="purchaseNum">${ AdminOrderSelect.purchaseNum }</td>	
+												
 						<td>${ AdminOrderSelect.healthgoodsID }</td>
-						<td>${ AdminOrderSelect.hfid }</td>
+						<td>${ AdminOrderSelect.hfid }</td>		
+						<td>${ AdminOrderSelect.nutrientsID }</td>	
+						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>		
+																				
+						<td>${ AdminOrderSelect.purchaseReceipt }</td>
+						<td>${ AdminOrderSelect.receiptStartDate }</td>				
 					</tr>
 				</c:forEach>
 			</table>

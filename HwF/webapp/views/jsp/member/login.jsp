@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -10,13 +10,21 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="${path}/views/css/login.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css" />
 
 <title>login</title>
 </head>
 
 <body>
+
+	<!-- header -->
 	<header>
 		<div id="headerFirstDiv">
 			<div>
@@ -25,7 +33,7 @@
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
-		<nav>
+		<nav style="display: flex;">
 			<p>
 				<input type="text" value="" placeholder="Search" />
 			</p>
@@ -42,7 +50,7 @@
 			</table>
 
 
-			<form action="./Member?cmd=logincheck" method="post">
+			<!-- <form action="./Member?cmd=logincheck" method="post">
 				<table>
 					<tr>
 						<td>아이디</td>
@@ -55,30 +63,42 @@
 					<tr>
 						<td colspan="2" align="center">
 						<input type="submit"value="로그인"> 
-							<input type="button" value="회원가입"
-							onclick="location.href='Member?cmd=self'"></td>
+						<input type="button" value="회원가입" onclick="location.href='Member?cmd=self'"></td>
 					</tr>
-				</table>
+				</table> 	
 
-			</form>
+			</form> -->
+			
 
-       <c:if test="${logincheck == false}">
-         <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-      </c:if>
-      
+			<c:if test="${logincheck == false}">
+				<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+			</c:if>
+
 		</nav>
 	</header>
+	
+	
+	<form action="./Member?cmd=logincheck" method="post">
+		
+		<div class="container">
+	        <div class="card card-container">
+	            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+	            <p id="profile-name" class="profile-name-card"></p>
+	            
+	           <!--  <form class="form-signin"> -->
+	                <span id="reauth-email" class="reauth-email"></span>
+	                <input type="email" id="memberid" class="form-control" placeholder="Id 입력" required autofocus> <br>
+	                <input type="password" id="memberpwd" class="form-control" placeholder="Password 입력" required> <br>
+	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
+	           <!-- </form> <!-- end form -->
+	            
+	        </div><!-- end card-container -->
+	        
+	    </div> <!-- end container -->	
+			
+	</form>	
 
-
-
-
-
-
-
-
-
-
-
+	<!-- footer -->
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
 </html>

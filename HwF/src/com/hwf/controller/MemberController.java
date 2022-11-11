@@ -79,10 +79,9 @@ public class MemberController extends HttpServlet {
 			System.out.println("service code error");
 	}
 
-//로그인이전에 했는지 안했는 지 확인
+	//로그인 이전에 했는지 안했는지 확인
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			System.out.println("로그인 오나요?");
 			HttpSession session;
 			session = request.getSession();
 			session.setAttribute("logincheck", true);
@@ -98,9 +97,8 @@ public class MemberController extends HttpServlet {
 		request.getRequestDispatcher("/views/jsp/member/mypage.jsp").forward(request, response);
 	}
 
-//로그인 정보 확인
-	public void logincheck(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	//로그인 정보 확인
+	public void logincheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
 		String memberid = request.getParameter("memberid");
@@ -145,15 +143,11 @@ public class MemberController extends HttpServlet {
 				membersex = "여자";
 
 			// data save
-
 			session.setAttribute("memberid", memberid);
 			session.setAttribute("membername", dto2.getMembername());
 			session.setAttribute("membername1", dto2.getMembername() + "님 환영합니다.");
 			session.setAttribute("membersex", membersex);
 			session.setAttribute("logincheck", true);
-			System.out.println("memberid 확인: " + session.getAttribute("memberid").toString());
-			System.out.println("membername: " + session.getAttribute("membername").toString());
-			System.out.println("membersex: " + session.getAttribute("membersex").toString());
 
 			// 세션 유지시간 설정(초단위) 20분
 			session.setMaxInactiveInterval(20 * 60);
@@ -167,7 +161,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-//회원 가입 인증으로 이동
+	//회원가입 인증으로 이동
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -176,7 +170,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 회원 가입 가기전 본인인증
+	//회원가입 가기전 본인인증
 	public void self(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -185,7 +179,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-//회원 가입 + 정규 표현식
+	//회원가입 + 정규 표현식
 	public void insertmember(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session;
@@ -235,7 +229,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-//구매 목록 가기
+	//구매 목록 가기
 	public void purchaselist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -276,14 +270,14 @@ public class MemberController extends HttpServlet {
 
 	}
 
-//설문조사 페이지로 이동
+	//설문조사 페이지로 이동
 	public void survey(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/survey.jsp").forward(request, response);
 
 	}
 
-//설문조사 결과 삭제
+	//설문조사 결과 삭제
 	public void surveyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -310,7 +304,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-//설문조사 리스트
+	//설문조사 리스트
 	public void surveylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -350,7 +344,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-//설문조사 결과조회
+	//설문조사 결과조회
 	public void surveyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -410,7 +404,6 @@ public class MemberController extends HttpServlet {
 		int rowcount = dao.insert(dto);
 
 		// 컬럼명
-
 		String column = "";
 		String keyvalue = link;
 		System.out.println(column + " / " + keyvalue);
@@ -444,14 +437,14 @@ public class MemberController extends HttpServlet {
 
 	}
 
-//인바디 페이지로 이동
+	//인바디 페이지로 이동
 	public void inbody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/inbody.jsp").forward(request, response);
 
 	}
 
-//인바디 결과 삭제
+	//인바디 결과 삭제
 	public void inbodyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -479,7 +472,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-//인바디 결과 조회
+	//인바디 결과 조회
 	public void inbodylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -519,7 +512,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 인바디 시 제품 추천
+	//인바디 시 제품 추천
 	public void inbodyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
