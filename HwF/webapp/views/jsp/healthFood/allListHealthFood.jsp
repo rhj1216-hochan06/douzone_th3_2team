@@ -35,8 +35,8 @@
 					<td id="2" onclick="change(this.id)">HealthGoods</td>
 					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
-					<td id="5" onclick="change(this.id)">Survey</td>
-					<td id="6" onclick="change(this.id)">InbodyTest</td>
+					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
+              		<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
@@ -131,7 +131,30 @@
 				</tr>
 			</table>
 		</article>
-	</div>
+		
+		
+		<!--커뮤니티 카테고리-->
+		<article class="category" id="s7">
+			<table>
+				<th colspan="2">문의</th>
+				<tr>
+					<td>
+						<a href="${path}/views/jsp/qna/FQA.jsp">
+						<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
+						</a>
+					</td>
+					<td>
+						<a href="board?cmd=list">
+						<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
+						</a>
+					</td>
+				</tr>
+			</table>
+		</article>
+		
+	</div> <!-- end selectList -->
+
+
 
 	<div id="nutrientsListDiv">
 	

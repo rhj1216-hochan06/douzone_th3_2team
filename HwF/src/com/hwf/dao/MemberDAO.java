@@ -67,7 +67,6 @@ public class MemberDAO {
 
 	// insert
 	public int insert(MemberDTO dto) {
-
 		System.out.println(dto.toString());
 
 		try {

@@ -13,8 +13,11 @@ const countnum = (type) => {
 		onetotal += parseInt(number);
 		countone += 1;
 	} else if (type === "minus") {
-		onetotal -= parseInt(number);
-		countone -= 1;
+		
+		if (onetotal >= number) {
+			onetotal -= parseInt(number);
+			countone -= 1;
+		}
 	}
 
 	$('input[name=onetotal]').attr('value', onetotal);

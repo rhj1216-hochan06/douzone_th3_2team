@@ -28,10 +28,7 @@ public class RecommendDTO {
 	private String dailyInTake;		  // 영양제 하루에 먹어야 하는 수량
 	private int numperbottle; 		  // 영양제 한병에 있는 수량
 	private int remainingNum;		  // 현재 잔여 갯수
-	private String nutrientsTestLink; // 인바디, 설문 결과
-
-	// 카테고리
-	private String link;
+	private String link;			  // 인바디, 설문 결과
 
 	public RecommendDTO(int healthgoodsID, String healthgoodsName, int healthgoodsPrice, int healthgoodsCategory, String healthgoodsIMG, String healthgoodsDetail, String link) {
 		super();
@@ -71,6 +68,7 @@ public class RecommendDTO {
 		this.link = link;
 	}
 
+	
 }
 
 /*

@@ -14,7 +14,6 @@ public class HealthFoodDTO {
 	private int hfid;			    //헬스식품 id
 	private String hfName;			//헬스식품 이름
 	private int hfPrice;			//헬스식품 가격
-//	private int hfCategory;			//헬스식품 카테고리
 	private String hfCategory;		//헬스식품 카테고리
 	private String hfIMG;			//헬스식품 이미지
 	private String hfDetail;		//헬스식품 상세설명

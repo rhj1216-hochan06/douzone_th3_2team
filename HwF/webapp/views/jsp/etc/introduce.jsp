@@ -30,8 +30,8 @@
 				<tr>
 					<td>Home</td>
 					<td>MyPage</td>
+					<td>HealthGoods</td>
 					<td>HealthFood</td>
-					<td>HealthCafe</td>
 					<td>HealthNutrients</td>
 					<td>Survey</td>
 					<td>InbodyTest</td>

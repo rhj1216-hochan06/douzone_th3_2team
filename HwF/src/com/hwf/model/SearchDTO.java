@@ -18,7 +18,6 @@ public class SearchDTO {
 	private int hfid, hfprice, hfcategory;
 
 	// 영양제
-
 	private int nutrientsID; 		  // 영양제 번호
 	private String nutrientsName; 	  // 영양제 이름
 	private int nutrientsPrice; 	  // 영양제 가격
@@ -29,7 +28,6 @@ public class SearchDTO {
 	private String dailyInTake; 	  // 영양제 하루에 먹어야 하는 수량
 	private int numperbottle; 		  // 영양제 한병에 있는 수량
 	private int remainingNum; 		  // 현재 잔여 갯수
-//	private String nutrientsTestLink; // 인바디, 설문 결과
 	private String link;			  // 인바디, 설문 결과
 
 	public SearchDTO(int healthgoodsID, String healthgoodsName, int healthgoodsPrice, int healthgoodsCategory, String healthgoodsIMG, String healthgoodsDetail) {
@@ -67,8 +65,9 @@ public class SearchDTO {
 		this.numperbottle = numperbottle;
 		this.remainingNum = remainingNum;
 	}
-
 }
+	
+
 
 /*
  * HealthgoodsName varchar2(37), --헬스용품 이름

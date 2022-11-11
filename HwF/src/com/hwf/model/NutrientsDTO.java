@@ -14,7 +14,6 @@ public class NutrientsDTO {
 	private int nutrientsID; 			//영양제 id
 	private String nutrientsName;		//영양제 이름
 	private int nutrientsPrice;			//영양제 가격
-//	private int nutrientsCategory;		//영양제 카테고리
 	private String nutrientsCategory;	//영양제 카테고리
 	private String nutrientsIMG;		//영양제 이미지
 	private String nutrientsDetail;		//영양제 상세설명
