@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -10,19 +10,24 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css"
-   href="${path}/views/css/allList.css" />
-<script type="text/javascript" src="${path}/views/js/all.js"></script>
-<script type="text/javascript" defer src="${path}/views/js/suveylist.js"></script>
+
+<%-- <script type="text/javascript" src="${path}/views/js/all.js"></script> --%>
+<script type="text/javascript" src="${path}/views/js/Join.js"></script>
+
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/serveylist.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate2.css" />
 
 <title>Surveylist</title>
 </head>
 
 <body>
-   <header>
+
+	<!-- header -->
+    <header>
       <div id="headerFirstDiv">
          <div>
-            <img src="${path}/views/img/logo.png" />
+            <a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
          </div>
          <div>홈페이지 제목 (팀명)</div>
       </div>
@@ -49,57 +54,213 @@
       </nav>
    </header>
    
-   <input type="button" value="Survey"
-            onclick="location.href='Member?cmd=survey'">
+	<div id="selectList">
+
+		<!--이달의 메뉴 추천 & 헬스장 운동법 소개-->
+		<article class="MonthMenu" id="s1">
+			<img src="./views/img/getMuscle.jpg" />
+			<div>
+				<table>
+					<th colspan="2">이달의 HOT & SALE 메뉴</th>
+					<tr>
+						<!-- <td onclick="location.href='nutrients?cmd=list'"> -->
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30001'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/426/012/img/2012426_1.jpg?shrink=330:330&_v=20210817132717"
+							width="200" , height="200" />
+							<h4>고려은단 비타민C 1000 600정</h4>
+						</td>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30002'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/444/243/img/6243444_1.jpg?shrink=330:330&_v=20200626121658"
+							width="200" , height="200" />
+							<h4>코스트코 커클랜드 슈퍼 B-컴플렉스 500정</h4>
+						</td>
+					</tr>
+					<tr>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30003'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/178/261/img/5261178_1.jpg?shrink=330:330&_v=20200618170729"
+							width="200" , height="200" />
+							<h4>BSN 신타6 초콜렛 밀크쉐이크 2.27kg</h4>
+						</td>
+						<td onclick="location.href='nutrients?cmd=nutrientsDetail30007'">
+							<img
+							src="https://img.danawa.com/prod_img/500000/566/871/img/17871566_2.jpg?shrink=500:500&_v=20220920155658"
+							width="200" , height="200" />
+							<h4>비상썬라이즈 경성건강원 수국잎 열수 추출물 분말 110g</h4>
+						</td>
+					</tr>
+				</table>
+
+				<table id="healthintro">
+					<th colspan="2">헬스장 소개</th>
+					<!-- <th>헬스장 및 운동법 소개</th> -->
+					<tr>
+						<td onclick="location.href='./views/jsp/etc/introduce.jsp'">
+							<img
+							src="https://contents.hiltonhotels.jp/ko/h/selhi/hotel_service_20191209111241_main_sp.jpg"
+							width="640" , height="200">
+						</td>
+					</tr>
+
+					<th>운동법 소개</th>
+					<tr>
+						<td><iframe width="640" height="300"
+								src="https://www.youtube.com/embed/TY0HF4SMzhU?autoplay=1&mute=1"
+								title="YouTube video player" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe></td>
+					</tr>
+				</table>
+			</div>
+		</article>
+
+
+		<!--헬스용품 카테고리-->
+		<article class="category" id="s2">
+			<table>
+				<th colspan="4">헬스용품 카테고리</th>
+				<tr>
+					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
+						<h1>전체</h1> <img src="./views/img/IconHealthGoods.png"
+						style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
+						<h1>운동용품</h1> <img src="./views/img/IconHealthGoodsDumbbell.png"
+						style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthgoods?cmd=selectBelt'">
+						<h1>벨트</h1> <img src="./views/img/IconHealthGoodsBelt.png"
+						style="width: 150px; height: 150px" />
+					</td>
+					<td onclick="location.href='healthgoods?cmd=selectGloves'">
+						<h1>장갑</h1> <img src="./views/img/IconHealthGoodsGloves.png"
+						style="width: 150px; height: 150px" />
+					</td>
+				</tr>
+			</table>
+		</article>
+
+
+		<!--헬스식품 카테고리-->
+		<article class="category" id="s3">
+			<table>
+				<th colspan="4">헬스식품 카테고리</th>
+				<tr>
+					<td onclick="location.href='healthfood?cmd=healthFoodList'">
+						<h1>전체</h1> <img src="./views/img/IconHealthFoodAll.png"
+						style="width: 200px; height: 200px" />
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectFood'">
+						<h1>음식</h1> <img src="./views/img/IconHealthFoodSalad.png"
+						style="width: 200px; height: 200px" />
+					</td>
+					<td onclick="location.href='healthfood?cmd=selectCafe'">
+						<h1>음료</h1> <img src="./views/img/IconHealthFoodCafe.png"
+						style="width: 200pxx; height: 200px" />
+					</td>
+				</tr>
+			</table>
+		</article>
+
+
+		<!--영양제 카테고리-->
+		<article class="category" id="s4">
+			<table>
+				<th colspan="4">영양제 카테고리</th>
+				<tr>
+					<td onclick="location.href='nutrients?cmd=list'">
+						<h1>모든 영양제</h1> <img id="allnutrientsImg"
+						src="./views/img/allList.png" />
+					</td>
+					<td onclick="location.href='nutrients?cmd=vitaminList'">
+						<h1>비타민</h1> <img src="./views/img/vitamin.png" />
+					</td>
+					<td onclick="location.href='nutrients?cmd=proteinList'">
+						<h1>헬스 보충제</h1> <img src="./views/img/protein.png" />
+					</td>
+					<td onclick="location.href='nutrients?cmd=dietList'">
+						<h1>다이어트 보충제</h1> <img src="./views/img/diet.png" />
+					</td>
+				</tr>
+			</table>
+		</article>
+
+
+		<!--커뮤니티 카테고리-->
+		<article class="category" id="s7">
+			<table>
+				<th colspan="2">문의</th>
+				<tr>
+
+					<td id="memberboard"
+						onclick="location.href='./views/jsp/qna/FQA.jsp'">
+						<h1>FQA</h1> <img src="./views/img/IconFQA.png" style="width: 200px; height: 200px" />
+					</td>
+
+					<td id="memberboard"
+						onclick="location.href='Member?cmd=membersearch'">
+						<h1>1:1 문의</h1> <img src="./views/img/IconOneToOne.png" style="width: 200px; height: 200px" />
+					</td>
+				</tr>
+			</table>
+		</article>
+
+	</div> <!-- end selectList -->   
    
-   <table>
-      </tr>
-      <thead>
 
-         <tr>
-            <th>설문 아이디</th>
-            <th>목표</th>
-            <th>현재 상태</th>
-            <th>섭취 상태</th>
-            <th></th>
-         </tr>
-      </thead>
-      <tbody>
-
-         <c:forEach var="SurveyserachAll" items="${ SurveyserachAll}">
-            <form action="location.href='Member?cmd=surveyDelete" method="post"
-               id="formsurveyDelete">
-               <tr>
-                  <td>설문 아이디 :<input name="surveyid"
-                     value="${SurveyserachAll.surveyid }" readonly>
-                  </td>
-                  <td>목표 : ${ SurveyserachAll.goal }</td>
-                  <td>현재 상태 : ${ SurveyserachAll.currentstate }</td>
-                  <td>섭취 상태: ${SurveyserachAll.currentintke}</td>
-                  <td><input type="submit" value="삭제"
-                     onclick='return submitDelete(this.form);'></td>
-               </tr>
-            </form>
-         </c:forEach>
-
-      </tbody>
-   </table>
-
-
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
+	<div id="con">
+		<div class="container">
+		        <div class="card card-container">
+			            	
+			            <img src="${path}/views/img/IconSurvey.png" /> <br>
+			            	
+			            <div id="serveySubmit">
+			           	   <input type="button" value="설문조사 하러가기" class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='Member?cmd=survey'">
+			            </div>
+			            
+			            <br><br><br>
+			            
+			            <h2 align="center">설문조사 내역</h2><br>
+			            	
+						   <table style="margin-left: auto; margin-right:auto;">
+						   
+						      <thead>
+						         <tr>
+						            <th>설문 아이디</th>
+						            <th>목표</th>
+						            <th>현재 상태</th>
+						            <th>섭취 상태</th>
+						            <th></th>
+						         </tr>
+						      </thead>
+						      
+						      <tbody>
+						         <c:forEach var="SurveyserachAll" items="${ SurveyserachAll}">
+						           <!--  <form action="location.href='Member?cmd=surveyDelete" method="post" id="formsurveyDelete"> -->
+						            <form action="./Member?cmd=surveyDelete" method="post" id="formsurveyDelete">
+						               
+						               <tr>
+						            	  <td name="surveyid">${ SurveyserachAll.surveyid }</td>
+						                  <%-- <td><input name="surveyid" value="${SurveyserachAll.surveyid }" readonly></td> --%>
+						                  <td>${ SurveyserachAll.goal }</td>
+						                  <td>${ SurveyserachAll.currentstate }</td>
+						                  <td>${SurveyserachAll.currentintke}</td>
+						                  <td><input type="submit" value="삭제" onclick='return submitDelete(this.form);'></td>
+						               </tr>
+						               
+						            </form>
+						         </c:forEach>
+						      </tbody>
+						      
+						   </table>		
+						   
+		       </div> <!-- end card-container -->
+		</div> <!-- end container -->
+	</div> <!-- end con -->
+ 
+ 
 
    <footer>회사 이름, 대표 이름 등등</footer>
 </body>

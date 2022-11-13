@@ -220,38 +220,7 @@
 		</article>
 
 	</div> <!-- end selectList -->
-	
 
-
-	<%-- <div id="mypage">
-		<table id="mypage">
-			<tr id="id">
-				<td>ID : ${memberid}
-			</tr>
-			<tr id="name">
-				<td>Name : ${membername}
-			</tr>
-			<tr id="sex">
-				<td>sex : ${membersex}
-			</tr>
-			<tr id="surveylist">
-				<td>Surveylist<input type="button" value="Surveylist"
-					onclick="location.href='Member?cmd=surveylist'"></td>
-			</tr>
-
-			<tr id="inbodylist">
-				<td>Inbodylist<input type="button" value="inbodylist"
-					onclick="location.href='Member?cmd=inbodylist'">
-			</tr>
-			<tr id="purchaselist">
-				<td>purchaselist<input type="button" value="purchaselist"
-					onclick="location.href='Member?cmd=purchaselist'">
-			</tr>
-			<tr id="community">
-				<td>Community
-			</tr>
-		</table>
-	</div> --%>
 	
 	
 	<div id="con">
@@ -262,15 +231,6 @@
 		        
 		            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 		            <p id="profile-name" class="profile-name-card"></p>
-		            
-		                <!-- <span id="reauth-email" class="reauth-email"></span>
-		                <input type="text" id="memberid" name="memberid" class="form-control" placeholder="Id 입력" required autofocus> <br>
-		                <input type="password" id="memberpwd" name="memberpwd" class="form-control" placeholder="Password 입력" required> <br>
-		                
-		                <div id="sbButton">
-		                	<input type="submit" value="로그인" class="btn btn-lg btn-primary btn-block btn-signin" >
-		                	<input type="button" value="회원가입" class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='Member?cmd=self'" ></td>
-		            	</div> -->
 		            	
 						<table id="mypage" width="300" style="margin-left: auto; margin-right:auto;">
 							<tr id="id">
@@ -316,8 +276,40 @@
 		        </div><!-- end card-container -->
 		</div> <!-- end container -->
 	</div> <!-- end con -->
+	
+	
+	
+	<%-- <div id="mypage">
+		<table id="mypage">
+			<tr id="id">
+				<td>ID : ${memberid}
+			</tr>
+			<tr id="name">
+				<td>Name : ${membername}
+			</tr>
+			<tr id="sex">
+				<td>sex : ${membersex}
+			</tr>
+			<tr id="surveylist">
+				<td>Surveylist<input type="button" value="Surveylist"
+					onclick="location.href='Member?cmd=surveylist'"></td>
+			</tr>
 
-	<!-- <input type="button" value="로그아웃" onclick="location.href='Member?cmd=logout'"> -->
+			<tr id="inbodylist">
+				<td>Inbodylist<input type="button" value="inbodylist"
+					onclick="location.href='Member?cmd=inbodylist'">
+			</tr>
+			<tr id="purchaselist">
+				<td>purchaselist<input type="button" value="purchaselist"
+					onclick="location.href='Member?cmd=purchaselist'">
+			</tr>
+			<tr id="community">
+				<td>Community
+			</tr>
+		</table>
+	</div> --%>	
+
+	
 	
 	<footer>회사 이름, 대표 이름 등등</footer>
 </body>
