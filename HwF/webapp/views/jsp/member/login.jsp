@@ -29,15 +29,22 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
+
 		<nav style="display: flex;">
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> 
+					<input type="text" name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
+
 			<table>
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
@@ -49,27 +56,6 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
-
-			<!-- <form action="./Member?cmd=logincheck" method="post">
-				<table>
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="memberid" required></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="memberpwd" required>
-					</tr>
-					<tr>
-						<td colspan="2" align="center">
-						<input type="submit"value="로그인"> 
-						<input type="button" value="회원가입" onclick="location.href='Member?cmd=self'"></td>
-					</tr>
-				</table> 	
-
-			</form> -->
-
 		</nav>
 	</header>
 	

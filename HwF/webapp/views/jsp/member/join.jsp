@@ -26,15 +26,20 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
 		<nav style="display: flex;">
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> 
+					<input type="text" name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -47,36 +52,6 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-			
-			<!-- <form action="./Member?cmd=insertmember" method="post">
-				<table>
-					<h2>회원가입</h2>
-					<tr>
-						<td>아이디</td>
-						<td><input name="userid" value="" required></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="passwd" required></td>
-					</tr>
-					<tr>
-						<td>이름</td>
-						<td><input name="name" required></td>
-					</tr>
-					<tr>
-						<td>성별</td>
-						<td><select name="sex" required>
-								<option value="2">여자</option>
-								<option value="1">남자</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="회원가입" onclick="send();">
-						</td>
-					</tr>
-				</table>
-			</form> -->
 			
 			</nav>
 			
@@ -112,27 +87,8 @@
 		<c:if test="${joincheck == false}">
         	 <p style="color: red;" align="center">회원가입 실패! 이미 있는 아이디입니다.</p>
         </c:if>
-			
-			
-	<footer>회사 이름, 대표 이름 등등</footer>
-</body>   
+
+		<footer>회사 이름, 대표 이름 등등</footer>
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

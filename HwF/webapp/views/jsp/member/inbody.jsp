@@ -9,7 +9,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <title>Inbody</title>
 </head>
@@ -18,15 +19,19 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='../../../Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='../../../Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>

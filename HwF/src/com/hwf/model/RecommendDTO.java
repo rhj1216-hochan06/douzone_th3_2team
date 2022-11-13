@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 public class RecommendDTO {
 
 	// 헬스용품
-	private int healthgoodsID, healthgoodsPrice, healthgoodsCategory;
-	private String healthgoodsName, healthgoodsIMG, healthgoodsDetail;
+	private int healthGoodsId, healthGoodsPrice, healthGoodsCategory;
+	private String healthGoodsName, healthGoodsImg, healthGoodsDetail;
 
 	// 식품
 	private String hfname, hfimg, hfdetail, hfdom;
@@ -30,14 +30,14 @@ public class RecommendDTO {
 	private int remainingNum;		  // 현재 잔여 갯수
 	private String link;			  // 인바디, 설문 결과
 
-	public RecommendDTO(int healthgoodsID, String healthgoodsName, int healthgoodsPrice, int healthgoodsCategory, String healthgoodsIMG, String healthgoodsDetail, String link) {
+	public RecommendDTO(int healthGoodsId, String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail, String link) {
 		super();
-		this.healthgoodsID = healthgoodsID;
-		this.healthgoodsName = healthgoodsName;
-		this.healthgoodsPrice = healthgoodsPrice;
-		this.healthgoodsCategory = healthgoodsCategory;
-		this.healthgoodsIMG = healthgoodsIMG;
-		this.healthgoodsDetail = healthgoodsDetail;
+		this.healthGoodsId = healthGoodsId;
+		this.healthGoodsName = healthGoodsName;
+		this.healthGoodsPrice = healthGoodsPrice;
+		this.healthGoodsCategory = healthGoodsCategory;
+		this.healthGoodsImg = healthGoodsImg;
+		this.healthGoodsDetail = healthGoodsDetail;
 		this.link = link;
 	}
 
@@ -70,11 +70,3 @@ public class RecommendDTO {
 
 	
 }
-
-/*
- * HealthgoodsName varchar2(37), --헬스용품 이름
- * 
- * HFName varchar2(600), --식품 이름
- * 
- * NutrientsName varchar2(600), --영양제 이름
- */

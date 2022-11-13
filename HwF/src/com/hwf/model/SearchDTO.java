@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 public class SearchDTO {
 
 	// 헬스용품
-	private int healthgoodsID, healthgoodsPrice, healthgoodsCategory;
-	private String healthgoodsName, healthgoodsIMG, healthgoodsDetail;
+	private int healthGoodsId, healthGoodsPrice, healthGoodsCategory;
+	private String healthGoodsName, healthGoodsImg, healthGoodsDetail;
+
 
 	// 식품
 	private String hfname, hfimg, hfdetail, hfdom;
@@ -30,14 +31,14 @@ public class SearchDTO {
 	private int remainingNum; 		  // 현재 잔여 갯수
 	private String link;			  // 인바디, 설문 결과
 
-	public SearchDTO(int healthgoodsID, String healthgoodsName, int healthgoodsPrice, int healthgoodsCategory, String healthgoodsIMG, String healthgoodsDetail) {
+	public SearchDTO(int healthGoodsId, String healthGoodsName, int healthGoodsPrice, int healthGoodsCategory, String healthGoodsImg, String healthGoodsDetail) {
 		super();
-		this.healthgoodsID = healthgoodsID;
-		this.healthgoodsName = healthgoodsName;
-		this.healthgoodsPrice = healthgoodsPrice;
-		this.healthgoodsCategory = healthgoodsCategory;
-		this.healthgoodsIMG = healthgoodsIMG;
-		this.healthgoodsDetail = healthgoodsDetail;
+		this.healthGoodsId = healthGoodsId;
+		this.healthGoodsName = healthGoodsName;
+		this.healthGoodsPrice = healthGoodsPrice;
+		this.healthGoodsCategory = healthGoodsCategory;
+		this.healthGoodsImg = healthGoodsImg;
+		this.healthGoodsDetail = healthGoodsDetail;
 	}
 
 	public SearchDTO(String hfname, String hfimg, String hfdetail, String hfdom, int hfid, int heprice, int hecategory, String link) {
