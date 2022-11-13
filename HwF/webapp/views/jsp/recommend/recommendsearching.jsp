@@ -31,38 +31,45 @@
             </tr>
         </thead>
         <tbody>
-        	<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-            <tr>
-                <td><img alt="사진" src="${HealthGoodsSelect.healthgoodsIMG } "></td>
-                <td>${ HealthGoodsSelect.healthgoodsName }</td>
-               <td>${ HealthGoodsSelect.healthgoodsPrice }</td>
-               <td>${ HealthGoodsSelect.healthgoodsDetail}</td>
-            </tr>
-            </c:forEach>
+			<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
+				<tr id="${HealthGoodsSelect.healthGoodsId}"
+					title="${HealthGoodsSelect.healthGoodsName}의 상세 페이지 가기"
+					onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${HealthGoodsSelect.healthGoodsId}'">
+					<td><img alt="사진" src="${HealthGoodsSelect.healthGoodsImg } "></td>
+					<td>${ HealthGoodsSelect.healthGoodsName }</td>
+					<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+					<td>${ HealthGoodsSelect.healthGoodsDetail}</td>
+				</tr>
+			</c:forEach>
 
-	</tbody>
+		</tbody>
 	</table>
-	
-		<table>
+
+	<table>
 		<thead>
 			<tr>
 				<th>이미지</th>
-				<th>식 품 이름</th>
+				<th>식품 이름</th>
 				<th>가격</th>
 				<th>상세설명</th>
 
 			</tr>
 		</thead>
+
 		<tbody>
 			<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
-				<tr>
+				<tr id="${HealthFoodSelect.hfid}"
+					title="${HealthFoodSelect.hfname}의 상세 페이지 가기"
+					onclick="location.href='healthfood?cmd=healthFoodDetail&hfid=${HealthFoodSelect.hfid}'">
 					<td><img alt="사진" src="${HealthFoodSelect.hfimg } "></td>
 					<td>${ HealthFoodSelect.hfname }</td>
 					<td>${ HealthFoodSelect.hfprice }</td>
 					<td>${ HealthFoodSelect.hfdetail}</td>
 				</tr>
 			</c:forEach>
+
 		</tbody>
+
 	</table>
 
 	<table>
@@ -72,17 +79,21 @@
 				<th>영양제 이름</th>
 				<th>가격</th>
 				<th>상세설명</th>
+
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
-				<tr>
-					<td><img alt="사진" src="${list.nutrientsIMG } "></td>
+				<tr id="${NutrientsSelect.nutrientsID}"
+					title="${NutrientsSelect.nutrientsName}의 상세 페이지 가기"
+					onclick="location.href='nutrients?cmd=nutrientsDetail${NutrientsSelect.nutrientsID}'">
+					<td><img alt="사진" src="${NutrientsSelect.nutrientsIMG } "></td>
 					<td>${ NutrientsSelect.nutrientsName }</td>
 					<td>${ NutrientsSelect.nutrientsPrice }</td>
 					<td>${ NutrientsSelect.nutrientsDetail}</td>
 				</tr>
 			</c:forEach>
+
 
 		</tbody>
 	</table>

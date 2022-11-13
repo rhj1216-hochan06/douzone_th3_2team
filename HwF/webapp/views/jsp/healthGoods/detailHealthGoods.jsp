@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
@@ -9,7 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/detailnutrients.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="${path}/views/js/healthGoodsJS.js"></script>
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
@@ -21,16 +23,20 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
 		<!-- 메뉴 버튼 테이블 -->
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -39,7 +45,7 @@
 					<td id="3" onclick="change(this.id)">HealthFood</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
-              		<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
+					<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
@@ -47,7 +53,7 @@
 	</header>
 
 	<div id="selectList">
-	
+
 		<article class="MonthMenu" id="s1">
 			<img src="${path}/views/img/getMuscle.jpg" />
 			<div>
@@ -71,56 +77,65 @@
 				</table>
 			</div>
 		</article>
-		
-		
+
+
 		<!--헬스용품 카테고리-->
 		<article class="category" id="s2">
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png" style="width: 150px; height: 150px" />
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png"
+						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
-						<h1>운동용품</h1> <img src="${path}/views/img/IconHealthGoodsDumbbell.png" style="width: 150px; height: 150px"/>
+						<h1>운동용품</h1> <img
+						src="${path}/views/img/IconHealthGoodsDumbbell.png"
+						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectBelt'">
-						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png" style="width: 150px; height: 150px"/>
+						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png"
+						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectGloves'">
-						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png" style="width: 150px; height: 150px"/>
+						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png"
+						style="width: 150px; height: 150px" />
 					</td>
 				</tr>
 			</table>
 		</article>
-		
-		
+
+
 		<!--헬스식품 카테고리-->
 		<article class="category" id="s3">
 			<table>
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png" style="width: 200px; height: 200px"/>
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png"
+						style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png" style="width: 200px; height: 200px"/>
+						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png"
+						style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png" style="width: 200px; height: 200px"/>
+						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png"
+						style="width: 200px; height: 200px" />
 					</td>
 				</tr>
 			</table>
-		</article>		
-		
-		
+		</article>
+
+
 		<!--영양제 카테고리-->
 		<article class="category" id="s4">
 			<table>
 				<th colspan="4">영양제 카테고리</th>
 				<tr>
 					<td onclick="location.href='nutrients?cmd=list'">
-						<h1>모든 영양제</h1> <img id="allnutrientsImg" src="${path}/views/img/allList.png" />
+						<h1>모든 영양제</h1> <img id="allnutrientsImg"
+						src="${path}/views/img/allList.png" />
 					</td>
 					<td onclick="location.href='nutrients?cmd=vitaminList'">
 						<h1>비타민</h1> <img src="${path}/views/img/vitamin.png" />
@@ -134,95 +149,107 @@
 				</tr>
 			</table>
 		</article>
-		
-		
+
+
 		<!--커뮤니티 카테고리-->
 		<article class="category" id="s7">
 			<table>
 				<th colspan="2">문의</th>
 				<tr>
-					<td>
-						<a href="${path}/views/jsp/qna/FQA.jsp">
-						<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
-						</a>
-					</td>
-					<td>
-						<a href="board?cmd=list">
-						<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
-						</a>
-					</td>
+					<td><a href="${path}/views/jsp/qna/FQA.jsp">
+							<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
+					</a></td>
+					<td><a href="board?cmd=list">
+							<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
+					</a></td>
 				</tr>
 			</table>
 		</article>
-		
-	</div> <!-- end selectList -->
+
+	</div>
+	<!-- end selectList -->
 
 
 
 	<!-- 선택한 상품 보여주기 -->
-	
-	<form name="buybottle" action="${path}/cart?cmd=healthGoodsInsertCart" method="post">
-	
+
+	<form name="buybottle" action="${path}/cart?cmd=healthGoodsInsertCart"
+		method="post">
+
 		<div id="nutrientsListDiv">
-	
+
 			<c:forEach var="healthGoodsList" items="${ healthGoodsList }">
-	
+
 				<div>
-					<img name="healthGoodsImg" alt="사진" src="${ healthGoodsList.healthGoodsImg }">
+					<img name="healthGoodsImg" alt="사진"
+						src="${ healthGoodsList.healthGoodsImg }">
 				</div>
-	
+
 				<div id="nutrdiscription">
-	
+
 					<div>
 						<%-- <input type="text" id="hiddenid" name="hiddenid" value="${ healthGoodsList.healthGoodsId }"/> --%>
-						<input type="text" id="healthGoodsId" name="healthGoodsId" value="${ healthGoodsList.healthGoodsId }"/>
+						<input type="text" id="healthGoodsId" name="healthGoodsId"
+							value="${ healthGoodsList.healthGoodsId }" />
 						<%-- <a id="healthGoodsId" name="healthGoodsId">${ healthGoodsList.healthGoodsId }</a> --%>
 						<h3>${ healthGoodsList.healthGoodsName }</h3>
-					</div> <br />
-					
+					</div>
+					<br />
+
 					<div>${ healthGoodsList.healthGoodsDetail }</div>
-	
-					<div> <br />
+
+					<div>
+						<br />
 						<div>
 							가격 : <a id="result">${ healthGoodsList.healthGoodsPrice }</a>원
 						</div>
 					</div>
-	
-				</div> <!-- end nutrdiscription -->
-				
+
+				</div>
+				<!-- end nutrdiscription -->
+
 			</c:forEach>
-			
-			
-	
+
+
+
 			<div id="selectbuymethod">
-	
+
 				<div id="buy1">
 					<%-- <form name="buybottle" action="${path}/healthgoods?cmd=healthGoodsInsertCart" method="post"> --%>
 					<%-- <form name="buybottle" action="${path}/cart?cmd=healthGoodsInsertCart" method="post"> --%>
-						
-						 <!-- <input type="text" id="hiddenid" name="hiddenid" value="0" /> <!-- 제품 번호 -->
-						<h1>총 가격</h1>
-	
-						<input id="onetotal" name="onetotal" value="0" readonly /> <p /> <!-- 총 가격 -->
-						<a>수량 결정</a> <p />
-						<input id="countone" name="countone" value="0" readonly /> <!-- 총 수량 -->
-	
-						<div id="calculationdiv">
-							<input type='button' onclick="countnum('plus')" class="calculation" value='+' /> 
-							<input type='button' onclick="countnum('minus')" class="calculation" value='-' />
-						</div>
-						
-						<div>
-							<input type="submit" id="bottlebasket" class="calculation" value="장바구니">
-						</div>
-	
+
+					<!-- <input type="text" id="hiddenid" name="hiddenid" value="0" /> <!-- 제품 번호 -->
+					<h1>총 가격</h1>
+
+					<input id="onetotal" name="onetotal" value="0" readonly />
+					<p />
+					<!-- 총 가격 -->
+					<a>수량 결정</a>
+					<p />
+					<input id="countone" name="countone" value="0" readonly />
+					<!-- 총 수량 -->
+
+					<div id="calculationdiv">
+						<input type='button' onclick="countnum('plus')"
+							class="calculation" value='+' /> <input type='button'
+							onclick="countnum('minus')" class="calculation" value='-' />
+					</div>
+
+					<div>
+						<input type="submit" id="bottlebasket" class="calculation"
+							value="장바구니">
+					</div>
+
 					<!-- </form> -->
-				</div> <!-- end buy1 -->
-	
-			</div> <!-- end selectbuymethod -->
-	
-		</div> <!-- end nutrientsListDiv -->
-		
+				</div>
+				<!-- end buy1 -->
+
+			</div>
+			<!-- end selectbuymethod -->
+
+		</div>
+		<!-- end nutrientsListDiv -->
+
 	</form>
 
 	<footer>회사 이름, 대표 이름 등등</footer>

@@ -35,17 +35,16 @@ public class QnaDAO {
 		} // try end
 	}
 
-	// insert
+	// insert 삽입 - 고객이 글을 쓸 때
 	public int insert(QnaDTO dto) {
 
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			int result = sqlSession.insert("dao.insert", dto);
+			int result = sqlSession.insert("dao.memberwriteboard", dto);
 			sqlSession.commit(); //
 			return result;
 
 		} catch (Exception e) {
-//			sqlSession.rollback();  // 단일 쿼리 실행시 의미가 없다.
 			return 0;
 		} finally {
 			if (sqlSession != null) {
@@ -54,12 +53,10 @@ public class QnaDAO {
 		} // try end
 	} // write end
 
+	// seachlist 접근 / 게시글 작성 내용 검색 
 	public List<QnaDTO> getSearchList(Map<String, String> map) {
 		try {
-			/*
-			 * for(Map.Entry<String, String> m : map.entrySet()){
-			 * System.out.println(m.getKey() + "/" + m.getValue() +"-"); }
-			 */
+
 			sqlSession = sqlSessionFactory.openSession();
 			return sqlSession.selectList("dao.selectSearch", map); // mapping 이름과 같아야함
 		} catch (Exception e) {
@@ -70,7 +67,24 @@ public class QnaDAO {
 			}
 		}
 	}
+	
+	// memberseachlist / client가 본인의 문의 게시물 중 검색 할 수 있게
+	public List<QnaDTO> getMemberSearchList(Map<String, String> map) {
+		try {
 
+			sqlSession =sqlSessionFactory.openSession();
+			return sqlSession.selectList("dao.MemeberselectSearch", map); // mapping 이름과 같아야함
+		} catch (Exception e) {
+			return null;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+	
+
+	// 삭제
 	public int delete(int qnaid) {
 		sqlSession = sqlSessionFactory.openSession();
 
@@ -135,5 +149,24 @@ public class QnaDAO {
 			}
 		}
 	}
+	
+	//  admin 답변 기능 / qna에서 answer만 update로 삽입 // dao -> board-maaper로 이동 
+	public int resultAdminQnaUpdate(QnaDTO dto) {
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			int result = sqlSession.update("dao.adminupdate", dto);
+			sqlSession.commit();
+			return result;
+
+		} catch (Exception e) {
+			return 0;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	} // end update
+	
+	
 
 }

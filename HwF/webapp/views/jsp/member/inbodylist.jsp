@@ -10,9 +10,11 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
-<script type="text/javascript" defer src="${path}/views/js/inbodylist.js"></script>
+<script type="text/javascript" defer
+	src="${path}/views/js/inbodylist.js"></script>
 <title>inbodylist</title>
 </head>
 
@@ -26,9 +28,12 @@
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -44,32 +49,37 @@
 		</nav>
 	</header>
 	<table>
-				<tr id="inbody">
-				<td>InbodyTest<input type="button" value="inbody"
-					onclick="location.href='Member?cmd=inbody'">
-			</tr><thead>
-		
+		<tr id="inbody">
+			<td>InbodyTest<input type="button" value="inbody"
+				onclick="location.href='Member?cmd=inbody'">
+		</tr>
+		<thead>
+
 			<tr>
 				<th>설문 아이디</th>
 				<th>목표</th>
 				<th>현재 상태</th>
 				<th>섭취 상태</th>
-				<th> </th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 
 			<c:forEach var="InbodyserachAll" items="${ InbodyserachAll}">
-				<form action="location.href='Member?cmd=inbodyDelete" method="post" id="forminbodyDelete" >
-				<tr>
-					<td>인바디 아이디 :<input name = "inbodyid" value="${InbodyserachAll.inbodyid }" readonly>  </td>
-					<td>현재 키 : ${ InbodyserachAll.memberheight }</td>
-					<td>현재 몸무게 : ${ InbodyserachAll.memberweight }</td>
-					<td>근육량 : ${InbodyserachAll.bodymuscle}</td>
-					<td>체지방량 : ${InbodyserachAll.bodyfat}</td>
-					<td>결과 bmi : ${InbodyserachAll.inbodyresult}</td>
-					<td><input type="submit" value="삭제"  onclick='return submitDelete(this.form);'> </td>
-				</tr>
+				<form action="location.href='Member?cmd=inbodyDelete" method="post"
+					id="forminbodyDelete">
+					<tr>
+						<td>인바디 아이디 :<input name="inbodyid"
+							value="${InbodyserachAll.inbodyid }" readonly>
+						</td>
+						<td>현재 키 : ${ InbodyserachAll.memberheight }</td>
+						<td>현재 몸무게 : ${ InbodyserachAll.memberweight }</td>
+						<td>근육량 : ${InbodyserachAll.bodymuscle}</td>
+						<td>체지방량 : ${InbodyserachAll.bodyfat}</td>
+						<td>결과 bmi : ${InbodyserachAll.inbodyresult}</td>
+						<td><input type="submit" value="삭제"
+							onclick='return submitDelete(this.form);'></td>
+					</tr>
 				</form>
 			</c:forEach>
 

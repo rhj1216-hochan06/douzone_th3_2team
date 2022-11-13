@@ -55,7 +55,7 @@ public class CartController extends HttpServlet {
 			success(request, response);
 		} else if (cmd.equals("fail")) { // 결제 실패시
 			fail(request, response);
-		}else if (cmd.equals("gobasket")) { // 장바구니 바로가기
+		} else if (cmd.equals("gobasket")) { // 장바구니 바로가기
 			gobasket(request, response);
 		}
 	}
@@ -502,7 +502,7 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
 		}
 	}
-	
+
 	// 장바구니 바로 가기
 	public void gobasket(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -26,4 +26,10 @@ public class QnaDTO { // model
 		this.qnacontent = qnacontent;
 
 	}
+	
+	public QnaDTO(String qnaanswer, int qnaid) {
+		this.qnaanswer = qnaanswer;
+		this.qnaid = qnaid;
+	}
+	
 }

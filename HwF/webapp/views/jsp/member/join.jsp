@@ -10,7 +10,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/allList.css" />
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <script type="text/javascript" src="${path}/views/js/Join.js"></script>
 <title>join</title>
@@ -20,15 +21,19 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
 
 		<nav>
-			<p>
-				<input type="text" value="" placeholder="Search" />
-			</p>
+			<form action="search?cmd=searching" method="post">
+				<p>
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
+				</p>
+			</form>
 
 			<table>
 				<tr>
@@ -65,20 +70,19 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="회원가입" onclick="send();">
-						</td>
+							value="회원가입" onclick="send();"></td>
 					</tr>
 				</table>
 			</form>
-			
-			
+
+
 			<c:if test="${joincheck == false}">
-         <p style="color: red;">회원가입 실패! 이미 있는 아이디입니다.</p>
-      </c:if>
-			
-			
-	<footer>회사 이름, 대표 이름 등등</footer>
-</body>   
+				<p style="color: red;">회원가입 실패! 이미 있는 아이디입니다.</p>
+			</c:if>
+
+
+			<footer>회사 이름, 대표 이름 등등</footer>
+</body>
 </html>
 
 
