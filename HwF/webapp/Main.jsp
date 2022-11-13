@@ -10,6 +10,8 @@
 
 <link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
 <script type="text/javascript" src="./views/js/MainJS.js"></script>
+<link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
+
 <title>Main</title>
 </head>
 <body>
@@ -195,18 +197,20 @@
 
 					<td id="memberboard"
 						onclick="location.href='./views/jsp/qna/FQA.jsp'">
-						<h1>FQA</h1> <img src="./views/img/vitamin.png" />
+						<h1>FQA</h1> <img src="./views/img/IconFQA.png" style="width: 200pxx; height: 200px" />
 					</td>
 
 					<td id="memberboard"
 						onclick="location.href='Member?cmd=membersearch'">
-						<h1>1:1 문의</h1> <img src="./views/img/protein.png" />
+						<h1>1:1 문의</h1> <img src="./views/img/IconOneToOne.png" style="width: 200pxx; height: 200px" />
 					</td>
 				</tr>
 			</table>
 		</article>
 
-	</div>
+	</div> <!-- end selectList -->
+	
+	
 
 	<footer>
 		<div id="footer">

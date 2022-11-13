@@ -6,8 +6,9 @@ String.prototype.trim=function(){
 
 }
 function send(){
-	var f=document.forms[0];
+	var f=document.forms[1];
 	var check = 0;
+	
 	// 이름
 	if(! /^[\uac00-\ud7a3]*$/g.test(f.name.value)){ //g: 완전일치, ^앞 $뒤 *0개이상, uac00~ud7a3은 한글 코드값  , gi대소문자 구분없이 완전일치
 		alert("이름을 입력하세요.");
@@ -41,3 +42,25 @@ function send(){
 	}
 }
 
+const change = (choice) => {
+	const parentElem = document.getElementById("selectList");
+	document.getElementById("con").style.display="none";
+	
+	for (let i = 0; i < parentElem.childNodes.length; i++) {
+		let childElem = parentElem.childNodes[i];
+
+		if (childElem.id) {
+			if ("s" + choice == childElem.id) childElem.style.display = "block";
+			else childElem.style.display = "none";
+		}
+	}
+};
+
+window.onload = function(){
+	document.getElementById("s1").style.display = "none";
+	document.getElementById("s2").style.display = "none";
+	document.getElementById("s3").style.display = "none";
+	document.getElementById("s4").style.display = "none";
+	document.getElementById("s7").style.display = "none";
+	
+}

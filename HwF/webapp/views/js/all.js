@@ -12,4 +12,3 @@ const change = (choice) => {
 		}
 	}
 };
-
