@@ -90,8 +90,8 @@ public class MemberController extends HttpServlet {
 			if (name.equalsIgnoreCase("환영합니다. 고객님"))
 				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} catch (Exception e) {
-			// null 이면 에러 발생 = 로그인 기록 없음
-			System.out.println("login 기록 없음");
+			//null 이면 에러 발생 = 로그인 기록 없음
+			//System.out.println("login 기록 없음");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 		request.getRequestDispatcher("/views/jsp/member/mypage.jsp").forward(request, response);

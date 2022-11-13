@@ -15,9 +15,9 @@
 <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 
-<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css" />
-<%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" /> --%>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/bootstrapCustom.css" />
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <link rel="stylesheet" type="text/css" href="${path}/views/css/login.css" />
 
 <title>login</title>
@@ -78,6 +78,9 @@
 		
 		<div class="container">
 	        <div class="card card-container">
+	        
+	       		<h2 align="center">로그인</h2><br>
+	        
 	            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 	            <p id="profile-name" class="profile-name-card"></p>
 	            
@@ -86,7 +89,8 @@
 	                <input type="password" id="memberpwd" name="memberpwd" class="form-control" placeholder="Password 입력" required> <br>
 	                
 	                <!--  <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button> -->
-	                <input type="submit" value="로그인" class="btn btn-lg btn-primary btn-block btn-signin">
+	                <input type="submit" value="로그인" class="btn btn-lg btn-primary btn-block btn-signin" >
+	                <input type="button" value="회원가입" class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='Member?cmd=self'" ></td>
 	            
 	        </div><!-- end card-container -->
 	        
