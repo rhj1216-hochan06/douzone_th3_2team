@@ -22,9 +22,11 @@
 			<div id="logindata">${membername1}</div>
 
 			<div>홈페이지 제목 (팀명)</div>
-
-			<div id="loginimg" onclick="location.href='Member?cmd=login'">
-				<img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" />
+			<div id="loginimg">
+				<a onclick="location.href='cart?cmd=gobasket'">
+				 <img src="./views/img/basketIcon.png" title="장바구니" /></a>
+				 <a onclick="location.href='Member?cmd=login'">
+				 <img src="./views/img/LoginIMG.png" title="로그인 / 마이페이지" /></a>
 			</div>
 		</div>
 
@@ -50,8 +52,6 @@
 			</table>
 		</nav>
 	</header>
-
-	<%-- <%@include file="views/jsp/includes/header.jsp" %> --%>
 
 	<div id="selectList">
 
