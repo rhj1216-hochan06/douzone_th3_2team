@@ -120,17 +120,11 @@ public class MemberController extends HttpServlet {
 		try {
 			MemberDTO dto2 = dao.checkMember(dto);
 
-			System.out.println("로그인 정보 불러오기 ");
-			System.out.println(dto2.getMemberid().toString());
-
 		} catch (Exception e) {
 			session.setAttribute("logincheck", false);
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 		MemberDTO dto2 = dao.checkMember(dto);
-
-		System.out.println("로그인 정보 불러오기 ");
-		System.out.println(dto2.getMemberid().toString());
 
 		//비밀번호 체크
 		if (memberpwd.equals(dto2.getMemberpwd()))

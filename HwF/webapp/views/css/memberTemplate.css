@@ -168,3 +168,11 @@ select {
 /* #s1, #s2, #s3, #s4, #s7 {
 	display: none;
 } */
+
+/* table {
+	border:1px solid
+} */
+
+.float-right {
+	float:right;
+}

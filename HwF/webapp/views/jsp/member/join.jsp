@@ -171,7 +171,7 @@
 	<!-- end selectList -->
 			
 		<div id="con">		
-			<form action="./Member?cmd=insertmember" class = "con" method="post">
+			<form action="./Member?cmd=insertmember" method="post">
 			
 				<div class="container">
 			        <div class="card card-container">

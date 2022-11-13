@@ -27,8 +27,7 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img
-					src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -238,7 +237,6 @@
 		    </div> <!-- end container -->
 				
 		</form>	
-		
 	</div>
 	
 	<c:if test="${logincheck == false}">
