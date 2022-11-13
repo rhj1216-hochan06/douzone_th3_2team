@@ -13,11 +13,12 @@
 
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 
-<link rel="stylesheet" type="text/css" href="${path}/views/css/login.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css" />
+<%-- <link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" /> --%>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="${path}/views/css/login.css" />
 
 <title>login</title>
 </head>
@@ -68,11 +69,6 @@
 				</table> 	
 
 			</form> -->
-			
-
-			<c:if test="${logincheck == false}">
-				<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-			</c:if>
 
 		</nav>
 	</header>
@@ -85,20 +81,26 @@
 	            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 	            <p id="profile-name" class="profile-name-card"></p>
 	            
-	           <!--  <form class="form-signin"> -->
 	                <span id="reauth-email" class="reauth-email"></span>
-	                <input type="email" id="memberid" class="form-control" placeholder="Id 입력" required autofocus> <br>
-	                <input type="password" id="memberpwd" class="form-control" placeholder="Password 입력" required> <br>
-	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
-	           <!-- </form> <!-- end form -->
+	                <input type="text" id="memberid" name="memberid" class="form-control" placeholder="Id 입력" required autofocus> <br>
+	                <input type="password" id="memberpwd" name="memberpwd" class="form-control" placeholder="Password 입력" required> <br>
+	                
+	                <!--  <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button> -->
+	                <input type="submit" value="로그인" class="btn btn-lg btn-primary btn-block btn-signin">
 	            
 	        </div><!-- end card-container -->
 	        
-	    </div> <!-- end container -->	
+	    </div> <!-- end container -->
 			
 	</form>	
+	
+	<c:if test="${logincheck == false}">
+		<p style="color: red;" align="center">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+	</c:if>
 
 	<!-- footer -->
 	<footer>회사 이름, 대표 이름 등등</footer>
+	
 </body>
+
 </html>

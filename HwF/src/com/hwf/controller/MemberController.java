@@ -124,17 +124,18 @@ public class MemberController extends HttpServlet {
 		System.out.println("로그인 정보 불러오기 ");
 		System.out.println(dto2.getMemberid().toString());
 
-		// 관리자 로그인
-		if (dto2.getMemberid().equals("admin")) {
-			request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
-		}
-
-		if (memberpwd.equals(dto2.getMemberpwd()))// 로그인 성공
+		//비밀번호 체크
+		if (memberpwd.equals(dto2.getMemberpwd()))
+			
+			// 관리자 로그인
+			if (dto2.getMemberid().equals("admin")) {
+				request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
+			}
 		{
 
-			// 로그인이 되면
-			System.out.println("로그인 성공 ");
-
+		//비밀번호 체크
+		if (memberpwd.equals(dto2.getMemberpwd()))
+		{	
 			String membersex = "";
 
 			if (dto2.getMembersex().equals("1"))
@@ -159,7 +160,7 @@ public class MemberController extends HttpServlet {
 			System.out.println("비밀번호가 틀렸습니다.");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
-	}
+	}}
 
 	//회원가입 인증으로 이동
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
