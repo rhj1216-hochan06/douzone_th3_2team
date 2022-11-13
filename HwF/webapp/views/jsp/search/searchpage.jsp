@@ -10,20 +10,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css"
+	href="${path}/views/css/MainCss.css" />
+<link rel="stylesheet" type="text/css"
 	href="${path}/views/css/search.css" />
-<%-- <link rel="stylesheet" type="text/css"
-	href="${path}/views/css/search.css" /> --%>
-
-<script type="text/javascript" src="${path}/views/js/search.js"></script>
-
 <title>searchpage</title>
 </head>
 <body>
+
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img
-					src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>홈페이지 제목 (팀명)</div>
 		</div>
@@ -39,214 +36,96 @@
 
 			<table>
 				<tr>
-					<td id="1" onclick="change(this.id)">Home</td>
-					<td id="2" onclick="change(this.id)">HealthGoods</td>
-					<td id="3" onclick="change(this.id)">HealthFood</td>
+					<td id="1" onclick="location.href='/HwF/Main.jsp'">Home</td>
+					<td id="2" onclick="change(this.id)">HealthFood</td>
+					<td id="3" onclick="change(this.id)">HealthCafe</td>
 					<td id="4" onclick="change(this.id)">HealthNutrients</td>
 					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
 					<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
-					<td id="7" onclick="change(this.id)">Community</td>
+					<td id="7" onclick="location.href='Member?cmd=membersearch'">Community</td>
 				</tr>
 			</table>
 		</nav>
 	</header>
 
-	<div id="selectList">
+	<table>
+		<thead>
+			<tr>
+				<th>이미지</th>
+				<th>헬스용품 이름</th>
+				<th>가격</th>
+				<th>상세설명</th>
 
-		<article class="MonthMenu" id="s1">
-			<img src="${path}/views/img/getMuscle.jpg" />
-			<div>
-				<table>
-					<th colspan="2">이달의 HOT & SALE 메뉴</th>
-					<tr>
-						<td><img src="${path}/views/img/logo.png" /></td>
-						<td><img src="${path}/views/img/logo.png" /></td>
-					</tr>
-					<tr>
-						<td><img src="${path}/views/img/logo.png " /></td>
-						<td><img src="${path}/views/img/logo.png" /></td>
-					</tr>
-				</table>
+			</tr>
+		</thead>
+		<tbody>
 
-				<table id="healthintro">
-					<th>헬스장 및 운동법 소개</th>
-					<tr>
-						<td><img src="${path}/views/img/logo.png" /></td>
-					</tr>
-				</table>
-			</div>
-		</article>
-
-
-		<!--헬스용품 카테고리-->
-		<article class="category" id="s2">
-			<table>
-				<th colspan="4">헬스용품 카테고리</th>
-				<tr>
-					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png"
-						style="width: 150px; height: 150px" />
-					</td>
-					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
-						<h1>운동용품</h1> <img
-						src="${path}/views/img/IconHealthGoodsDumbbell.png"
-						style="width: 150px; height: 150px" />
-					</td>
-					<td onclick="location.href='healthgoods?cmd=selectBelt'">
-						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png"
-						style="width: 150px; height: 150px" />
-					</td>
-					<td onclick="location.href='healthgoods?cmd=selectGloves'">
-						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png"
-						style="width: 150px; height: 150px" />
-					</td>
+			<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
+				<tr id="${HealthGoodsSelect.healthGoodsId}"
+					title="${HealthGoodsSelect.healthGoodsName}의 상세 페이지 가기"
+					onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${HealthGoodsSelect.healthGoodsId}'">
+					<td><img alt="사진" src="${HealthGoodsSelect.healthGoodsImg } "></td>
+					<td>${ HealthGoodsSelect.healthGoodsName }</td>
+					<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+					<td>${ HealthGoodsSelect.healthGoodsDetail}</td>
 				</tr>
-			</table>
-		</article>
+			</c:forEach>
 
+		</tbody>
+	</table>
 
-		<!--헬스식품 카테고리-->
-		<article class="category" id="s3">
-			<table>
-				<th colspan="4">헬스식품 카테고리</th>
-				<tr>
-					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png"
-						style="width: 200px; height: 200px" />
-					</td>
-					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png"
-						style="width: 200px; height: 200px" />
-					</td>
-					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png"
-						style="width: 200px; height: 200px" />
-					</td>
+	<table>
+		<thead>
+			<tr>
+				<th>이미지</th>
+				<th>식품 이름</th>
+				<th>가격</th>
+				<th>상세설명</th>
+
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
+				<tr id="${HealthFoodSelect.hfid}"
+					title="${HealthFoodSelect.hfname}의 상세 페이지 가기"
+					onclick="location.href='healthfood?cmd=healthFoodDetail&hfid=${HealthFoodSelect.hfid}'">
+					<td><img alt="사진" src="${HealthFoodSelect.hfimg } "></td>
+					<td>${ HealthFoodSelect.hfname }</td>
+					<td>${ HealthFoodSelect.hfprice }</td>
+					<td>${ HealthFoodSelect.hfdetail}</td>
 				</tr>
-			</table>
-		</article>
+			</c:forEach>
 
+		</tbody>
 
-		<!--영양제 카테고리-->
-		<article class="category" id="s4">
-			<table>
-				<th colspan="4">영양제 카테고리</th>
-				<tr>
-					<td onclick="location.href='nutrients?cmd=list'">
-						<h1>모든 영양제</h1> <img id="allnutrientsImg"
-						src="${path}/views/img/allList.png" />
-					</td>
-					<td onclick="location.href='nutrients?cmd=vitaminList'">
-						<h1>비타민</h1> <img src="${path}/views/img/vitamin.png" />
-					</td>
-					<td onclick="location.href='nutrients?cmd=proteinList'">
-						<h1>헬스 보충제</h1> <img src="${path}/views/img/protein.png" />
-					</td>
-					<td onclick="location.href='nutrients?cmd=dietList'">
-						<h1>다이어트 보충제</h1> <img src="${path}/views/img/diet.png" />
-					</td>
+	</table>
+
+	<table>
+		<thead>
+			<tr>
+				<th>이미지</th>
+				<th>영양제 이름</th>
+				<th>가격</th>
+				<th>상세설명</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
+				<tr id="${NutrientsSelect.nutrientsID}"
+					title="${NutrientsSelect.nutrientsName}의 상세 페이지 가기"
+					onclick="location.href='nutrients?cmd=nutrientsDetail${NutrientsSelect.nutrientsID}'">
+					<td><img alt="사진" src="${NutrientsSelect.nutrientsIMG } "></td>
+					<td>${ NutrientsSelect.nutrientsName }</td>
+					<td>${ NutrientsSelect.nutrientsPrice }</td>
+					<td>${ NutrientsSelect.nutrientsDetail}</td>
 				</tr>
-			</table>
-		</article>
+			</c:forEach>
 
 
-		<!--커뮤니티 카테고리-->
-		<article class="category" id="s7">
-			<table>
-				<th colspan="2">문의</th>
-				<tr>
-					<td><a href="${path}/views/jsp/qna/FQA.jsp">
-							<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
-					</a></td>
-					<td><a href="board?cmd=list">
-							<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
-					</a></td>
-				</tr>
-			</table>
-		</article>
+		</tbody>
+	</table>
 
-	</div>
-	<!-- end selectList -->
-
-	<div class ="serchdiv">
-		<table class="serachclass">
-			<thead>
-				<tr>
-					<th>이미지</th>
-					<th>헬스용품 이름</th>
-					<th>가격</th>
-					<th>상세설명</th>
-
-				</tr>
-			</thead>
-			<tbody>
-
-				<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-					<tr id="${HealthGoodsSelect.healthGoodsId}"
-						title="${HealthGoodsSelect.healthGoodsName}의 상세 페이지 가기"
-						onclick="location.href='healthgoods?cmd=healthGoodsDetail&healthGoodsId=${HealthGoodsSelect.healthGoodsId}'">
-						<td><img alt="사진" src="${HealthGoodsSelect.healthGoodsImg } "></td>
-						<td>${ HealthGoodsSelect.healthGoodsName }</td>
-						<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
-						<td>${ HealthGoodsSelect.healthGoodsDetail}</td>
-					</tr>
-				</c:forEach>
-
-			</tbody>
-		</table>
-
-		<table class="serachclass">
-			<thead>
-				<tr>
-					<th>이미지</th>
-					<th>식품 이름</th>
-					<th>가격</th>
-					<th>상세설명</th>
-
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
-					<tr id="${HealthFoodSelect.hfid}"
-						title="${HealthFoodSelect.hfname}의 상세 페이지 가기"
-						onclick="location.href='healthfood?cmd=healthFoodDetail&hfid=${HealthFoodSelect.hfid}'">
-						<td><img alt="사진" src="${HealthFoodSelect.hfimg } "></td>
-						<td>${ HealthFoodSelect.hfname }</td>
-						<td>${ HealthFoodSelect.hfprice }</td>
-						<td>${ HealthFoodSelect.hfdetail}</td>
-					</tr>
-				</c:forEach>
-
-			</tbody>
-
-		</table>
-
-		<table class="serachclass">
-			<thead>
-				<tr>
-					<th>이미지</th>
-					<th>영양제 이름</th>
-					<th>가격</th>
-					<th>상세설명</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
-					<tr id="${NutrientsSelect.nutrientsID}"
-						title="${NutrientsSelect.nutrientsName}의 상세 페이지 가기"
-						onclick="location.href='nutrients?cmd=nutrientsDetail${NutrientsSelect.nutrientsID}'">
-						<td><img alt="사진" src="${NutrientsSelect.nutrientsIMG } "></td>
-						<td>${ NutrientsSelect.nutrientsName }</td>
-						<td>${ NutrientsSelect.nutrientsPrice }</td>
-						<td>${ NutrientsSelect.nutrientsDetail}</td>
-					</tr>
-				</c:forEach>
-
-
-			</tbody>
-		</table>
-	</div>
 </body>
 </html>
