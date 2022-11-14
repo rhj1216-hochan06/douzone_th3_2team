@@ -216,7 +216,9 @@
 					 <!-- <div id="form"> -->
 						<form action="./Member?cmd=surveyresult" method="post">
 						
-							<img src="${path}/views/img/IconSurvey.png" /> <br>
+							<!-- <div class="surveyImg"> -->
+								<img id="surveyImg" src="${path}/views/img/IconSurvey.png" /> 
+							<!-- </div> -->
 						
 							Q. 당신의 목표는? : 
 							<select name="goal">

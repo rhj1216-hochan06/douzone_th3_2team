@@ -11,8 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%-- <script type="text/javascript" src="${path}/views/js/all.js"></script> --%>
-<script type="text/javascript" src="${path}/views/js/Join.js"></script>
+<script type="text/javascript" src="${path}/views/js/surveylist.js"></script>
 
 <link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/serveylist.css" />
@@ -238,8 +237,8 @@
 						      
 						      <tbody>
 						         <c:forEach var="SurveyserachAll" items="${ SurveyserachAll}">
-						           <!--  <form action="location.href='Member?cmd=surveyDelete" method="post" id="formsurveyDelete"> -->
-						            <form action="./Member?cmd=surveyDelete" method="post" id="formsurveyDelete">
+						           <!-- <form action="location.href='Member?cmd=surveyDelete" method="post" id="formsurveyDelete"> -->
+						           <form action="location.href='Member?cmd=surveyDelete'" method="post" id="formsurveyDelete">
 						               
 						               <tr>
 						            	  <td name="surveyid">${ SurveyserachAll.surveyid }</td>

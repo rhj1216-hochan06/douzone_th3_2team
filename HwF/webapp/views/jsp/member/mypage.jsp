@@ -41,16 +41,6 @@
 			</form>
 
 			<table>
-				<!-- <tr>
-					<td id="1" onclick="location.href='/HwF/Main.jsp'">Home</td>
-					<td id="2" onclick="change(this.id)">HealthFood</td>
-					<td id="3" onclick="change(this.id)">HealthCafe</td>
-					<td id="4" onclick="location.href='nutrients?cmd=list'">HealthNutrients</td>
-					<td id="5" onclick="location.href='Member?cmd=surveylist'">Survey</td>
-               		<td id="6" onclick="location.href='Member?cmd=inbodylist'">InbodyTest</td>
-					<td id="7" onclick="location.href='Member?cmd=membersearch'">Community</td>
-				</tr> -->
-				
 				<tr>
 					<td id="1" onclick="change(this.id)">Home</td>
 					<td id="2" onclick="change(this.id)">HealthGoods</td>
@@ -61,9 +51,7 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-
 		</nav>
-		
 	</header>
 	
 	<div id="selectList">
@@ -250,22 +238,22 @@
 							
 							<tr id="surveylist">
 								<td>설문조사 결과</td>
-								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="설문조사 등록" onclick="location.href='Member?cmd=surveylist'"></td>
+								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="확인하러 가기" onclick="location.href='Member?cmd=surveylist'"></td>
 							</tr>
 				
 							<tr id="inbodylist">
 								<td>인바디 결과</td>
-								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="인바디 등록" onclick="location.href='Member?cmd=inbodylist'"></td>
+								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="확인하러 가기" onclick="location.href='Member?cmd=inbodylist'"></td>
 							</tr>
 							
 							<tr id="purchaselist">
 								<td>구매내역 조회</td>
-								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="구매내역 조회" onclick="location.href='Member?cmd=purchaselist'"></td>
+								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="확인하러 가기" onclick="location.href='Member?cmd=purchaselist'"></td>
 							</tr>
 							
 							<tr id="community">
 								<td>1:1문의</td>
-								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="1:1문의" onclick="location.href='Member?cmd=membersearch'"></td>
+								<td><input type="button" class="btn btn-lg btn-primary btn-block btn-signin" value="확인하러 가기" onclick="location.href='Member?cmd=membersearch'"></td>
 							</tr>
 						</table>
 						
@@ -276,38 +264,6 @@
 		        </div><!-- end card-container -->
 		</div> <!-- end container -->
 	</div> <!-- end con -->
-	
-	
-	
-	<%-- <div id="mypage">
-		<table id="mypage">
-			<tr id="id">
-				<td>ID : ${memberid}
-			</tr>
-			<tr id="name">
-				<td>Name : ${membername}
-			</tr>
-			<tr id="sex">
-				<td>sex : ${membersex}
-			</tr>
-			<tr id="surveylist">
-				<td>Surveylist<input type="button" value="Surveylist"
-					onclick="location.href='Member?cmd=surveylist'"></td>
-			</tr>
-
-			<tr id="inbodylist">
-				<td>Inbodylist<input type="button" value="inbodylist"
-					onclick="location.href='Member?cmd=inbodylist'">
-			</tr>
-			<tr id="purchaselist">
-				<td>purchaselist<input type="button" value="purchaselist"
-					onclick="location.href='Member?cmd=purchaselist'">
-			</tr>
-			<tr id="community">
-				<td>Community
-			</tr>
-		</table>
-	</div> --%>	
 
 	
 	

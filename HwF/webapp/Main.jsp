@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
 <script type="text/javascript" src="./views/js/MainJS.js"></script>
-<link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" />
+<!-- <link rel="stylesheet" type="text/css" href="./views/css/MainCss.css" /> -->
 
 <title>Main</title>
 </head>
@@ -159,7 +159,7 @@
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
 						<h1>음료</h1> <img src="./views/img/IconHealthFoodCafe.png"
-						style="width: 200pxx; height: 200px" />
+						style="width: 200px; height: 200px" />
 					</td>
 				</tr>
 			</table>
@@ -197,12 +197,12 @@
 
 					<td id="memberboard"
 						onclick="location.href='./views/jsp/qna/FQA.jsp'">
-						<h1>FQA</h1> <img src="./views/img/IconFQA.png" style="width: 200pxx; height: 200px" />
+						<h1>FQA</h1> <img src="./views/img/IconFQA.png" style="width: 200px; height: 200px" />
 					</td>
 
 					<td id="memberboard"
 						onclick="location.href='Member?cmd=membersearch'">
-						<h1>1:1 문의</h1> <img src="./views/img/IconOneToOne.png" style="width: 200pxx; height: 200px" />
+						<h1>1:1 문의</h1> <img src="./views/img/IconOneToOne.png" style="width: 200px; height: 200px" />
 					</td>
 				</tr>
 			</table>
@@ -226,8 +226,8 @@
 							</ul>
 							<ul class="cs_info">
 								<li class="tel">02-548-3339</li>
-								<li class="tel_time">AM 9:00 - PM 6:00 <span>(주말 및
-										공휴일 휴무)</span>
+								<li class="tel_time">AM 9:00 - PM 6:00 
+								<span>(주말 및 공휴일 휴무)</span>
 								</li>
 							</ul>
 						</div>
@@ -237,10 +237,11 @@
 								<li class="title">COMPANY</li>
 							</ul>
 							<div class="inner2">
-								<li class="info"><span>상호 <span>(주)레스트롱</span></span> <span>대표
-										<span class="han">000</span>
-								</span> <span>사업자등록번호 <span>123-98-05123</span></span> <br> <span>통신판매업
-										신고 <span>2022-서울종로-0500</span>
+								<li class="info">
+								<span>상호 <span>(주)레스트롱</span></span> 
+								<span>대표 <span class="han">000</span>
+								</span> <span>사업자등록번호 <span>123-98-05123</span></span> <br> 
+								<span>통신판매업 신고 <span>2022-서울종로-0500</span>
 								</span><span> <br> <span>전화 <span>02-517-1470</span></span>
 										<span>주소 <span> 서울 종로구 창경궁로 254 7층</span></span> <br> <br></li>
 							</div>
@@ -259,13 +260,12 @@
 
 
 					<div class="company_i">
-						<li class="utilMenu"><a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>&nbsp;&nbsp;
-								<a href="/member/privacy.html">개인정보취급방침</a> &nbsp;&nbsp; <a
-								href="/shopinfo/guide.html">이용안내</a></li>
+						<li class="utilMenu"><a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>
+								<!-- 개인정보취급방침 &nbsp;&nbsp;
+								이용안내 -->
+						</li>
 						<p></p>
 					</div>
-
-
 
 				</div>
 			</div>
