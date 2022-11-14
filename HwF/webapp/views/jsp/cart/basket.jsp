@@ -11,9 +11,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/basketList.css" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/header.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/basketList.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/views/css/footer.css" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="${path}/views/js/basket.js"></script>
@@ -27,20 +30,23 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img
+					src="${path}/views/img/logo.png" /></a>
 			</div>
 			<div>BE NATURAL</div>
 			<div id="loginimg">
-				<a onclick="location.href='cart?cmd=gobasket'"><img src="${path}/views/img/basketIcon.png" title="장바구니" /></a>
-				 <a onclick="location.href='Member?cmd=login'"><img src="${path}/views/img/LoginIMG.png" title="로그인 / 마이페이지" /></a>
+				<a onclick="location.href='cart?cmd=gobasket'"><img
+					src="${path}/views/img/basketIcon.png" title="장바구니" /></a> <a
+					onclick="location.href='Member?cmd=login'"><img
+					src="${path}/views/img/LoginIMG.png" title="로그인 / 마이페이지" /></a>
 			</div>
 		</div>
 
 		<nav>
 			<form action="search?cmd=searching" method="post">
 				<p>
-					<input type="hidden" name="column"> 
-					<input type="text" name="keyvalue" value="" placeholder="Search">
+					<input type="hidden" name="column"> <input type="text"
+						name="keyvalue" value="" placeholder="Search">
 				</p>
 			</form>
 
@@ -112,8 +118,7 @@
 								src="https://www.youtube.com/embed/TY0HF4SMzhU?autoplay=1&mute=1"
 								title="YouTube video player" frameborder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen>
-						</iframe></td>
+								allowfullscreen> </iframe></td>
 					</tr>
 				</table>
 			</div>
@@ -126,23 +131,20 @@
 				<th colspan="4">헬스용품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthgoods?cmd=healthGoodsList'">
-						<h1>전체</h1> 
-						<img src="${path}/views/img/IconHealthGoods.png" 
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png"
 						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectDumbbell'">
-						<h1>운동용품</h1> 
-						<img src="${path}/views/img/IconHealthGoodsDumbbell.png"
+						<h1>운동용품</h1> <img
+						src="${path}/views/img/IconHealthGoodsDumbbell.png"
 						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectBelt'">
-						<h1>벨트</h1> 
-						<img src="${path}/views/img/IconHealthGoodsBelt.png"
+						<h1>벨트</h1> <img src="${path}/views/img/IconHealthGoodsBelt.png"
 						style="width: 150px; height: 150px" />
 					</td>
 					<td onclick="location.href='healthgoods?cmd=selectGloves'">
-						<h1>장갑</h1> 
-						<img src="${path}/views/img/IconHealthGoodsGloves.png"
+						<h1>장갑</h1> <img src="${path}/views/img/IconHealthGoodsGloves.png"
 						style="width: 150px; height: 150px" />
 					</td>
 				</tr>
@@ -156,18 +158,15 @@
 				<th colspan="4">헬스식품 카테고리</th>
 				<tr>
 					<td onclick="location.href='healthfood?cmd=healthFoodList'">
-						<h1>전체</h1> 
-						<img src="${path}/views/img/IconHealthFoodAll.png"
+						<h1>전체</h1> <img src="${path}/views/img/IconHealthFoodAll.png"
 						style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectFood'">
-						<h1>음식</h1> 
-						<img src="${path}/views/img/IconHealthFoodSalad.png"
+						<h1>음식</h1> <img src="${path}/views/img/IconHealthFoodSalad.png"
 						style="width: 200px; height: 200px" />
 					</td>
 					<td onclick="location.href='healthfood?cmd=selectCafe'">
-						<h1>음료</h1> 
-						<img src="${path}/views/img/IconHealthFoodCafe.png"
+						<h1>음료</h1> <img src="${path}/views/img/IconHealthFoodCafe.png"
 						style="width: 200px; height: 200px" />
 					</td>
 				</tr>
@@ -181,21 +180,17 @@
 				<th colspan="4">영양제 카테고리</th>
 				<tr>
 					<td onclick="location.href='nutrients?cmd=list'">
-						<h1>모든 영양제</h1> 
-						<img id="allnutrientsImg"
+						<h1>모든 영양제</h1> <img id="allnutrientsImg"
 						src="${path}/views/img/allList.png" />
 					</td>
 					<td onclick="location.href='nutrients?cmd=vitaminList'">
-						<h1>비타민</h1> 
-						<img src="${path}/views/img/vitamin.png" />
+						<h1>비타민</h1> <img src="${path}/views/img/vitamin.png" />
 					</td>
 					<td onclick="location.href='nutrients?cmd=proteinList'">
-						<h1>헬스 보충제</h1> 
-						<img src="${path}/views/img/protein.png" />
+						<h1>헬스 보충제</h1> <img src="${path}/views/img/protein.png" />
 					</td>
 					<td onclick="location.href='nutrients?cmd=dietList'">
-						<h1>다이어트 보충제</h1> 
-						<img src="${path}/views/img/diet.png" />
+						<h1>다이어트 보충제</h1> <img src="${path}/views/img/diet.png" />
 					</td>
 				</tr>
 			</table>
@@ -208,12 +203,10 @@
 				<th colspan="2">문의</th>
 				<tr>
 					<td><a href="${path}/views/jsp/qna/FQA.jsp">
-							<h1>FQA</h1> 
-							<img src="${path}/views/img/IconFQA.png" />
+							<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 					</a></td>
 					<td><a href="board?cmd=list">
-							<h1>1:1 문의</h1> 
-							<img src="${path}/views/img/IconOneToOne.png" />
+							<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
 				</tr>
 			</table>
@@ -221,12 +214,12 @@
 
 	</div>
 	<!-- end selectList -->
-	
-	
+
+
 
 	<div id="nutrientsListDiv">
 		<form action="${path}/cart?cmd=deleteSelete" method="post">
-		
+
 			<table>
 				<tr>
 					<th>물품 이름</th>
@@ -252,17 +245,20 @@
 				</c:forEach>
 
 				<tr class="lasttr">
-					<td colspan="6"><input type="text" id="hiddenid" name="hiddenid" value="0" />
+					<td colspan="6"><input type="text" id="hiddenid"
+						name="hiddenid" value="0" />
 						<p /> 총가격 : <a id="purchasetotalprice">0</a>원
 
-						<p /> 
-						<button class="custom-btn btn-12" onclick="callcreditpurchase()"><span>Click!</span><span>신용 카드</span></button>
-                        <button class="custom-btn btn-12" onclick="callpurchase()"><span>Click!</span><span>카카오 페이</span></button>
-						</td>
+						<p />
+						<div id="buymethoddiv">
+							<a id="cre" title="신용카드" class="button btnFloat btnLightBlue"
+								onclick="callcreditpurchase()">신용카드</a> <a id="kakao"
+								title="카카오페이" class="button btnFloat btnLightBlue"
+								onclick="callpurchase()">카카오페이</a>
+						</div></td>
 
-					<td>
-						<input type="submit" id="cartchecked" name="deletecheck" value="삭제">
-					</td>
+					<td><input type="submit" id="cartchecked" name="deletecheck"
+						value="삭제"></td>
 				</tr>
 			</table>
 
@@ -272,11 +268,12 @@
 	<!-- footer -->
 	<footer>
 		<div id="footer">
-			<div class="xans-element- xans-layout xans-layout-footer footer_start ">
+			<div
+				class="xans-element- xans-layout xans-layout-footer footer_start ">
 
 				<div class="cs">
 					<div class="cs-down">
-					
+
 						<div class="cs_left">
 							<ul>
 								<li class="title">C/S<span></span>
@@ -284,52 +281,54 @@
 							</ul>
 							<ul class="cs_info">
 								<li class="tel">02-548-3339</li>
-								<li class="tel_time">AM 9:00 - PM 6:00 
-								<span>(주말 및 공휴일 휴무)</span>
+								<li class="tel_time">AM 9:00 - PM 6:00 <span>(주말 및
+										공휴일 휴무)</span>
 								</li>
 							</ul>
-						</div> <!-- end cs_left -->
+						</div>
+						<!-- end cs_left -->
 
 						<div class="company_pg">
 							<ul>
 								<li class="title">COMPANY</li>
 							</ul>
 							<div class="inner2">
-								<li class="info">
-									<span>상호 <span>(주)레스트롱</span></span> <br>
-									<span>대표<span class="han">000</span></span> <br>
-									<span>사업자등록번호<span>123-98-05123</span></span> <br> 
-									<span>통신판매업 신고<span>2022-서울종로-0500</span></span> <br>
-									<span>전화 <span>02-517-1470</span></span> <br>
-									<span>주소 <span> 서울 종로구 창경궁로 254 7층</span></span> <br>
-								</li>
+								<li class="info"><span>상호 <span>(주)레스트롱</span></span> <br>
+									<span>대표<span class="han">000</span></span> <br> <span>사업자등록번호<span>123-98-05123</span></span>
+									<br> <span>통신판매업 신고<span>2022-서울종로-0500</span></span> <br>
+									<span>전화 <span>02-517-1470</span></span> <br> <span>주소
+										<span> 서울 종로구 창경궁로 254 7층</span>
+								</span> <br></li>
 							</div>
-						</div> <!-- end company_pg -->
+						</div>
+						<!-- end company_pg -->
 
 						<div class="cs_right">
 							<ul>
 								<li class="title">BANK</li>
 							</ul>
-							<li class="info">
-								<span class="han">국민은행</span> 
-								<span class="num">98760212341562</span><br> 
-								<span class="name">예금주 <strong> (주)000</strong></span>
-							</li>
-						</div> <!-- end cs_right -->
-						
-					</div> <!-- end cs-down -->
+							<li class="info"><span class="han">국민은행</span> <span
+								class="num">98760212341562</span><br> <span class="name">예금주
+									<strong> (주)000</strong>
+							</span></li>
+						</div>
+						<!-- end cs_right -->
+
+					</div>
+					<!-- end cs-down -->
 
 					<div class="company_i">
-						<li class="utilMenu">
-							<a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>
-						</li>
+						<li class="utilMenu"><a href='./views/jsp/etc/policy.jsp'">이용약관</onclick></li>
 						<p></p>
-					</div> <!-- end company_i -->
-		
-				</div> <!-- end cs -->
+					</div>
+					<!-- end company_i -->
+
+				</div>
+				<!-- end cs -->
 			</div>
-		</div> <!-- end footer -->
+		</div>
+		<!-- end footer -->
 	</footer>
-	
+
 </body>
 </html>

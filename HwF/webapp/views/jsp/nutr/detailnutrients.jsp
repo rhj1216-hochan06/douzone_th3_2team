@@ -156,12 +156,12 @@
 				<tr>
 					<td>
 						<a href="${path}/views/jsp/qna/FQA.jsp">
-						<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
+						<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 						</a>
 					</td>
 					<td>
 						<a href="board?cmd=list">
-						<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
+						<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 						</a>
 					</td>
 				</tr>
