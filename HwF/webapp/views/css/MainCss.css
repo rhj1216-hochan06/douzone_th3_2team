@@ -39,7 +39,7 @@ header div div {
 }
 
 header div img {
-	width: 7rem;
+	width: 11rem;
 }
 
 #loginimg {
@@ -48,6 +48,7 @@ header div img {
 }
 
 #loginimg a:nth-child(1) img {
+	width: 7rem;
 	cursor: pointer;
 }
 
@@ -178,11 +179,6 @@ article table {
 	width: 14rem;
 }
 
-footer {
-	background-color: lightblue;
-	height: 5rem;
-}
-
 /*-------------------  */
 .xans-layout-footer .inner .cs .cs_left, .xans-layout-footer .inner .cs .cs_right
 	{
@@ -243,6 +239,7 @@ footer {
 	background-color: lightblue;
 	text-align: center;
 	list-style: none;
+	height: 5rem;
 }
 
 .cs {
@@ -255,4 +252,8 @@ footer {
 
 .cs-down {
 	display: flex;
+}
+
+.company_i {
+	margin-left:120px;
 }

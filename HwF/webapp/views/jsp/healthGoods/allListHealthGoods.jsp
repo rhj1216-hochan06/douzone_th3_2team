@@ -10,20 +10,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" type="text/css"
-	href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css" />
+
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
 
 <title>헬스용품 전체 페이지</title>
 </head>
 
 <body>
+
+	<!-- header -->
 	<header>
 		<div id="headerFirstDiv">
 			<div>
 				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 			<div id="loginimg">
 				<a onclick="location.href='cart?cmd=gobasket'"><img src="${path}/views/img/basketIcon.png" title="장바구니" /></a>
 				 <a onclick="location.href='Member?cmd=login'"><img src="${path}/views/img/LoginIMG.png" title="로그인 / 마이페이지" /></a>
@@ -63,7 +66,6 @@
 				<table>
 					<th colspan="2">이달의 HOT & SALE 메뉴</th>
 					<tr>
-						<!-- <td onclick="location.href='nutrients?cmd=list'"> -->
 						<td onclick="location.href='nutrients?cmd=nutrientsDetail30001'">
 							<img
 							src="https://img.danawa.com/prod_img/500000/426/012/img/2012426_1.jpg?shrink=330:330&_v=20210817132717"
@@ -95,7 +97,6 @@
 
 				<table id="healthintro">
 					<th colspan="2">헬스장 소개</th>
-					<!-- <th>헬스장 및 운동법 소개</th> -->
 					<tr>
 						<td onclick="location.href='./views/jsp/etc/introduce.jsp'">
 							<img
@@ -251,11 +252,11 @@
 	<!-- footer -->
 	<footer>
 		<div id="footer">
-			<div
-				class="xans-element- xans-layout xans-layout-footer footer_start ">
+			<div class="xans-element- xans-layout xans-layout-footer footer_start ">
 
 				<div class="cs">
 					<div class="cs-down">
+					
 						<div class="cs_left">
 							<ul>
 								<li class="title">C/S<span></span>
@@ -267,7 +268,7 @@
 								<span>(주말 및 공휴일 휴무)</span>
 								</li>
 							</ul>
-						</div>
+						</div> <!-- end cs_left -->
 
 						<div class="company_pg">
 							<ul>
@@ -283,7 +284,7 @@
 									<span>주소 <span> 서울 종로구 창경궁로 254 7층</span></span> <br>
 								</li>
 							</div>
-						</div>
+						</div> <!-- end company_pg -->
 
 						<div class="cs_right">
 							<ul>
@@ -294,21 +295,20 @@
 								<span class="num">98760212341562</span><br> 
 								<span class="name">예금주 <strong> (주)000</strong></span>
 							</li>
-						</div>
-					</div>
-
+						</div> <!-- end cs_right -->
+						
+					</div> <!-- end cs-down -->
 
 					<div class="company_i">
 						<li class="utilMenu">
 							<a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>
 						</li>
 						<p></p>
-					</div>
-
-
-
-				</div>
+					</div> <!-- end company_i -->
+		
+				</div> <!-- end cs -->
 			</div>
+		</div> <!-- end footer -->
 	</footer>
 	
 </body>

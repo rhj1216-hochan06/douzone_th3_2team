@@ -52,6 +52,10 @@ public class HealthFoodController extends HttpServlet {
 		HealthFoodDAO dao = new HealthFoodDAO();
 		List<HealthFoodDTO> healthFoodList = dao.healthFoodList();
 
+		for(HealthFoodDTO i : healthFoodList) {
+			i.setHfDoM(i.getHfDoM().substring(2, 10));
+		}
+		
 		if (healthFoodList != null) {
 			request.setAttribute("healthFoodList", healthFoodList); // data save
 			request.getRequestDispatcher("/views/jsp/healthFood/allListHealthFood.jsp").forward(request, response);
@@ -66,6 +70,10 @@ public class HealthFoodController extends HttpServlet {
 		HealthFoodDAO dao = new HealthFoodDAO();
 		List<HealthFoodDTO> selectFood = dao.selectFood();
 
+		for(HealthFoodDTO i : selectFood) {
+			i.setHfDoM(i.getHfDoM().substring(2, 10));
+		}
+		
 		if (selectFood != null) {
 			request.setAttribute("healthFoodList", selectFood); // data save
 			request.getRequestDispatcher("/views/jsp/healthFood/allListHealthFood.jsp").forward(request, response);
@@ -80,6 +88,10 @@ public class HealthFoodController extends HttpServlet {
 		HealthFoodDAO dao = new HealthFoodDAO();
 		List<HealthFoodDTO> selectCafe = dao.selectCafe();
 
+		for(HealthFoodDTO i : selectCafe) {
+			i.setHfDoM(i.getHfDoM().substring(2, 10));
+		}
+		
 		if (selectCafe != null) {
 			request.setAttribute("healthFoodList", selectCafe); // data save
 			request.getRequestDispatcher("/views/jsp/healthFood/allListHealthFood.jsp").forward(request, response);
@@ -95,6 +107,7 @@ public class HealthFoodController extends HttpServlet {
 
 		HealthFoodDAO dao = new HealthFoodDAO();
 		List<HealthFoodDTO> healthFoodDetail = dao.healthFoodDetail(hfid);
+		
 		healthFoodDetail.get(0).setHfDoM(healthFoodDetail.get(0).getHfDoM().substring(2, 10));
 
 		if (healthFoodDetail != null) {
