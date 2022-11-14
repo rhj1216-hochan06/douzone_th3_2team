@@ -59,10 +59,6 @@ public class RecommendController extends HttpServlet{
 		 List<NutrientsDTO> NutrientsSelect = dao.SearchNutrientsSelect();
 		
 		
-		System.out.println("HealthGoodsSelect : " + HealthGoodsSelect);
-		System.out.println("HealthFoodSelect : " + HealthFoodSelect);
-		System.out.println("NutrientsSelect : " + NutrientsSelect);
-		
 		if( HealthGoodsSelect != null || HealthFoodSelect != null || NutrientsSelect != null) {
 			request.setAttribute("HealthGoodsSelect", HealthGoodsSelect); 
 			request.setAttribute("HealthFoodSelect", HealthFoodSelect);  
