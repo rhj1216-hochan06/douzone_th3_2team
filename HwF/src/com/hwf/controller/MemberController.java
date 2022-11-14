@@ -87,7 +87,7 @@ public class MemberController extends HttpServlet {
 			System.out.println("service code error");
 	}
 
-	// 로그인 이전에 했는지 안했는지 확인
+	//로그인 이전에 했는지 안했는지 확인
 	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session;
@@ -98,16 +98,15 @@ public class MemberController extends HttpServlet {
 			if (name.equalsIgnoreCase("환영합니다. 고객님"))
 				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		} catch (Exception e) {
-			// null 이면 에러 발생 = 로그인 기록 없음
-			// System.out.println("login 기록 없음");
+			//null 이면 에러 발생 = 로그인 기록 없음
+			//System.out.println("login 기록 없음");
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 		request.getRequestDispatcher("/views/jsp/member/mypage.jsp").forward(request, response);
 	}
 
-	// 로그인 정보 확인
-	public void logincheck(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	//로그인 정보 확인
+	public void logincheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
 		String memberid = request.getParameter("memberid");
@@ -127,45 +126,45 @@ public class MemberController extends HttpServlet {
 		}
 		MemberDTO dto2 = dao.checkMember(dto);
 
-		// 비밀번호 체크
+		//비밀번호 체크
 		if (memberpwd.equals(dto2.getMemberpwd()))
-
+			
 			// 관리자 로그인
 			if (dto2.getMemberid().equals("admin")) {
 				request.getRequestDispatcher("/AdminMain.jsp").forward(request, response);
 			}
 		{
 
-			// 비밀번호 체크
-			if (memberpwd.equals(dto2.getMemberpwd())) {
-				String membersex = "";
+		//비밀번호 체크
+		if (memberpwd.equals(dto2.getMemberpwd()))
+		{	
+			String membersex = "";
 
-				if (dto2.getMembersex().equals("1"))
-					membersex = "남자";
-				else
-					membersex = "여자";
+			if (dto2.getMembersex().equals("1"))
+				membersex = "남자";
+			else
+				membersex = "여자";
 
-				// data save
-				session.setAttribute("memberid", memberid);
-				session.setAttribute("membername", dto2.getMembername());
-				session.setAttribute("membername1", dto2.getMembername() + "님 환영합니다.");
-				session.setAttribute("membersex", membersex);
-				session.setAttribute("logincheck", true);
+			// data save
+			session.setAttribute("memberid", memberid);
+			session.setAttribute("membername", dto2.getMembername());
+			session.setAttribute("membername1", dto2.getMembername() + "님 환영합니다.");
+			session.setAttribute("membersex", membersex);
+			session.setAttribute("logincheck", true);
 
-				// 세션 유지시간 설정(초단위) 20분
-				session.setMaxInactiveInterval(20 * 60);
+			// 세션 유지시간 설정(초단위) 20분
+			session.setMaxInactiveInterval(20 * 60);
 
-				request.getRequestDispatcher("/Main.jsp").forward(request, response);
-			} else {
-				session.setAttribute("logincheck", false);
-				session.setMaxInactiveInterval(20 * 60);
-				System.out.println("비밀번호가 틀렸습니다.");
-				request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
-			}
+			request.getRequestDispatcher("/Main.jsp").forward(request, response);
+		} else {
+			session.setAttribute("logincheck", false);
+			session.setMaxInactiveInterval(20 * 60);
+			System.out.println("비밀번호가 틀렸습니다.");
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
-	}
+	}}
 
-	// 회원가입 인증으로 이동
+	//회원가입 인증으로 이동
 	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -174,7 +173,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 회원가입 가기전 본인인증
+	//회원가입 가기전 본인인증
 	public void self(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session;
 		session = request.getSession();
@@ -183,7 +182,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 회원가입 + 정규 표현식
+	//회원가입 + 정규 표현식
 	public void insertmember(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session;
@@ -233,7 +232,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-	// 구매 목록 가기
+	//구매 목록 가기
 	public void purchaselist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -274,14 +273,14 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 설문조사 페이지로 이동
+	//설문조사 페이지로 이동
 	public void survey(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/survey.jsp").forward(request, response);
 
 	}
 
-	// 설문조사 결과 삭제
+	//설문조사 결과 삭제
 	public void surveyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -308,7 +307,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-	// 설문조사 리스트
+	//설문조사 리스트
 	public void surveylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -348,7 +347,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 설문조사 결과조회
+	//설문조사 결과조회
 	public void surveyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -441,14 +440,14 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 인바디 페이지로 이동
+	//인바디 페이지로 이동
 	public void inbody(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.getRequestDispatcher("/views/jsp/member/inbody.jsp").forward(request, response);
 
 	}
 
-	// 인바디 결과 삭제
+	//인바디 결과 삭제
 	public void inbodyDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -476,7 +475,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-	// 인바디 결과 조회
+	//인바디 결과 조회
 	public void inbodylist(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -516,7 +515,7 @@ public class MemberController extends HttpServlet {
 
 	}
 
-	// 인바디 시 제품 추천
+	//인바디 시 제품 추천
 	public void inbodyresult(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -620,25 +619,24 @@ public class MemberController extends HttpServlet {
 	}
 
 	// membersearch - 고객 1:1 문의 게시글
-	public void membersearch(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	public void membersearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		try {
 			HttpSession session;
 			session = request.getSession();
-
+	
 			session.setMaxInactiveInterval(20 * 60);
 			String memberid = session.getAttribute("memberid").toString();
-
+	
 			String column = "memberid";
 			String keyvalue = memberid;
-
+	
 			Map<String, String> map = new HashMap<>();
 			map.put("column", column);
 			map.put("keyvalue", keyvalue);
-
+	
 			QnaDAO dao = new QnaDAO();
-
+	
 			List<QnaDTO> list = dao.getSearchList(map);
 			if (list != null) {
 				request.setAttribute("list", list);
@@ -646,7 +644,7 @@ public class MemberController extends HttpServlet {
 			} else {
 				response.sendRedirect("views/error.jsp");
 			}
-
+			
 		} catch (Exception e) {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
@@ -694,29 +692,27 @@ public class MemberController extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		try {
-			HttpSession session;
-			session = request.getSession();
 
-			session.setMaxInactiveInterval(20 * 60);
-			String memberid = session.getAttribute("memberid").toString();
+		HttpSession session;
+		session = request.getSession();
 
-			String qnatitle = request.getParameter("qnatitle");
-			String qnacontent = request.getParameter("qnacontent");
+		session.setMaxInactiveInterval(20 * 60);
+		String memberid = session.getAttribute("memberid").toString();
 
-			QnaDAO dao = new QnaDAO();
-			QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
-			System.out.println(dto);
-			int rowcount = dao.insert(dto);
-			System.out.println(dao);
+		String qnatitle = request.getParameter("qnatitle");
+		String qnacontent = request.getParameter("qnacontent");
 
-			if (rowcount > 0) {
-				response.sendRedirect("Member?cmd=membersearch");
-			} else {
-				response.sendRedirect("/views/jsp/error.jsp");
-			}
-		} catch (Exception e) {
-			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
-		} // write end
-	}
+		QnaDAO dao = new QnaDAO();
+		QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
+		System.out.println(dto);
+		int rowcount = dao.insert(dto);
+		System.out.println(dao);
+
+		if (rowcount > 0) {
+			response.sendRedirect("Member?cmd=membersearch");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
+		}
+	} // write end
+
 }

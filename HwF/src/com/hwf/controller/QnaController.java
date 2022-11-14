@@ -68,20 +68,17 @@ public class QnaController extends HttpServlet {
 		String memberid = request.getParameter("memberid");
 		String qnacontent = request.getParameter("qnacontent");
 		String qnatitle = request.getParameter("qnatitle");
-		try {
-			QnaDAO dao = new QnaDAO();
-			QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
-			System.out.println(dto);
-			int rowcount = dao.insert(dto);
-			System.out.println(dao);
 
-			if (rowcount > 0) {
-				response.sendRedirect("board?cmd=list");
-			} else {
-				response.sendRedirect("/views/jsp/error.jsp");
-			}
-		} catch (Exception e) {
-			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
+		QnaDAO dao = new QnaDAO();
+		QnaDTO dto = new QnaDTO(qnatitle, qnacontent, memberid);
+		System.out.println(dto);
+		int rowcount = dao.insert(dto);
+		System.out.println(dao);
+
+		if (rowcount > 0) {
+			response.sendRedirect("board?cmd=list");
+		} else {
+			response.sendRedirect("/views/jsp/error.jsp");
 		}
 	} // write end
 
@@ -93,8 +90,8 @@ public class QnaController extends HttpServlet {
 		System.out.println(column + " / " + keyvalue);
 
 		Map<String, String> map = new HashMap<>(); // collection
-		map.put("column", column);
-		map.put("keyvalue", keyvalue);
+		map.put("column", column); 
+		map.put("keyvalue", keyvalue); 
 
 		QnaDAO dao = new QnaDAO();
 

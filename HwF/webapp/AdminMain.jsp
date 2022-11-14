@@ -56,7 +56,7 @@
 			
 			<a href="javascript:location.href='admin?cmd=AdminQnA'"><img src="${path}/views/img/IconQnA.png" alt="QnA 확인" style="width: 150px; height: 150px"><span>QnA 확인</span></a>
 			
-			<%-- <a href="javascript:location.href='admin?cmd=AdminStock'"><img src="${path}/views/img/IconStock.png" alt="재고 현황" style="width: 150px; height: 150px"><span>재고 현황</span></a> --%>
+			<a href="javascript:location.href='admin?cmd=AdminStock'"><img src="${path}/views/img/IconStock.png" alt="재고 현황" style="width: 150px; height: 150px"><span>재고 현황</span></a>
 			
 			<br><br>
 		</div>
