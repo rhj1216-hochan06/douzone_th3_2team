@@ -1,5 +1,5 @@
 .card-container.card {
-	max-width: 350px;
+	width: 800px;
 	padding: 40px 40px;
 }
 
@@ -154,4 +154,48 @@ select {
 
 .float-right {
 	float:right;
+}
+
+
+
+/* 설문조사 css */
+#surveyImg {
+	width: 200px; 
+	display:block; 
+	margin:auto;
+}
+
+#serveySubmit {
+	width:200px;
+    text-align: center;
+    margin-left: auto; 
+    margin-right:auto;
+}
+
+table td {
+	width:100px;
+	text-align: center;
+}
+
+#surveyid, #inbodyid {
+	border:none;
+	background-color: #F7F7F7;
+	text-align:center;
+}
+
+
+
+/* 인바디 css */
+#inbodyImg {
+	width:400px;
+	display:block; 
+	margin:auto;
+}
+
+#inbodySubmit {
+	width:220px;
+	height:200px;
+    text-align: center;
+    margin-left: auto; 
+    margin-right:auto;
 }

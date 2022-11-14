@@ -14,9 +14,11 @@
 <%-- <script type="text/javascript" src="${path}/views/js/all.js"></script> --%>
 <script type="text/javascript" src="${path}/views/js/Join.js"></script>
 
+<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate2.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
 <title>login</title>
 </head>

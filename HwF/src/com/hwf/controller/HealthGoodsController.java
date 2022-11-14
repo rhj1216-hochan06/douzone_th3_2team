@@ -57,7 +57,6 @@ public class HealthGoodsController extends HttpServlet {
 	public void healthGoodsList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HealthGoodsDAO dao = new HealthGoodsDAO();
 		List<HealthGoodsDTO> healthGoodsList = dao.healthGoodsList();
-		System.out.println(healthGoodsList);
 
 		if (healthGoodsList != null) {
 			request.setAttribute("healthGoodsList", healthGoodsList); // data save
@@ -75,7 +74,6 @@ public class HealthGoodsController extends HttpServlet {
 
 		if (selectDumbbell != null) {
 			request.setAttribute("healthGoodsList", selectDumbbell); // data save
-			System.out.println(selectDumbbell);
 			request.getRequestDispatcher("/views/jsp/healthGoods/allListHealthGoods.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("views/jsp/error.jsp");
