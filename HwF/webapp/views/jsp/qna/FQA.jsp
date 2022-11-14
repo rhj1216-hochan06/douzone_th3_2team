@@ -350,7 +350,7 @@
 					<!-- end cs-down -->
 
 					<div class="company_i">
-						<li class="utilMenu"><a href='./views/jsp/etc/policy.jsp'">이용약관</onclick></li>
+						<li class="utilMenu"><a href='${path}//views/jsp/etc/policy.jsp'">이용약관</onclick></li>
 						<p></p>
 					</div>
 					<!-- end company_i -->

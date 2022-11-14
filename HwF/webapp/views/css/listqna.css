@@ -9,7 +9,6 @@ body{
 	margin: 0;
 } 
  */
- 
 .container {
 	display: grid;
 	grid-template-columns: 20% 1fr;
@@ -116,6 +115,10 @@ a.button {
 	width: 13rem;
 }
 
-.columnClass select{
+.columnClass select {
 	width: 8rem;
+}
+
+#s1, #s2, #s3, #s4, #s7 {
+	display: none;
 }

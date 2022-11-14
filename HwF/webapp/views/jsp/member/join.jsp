@@ -14,11 +14,13 @@
 <%-- <script type="text/javascript" src="${path}/views/js/all.js"></script> --%>
 <script type="text/javascript" src="${path}/views/js/Join.js"></script>
 
+<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate2.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
-<title>join</title>
+<title>회원가입 페이지</title>
 </head>
 
 <body>
@@ -158,10 +160,10 @@
 				<th colspan="2">문의</th>
 				<tr>
 					<td><a href="${path}/views/jsp/qna/FQA.jsp">
-							<h1>FQA</h1> <img src="${path}/views/img/vitamin.png" />
+							<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 					</a></td>
 					<td><a href="board?cmd=list">
-							<h1>1:1 문의</h1> <img src="${path}/views/img/protein.png" />
+							<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
 				</tr>
 			</table>
