@@ -388,10 +388,10 @@ public class MemberController extends HttpServlet {
 		if (currentintke.equals("1")) {
 			currentintke = "과다";
 			session.setAttribute("currentintke", currentintke);
-		} else if (currentstate.equals("2")) {
+		} else if (currentintke.equals("2")) {
 			currentintke = "정상";
 			session.setAttribute("currentintke", currentintke);
-		} else if (currentstate.equals("3")) {
+		} else if (currentintke.equals("3")) {
 			currentintke = "부족";
 			session.setAttribute("currentintke", currentintke);
 		}
@@ -619,37 +619,34 @@ public class MemberController extends HttpServlet {
 	}
 
 	// membersearch - 고객 1:1 문의 게시글
-	public void membersearch(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 컬럼명
-
-		HttpSession session;
-		session = request.getSession();
-
-		session.setMaxInactiveInterval(20 * 60);
-		String memberid = session.getAttribute("memberid").toString();
-
-		String column = "memberid";
-		String keyvalue = memberid;
-		System.out.println("column : " + column);
-		System.out.println("keyvalue : " + memberid);
-		System.out.println(column + " / " + keyvalue);
-
-		Map<String, String> map = new HashMap<>();
-		map.put("column", column);
-		map.put("keyvalue", keyvalue);
-
-		QnaDAO dao = new QnaDAO();
-
-		List<QnaDTO> list = dao.getSearchList(map);
-		if (list != null) {
-			request.setAttribute("list", list);
-
-			System.out.println("list : " + list);
-			request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
-		} else {
-			response.sendRedirect("views/error.jsp");
-
+	public void membersearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			HttpSession session;
+			session = request.getSession();
+	
+			session.setMaxInactiveInterval(20 * 60);
+			String memberid = session.getAttribute("memberid").toString();
+	
+			String column = "memberid";
+			String keyvalue = memberid;
+	
+			Map<String, String> map = new HashMap<>();
+			map.put("column", column);
+			map.put("keyvalue", keyvalue);
+	
+			QnaDAO dao = new QnaDAO();
+	
+			List<QnaDTO> list = dao.getSearchList(map);
+			if (list != null) {
+				request.setAttribute("list", list);
+				request.getRequestDispatcher("/views/jsp/qna/list.jsp").forward(request, response);
+			} else {
+				response.sendRedirect("views/error.jsp");
+			}
+			
+		} catch (Exception e) {
+			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 	}
 
