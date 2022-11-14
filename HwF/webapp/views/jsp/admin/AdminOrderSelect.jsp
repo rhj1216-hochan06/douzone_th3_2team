@@ -49,9 +49,9 @@
 					<th>주문번호</th>
 					<th>회원id</th>
 					<th>구매가격</th>
-					<th>결제방식</th>
+					<!-- <th>결제방식</th> -->
 					<th>결제날짜</th>
-					<th>구매갯수</th>
+					<!-- <th>구매갯수</th> -->
 					
 					<th>헬스용품id</th>
 					<th>헬스식품id</th>	
@@ -67,9 +67,9 @@
 						<td>${ AdminOrderSelect.purchaseId  }</td>
 						<td>${ AdminOrderSelect.memberID }</td>
 						<td>${ AdminOrderSelect.purchasePrice }원</td>
-						<td>${ AdminOrderSelect.purchaseMethod }</td>
+						<%-- <td>${ AdminOrderSelect.purchaseMethod }</td> --%>
 						<td>${ AdminOrderSelect.purchaseDate }</td>
-						<td class="purchaseNum">${ AdminOrderSelect.purchaseNum }</td>	
+						<%-- <td class="purchaseNum">${ AdminOrderSelect.purchaseNum }</td>	 --%>
 												
 						<td>${ AdminOrderSelect.healthgoodsID }</td>
 						<td>${ AdminOrderSelect.hfid }</td>		

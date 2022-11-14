@@ -60,6 +60,7 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	
 	// 영양제 장바구니에 담기
 	public void insertCart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -69,10 +70,7 @@ public class CartController extends HttpServlet {
 		try {
 			HttpSession session;
 			session = request.getSession();
-
 			cusId = session.getAttribute("memberid").toString(); // 고객 id
-
-			System.out.println(cusId);
 
 			if (cusId.equals("")) {
 				throw new Exception();
@@ -101,9 +99,7 @@ public class CartController extends HttpServlet {
 		List<NutrientsDTO> list = nutrdao.selectdetail(Integer.parseInt(productId)); // 영앙제 정보
 
 		CartDAO cartdao = new CartDAO();
-
-		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
-				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
+		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(), Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
 
 		cartdao.insertData(cartDto);
 
@@ -118,6 +114,8 @@ public class CartController extends HttpServlet {
 			} else {
 				continue;
 			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
 		} // end for
 
 		if (cartsearchDto != null) {
@@ -128,6 +126,7 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	
 	// 영양제 장바구니에 담기
 	public void insertbottleCart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -137,7 +136,6 @@ public class CartController extends HttpServlet {
 		try {
 			HttpSession session;
 			session = request.getSession();
-
 			cusId = session.getAttribute("memberid").toString(); // 고객 id
 
 			if (cusId.equals("")) {
@@ -147,6 +145,7 @@ public class CartController extends HttpServlet {
 		} catch (Exception e) {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
+		
 		String productId = request.getParameter("hiddenid"); // 제품 아이디 번호
 		String totalPrice = request.getParameter("total"); // 총 가격
 		String totalCount = request.getParameter("countnum"); // 총 수량
@@ -167,8 +166,7 @@ public class CartController extends HttpServlet {
 		List<NutrientsDTO> list = nutrdao.selectdetail(Integer.parseInt(productId)); // 영앙제 정보
 
 		CartDAO cartdao = new CartDAO();
-		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(),
-				Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
+		CartDTO cartDto = new CartDTO(cusId, productId, list.get(0).getNutrientsName(), list.get(0).getNutrientsIMG(), Integer.parseInt(totalPrice), n, selectGetDay, finishDay);
 
 		cartdao.insertData(cartDto);
 
@@ -180,10 +178,11 @@ public class CartController extends HttpServlet {
 					i.setReservation("한번에 받기");
 				} else
 					i.setReservation("나눠서 받기");
-
 			} else {
 				continue;
 			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
 		} // end for
 
 		if (cartsearchDto != null) {
@@ -194,6 +193,7 @@ public class CartController extends HttpServlet {
 		}
 
 	}
+	
 
 	// 헬스용품 장바구니에 담기
 	public void healthGoodsInsertCart(HttpServletRequest request, HttpServletResponse response)
@@ -206,8 +206,6 @@ public class CartController extends HttpServlet {
 			session = request.getSession();
 			cusId = session.getAttribute("memberid").toString(); // 고객 id
 
-			System.out.println("고객 id : " + cusId);
-
 			if (cusId.equals("")) {
 				throw new Exception();
 			}
@@ -216,22 +214,33 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 
-//		String productsId = request.getParameter("hiddenid"); //제품번호
 		String productsId = request.getParameter("healthGoodsId"); // 제품번호
 		System.out.println(productsId);
 		String productsPrice = request.getParameter("onetotal"); // 총 가격
 
 		HealthGoodsDAO dao = new HealthGoodsDAO();
 		List<HealthGoodsDTO> list = dao.healthGoodsDetail(Integer.parseInt(productsId));
-//		System.out.println(list); //[] 출력
 
 		CartDAO cartdao = new CartDAO();
-		CartDTO cartDto = new CartDTO(cusId, productsId, list.get(0).getHealthGoodsName(),
-				list.get(0).getHealthGoodsImg(), Integer.parseInt(productsPrice));
+		CartDTO cartDto = new CartDTO(cusId, productsId, list.get(0).getHealthGoodsName(), list.get(0).getHealthGoodsImg(), Integer.parseInt(productsPrice));
 		cartdao.insertDataExcept(cartDto);
 
 		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
 
+		for (CartDTO i : cartsearchDto) {
+			if (i.getReservation() != null) {
+				if (i.getReservation().equals("1")) {
+					i.setReservation("한번에 받기");				
+				} else
+					i.setReservation("나눠서 받기");
+			} else {
+				continue;
+			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
+		} // end for
+		
+		
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
@@ -239,6 +248,7 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/Main.jsp").forward(request, response);
 		}
 	}
+	
 
 	// 헬스식품 장바구니에 담기
 	public void healthFoodInsertCart(HttpServletRequest request, HttpServletResponse response)
@@ -251,8 +261,6 @@ public class CartController extends HttpServlet {
 			session = request.getSession();
 			cusId = session.getAttribute("memberid").toString(); // 고객 id
 
-			System.out.println("고객 id : " + cusId);
-
 			if (cusId.equals("")) {
 				throw new Exception();
 			}
@@ -261,14 +269,11 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/member/login.jsp").forward(request, response);
 		}
 
-//		String productsId = request.getParameter("hiddenid"); //제품번호
 		String productsId = request.getParameter("hfid"); // 제품번호
-		System.out.println(productsId);
 		String productsPrice = request.getParameter("onetotal"); // 총 가격
 
 		HealthFoodDAO dao = new HealthFoodDAO();
 		List<HealthFoodDTO> list = dao.healthFoodDetail(Integer.parseInt(productsId));
-//		System.out.println(list); //[] 출력
 
 		CartDAO cartdao = new CartDAO();
 		CartDTO cartDto = new CartDTO(cusId, productsId, list.get(0).getHfName(), list.get(0).getHfIMG(),
@@ -277,6 +282,19 @@ public class CartController extends HttpServlet {
 
 		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
 
+		for (CartDTO i : cartsearchDto) {
+			if (i.getReservation() != null) {
+				if (i.getReservation().equals("1")) {
+					i.setReservation("한번에 받기");	
+				} else
+					i.setReservation("나눠서 받기");
+			} else {
+				continue;
+			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
+		} // end for
+		
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
@@ -285,6 +303,7 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	
 	// 장바구니에서 '삭제' 버튼 클릭시
 	public void deleteSelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -299,7 +318,6 @@ public class CartController extends HttpServlet {
 
 		HttpSession session;
 		session = request.getSession();
-
 		String cusId = session.getAttribute("memberid").toString();
 
 		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
@@ -313,6 +331,8 @@ public class CartController extends HttpServlet {
 			} else {
 				continue;
 			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
 		} // end for
 
 		if (cartsearchDto != null) {
@@ -323,12 +343,12 @@ public class CartController extends HttpServlet {
 		}
 	}
 
+	
 	// 장바구니에서 '카카오페이 구매' 버튼 클릭시
 	public void purchase(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String id = request.getParameter("id");
-
 		String[] idarr = id.split(",");
 
 		CartDAO cartdao = new CartDAO();
@@ -337,7 +357,6 @@ public class CartController extends HttpServlet {
 
 		for (int i = 0; i < idarr.length; i++) {
 			List<CartDTO> searchPriceDto = cartdao.selectPrice(Integer.parseInt(idarr[i]));
-
 			price += searchPriceDto.get(0).getProductsPrice();
 
 		}
@@ -347,19 +366,17 @@ public class CartController extends HttpServlet {
 		session.setMaxInactiveInterval(20 * 60);
 
 		session.setAttribute("cartId", id);
-
 		request.setAttribute("totalPrice", price);
-
 		request.getRequestDispatcher("/views/jsp/cart/kakaopay.jsp").forward(request, response);
 
 	}
 
+	
 	// 장바구니에서 '신용카드 구매' 버튼 클릭시
 	public void creditpurchase(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String id = request.getParameter("id");
-
 		String[] idarr = id.split(",");
 
 		CartDAO cartdao = new CartDAO();
@@ -368,7 +385,6 @@ public class CartController extends HttpServlet {
 
 		for (int i = 0; i < idarr.length; i++) {
 			List<CartDTO> searchPriceDto = cartdao.selectPrice(Integer.parseInt(idarr[i]));
-
 			price += searchPriceDto.get(0).getProductsPrice();
 
 		}
@@ -376,35 +392,30 @@ public class CartController extends HttpServlet {
 		HttpSession session;
 		session = request.getSession();
 		session.setMaxInactiveInterval(20 * 60);
-
 		session.setAttribute("cartId", id);
-
 		request.setAttribute("totalPrice", price);
-
 		request.getRequestDispatcher("/views/jsp/cart/creditcard.jsp").forward(request, response);
 
 	}
 
+	
 	// 결제 성공시
 	public void success(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session;
 		session = request.getSession();
-
 		String cusId = session.getAttribute("memberid").toString(); // 고객 id
-
 		String[] idarr = session.getAttribute("cartId").toString().split(","); // id 배열
 
 		CartDAO cartdao = new CartDAO();
 
 		HealthFoodDAO healthfooddao = new HealthFoodDAO();
-
 		HealthGoodsDAO healthgoodsdao = new HealthGoodsDAO();
-
 		PurchaseDAO purchasedao = new PurchaseDAO();
 		PurchaseDTO purchasedto;
 
 		for (int i = 0; i < idarr.length; i++) {
+			
 			// 장바구니 cartId로 조회
 			List<CartDTO> searchPriceDto = cartdao.selectPrice(Integer.parseInt(idarr[i]));
 			String memberid = searchPriceDto.get(0).getMemberId(); // 회원 id
@@ -415,6 +426,7 @@ public class CartController extends HttpServlet {
 			int num = Integer.parseInt(searchPriceDto.get(0).getProductsId().substring(0, 1));
 
 			switch (num) {
+			
 			case 3: // 영양제
 
 				// 수령 방식
@@ -422,7 +434,8 @@ public class CartController extends HttpServlet {
 
 				// 수령시작날짜
 				String selectGetDay = searchPriceDto.get(0).getPurchasetime().substring(0, 10);
-				// 수령 기간 -- > 끝나는 날짜에서 시작 날짜뺴야 함
+				
+				// 수령 기간 -- > 끝나는 날짜에서 시작 날짜 빼야 함
 				LocalDate selectGetDate = LocalDate.parse(selectGetDay);
 				LocalDate finishDay = LocalDate.parse(searchPriceDto.get(0).getEndtime().substring(0, 10));
 
@@ -476,6 +489,7 @@ public class CartController extends HttpServlet {
 
 		request.getRequestDispatcher("/views/jsp/cart/purchaseSuccess.jsp").forward(request, response);
 	}
+	
 
 	// 결제 실패시
 	public void fail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -483,17 +497,22 @@ public class CartController extends HttpServlet {
 
 		HttpSession session;
 		session = request.getSession();
-
 		String cusId = session.getAttribute("memberid").toString();
 
 		List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
 
 		for (CartDTO i : cartsearchDto) {
-			if (i.getReservation().equals("1")) {
-				i.setReservation("한번에 받기");
-			} else
-				i.setReservation("나눠서 받기");
-		}
+			if (i.getReservation() != null) {
+				if (i.getReservation().equals("1")) {
+					i.setReservation("한번에 받기");
+				} else
+					i.setReservation("나눠서 받기");
+			} else {
+				continue;
+			}
+			i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+			i.setEndtime(i.getEndtime().substring(2, 10));
+		} // end for
 
 		if (cartsearchDto != null) {
 			request.setAttribute("cartList", cartsearchDto);
@@ -502,6 +521,7 @@ public class CartController extends HttpServlet {
 			request.getRequestDispatcher("/views/jsp/cart/basket.jsp").forward(request, response);
 		}
 	}
+	
 
 	// 장바구니 바로 가기
 	public void gobasket(HttpServletRequest request, HttpServletResponse response)
@@ -512,17 +532,22 @@ public class CartController extends HttpServlet {
 
 			HttpSession session;
 			session = request.getSession();
-			// 고객 id
 			String cusId = session.getAttribute("memberid").toString();
 
 			List<CartDTO> cartsearchDto = cartdao.selectcartall(cusId);
 
 			for (CartDTO i : cartsearchDto) {
-				if (i.getReservation().equals("1")) {
-					i.setReservation("한번에 받기");
-				} else
-					i.setReservation("나눠서 받기");
-			}
+				if (i.getReservation() != null) {
+					if (i.getReservation().equals("1")) {
+						i.setReservation("한번에 받기");
+					} else
+						i.setReservation("나눠서 받기");
+				} else {
+					continue;
+				}
+				i.setPurchasetime(i.getPurchasetime().substring(2, 10));
+				i.setEndtime(i.getEndtime().substring(2, 10));
+			} // end for
 
 			if (cartsearchDto != null) {
 				request.setAttribute("cartList", cartsearchDto);

@@ -1,16 +1,4 @@
-/* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 22rem;
-    height: 100vh;
-    background-color: #ccd8ed; */
-    
-@import
+/* @import
 	url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 
 html {
@@ -39,7 +27,22 @@ header div div {
 }
 
 header div img {
+	width: 11rem;
+}
+
+#loginimg {
+	position: absolute;
+	right: 10%;
+}
+
+#loginimg a:nth-child(1) img {
 	width: 7rem;
+	cursor: pointer;
+}
+
+#loginimg a:nth-child(2) img {
+	width: 5rem;
+	cursor: pointer;
 }
 
 nav {
@@ -68,7 +71,7 @@ header nav table {
 	border: 1px solid black;
 	width: 80rem;
 	height: 5rem;
-}
+} 
 
 header nav table td:hover {
 	background-color: #808080;
@@ -84,7 +87,7 @@ header nav table td {
 header nav table img {
 	width: 10rem;
 	height: 4.5rem;
-}
+} */
 
 #selectList {
 	display: flex;

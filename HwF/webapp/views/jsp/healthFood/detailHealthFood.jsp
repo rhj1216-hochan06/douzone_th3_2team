@@ -10,9 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
-<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/MainCss.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/allList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="${path}/views/js/healthFoodJS.js"></script>

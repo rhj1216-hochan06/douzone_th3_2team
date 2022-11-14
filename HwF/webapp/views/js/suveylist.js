@@ -17,7 +17,7 @@ function submitDelete(frm) {
 
 const change = (choice) => {
 	const parentElem = document.getElementById("selectList");
-	document.getElementById("surveybody").style.display = "none";
+	document.getElementById("con").style.display = "none";
 
 	for (let i = 0; i < parentElem.childNodes.length; i++) {
 		let childElem = parentElem.childNodes[i];

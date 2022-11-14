@@ -11,7 +11,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/detailnutrients.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="${path}/views/js/nutr.js"></script>
@@ -304,9 +306,8 @@
 						<p />
 						<p />
 
-						<input type="submit" id="bottlebasket" class="calculation"
-							value="장바구니"> <input type='button'
-							onclick="selectnudate2()" class="calculation" value='날짜 선택' />
+						<input type="submit" id="bottlebasket" class="calculation" value="장바구니"> 
+						<input type='button' onclick="selectnudate2()" class="calculation" value='날짜 선택' />
 
 
 

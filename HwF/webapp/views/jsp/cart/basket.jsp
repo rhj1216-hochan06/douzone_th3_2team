@@ -11,7 +11,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<link rel="stylesheet" type="text/css" href="${path}/views/css/header.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/basketList.css" />
+<link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="${path}/views/js/basket.js"></script>
@@ -253,11 +255,13 @@
 					<td colspan="6"><input type="text" id="hiddenid" name="hiddenid" value="0" />
 						<p /> 총가격 : <a id="purchasetotalprice">0</a>원
 
-						<p /> <input type="button" id="cartchecked" value="신용카드 구매" onclick="callcreditpurchase()" /> 
-						<input type="button" id="cartchecked" value="카카오페이 구매" onclick="callpurchase()" /></td>
+						<p /> 
+						<button class="custom-btn btn-12" onclick="callcreditpurchase()"><span>Click!</span><span>신용 카드</span></button>
+                        <button class="custom-btn btn-12" onclick="callpurchase()"><span>Click!</span><span>카카오 페이</span></button>
+						</td>
 
 					<td>
-						<input type="submit" id="cartchecked" name="deletecheck" value="삭제" />
+						<input type="submit" id="cartchecked" name="deletecheck" value="삭제">
 					</td>
 				</tr>
 			</table>
