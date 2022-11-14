@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="${path}/views/css/memberTemplate2.css" />
 <link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
-<script type="text/javascript" src="${path}/views/js/suveylist.js"></script>
+<script type="text/javascript" src="${path}/views/js/inbodylist.js"></script>
 
 <title>인바디 내역 조회 페이지</title>
 </head>

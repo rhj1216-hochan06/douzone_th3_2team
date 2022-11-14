@@ -245,7 +245,7 @@ th {
 						</select> <input type="text" name="keyvalue" value="" placeholder="Search">
 						<a id="cl" title="Button border lightblue"
 							class="button btnFloat btnLightBlue"
-							href="./views/jsp/qna/writeform.jsp">글쓰기</a>
+							href="${path}/views/jsp/qna/writeform.jsp">글쓰기</a>
 					</div>
 
 					<table class="qnatable" cellpadding="3">
