@@ -52,6 +52,24 @@ public class PurchaseDAO {
 			}
 		}
 	}
+	
+//	// 관리자 - 헬스용품 주문내역 조회
+//	public List<PurchaseDTO> HealthGoodsOrderSelect() {
+//		try {
+//			sqlSession = sqlSessionFactory.openSession();
+//
+//			return sqlSession.selectList("adminMapper.HealthGoodsOrderSelect");
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return null;
+//
+//		} finally {
+//			if (sqlSession != null) {
+//				sqlSession.close();
+//			}
+//		}
+//	}	
 
 	// 헬스용품 구매
 	public int purchaseGoods(PurchaseDTO dto) {

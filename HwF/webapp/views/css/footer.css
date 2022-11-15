@@ -48,6 +48,14 @@ li {
 	list-style: none;
 }
 
+/* li .title {
+	margin-left:20px;
+}
+
+li .info {
+	padding-right:50px;
+} */
+
 .xans-layout-footer .utilMenu {
 	display: block !important;
 	padding: 1px 10px 0 0 !important;

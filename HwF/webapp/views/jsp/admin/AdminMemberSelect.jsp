@@ -21,9 +21,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> 
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -41,20 +41,20 @@
 		</div>
 		
 		<div class="contentBottom">	
-			<br><br><br><br><br><br>
+			<br><br><br>
+			
+			<h3>[회원 관리]</h3> <br>
 			
 			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
 				<tr class="tableTitle">
-					<th>아이디</th>
-					<!-- <th>비번</th> -->
-					<th>이름</th>
-					<th>성별</th>
+					<th>회원 ID</th>
+					<th>회원 이름</th>
+					<th>회원 성별</th>
 				</tr>
 		
 				<c:forEach var="AdminMemberSelect" items="${ AdminMemberSelect }">
-					<tr>
+					<tr class="row">
 						<td>${ AdminMemberSelect.memberid }</td>
-						<%-- <td>${ AdminMemberSelect.memberpwd }</td> --%>
 						<td>${ AdminMemberSelect.membername }</td>
 						<td>${ AdminMemberSelect.membersex }</td>
 					</tr>
@@ -66,8 +66,14 @@
 		
 	</div> <!-- end content -->
 
+
+
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>

@@ -11,7 +11,7 @@ function send(){
 	
 	// 이름
 	if(! /^[\uac00-\ud7a3]*$/g.test(f.name.value)){ //g: 완전일치, ^앞 $뒤 *0개이상, uac00~ud7a3은 한글 코드값  , gi대소문자 구분없이 완전일치
-		alert("이름을 입력하세요.");
+		alert("이름을 한글로 입력하세요.");
 		f.name.focus();
 		check= 1;
 		return;

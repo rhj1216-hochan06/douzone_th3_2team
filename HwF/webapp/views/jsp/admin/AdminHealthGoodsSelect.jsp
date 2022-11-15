@@ -21,9 +21,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -44,10 +44,10 @@
 		
 			<br><br>
 			
-			<h3>헬스용품 관리</h3> <br>
+			<h3>[헬스용품 관리]</h3> <br>
 			
-				<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-					<tr>
+				<table border="1" width="1700" style="margin-left: auto; margin-right:auto;">
+					<tr class="tableTitle">
 						<th>번호</th>
 						<th>이름</th>
 						<th>가격</th>
@@ -81,7 +81,11 @@
 
 
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>

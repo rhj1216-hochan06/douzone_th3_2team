@@ -38,7 +38,7 @@
 			</div>
 		</div>
 
-		<nav>
+		<!-- <nav>
 			<form action="search?cmd=searching" method="post">
 				<p>
 					<input type="hidden" name="column"> 
@@ -57,7 +57,7 @@
 					<td id="7" onclick="change(this.id)">Community</td>
 				</tr>
 			</table>
-		</nav>
+		</nav> -->
 	</header>
 
 	

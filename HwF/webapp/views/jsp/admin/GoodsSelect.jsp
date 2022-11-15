@@ -21,9 +21,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -47,8 +47,8 @@
 			<details>
 			<summary><h3>헬스용품</h3></summary>
 			
-			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-				<tr>
+			<table border="1" width="1700" style="margin-left: auto; margin-right:auto;">
+				<tr class="tableTitle">
 					<th>번호</th>
 					<th>이름</th>
 					<th>가격</th>
@@ -59,7 +59,7 @@
 				</tr>
 		
 				<c:forEach var="HealthGoodsSelect" items="${ HealthGoodsSelect }">
-					<tr>
+					<tr class="row">
 						<td>${ HealthGoodsSelect.healthGoodsId }</td>
 						<td>${ HealthGoodsSelect.healthGoodsName }</td>
 						<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
@@ -79,8 +79,8 @@
 			<details>
 			<summary><h3>헬스식품</h3></summary>
 			
-			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-				<tr>
+			<table border="1" width="1500" style="margin-left: auto; margin-right:auto;">
+				<tr class="tableTitle">
 					<th>번호</th>
 					<th>이름</th>
 					<th>가격</th>
@@ -92,7 +92,7 @@
 				</tr>
 		
 				<c:forEach var="HealthFoodSelect" items="${ HealthFoodSelect }">
-					<tr>
+					<tr class="row">
 						<td>${ HealthFoodSelect.hfid }</td>
 						<td>${ HealthFoodSelect.hfName }</td>
 						<td>${ HealthFoodSelect.hfPrice }</td>
@@ -113,8 +113,8 @@
 			<details>
 			<summary><h3>영양제</h3></summary>
 			
-			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-				<tr>
+			<table border="1" width="2200" style="margin-left: auto; margin-right:auto;">
+				<tr class="tableTitle">
 					<th>번호</th>
 					<th>이름</th>
 					<th>가격</th>
@@ -129,7 +129,7 @@
 				</tr>
 		
 				<c:forEach var="NutrientsSelect" items="${ NutrientsSelect }">
-					<tr>
+					<tr class="row">
 						<td>${ NutrientsSelect.nutrientsID }</td>
 						<td>${ NutrientsSelect.nutrientsName }</td>
 						<td>${ NutrientsSelect.nutrientsPrice }</td>
@@ -157,7 +157,11 @@
 
 
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>
