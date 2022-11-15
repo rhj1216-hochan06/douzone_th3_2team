@@ -62,7 +62,7 @@
 						onclick="location.href='admin?cmd=AdminHealthGoodsDetail&healthGoodsId=${AdminHealthGoodsSelect.healthGoodsId}'" >
 							<td>${ AdminHealthGoodsSelect.healthGoodsId }</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsName }</td>
-							<td>${ AdminHealthGoodsSelect.healthGoodsPrice }</td>
+							<td>${ AdminHealthGoodsSelect.healthGoodsPrice }원</td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsCategory }</td>
 							<td><img src="${ AdminHealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 							<td>${ AdminHealthGoodsSelect.healthGoodsDetail }</td>

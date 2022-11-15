@@ -40,7 +40,7 @@
 		</div>
 		
 		<div class="contentBottom">
-			<br><br><br><br><br>
+			<br><br>
 			
 			<a href="javascript:location.href='admin?cmd=AdminMemberSelect'"><img src="${path}/views/img/IconMemberSelect.png" alt="회원 조회" style="width: 150px; height: 150px"><span>회원 조회</span></a>
 
@@ -56,7 +56,7 @@
 			
 			<%-- <a href="javascript:location.href='admin?cmd=AdminStock'"><img src="${path}/views/img/IconStock.png" alt="재고 현황" style="width: 150px; height: 150px"><span>재고 현황</span></a> --%>
 			
-			<br><br><br><br><br>
+			<br><br>
 		</div>
 		
 		<!-- footer -->

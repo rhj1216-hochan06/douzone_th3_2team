@@ -66,7 +66,7 @@
 						onclick="location.href='admin?cmd=AdminNutrientsDetail&nutrientsID=${AdminNutrientsSelect.nutrientsID}'" >
 						<td>${ AdminNutrientsSelect.nutrientsID }</td>
 						<td>${ AdminNutrientsSelect.nutrientsName }</td>
-						<td>${ AdminNutrientsSelect.nutrientsPrice }</td>
+						<td>${ AdminNutrientsSelect.nutrientsPrice }원</td>
 						<td>${ AdminNutrientsSelect.nutrientsCategory }</td>
 						<td><img src="${ AdminNutrientsSelect.nutrientsIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminNutrientsSelect.nutrientsDetail }</td>

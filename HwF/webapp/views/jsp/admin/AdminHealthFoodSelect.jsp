@@ -63,7 +63,7 @@
 						onclick="location.href='admin?cmd=AdminHealthFoodDetail&hfid=${AdminHealthFoodSelect.hfid}'" >
 						<td>${ AdminHealthFoodSelect.hfid }</td>
 						<td>${ AdminHealthFoodSelect.hfName }</td>
-						<td>${ AdminHealthFoodSelect.hfPrice }</td>
+						<td>${ AdminHealthFoodSelect.hfPrice }원</td>
 						<td>${ AdminHealthFoodSelect.hfCategory }</td>
 						<td><img src="${ AdminHealthFoodSelect.hfIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminHealthFoodSelect.hfDetail }</td>

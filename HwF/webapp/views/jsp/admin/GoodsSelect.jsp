@@ -62,7 +62,7 @@
 					<tr class="row">
 						<td>${ HealthGoodsSelect.healthGoodsId }</td>
 						<td>${ HealthGoodsSelect.healthGoodsName }</td>
-						<td>${ HealthGoodsSelect.healthGoodsPrice }</td>
+						<td>${ HealthGoodsSelect.healthGoodsPrice }원</td>
 						<td>${ HealthGoodsSelect.healthGoodsCategory }</td>
 						<td><img src="${ HealthGoodsSelect.healthGoodsImg }" style="width: 100px; height: 100px"/></td>
 						<td>${ HealthGoodsSelect.healthGoodsDetail }</td>
@@ -95,7 +95,7 @@
 					<tr class="row">
 						<td>${ HealthFoodSelect.hfid }</td>
 						<td>${ HealthFoodSelect.hfName }</td>
-						<td>${ HealthFoodSelect.hfPrice }</td>
+						<td>${ HealthFoodSelect.hfPrice }원</td>
 						<td>${ HealthFoodSelect.hfCategory }</td>
 						<td><img src="${ HealthFoodSelect.hfIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ HealthFoodSelect.hfDetail }</td>
@@ -113,7 +113,7 @@
 			<details>
 			<summary><h3>영양제</h3></summary>
 			
-			<table border="1" width="2200" style="margin-left: auto; margin-right:auto;">
+			<table border="1" width="1850" style="margin-left: auto; margin-right:auto;">
 				<tr class="tableTitle">
 					<th>번호</th>
 					<th>이름</th>
@@ -132,7 +132,7 @@
 					<tr class="row">
 						<td>${ NutrientsSelect.nutrientsID }</td>
 						<td>${ NutrientsSelect.nutrientsName }</td>
-						<td>${ NutrientsSelect.nutrientsPrice }</td>
+						<td>${ NutrientsSelect.nutrientsPrice }원</td>
 						<td>${ NutrientsSelect.nutrientsCategory }</td>
 						<td><img src="${ NutrientsSelect.nutrientsIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ NutrientsSelect.nutrientsDetail }</td>

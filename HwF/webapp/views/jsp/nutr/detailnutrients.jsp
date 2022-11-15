@@ -160,7 +160,7 @@
 						</a>
 					</td>
 					<td>
-						<a href="board?cmd=list">
+						<a href="Member?cmd=membersearch">
 						<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 						</a>
 					</td>
