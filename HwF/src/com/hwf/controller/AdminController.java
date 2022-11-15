@@ -93,11 +93,20 @@ public class AdminController extends HttpServlet {
 		}
 
 		// 주문 조회
-		else if (cmd.equals("AdminOrderSelect")) { // 관리자) 주문 조회
+		else if (cmd.equals("AdminOrderSelect")) { // 관리자) 전체 주문 조회
 			AdminOrderSelect(request, response);
 		}
-
-		// 고객 문의(QnA)
+//		else if (cmd.equals("HealthGoodsOrderSelect")) { // 관리자) 헬스용품 주문 조회
+//			HealthGoodsOrderSelect(request, response);
+//		}
+//		else if (cmd.equals("HealthGoodsOrderSelect")) { // 관리자) 헬스식품 주문 조회
+//			HealthGoodsOrderSelect(request, response);
+//		}
+//		else if (cmd.equals("HealthGoodsOrderSelect")) { // 관리자) 영양제 주문 조회
+//			HealthGoodsOrderSelect(request, response);
+//		}
+		
+		// 고객 문의 (QnA)
 		else if (cmd.equals("AdminQnA")) { // 관리자) Qna 리스트 출력
 			AdminQnA(request, response);
 		} else if (cmd.equals("AdminDetail")) { // 관리자) Qnaid 값 선택해서 리스트 출력
@@ -502,7 +511,7 @@ public class AdminController extends HttpServlet {
 
 	/*************** 주문 조회 ***************/
 
-	// 관리자) 주문 조회
+	// 관리자) 전체 주문 조회
 	public void AdminOrderSelect(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -512,10 +521,26 @@ public class AdminController extends HttpServlet {
 		if (AdminOrderSelect != null) {
 			request.setAttribute("AdminOrderSelect", AdminOrderSelect);
 			request.getRequestDispatcher("/views/jsp/admin/AdminOrderSelect.jsp").forward(request, response);
+//			request.getRequestDispatcher("/views/jsp/admin/OrderSelect.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
 	}
+	
+//	// 관리자) 헬스용품 주문 조회
+//	public void HealthGoodsOrderSelect(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//
+//		PurchaseDAO dao = new PurchaseDAO();
+//		List<PurchaseDTO> HealthGoodsOrderSelect = dao.HealthGoodsOrderSelect();
+//
+//		if (HealthGoodsOrderSelect != null) {
+//			request.setAttribute("HealthGoodsOrderSelect", HealthGoodsOrderSelect);
+//			request.getRequestDispatcher("/views/jsp/admin/OrderSelect.jsp").forward(request, response);
+//		} else {
+//			response.sendRedirect("/views/jsp/error.jsp");
+//		}
+//	}
 
 	/*************** Q n A ***************/
 

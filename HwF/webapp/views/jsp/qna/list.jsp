@@ -216,7 +216,7 @@ th {
 					<td><a href="${path}/views/jsp/qna/FQA.jsp">
 							<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 					</a></td>
-					<td><a href="board?cmd=list">
+					<td><a href="Member?cmd=membersearch">
 							<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
 				</tr>
@@ -245,7 +245,7 @@ th {
 						</select> <input type="text" name="keyvalue" value="" placeholder="Search">
 						<a id="cl" title="Button border lightblue"
 							class="button btnFloat btnLightBlue"
-							href="${path}/views/jsp/qna/writeform.jsp">글쓰기</a>
+							href="./views/jsp/qna/writeform.jsp">글쓰기</a>
 					</div>
 
 					<table class="qnatable" cellpadding="3">

@@ -30,7 +30,7 @@
 				<a href="javascript:location.href='Main.jsp'"><img
 					src="${path}/views/img/logo.png" /></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 
 		<nav style="display: flex">
@@ -162,7 +162,7 @@
 					<td><a href="${path}/views/jsp/qna/FQA.jsp">
 							<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 					</a></td>
-					<td><a href="board?cmd=list">
+					<td><a href="Member?cmd=membersearch">
 							<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
 				</tr>
@@ -205,7 +205,67 @@
         	 <p style="color: red;" align="center">회원가입 실패! 이미 있는 아이디입니다.</p>
         </c:if>
 
-		<footer>회사 이름, 대표 이름 등등</footer>
+			<!-- footer -->
+	<footer>
+		<div id="footer">
+			<div class="xans-element- xans-layout xans-layout-footer footer_start ">
+
+				<div class="cs">
+					<div class="cs-down">
+					
+						<div class="cs_left">
+							<ul>
+								<li class="title">C/S<span></span>
+								</li>
+							</ul>
+							<ul class="cs_info">
+								<li class="tel">02-548-3339</li>
+								<li class="tel_time">AM 9:00 - PM 6:00 
+								<span>(주말 및 공휴일 휴무)</span>
+								</li>
+							</ul>
+						</div> <!-- end cs_left -->
+
+						<div class="company_pg">
+							<ul>
+								<li class="title">COMPANY</li>
+							</ul>
+							<div class="inner2">
+								<li class="info">
+									<span>상호 <span>(주)레스트롱</span></span> <br>
+									<span>대표<span class="han">000</span></span> <br>
+									<span>사업자등록번호<span>123-98-05123</span></span> <br> 
+									<span>통신판매업 신고<span>2022-서울종로-0500</span></span> <br>
+									<span>전화 <span>02-517-1470</span></span> <br>
+									<span>주소 <span> 서울 종로구 창경궁로 254 7층</span></span> <br>
+								</li>
+							</div>
+						</div> <!-- end company_pg -->
+
+						<div class="cs_right">
+							<ul>
+								<li class="title">BANK</li>
+							</ul>
+							<li class="info">
+								<span class="han">국민은행</span> 
+								<span class="num">98760212341562</span><br> 
+								<span class="name">예금주 <strong> (주)000</strong></span>
+							</li>
+						</div> <!-- end cs_right -->
+						
+					</div> <!-- end cs-down -->
+
+					<div class="company_i">
+						<li class="utilMenu">
+							<a href='./views/jsp/etc/policy.jsp'">이용약관</onclick>
+						</li>
+						<p></p>
+					</div> <!-- end company_i -->
+		
+				</div> <!-- end cs -->
+			</div>
+		</div> <!-- end footer -->
+	</footer>
 </body>
 
 </html>

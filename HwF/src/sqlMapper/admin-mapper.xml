@@ -184,6 +184,8 @@
 
 
 	<!-- ***** 관리자) 주문 조회 ***** -->
+	
+	<!-- 관리자) 전체 주문 조회 -->
 	<select id="AdminOrderSelect" resultType="purchasedto">
 		<!-- select * from purchase -->
 		select purchaseId, memberId, purchaseNum, purchasePrice,
@@ -199,5 +201,13 @@
 		from purchase
 		order by purchaseId
 	</select>
+	
+	<!-- 관리자) 헬스용품 주문 조회 -->
+	<!-- <select id="HealthGoodsOrderSelect" resultType="purchasedto">>
+		select purchaseId, memberId, purchasePrice, healthgoodsId, purchaseDate
+		from purchase
+		where healthgoodsId is not null
+		order by purchaseId
+	</select> -->
 
 </mapper>

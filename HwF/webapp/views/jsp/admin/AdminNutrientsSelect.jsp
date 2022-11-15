@@ -21,9 +21,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -44,10 +44,10 @@
 		
 			<br><br>
 			
-			<h3>영양제 관리</h3> <br>
+			<h3>[영양제 관리]</h3> <br>
 			
-			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
-				<tr>
+			<table border="1" width="2200" style="margin-left: auto; margin-right:auto; ">
+				<tr class="tableTitle" >
 					<th>번호</th>
 					<th>이름</th>
 					<th>가격</th>
@@ -66,14 +66,14 @@
 						onclick="location.href='admin?cmd=AdminNutrientsDetail&nutrientsID=${AdminNutrientsSelect.nutrientsID}'" >
 						<td>${ AdminNutrientsSelect.nutrientsID }</td>
 						<td>${ AdminNutrientsSelect.nutrientsName }</td>
-						<td>${ AdminNutrientsSelect.nutrientsPrice }</td>
+						<td>${ AdminNutrientsSelect.nutrientsPrice }원</td>
 						<td>${ AdminNutrientsSelect.nutrientsCategory }</td>
 						<td><img src="${ AdminNutrientsSelect.nutrientsIMG }" style="width: 100px; height: 100px"/></td>
 						<td>${ AdminNutrientsSelect.nutrientsDetail }</td>
 						<td>${ AdminNutrientsSelect.nutrientsDOM }</td>
 						<td>${ AdminNutrientsSelect.dailyInTake }</td>
-						<td>${ AdminNutrientsSelect.numperbottle }</td>
-						<td>${ AdminNutrientsSelect.remainingNum }</td>
+						<td>${ AdminNutrientsSelect.numperbottle }개</td>
+						<td>${ AdminNutrientsSelect.remainingNum }개</td>
 						<td>${ AdminNutrientsSelect.link }</td>
 					</tr>
 				</c:forEach>
@@ -88,7 +88,11 @@
 
 
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>

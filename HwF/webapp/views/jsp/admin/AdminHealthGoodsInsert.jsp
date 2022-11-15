@@ -21,9 +21,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" />
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -42,7 +42,7 @@
 	
 		<div class="contentBottom">
 			<br>
-			<h3>헬스용품 등록</h3>
+			<h3>[헬스용품 등록]</h3>
 			
 			<form action="../../../admin?cmd=AdminHealthGoodsInsert" method="post">   <!-- http://localhost:8080/ HwF/admin?cmd=AdminHealthGoodsSelect -->
 				<table style="margin-left: auto; margin-right:auto;">
@@ -65,7 +65,11 @@
 
 
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>

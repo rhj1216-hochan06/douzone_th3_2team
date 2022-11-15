@@ -22,9 +22,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" /></a>
+				<a href="javascript:location.href='Main.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 
@@ -33,24 +33,22 @@
 	
 		<div class="contentTop">
 			<br><br>
-			<img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /> 
+			<a href="javascript:location.href='AdminMain.jsp'"><img class="contentTopImg" src="${path}/views/img/avataaars.svg" style="width: 100px; height: 100px" /></a>
 			<br><br>
 			<h1 class="contentTopText">관리자 [메인] 페이지</h1>
 			<br><br>
 		</div>
 		
 		<div class="contentBottom">
-			<br>
+			<br><br>
+			
 			<a href="javascript:location.href='admin?cmd=AdminMemberSelect'"><img src="${path}/views/img/IconMemberSelect.png" alt="회원 조회" style="width: 150px; height: 150px"><span>회원 조회</span></a>
 
 			<a href="javascript:location.href='views/jsp/admin/AdminGoodsSelect.jsp'"><img src="${path}/views/img/IconGoodsSelect.png" alt="상품 관리" style="width: 150px; height: 150px"><span>상품 관리</span></a>
 			
 			<a href="javascript:location.href='views/jsp/admin/AdminGoodsInsert.jsp'"><img src="${path}/views/img/IconGoodsInsert.png" alt="상품 등록" style="width: 150px; height: 150px"><span>상품 등록</span></a>
 			
-			<%-- <a href="javascript:location.href='views/jsp/admin/AdminGoodsUpdate.jsp'"><img src="${path}/views/img/IconGoodsUpdate.png" alt="상품 수정" style="width: 150px; height: 150px"><span>상품 수정</span></a> 
-			<a href="javascript:location.href='views/jsp/admin/AdminGoodsDelete.jsp'"><img src="${path}/views/img/IconGoodsDelete.png" alt="상품 삭제" style="width: 150px; height: 150px"><span>상품 삭제</span></a>  --%>
-			
-			<br><br><br>
+			<br><br><br><br><br>
 			
 			<a href="javascript:location.href='admin?cmd=AdminOrderSelect'"><img src="${path}/views/img/IconOrderSelect.png" alt="주문 조회" style="width: 150px; height: 150px"><span>주문 조회</span></a>
 			
@@ -61,10 +59,14 @@
 			<br><br>
 		</div>
 		
+		<!-- footer -->
+		<footer>
+			<div id="footerFirstDiv">
+				<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+			</div>
+		</footer>
+		
 	</div>
-
-	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
 
 </body>
 </html>

@@ -233,7 +233,7 @@
 					
 						<div class="cs_left">
 							<ul>
-								<li class="title">C/S<span></span>
+								<li class="title">C/S
 								</li>
 							</ul>
 							<ul class="cs_info">

@@ -77,13 +77,15 @@ th {
 				<table>
 					<th colspan="2">이달의 HOT & SALE 메뉴</th>
 					<tr>
-						<td onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30001'">
+						<td
+							onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30001'">
 							<img
 							src="https://img.danawa.com/prod_img/500000/426/012/img/2012426_1.jpg?shrink=330:330&_v=20210817132717"
 							width="200" , height="200" />
 							<h4>고려은단 비타민C 1000 600정</h4>
 						</td>
-						<td onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30002'">
+						<td
+							onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30002'">
 							<img
 							src="https://img.danawa.com/prod_img/500000/444/243/img/6243444_1.jpg?shrink=330:330&_v=20200626121658"
 							width="200" , height="200" />
@@ -91,13 +93,15 @@ th {
 						</td>
 					</tr>
 					<tr>
-						<td onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30003'">
+						<td
+							onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30003'">
 							<img
 							src="https://img.danawa.com/prod_img/500000/178/261/img/5261178_1.jpg?shrink=330:330&_v=20200618170729"
 							width="200" , height="200" />
 							<h4>BSN 신타6 초콜렛 밀크쉐이크 2.27kg</h4>
 						</td>
-						<td onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30007'">
+						<td
+							onclick="location.href='${path}/nutrients?cmd=nutrientsDetail30007'">
 							<img
 							src="https://img.danawa.com/prod_img/500000/566/871/img/17871566_2.jpg?shrink=500:500&_v=20220920155658"
 							width="200" , height="200" />
@@ -134,11 +138,13 @@ th {
 			<table>
 				<th colspan="4">헬스용품 카테고리</th>
 				<tr>
-					<td onclick="location.href='${path}/healthgoods?cmd=healthGoodsList'">
+					<td
+						onclick="location.href='${path}/healthgoods?cmd=healthGoodsList'">
 						<h1>전체</h1> <img src="${path}/views/img/IconHealthGoods.png"
 						style="width: 150px; height: 150px" />
 					</td>
-					<td onclick="location.href='${path}/healthgoods?cmd=selectDumbbell'">
+					<td
+						onclick="location.href='${path}/healthgoods?cmd=selectDumbbell'">
 						<h1>운동용품</h1> <img
 						src="${path}/views/img/IconHealthGoodsDumbbell.png"
 						style="width: 150px; height: 150px" />
@@ -209,7 +215,7 @@ th {
 					<td><a href="${path}/views/jsp/qna/FQA.jsp">
 							<h1>FQA</h1> <img src="${path}/views/img/IconFQA.png" />
 					</a></td>
-					<td><a href="board?cmd=list">
+					<td><a href="${path}/Member?cmd=membersearch">
 							<h1>1:1 문의</h1> <img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
 				</tr>
@@ -292,7 +298,8 @@ th {
 					<!-- end cs-down -->
 
 					<div class="company_i">
-						<li class="utilMenu"><a href='${path}/views/jsp/etc/policy.jsp'">이용약관</onclick></li>
+						<li class="utilMenu"><a
+							href='${path}/views/jsp/etc/policy.jsp'">이용약관</onclick></li>
 						<p></p>
 					</div>
 					<!-- end company_i -->

@@ -22,9 +22,9 @@
 	<header>
 		<div id="headerFirstDiv">
 			<div>
-				<img src="${path}/views/img/logo.png" /> 
+				<a href="javascript:location.href='AdminMain.jsp'"><img src="${path}/views/img/logo.png" style="width: 150px; height: 110px"/></a>
 			</div>
-			<div>홈페이지 제목 (팀명)</div>
+			<div>BE NATURAL</div>
 		</div>
 	</header>
 	
@@ -47,37 +47,33 @@
 			<table border="1" width="900" style="margin-left: auto; margin-right:auto;">
 				<tr class="tableTitle">
 					<th>주문번호</th>
-					<th>회원id</th>
+					<th>회원 ID</th>
 					<th>구매가격</th>
-					<!-- <th>결제방식</th> -->
-					<th>결제날짜</th>
-					<!-- <th>구매갯수</th> -->
 					
-					<th>헬스용품id</th>
-					<th>헬스식품id</th>	
-					<th>영양제id</th>	
+					<th>헬스용품 ID</th>
+					<th>헬스식품 ID</th>	
+					<th>영양제 ID</th>	
 					<th>복용기간</th>
 													
 					<th>수령방식</th>
 					<th>수령시작일</th>
+					<th>결제날짜</th>
 				</tr>
 		
 				<c:forEach var="AdminOrderSelect" items="${ AdminOrderSelect }">
-					<tr>
+					<tr class="row">
 						<td>${ AdminOrderSelect.purchaseId  }</td>
 						<td>${ AdminOrderSelect.memberID }</td>
 						<td>${ AdminOrderSelect.purchasePrice }원</td>
-						<%-- <td>${ AdminOrderSelect.purchaseMethod }</td> --%>
-						<td>${ AdminOrderSelect.purchaseDate }</td>
-						<%-- <td class="purchaseNum">${ AdminOrderSelect.purchaseNum }</td>	 --%>
 												
 						<td>${ AdminOrderSelect.healthgoodsID }</td>
 						<td>${ AdminOrderSelect.hfid }</td>		
-						<td>${ AdminOrderSelect.nutrientsID }</td>	
+						<td class="nutrientsID">${ AdminOrderSelect.nutrientsID }</td>	
 						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>		
 																				
-						<td>${ AdminOrderSelect.purchaseReceipt }</td>
-						<td>${ AdminOrderSelect.receiptStartDate }</td>				
+						<td class="purchaseReceipt">${ AdminOrderSelect.purchaseReceipt }</td>
+						<td class="receiptStartDate">${ AdminOrderSelect.receiptStartDate }</td>
+						<td>${ AdminOrderSelect.purchaseDate }</td>				
 					</tr>
 				</c:forEach>
 			</table>
@@ -87,8 +83,14 @@
 		
 	</div> <!-- end content -->
 
+
+
 	<!-- footer -->
-	<footer>회사 이름, 대표 이름 등등</footer>
+	<footer>
+		<div id="footerFirstDiv">
+			<div>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</div>
+		</div>
+	</footer>
 
 </body>
 </html>
