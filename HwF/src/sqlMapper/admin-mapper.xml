@@ -29,7 +29,7 @@
 		decode(healthGoodsCategory,1,'운동용품', 2,'벨트', 3,'장갑') as
 		healthGoodsCategory, healthGoodsImg, healthGoodsDetail, link
 		from healthgoods
-		order by healthGoodsId
+		order by healthGoodsId desc
 	</select>
 
 	<!-- 관리자) 헬스식품 전체 조회 -->
@@ -39,7 +39,7 @@
 		select hfId, hfName, hfPrice, decode(hfCategory,1,'음식', 2,'음료') as
 		hfCategory, hfImg, hfDetail, to_char(hfDom,'yy-mm-dd') as hfDom, link
 		from healthfood
-		order by hfId
+		order by hfId desc
 	</select>
 
 	<!-- 관리자) 영양제 전체 조회 -->
@@ -52,7 +52,7 @@
 		to_char(nutrientsDom,'yy-mm-dd') as nutrientsDom, dailyIntake,
 		numPerBottle, remainingNum, link
 		from nutrients
-		order by nutrientsId
+		order by nutrientsId desc
 
 	</select>
 
@@ -199,7 +199,7 @@
 		healthgoodsId, NVL(to_char(hfid),'-') as hfid,
 		NVL(to_char(nutrientsID),'-') as nutrientsID
 		from purchase
-		order by purchaseId
+		order by purchaseId desc
 	</select>
 	
 	<!-- 관리자) 헬스용품 주문 조회 -->
