@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="${path}/views/css/footer.css" />
 
 <script type="text/javascript" src="${path}/views/js/all.js"></script>
+<script type="text/javascript" src="${path}/views/js/OrderSelectJS.js"></script>
 
 <title>구매내역 조회 페이지</title>
 </head>
@@ -209,7 +210,7 @@
 							<h1>FQA</h1> 
 							<img src="${path}/views/img/IconFQA.png" />
 					</a></td>
-					<td><a href="board?cmd=list">
+					<td><a href="Member?cmd=membersearch">
 							<h1>1:1 문의</h1> 
 							<img src="${path}/views/img/IconOneToOne.png" />
 					</a></td>
@@ -220,34 +221,38 @@
 	</div>
 	<!-- end selectList -->
 	
+	<br><br><br>
+	
 	<table border="1" width="900" style="margin-left: auto; margin-right: auto;">
 		<tr class="tableTitle">
-			<th>회원id</th>
-			<th>구매번호</th>
-			<!-- <th>구매갯수</th> -->
+			<th>주문번호</th>
+			<th>회원 ID</th>
 			<th>구매가격</th>
-			<th>결제날짜</th>
-			<th>헬스용품id</th>
-			<th>헬스식품id</th>
-			<th>영양제id</th>
+			
+			<th>헬스용품 ID</th>
+			<th>헬스식품 ID</th>
+			<th>영양제 ID</th>
+			
+			<th>수령기간</th>
 			<th>수령방식</th>
 			<th>수령시작일</th>
-			<th>수령기간</th>
+			<th>결제날짜</th>
 		</tr>
 
 		<c:forEach var="PurchaseSelectMemberid" items="${PurchaseSelectMemberid}">
 			<tr>
-				<td>${ PurchaseSelectMemberid.memberID }</td>
 				<td>${ PurchaseSelectMemberid.purchaseId  }</td>
-				<%-- <td>${ PurchaseSelectMemberid.purchaseNum }개</td> --%>
+				<td>${ PurchaseSelectMemberid.memberID }</td>
 				<td>${ PurchaseSelectMemberid.purchasePrice }원</td>
-				<td>${ PurchaseSelectMemberid.purchaseDate }</td>
+				
 				<td>${ PurchaseSelectMemberid.healthgoodsID }</td>
 				<td>${ PurchaseSelectMemberid.hfid }</td>
-				<td>${ PurchaseSelectMemberid.nutrientsID }</td>				
-				<td>${ PurchaseSelectMemberid.purchaseReceipt }</td>
-				<td>${ PurchaseSelectMemberid.receiptStartDate }</td>
-				<td>${ PurchaseSelectMemberid.receiptPeriod }일</td>
+				<td class="nutrientsID">${ PurchaseSelectMemberid.nutrientsID }</td>
+				
+				<td class="receiptPeriod">${ PurchaseSelectMemberid.receiptPeriod }</td> <!-- 수령기간 -->		
+				<td class="purchaseReceipt">${ PurchaseSelectMemberid.purchaseReceipt }</td> <!-- 수령방식 -->
+				<td class="receiptStartDate">${ PurchaseSelectMemberid.receiptStartDate }</td> <!-- 수령시작일 -->
+				<td>${ PurchaseSelectMemberid.purchaseDate }</td> <!-- 결제날짜 -->
 			</tr>
 		</c:forEach>
 	</table>

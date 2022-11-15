@@ -69,8 +69,8 @@
 						<td>${ AdminOrderSelect.healthgoodsID }</td>
 						<td>${ AdminOrderSelect.hfid }</td>		
 						<td class="nutrientsID">${ AdminOrderSelect.nutrientsID }</td>	
-						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>		
-																				
+						
+						<td class="receiptPeriod">${ AdminOrderSelect.receiptPeriod }</td>	
 						<td class="purchaseReceipt">${ AdminOrderSelect.purchaseReceipt }</td>
 						<td class="receiptStartDate">${ AdminOrderSelect.receiptStartDate }</td>
 						<td>${ AdminOrderSelect.purchaseDate }</td>				
