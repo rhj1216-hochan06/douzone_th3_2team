@@ -17,3 +17,9 @@ https://zealous-loaf-1f0.notion.site/DB-112d26ba8ff24aa5930621c2fff187a7 <br>
 실행 법<br>
 webapp의 <br>
 Main.jsp파일을 실행하시면 됩니다.<br>
+
+
+관리자 페이지는 adminmain파일 실행하거나 로그인시 <br>
+아이디 : admin <br>
+비번 : oracle <br>
+ 로 접속하면 됩니다.
