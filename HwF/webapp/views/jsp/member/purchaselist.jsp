@@ -223,41 +223,45 @@
 	
 	<br><br><br>
 	
-	<table border="1" width="900" style="margin-left: auto; margin-right: auto;">
-		<tr class="tableTitle">
-			<th>주문번호</th>
-			<th>회원 ID</th>
-			<th>구매가격</th>
-			
-			<th>헬스용품 ID</th>
-			<th>헬스식품 ID</th>
-			<th>영양제 ID</th>
-			
-			<th>수령기간</th>
-			<th>수령방식</th>
-			<th>수령시작일</th>
-			<th>결제날짜</th>
-		</tr>
-
-		<c:forEach var="PurchaseSelectMemberid" items="${PurchaseSelectMemberid}">
-			<tr>
-				<td>${ PurchaseSelectMemberid.purchaseId  }</td>
-				<td>${ PurchaseSelectMemberid.memberID }</td>
-				<td>${ PurchaseSelectMemberid.purchasePrice }원</td>
-				
-				<td>${ PurchaseSelectMemberid.healthgoodsID }</td>
-				<td>${ PurchaseSelectMemberid.hfid }</td>
-				<td class="nutrientsID">${ PurchaseSelectMemberid.nutrientsID }</td>
-				
-				<td class="receiptPeriod">${ PurchaseSelectMemberid.receiptPeriod }</td> <!-- 수령기간 -->		
-				<td class="purchaseReceipt">${ PurchaseSelectMemberid.purchaseReceipt }</td> <!-- 수령방식 -->
-				<td class="receiptStartDate">${ PurchaseSelectMemberid.receiptStartDate }</td> <!-- 수령시작일 -->
-				<td>${ PurchaseSelectMemberid.purchaseDate }</td> <!-- 결제날짜 -->
-			</tr>
-		</c:forEach>
-	</table>
+	<div class="tableCenter">
 	
-	<br><br><br><br><br>
+		<table border="1" width="900" style="margin-left: auto; margin-right: auto;">
+			<tr class="tableTitle">
+				<th>주문번호</th>
+				<th>회원 ID</th>
+				<th>구매가격</th>
+				
+				<th>헬스용품 ID</th>
+				<th>헬스식품 ID</th>
+				<th>영양제 ID</th>
+				
+				<th>수령기간</th>
+				<th>수령방식</th>
+				<th>수령시작일</th>
+				<th>결제날짜</th>
+			</tr>
+	
+			<c:forEach var="PurchaseSelectMemberid" items="${PurchaseSelectMemberid}">
+				<tr>
+					<td>${ PurchaseSelectMemberid.purchaseId  }</td>
+					<td>${ PurchaseSelectMemberid.memberID }</td>
+					<td>${ PurchaseSelectMemberid.purchasePrice }원</td>
+					
+					<td>${ PurchaseSelectMemberid.healthgoodsID }</td>
+					<td>${ PurchaseSelectMemberid.hfid }</td>
+					<td class="nutrientsID">${ PurchaseSelectMemberid.nutrientsID }</td>
+					
+					<td class="receiptPeriod">${ PurchaseSelectMemberid.receiptPeriod }</td> <!-- 수령기간 -->		
+					<td class="purchaseReceipt">${ PurchaseSelectMemberid.purchaseReceipt }</td> <!-- 수령방식 -->
+					<td class="receiptStartDate">${ PurchaseSelectMemberid.receiptStartDate }</td> <!-- 수령시작일 -->
+					<td>${ PurchaseSelectMemberid.purchaseDate }</td> <!-- 결제날짜 -->
+				</tr>
+			</c:forEach>
+		</table>
+		
+		<br><br><br><br><br>
+	
+	</div> <!-- end contentBottom -->
 	
 	
 

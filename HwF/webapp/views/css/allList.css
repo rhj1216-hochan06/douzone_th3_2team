@@ -95,3 +95,7 @@ footer {
 .tableTitle {
 	background-color: lightblue;
 }
+
+.tableCenter {
+	text-align:center;
+}
