@@ -544,13 +544,11 @@ public class AdminController extends HttpServlet {
 
 	/*************** Q n A ***************/
 
-	// 관리자 게시글 접속 / 전체 리스트 출력
-	public void AdminQnA(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	// 관리자) QnA 전체 조회
+	public void AdminQnA(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		QnaDAO dao = new QnaDAO();
 		List<QnaDTO> AdminQnA = dao.selectAll();
-		System.out.println("AdminQnA : " + AdminQnA);
 
 		if (AdminQnA != null) {
 			request.setAttribute("AdminQnA", AdminQnA); // data save
@@ -559,40 +557,34 @@ public class AdminController extends HttpServlet {
 		} else {
 			response.sendRedirect("/views/jsp/error.jsp");
 		}
-	} // list end
+	} 
 
-	// 관리자 - 게시글 상세 보기
-	public void AdminDetail(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	// 관리자) QnA 상세보기
+	public void AdminDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String qnaid = request.getParameter("qnaid");
-		System.out.println("번호는 ? " + qnaid);
 		QnaDAO dao = new QnaDAO();
 		QnaDTO dto = dao.detailList(Integer.parseInt(qnaid));
 
 		if (dto != null) {
 			request.setAttribute("dto", dto);
-			System.out.println("detail : " + dto);
 			request.getRequestDispatcher("/views/jsp/admin/AdminDetail.jsp").forward(request, response);
 
 		} else {
 			response.sendRedirect("views/error.jsp");
 		}
-	} // detail end
+	} 
 
-	//qna 답변 기재
-	public void AdminQnaUpdate(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+	//관리자) QnA 답변 기재
+	public void AdminQnaUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		String qnaanswer = request.getParameter("qnaanswer");
 		int qnaid = Integer.parseInt(request.getParameter("qnaid"));
-		System.out.println(qnaanswer + "/" + qnaid);
+		
 		QnaDAO dao = new QnaDAO();
 		QnaDTO dto = new QnaDTO(qnaanswer, qnaid);
 
-		System.out.println("admin dto : " + dto);
 		int resultAdminQnaUpdate = dao.resultAdminQnaUpdate(dto);
-		System.out.println("resultAdminQnaUpdate " + resultAdminQnaUpdate);
 		if (resultAdminQnaUpdate > 0) {
 			response.sendRedirect("admin?cmd=AdminQnA");
 
@@ -602,22 +594,18 @@ public class AdminController extends HttpServlet {
 		}
 	}
 
-	// search -> 고객의 게시글 작성 및 기재한 내용 검색
-	public void AdminQnaSearch(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 컬럼명
+	//                                                                
+	public void AdminQnaSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String column = request.getParameter("column");
 		String keyvalue = request.getParameter("keyvalue");
-		System.out.println(column + " / " + keyvalue);
 
-		Map<String, String> map = new HashMap<>(); // collection
+		Map<String, String> map = new HashMap<>();
 		map.put("column", column);
 		map.put("keyvalue", keyvalue);
 
 		QnaDAO dao = new QnaDAO();
 
 		List<QnaDTO> AdminQnA = dao.getSearchList(map);	 // qnaDAO로 이동
-		System.out.println(AdminQnA);
 
 		if (AdminQnA != null) {
 			request.setAttribute("AdminQnA", AdminQnA);
@@ -626,6 +614,6 @@ public class AdminController extends HttpServlet {
 			response.sendRedirect("views/error.jsp");
 		}
 
-	} // AdminQnaSearch
+	} 
 
 }
