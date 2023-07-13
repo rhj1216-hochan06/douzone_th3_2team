@@ -1,5 +1,4 @@
-![5aca863f-9a21-4f22-af61-0b55608f5c28](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/ebb24e4f-2710-4f37-9a97-b17336fdb14f)
-![Uploading cf8ce7aa-1af3-47e8-b949-b12ca3e9d660.png…]()
+
 # douzone_th3_2team
 
 프로젝트 2 - 스프링 프로젝트
