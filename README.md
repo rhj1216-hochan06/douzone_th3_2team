@@ -86,11 +86,11 @@ MVC 패턴은 소프트웨어 개발에서 구조화된 코드 작성을 위한 
 ![image](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/bd837ea6-da8f-47be-a43a-84913198194e)
 
 ## 시연
-![스크린샷 2023-07-13 오후 3 18 50](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/378be171-5018-47e5-9073-30cd7ae39c10)
-![스크린샷 2023-07-13 오후 3 18 59](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/c5cb54e7-cc3d-4a94-b445-5c799e670799)
-![스크린샷 2023-07-13 오후 3 18 59](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/8979fbef-47a8-474a-8d9e-b06567386073)
-![스크린샷 2023-07-13 오후 3 19 08](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/39d9bf2f-5fce-4641-b894-2a652d78f23b)
+
 ![스크린샷 2023-07-13 오후 3 19 14](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/132cea07-082a-41b1-975b-ae9b8f57f550)
 
 
+https://zealous-loaf-1f0.notion.site/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5fad9abf-3c25-4d19-be13-152ca8a51d14%2F%25EB%25B0%259C%25ED%2591%259C%25EC%2598%2581%25EC%2583%2581.zip?id=99119caf-fca4-4825-aac1-42170b4e8093&table=block&spaceId=fffb2b01-29d5-4fec-aa14-2d329b3dd6c4&name=%EB%B0%9C%ED%91%9C%EC%98%81%EC%83%81.zip&cache=v2
+
+발표영상입니다.
 
