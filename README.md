@@ -20,7 +20,7 @@
 | 이름  | 역할                                          |
 | ----- | --------------------------------------------- |
 | 류호진 | 프로젝트 총괄, 로그인 기능, 회원가입, 설문 등   |
-| 박승민 | 서브 기능 총괄, 관리자 페이지, 상품 검색 등    |
+| 박승민 | 서브 기능 총괄, 관리자 페이지, 상품 검색 ,사용자 게시판 등  |
 | 안예지 | 관리자 페이지, 회원조회, 상품관리 등           |
 | 홍건호 | 메인 프레임 총괄, 영양제 구독, 장바구니 구현 등 |
 
@@ -86,8 +86,8 @@ MVC 패턴은 소프트웨어 개발에서 구조화된 코드 작성을 위한 
 ![image](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/bd837ea6-da8f-47be-a43a-84913198194e)
 
 ## 시연
-
-![스크린샷 2023-07-13 오후 3 18 34](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/4563cf89-3ea1-43e2-8d02-d7a34e9c6861)
+![스크린샷 2023-07-13 오후 3 18 50](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/378be171-5018-47e5-9073-30cd7ae39c10)
+![스크린샷 2023-07-13 오후 3 18 59](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/c5cb54e7-cc3d-4a94-b445-5c799e670799)
 ![스크린샷 2023-07-13 오후 3 18 59](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/8979fbef-47a8-474a-8d9e-b06567386073)
 ![스크린샷 2023-07-13 오후 3 19 08](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/39d9bf2f-5fce-4641-b894-2a652d78f23b)
 ![스크린샷 2023-07-13 오후 3 19 14](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/132cea07-082a-41b1-975b-ae9b8f57f550)
