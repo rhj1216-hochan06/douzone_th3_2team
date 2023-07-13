@@ -4,12 +4,12 @@
 팀명: 더존비즈온 3기 운동잘하조(2팀)
 
 ## 개발 환경
-언어: Java
-프레임워크: Spring Framework
-데이터베이스: Oracle
-개발 도구: Eclipse, Spring Tool Suite(STS)
-빌드 도구: Maven
-버전 관리: Git
+| 언어 | Java |
+| 프레임워크 | Spring Framework |
+| 데이터베이스 | Oracle |
+| 개발 도구 | Eclipse, Spring Tool Suite(STS) |
+| 빌드 도구 | Maven |
+| 버전 관리 | Git |
 
 
 ## 팀 구성원
