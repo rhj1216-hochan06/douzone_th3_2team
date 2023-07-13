@@ -87,10 +87,27 @@ MVC 패턴은 소프트웨어 개발에서 구조화된 코드 작성을 위한 
 
 ## 시연
 
-![스크린샷 2023-07-13 오후 3 19 14](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/132cea07-082a-41b1-975b-ae9b8f57f550)
+![스크린샷 2023-07-13 오후 4 06 45](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/bfcdb3d8-aa02-4e8b-96bc-5aafc4a0e1b2)
+![스크린샷 2023-07-13 오후 4 07 31](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/8c4976d4-c1b9-4991-ba88-633af2e3b198)
+<img width="944" alt="스크린샷 2023-07-13 오후 4 07 43" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/c1ad58e4-a7e8-491b-af26-dbc33ac5d94f">
+<img width="934" alt="스크린샷 2023-07-13 오후 4 08 10" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/754b44df-b16b-4837-9fea-3643e87a5985">
+<img width="380" alt="스크린샷 2023-07-13 오후 4 08 33" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/0387db4c-4580-466a-8024-96e070fbfc66">
+<img width="387" alt="스크린샷 2023-07-13 오후 4 08 45" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/25fb647f-5605-4b64-8029-df364ccf0c1f">
+
+<img width="1012" alt="스크린샷 2023-07-13 오후 4 09 09" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/edf861b4-6ddc-4ad6-9a1b-afd08a30e7bc">
+<img width="372" alt="스크린샷 2023-07-13 오후 4 09 43" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/e890c18f-b848-4a1d-b758-c3cea6bb6115">
+<img width="354" alt="스크린샷 2023-07-13 오후 4 10 07" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/1ff1f558-a794-4701-8752-5cf7d2e631b0">
+<img width="295" alt="스크린샷 2023-07-13 오후 4 10 37" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/7cb5d3dc-c3c1-41e4-8c5f-6ee9b9b608d7">
+<img width="967" alt="스크린샷 2023-07-13 오후 4 11 01" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/0ae3c8ca-48af-476a-8c6e-346fae997ac9">
+<img width="458" alt="스크린샷 2023-07-13 오후 4 11 07" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/c2293efa-0f3f-4265-a282-3e9e392cdc35">
+<img width="971" alt="스크린샷 2023-07-13 오후 4 11 54" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/1715787f-50b1-489a-9a7d-9f865972f0e3">
+<img width="432" alt="스크린샷 2023-07-13 오후 4 12 19" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/af15f891-8c62-4058-a455-9f825cc570e9">
+<img width="945" alt="스크린샷 2023-07-13 오후 4 12 38" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/b571ac1f-a5fd-489b-8679-6946e76a80e8">
+<img width="740" alt="스크린샷 2023-07-13 오후 4 12 53" src="https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/6715e150-e6a7-4fb0-99d6-6375046b051d">
 
 
 https://zealous-loaf-1f0.notion.site/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5fad9abf-3c25-4d19-be13-152ca8a51d14%2F%25EB%25B0%259C%25ED%2591%259C%25EC%2598%2581%25EC%2583%2581.zip?id=99119caf-fca4-4825-aac1-42170b4e8093&table=block&spaceId=fffb2b01-29d5-4fec-aa14-2d329b3dd6c4&name=%EB%B0%9C%ED%91%9C%EC%98%81%EC%83%81.zip&cache=v2
 
 발표영상입니다.
+
 
