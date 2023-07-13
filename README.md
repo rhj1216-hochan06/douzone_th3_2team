@@ -1,25 +1,60 @@
 # douzone_th3_2team
-2팀입니다.
-git hub 사용법과 프로젝트를 진행 할까 합니다 <br><br>
 
-https://www.inflearn.com/course/30%EB%B6%84-%EC%8B%9C%EC%A6%8C4-%EA%B9%83%ED%97%88%EB%B8%8C/dashboard <br>
-참고자료를 사용하는 강의 입니다 <br><br>
+프로젝트 2 - 스프링 프로젝트
+팀명: 더존비즈온 3기 운동잘하조(2팀)
 
-https://allonsyit.tistory.com/117 <br>
-git 용어와 명령어들이 설명되어있는 블로그입니다.
+## 팀 구성원
 
+| 이름  | 역할                                          |
+| ----- | --------------------------------------------- |
+| 류호진 | 프로젝트 총괄, 로그인 기능, 회원가입, 설문 등   |
+| 박승민 | 서브 기능 총괄, 관리자 페이지, 상품 검색 등    |
+| 안예지 | 관리자 페이지, 회원조회, 상품관리 등           |
+| 홍건호 | 메인 프레임 총괄, 영양제 구독, 장바구니 구현 등 |
 
+## 개요
 
-com.hwf.config 에 oracledb.properties 파일을 수정할 것  db의 쿼리문은 <br>
-https://zealous-loaf-1f0.notion.site/DB-112d26ba8ff24aa5930621c2fff187a7 <br>
-에 공유되어 있습니다.<br><br>
+기존의 헬스장 개념을 벗어나 영양제 구독 서비스, 맞춤형 식단과 음료, 용품 등을 고객에게 제공하는 프로젝트입니다.
 
-실행 법<br>
-webapp의 <br>
-Main.jsp파일을 실행하시면 됩니다.<br>
+## 구성
 
+프로젝트는 다음과 같은 기능들로 구성되어 있습니다:
+- 영양제 구독 서비스 제공
+- 물품 구매 기능
+- 식단 구매 기능
+- 로그인을 활용한 개인 맞춤 추천 서비스
+- 장바구니를 통한 구매 기능
+- 구매 목록 확인 기능
+- Q&A (1대1 문의)
+- 관리자 페이지에서의 수정, 추가, 삭제
 
-관리자 페이지는 adminmain파일 실행하거나 로그인시 <br>
-아이디 : admin <br>
-비번 : oracle <br>
- 로 접속하면 됩니다.
+## 개발 내용
+
+- 로그인 및 회원가입 기능 구현
+- 본인인증을 통한 회원가입 절차
+- 관리자 페이지 구현 (회원조회, 상품관리, 주문조회, Q&A 확인 등)
+- 메인 페이지와 각 하위 페이지 구현 (소개, 문의, 마이페이지, 상품, Q&A)
+- 설문조사 및 인바디 입력을 통한 맞춤 상품 추천 기능 구현
+- 장바구니 기능 구현
+- 구매 기능 (신용카드 구매, 카카오 페이 구매) 구현
+
+## 활동 결과
+
+프로젝트 진행에 있어 팀원들은 기능과 역할을 분담하였으며, 매일 오전에 회의를 통해 작업 진행 상황을 공유하였습니다. <br />
+문제가 발생한 경우 소통을 통해 문제 해결 방법을 논의하였고, Git을 사용하여 작업 내용을 관리하였습니다.<br />
+ 회의록 및 추가 작업 내용은 Notion에 정리하여 공유하였습니다.<br />
+
+[깃 프로젝트 링크](https://github.com/rhj1216-hochan06/douzone_th3_2team) https://github.com/rhj1216-hochan06/douzone_th3_2team <br />
+[Notion 링크](https://zealous-loaf-1f0.notion.site/2-f233f21483664ca7ae3b1afbdcbb8d39) https://zealous-loaf-1f0.notion.site/2-f233f21483664ca7ae3b1afbdcbb8d39 <br />
+
+## 실행 방법
+
+1. `com.hwf.config` 디렉토리에 있는 `oracledb.properties` 파일을 수정합니다. <br />
+데이터베이스의 쿼리문은 <br />
+[Notion 링크](https://zealous-loaf-1f0.notion.site/DB-112d26ba8ff24aa5930621c2fff187a7) https://zealous-loaf-1f0.notion.site/DB-112d26ba8ff24aa5930621c2fff187a7 <br />
+에서 확인할 수 있습니다.
+
+2. `webapp` 디렉토리에서 `Main.jsp` 파일을 실행합니다.
+
+3. 관리자 페이지로 이동하려면 아이디 `admin`과 비밀번호 `oracle`로 로그인하거나 `adminmain` 파일을 실행합니다.
+
