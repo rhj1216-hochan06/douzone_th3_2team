@@ -1,3 +1,5 @@
+![5aca863f-9a21-4f22-af61-0b55608f5c28](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/ebb24e4f-2710-4f37-9a97-b17336fdb14f)
+![Uploading cf8ce7aa-1af3-47e8-b949-b12ca3e9d660.png…]()
 # douzone_th3_2team
 
 프로젝트 2 - 스프링 프로젝트
@@ -84,6 +86,12 @@ MVC 패턴은 소프트웨어 개발에서 구조화된 코드 작성을 위한 
 ## DB 정보
 ![image](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/bd837ea6-da8f-47be-a43a-84913198194e)
 
+## 시연
+
+![스크린샷 2023-07-13 오후 3 18 34](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/4563cf89-3ea1-43e2-8d02-d7a34e9c6861)
+![스크린샷 2023-07-13 오후 3 18 59](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/8979fbef-47a8-474a-8d9e-b06567386073)
+![스크린샷 2023-07-13 오후 3 19 08](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/39d9bf2f-5fce-4641-b894-2a652d78f23b)
+![스크린샷 2023-07-13 오후 3 19 14](https://github.com/rhj1216-hochan06/douzone_th3_2team/assets/83914448/132cea07-082a-41b1-975b-ae9b8f57f550)
 
 
 
